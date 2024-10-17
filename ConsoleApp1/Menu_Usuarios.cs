@@ -13,9 +13,9 @@ namespace ConsoleApp1
 
         public static int codigoBusquedaUser;
         public static string nombreCompleto;
-        public void Menu_Usuarios(int opc, Log_in inicioSesion,Lista_Usuarios Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, ref int dniUser, ref int dniTrabajador, ref int dniAdmin)
+        public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Usuarios Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Cola_Solicitudes ColSol, ref Solicitudes q, ref int dniUser, ref int dniTrabajador, ref int dniAdmin)
         {
-            bool verificacion = false;  
+            bool verificacion = false;
             do
             {
                 try
@@ -63,43 +63,82 @@ namespace ConsoleApp1
 
                         Console.WriteLine(" Bienvenido alumno(a) " + nombreCompleto);
                         Console.WriteLine("---------------------------------------------");
-                        Console.WriteLine(" 1. Generar Ticket\n 2. Ver todos mis tickets \n 3. Ver mis tickets resueltos \n 4. Ver mis tickets en espera \n 5. Modificar mis datos \n 6. Volver");
+                        Console.WriteLine(" 1. Generar Ticket\n 2. Ver todos mis tickets \n 3. Ver mis tickets resueltos \n 4. Ver mis tickets en espera \n 5. Modificar mis datos \n 6. Realizar Solicitud \n 7. Volver");
                         Console.WriteLine("---------------------------------------------");
                         Console.Write(" Ingrese opción: ");
                         opc = int.Parse(Console.ReadLine());
                         switch (opc)
                         {
                             case 1:
+
                                 do
                                 {
-                                    Console.Clear();
-                                    Console.WriteLine(" Por favor, de una descripción breve de su problema: ");
-                                    Console.WriteLine(" (Para volver ingrese elnúmero 2) ");
-                                    Console.WriteLine("----------------------------------------------------");
-                                    Console.Write(" Por favor, ingrese qué problemas está teniendo : ");
-
-                                    string descripcion = Console.ReadLine();
-
-                                    verificacion = validacion.ValidacionDeCadenaVaciaEIngresoNum2(descripcion);
-                                    if(descripcion == "2")
+                                    try
                                     {
-                                        break;
+                                        string categoria;
+
+                                        Console.Clear();
+
+                                        Console.WriteLine(" Indicanos el servicio que presenta fallas:");
+                                        Console.WriteLine("------------------------------------------------");
+                                        Console.WriteLine(" 1. VPN: Conexion, error en VPN.");
+                                        Console.WriteLine(" 2. Equipos de computo y accesorios.");
+                                        Console.WriteLine(" 3. Redes: Falla de conexión, lentitud, etc.");
+                                        Console.WriteLine(" 4. Software: Teams, Windows, Office, etc. ");
+                                        Console.WriteLine(" 5. Wifi: falla de conexión, etc.");
+                                        Console.WriteLine(" 6. Internet: caida del servicio. ");
+                                        Console.WriteLine(" 7. Correo: No envia ni recibe correo ");
+                                        Console.WriteLine(" 8. Antivirus:AMP, Umbrell");
+                                        Console.WriteLine(" 9. Volver");
+                                        Console.WriteLine("------------------------------------------------");
+                                        Console.Write(" Ingrese opción: ");
+                                        opc = int.Parse(Console.ReadLine());
+                                        switch (opc)
+                                        {
+                                            case 1:
+                                                categoria = "VPN: Conexion, error en VPN";
+                                                GeneraTicketUser(Ltick, categoria);
+                                                break;
+                                            case 2:
+                                                categoria = "Equipos de computo y accesorios";
+                                                GeneraTicketUser(Ltick, categoria);
+                                                break;
+                                            case 3:
+                                                categoria = "Redes: Falla de conexión, lentitud, etc";
+                                                GeneraTicketUser(Ltick, categoria);
+                                                break;
+                                            case 4:
+                                                categoria = "Software: Teams, Windows, Office, etc";
+                                                GeneraTicketUser(Ltick, categoria);
+                                                break;
+                                            case 5:
+                                                categoria = "Wifi: falla de conexión, etc";
+                                                GeneraTicketUser(Ltick, categoria);
+                                                break;
+                                            case 6:
+                                                categoria = "Internet: caida del servicio";
+                                                GeneraTicketUser(Ltick, categoria);
+                                                break;
+                                            case 7:
+                                                categoria = "Correo: No envia ni recibe correo ";
+                                                GeneraTicketUser(Ltick, categoria);
+                                                break;
+                                            case 8:
+                                                categoria = "Antivirus:AMP, Umbrell";
+                                                GeneraTicketUser(Ltick, categoria);
+                                                break;
+                                            case 9: // sale de do while
+                                                break;
+                                        }
                                     }
-                                    else if(verificacion == true)
+                                    catch
                                     {
-                                        Ltick.AgregarTicket(nombreCompleto, descripcion, codigoBusquedaUser);
-
-                                        Console.WriteLine("----------------------------------------------------");
-                                        Console.WriteLine(" Su ticket ha sido creado con exito!");
+                                        Console.Write("\n........Ingrese un dato valido");
                                         Console.ReadLine();
                                     }
-                                    else if(verificacion == false)
-                                    {
-                                        Console.WriteLine("El ingreso de descripcón del ticket no puede estar en blanco");
-                                        Console.ReadLine();
-                                    }
-
-                                } while (verificacion != true);
+                                    
+                                } while (opc != 9);
+                       
                                 opc = 0;
                                 break;
 
@@ -212,10 +251,10 @@ namespace ConsoleApp1
 
                                             case 3:
 
-                                                do 
+                                                do
                                                 {
                                                     string aux;
-                                                    
+
                                                     Console.Clear();
                                                     Console.WriteLine("          Modificando mis datos         ");
                                                     Console.WriteLine("----------------------------------------");
@@ -225,7 +264,7 @@ namespace ConsoleApp1
                                                     Console.WriteLine("| Ingrese su nuevo número de celular: ");
                                                     aux = Console.ReadLine();
 
-                                                    verificacion= validacion.ValidacionIngresoSoloNum(aux);
+                                                    verificacion = validacion.ValidacionIngresoSoloNum(aux);
 
                                                     if (verificacion == true)
                                                     {
@@ -234,14 +273,14 @@ namespace ConsoleApp1
                                                         verificacion = validacion.ValidacionIngresoNumeroCelular(modificacion2);
 
                                                         if (aux == "2") break;
-                                                        else if (verificacion== true)
+                                                        else if (verificacion == true)
                                                         {
                                                             verificacion = true;
                                                             Lu.ModificarDatosUsers(modificacion1, modificacion2, codigoBusquedaUser, opc);
                                                             Console.WriteLine("\n....Número de celular modificado con exito!");
                                                             Console.ReadLine();
                                                         }
-                                                        else if(verificacion == false)
+                                                        else if (verificacion == false)
                                                         {
                                                             Console.WriteLine("......La longitud del número de celular debe ser de 9 caracteres númericos\n");
                                                             Console.ReadLine();
@@ -280,13 +319,13 @@ namespace ConsoleApp1
                                                         Console.WriteLine("\n....Contraseña modificada con exito!");
                                                         Console.ReadLine();
                                                     }
-                                                    else if(verificacion == false)
+                                                    else if (verificacion == false)
                                                     {
 
                                                         Console.Write("....La contraseña no debe estar vacia");
                                                         Console.ReadLine();
                                                     }
-                                                } while (verificacion!= true);
+                                                } while (verificacion != true);
 
                                                 opc = 0;
                                                 break;
@@ -313,8 +352,116 @@ namespace ConsoleApp1
                                 break;
 
                             case 6:
+
+                               
+                                do
+                                {
+                                    try
+                                    {
+                                        Console.Clear();
+                                        Console.WriteLine(" Realiza una solicitud ");
+                                        Console.WriteLine("---------------------------------------------------------------");
+                                        Console.WriteLine(" ¿ El usuario destinatario es usted ?");
+                                        Console.WriteLine(" 1. Si");
+                                        Console.WriteLine(" 2. No");
+                                        Console.WriteLine(" 3. Volver");
+                                        Console.WriteLine("---------------------------------------------------------------");
+                                        Console.Write(" Ingrese opcion : ");
+                                        opc = int.Parse(Console.ReadLine());
+
+                                        switch (opc)
+                                        {
+                                            case 1:
+                                                do
+                                                {
+                                                    Console.WriteLine("----------------------------------------------");
+                                                    Console.WriteLine(" Listo! ");
+                                                    Console.Write(" Por favor ingresa tu solicitud:  ");
+                                                    string descripcion = Console.ReadLine();
+
+                                                    verificacion = validacion.ValidacionDeCadenaVaciaEIngresoNum2(descripcion);
+                                                    if (descripcion == "2")
+                                                    {
+                                                        break;
+                                                    }
+                                                    else if (verificacion == true)
+                                                    {
+                                                        ColSol.AgregarSolicitud(ref q, nombreCompleto,descripcion, nombreCompleto);
+
+                                                        Console.WriteLine("----------------------------------------------------");
+                                                        Console.WriteLine(" Tu solicitud ha sido enviada con exito");
+                                                        Console.ReadLine();
+                                                    }
+                                                    else if (verificacion == false)
+                                                    {
+                                                        Console.WriteLine("La solicitud no puede estar en blanco");
+                                                        Console.ReadLine();
+                                                    }
+                                                } while (verificacion != true);
+                                                break;
+
+                                            case 2:
+                                                bool flag;
+                                                do
+                                                {
+                                                    Lu.MostrarListaUsuarios();
+                                                    Console.WriteLine(" ");
+                                                    int codigo;
+                                                    Console.WriteLine(" ");
+                                                    Console.WriteLine("----------------------------------------------");
+                                                    Console.Write("Ingrese el codigo del destinatario:");
+                                                    codigo = int.Parse(Console.ReadLine());
+                                                    flag = Lu.SaberSiExisteUsuarioConCodigo(codigo);
+                                                    if (flag == true)
+                                                    {
+
+                                                        Console.WriteLine("----------------------------------------------");
+
+                                                        Console.WriteLine(" Listo! ");
+                                                        Console.Write(" Por favor ingresa tu solicitud:  ");
+                                                        string descripcion = Console.ReadLine();
+
+                                                        verificacion = validacion.ValidacionDeCadenaVaciaEIngresoNum2(descripcion);
+                                                        if (descripcion == "2")
+                                                        {
+                                                            break;
+                                                        }
+                                                        else if (verificacion == true)
+                                                        {
+                                                            ColSol.AgregarSolicitud(ref q, nombreCompleto, descripcion, Lu.ObtenerNombreCompletoUser(codigo));
+
+                                                            Console.WriteLine("----------------------------------------------------");
+                                                            Console.WriteLine(" Tu solicitud ha sido enviada con exito");
+                                                            Console.ReadLine();
+                                                        }
+                                                        else if (verificacion == false)
+                                                        {
+                                                            Console.WriteLine("La solicitud no puede estar en blanco");
+                                                            Console.ReadLine();
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine(" Usuario no encontrado!");
+                                                        Console.WriteLine(" Por favor, ingrese de forma correcta el codigo del usuario destinatario");
+                                                    }
+                                                } while (flag != true);
+
+                                                break;
+                                            case 3:
+                                                break;
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        Console.WriteLine("....Ingrese una opción valida");
+                                    }
+                                } while (verificacion != true);
+
                                 break;
 
+                            case 7:
+                                break;
                             default:
                                 Console.WriteLine("\n........Ingrese una opción valida");
                                 Console.ReadLine();
@@ -323,13 +470,50 @@ namespace ConsoleApp1
                     }
                     catch
                     {
-                        
                         Console.Write("\n\n........Ingrese una opción valida");
                         Console.ReadLine();
                     }
 
-                } while (opc != 6);
+                } while (opc != 7);
             }
-        }   
+        }
+        public static void GeneraTicketUser(Lista_Tickets Ltick, string categoria)
+        {
+            bool verificacion;
+            do
+            {
+
+                Console.Clear();
+                Console.WriteLine(" Categoria Seleccionada:  " + categoria);
+                Console.WriteLine("---------------------------------------------------------------");
+                Console.WriteLine(" Proporciona una breve descripción de tu incidente : ");
+                Console.WriteLine(" (Para volver ingrese elnúmero 2) ");
+                Console.WriteLine("---------------------------------------------------------------");
+                Console.Write(" Por favor, ingrese qué problemas está teniendo : ");
+
+                string descripcion = Console.ReadLine();
+
+                verificacion = validacion.ValidacionDeCadenaVaciaEIngresoNum2(descripcion);
+                if (descripcion == "2")
+                {
+                    break;
+                }
+                else if (verificacion == true)
+                {
+                    Ltick.AgregarTicket(nombreCompleto, descripcion, codigoBusquedaUser, categoria);
+
+                    Console.WriteLine("----------------------------------------------------");
+                    Console.WriteLine(" Su ticket ha sido creado con exito!");
+                    Console.ReadLine();
+                }
+                else if (verificacion == false)
+                {
+                    Console.WriteLine("El ingreso de descripcón del ticket no puede estar en blanco");
+                    Console.ReadLine();
+                }
+
+            } while (verificacion != true);
+
+        }
     }
 }            

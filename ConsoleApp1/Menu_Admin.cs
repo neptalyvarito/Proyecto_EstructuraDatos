@@ -14,7 +14,7 @@ namespace ConsoleApp1
         public static Validaciones validacion = new Validaciones();
         public static Reportes reportes = new Reportes();
         public static string nombreCompleto;
-        public void menuAdmin(int opc, Log_in inicioSesion, Lista_Usuarios Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Registros registro, ref int dniUser, ref int dniTrabajador, ref int dniAdmin)
+        public void menuAdmin(int opc, Log_in inicioSesion, Lista_Usuarios Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick,Cola_Solicitudes ColSol, ref Solicitudes q, Registros registro, ref int dniUser, ref int dniTrabajador, ref int dniAdmin)
 
         {
             bool verificacion = false;
@@ -72,8 +72,9 @@ namespace ConsoleApp1
                         Console.WriteLine(" 2. Gestionar trabajadores");
                         Console.WriteLine(" 3. Gestionar administrativos");
                         Console.WriteLine(" 4. Gestionar tickets");
-                        Console.WriteLine(" 5. Generar Reporte");
-                        Console.WriteLine(" 6. Volver");
+                        Console.WriteLine(" 5. Gestionar solicitudes");
+                        Console.WriteLine(" 6. Generar Reporte");
+                        Console.WriteLine(" 7. Volver");
                         Console.WriteLine("-----------------------------------------------");
                         Console.Write(" Ingrese opción: ");
                         opcMandar = int.Parse(Console.ReadLine());
@@ -387,8 +388,48 @@ namespace ConsoleApp1
 
                                 opc = 0;
                                 break;
-
                             case 5:
+                                do
+                                {
+                                    try
+                                    {
+                                        Console.WriteLine(" Gestionando solicitudes ");
+                                        Console.WriteLine("-----------------------------------");
+                                        Console.WriteLine(" 1. Ver todas las solicitudes");
+                                        Console.WriteLine(" 2. Confirmar o denegar solicitud");
+                                        Console.WriteLine(" 3. Eliminar lista en orden");
+                                        Console.WriteLine(" 4. Vaciar lista de solicitudes");
+                                        Console.WriteLine(" 5. Voler");
+
+                                        opc = int.Parse(Console.ReadLine());
+                                        switch (opc)
+                                        {
+                                            case 1:
+                                                ColSol.MostrarSolicitudes(q);
+                                                break;
+                                            case 2:
+
+                                                break;
+                                            case 3:
+                                                ColSol.EliminarSolicitud(ref q);
+                                                break;
+                                            case 4:
+                                                ColSol.EliminarTodasSolicitudes(ref q);
+                                                break;
+                                            case 5:
+                                                break;
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        Console.WriteLine(" ");
+                                        Console.WriteLine("Ingrese una opcion valida");
+                                    }
+                                }
+                                while (opc != 5);
+                                opc = 0;
+                                break;
+                            case 6:
                          
                                 do
                                 {             
@@ -424,9 +465,9 @@ namespace ConsoleApp1
                                         Console.WriteLine("....Ingrese un dato valido");
                                     }
                                 } while (opc!=3);
-
+                                opc = 0;
                                 break;
-                            case 6: //SALIDA
+                            case 7: //SALIDA
                                 break;
 
                             default:

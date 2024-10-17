@@ -18,6 +18,8 @@ namespace ConsoleApp1
         public static Lista_Usuarios Lu = new Lista_Usuarios();
         public static Lista_Administrativos La = new Lista_Administrativos();
         public static Lista_Trabajadores LTra = new Lista_Trabajadores();
+        public static Cola_Solicitudes ColaSol = new Cola_Solicitudes();
+        public static Solicitudes q = new Solicitudes();
 
 
         public static Validaciones validacion = new Validaciones();
@@ -95,7 +97,7 @@ namespace ConsoleApp1
                                         case 1:// Desarrollo de la parte usuario
 
 
-                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, ref dniUser, ref dniTrabajador, ref dniAdmin);
+                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, ColaSol, ref q, ref dniUser, ref dniTrabajador, ref dniAdmin);
                                           
                                             opc = 0;
                                             break;
@@ -108,7 +110,7 @@ namespace ConsoleApp1
 
                                         case 3: // Desarrollo de la parte aministrativos
 
-                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, registro, ref dniUser, ref dniTrabajador, ref dniAdmin);
+                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, ColaSol, ref q, registro, ref dniUser, ref dniTrabajador, ref dniAdmin);
                                             
                                             opc = 0;
                                             break;// Desarrollo parte Admins

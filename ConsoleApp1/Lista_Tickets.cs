@@ -11,7 +11,6 @@ namespace ConsoleApp1
 {
     internal class Lista_Tickets
     {
-
         public Ticket listaTickets;
         public static int codigoTicket = 202400001;
         public static Validaciones validación = new Validaciones();
@@ -20,13 +19,14 @@ namespace ConsoleApp1
             listaTickets = null; 
         }
 
-        public void AgregarTicket(string nombre, string descripcion, int codigoDueño)
+        public void AgregarTicket(string nombre, string descripcion, int codigoDueño, string categoria)
         {
+            
             string condicion = "En espera";
             string respuestaSolucion= " ";
             DateTime fechaCreacion = DateTime.Now;
-
-            Ticket q = new Ticket(nombre, codigoTicket, condicion, descripcion, fechaCreacion, respuestaSolucion, codigoDueño);
+            DateTime fechaRespuesta = DateTime.Now;
+            Ticket q = new Ticket(nombre, codigoTicket, condicion, descripcion, fechaCreacion, respuestaSolucion, codigoDueño, categoria, fechaRespuesta);
 
             Ticket t = listaTickets;
 
@@ -49,13 +49,13 @@ namespace ConsoleApp1
         {
             Ticket t = listaTickets;
 
-            Console.WriteLine("| Código:".PadRight(15, ' ') + "  | Descripción:".PadRight(60, ' ') + "    | Dueño:".PadRight(45, ' ') + "      | Código Dueño:".PadRight(15, ' ') + "  | Condición:".PadRight(15, ' ') + "    | Fecha creación:".PadRight(30, ' ') + "| Respuesta:");
-            Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("| Código:".PadRight(10, ' ') + "  | Categoria:".PadRight(60, ' ') + "  | Descripción:".PadRight(60, ' ') + "    | Dueño:".PadRight(45, ' ') + "      | Código Dueño:".PadRight(15, ' ') + "  | Condición:".PadRight(15, ' ') + "    | Fecha creación:".PadRight(30, ' ') + "| Respuesta:");
+            Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             while (t != null)
             {
                 
-                Console.Write("\n| " + t.codigoTicket.ToString().PadRight(15, ' ') + "| " + t.descripcion.PadRight(60, ' ') + "| " + t.dueño.PadRight(45, ' ') + "| " + t.codigoDueño.ToString().PadRight(15, ' ') + "| " + t.condicion.PadRight(15, ' ') + "| " + t.fechaCreacion.ToString().PadRight(23, ' ') + " | "+t.respuestaSolucion.PadRight(30, ' '));
+                Console.Write("\n| " + t.codigoTicket.ToString().PadRight(10, ' ') + "| " + t.categoria.PadRight(60, ' ') + "| " + t.descripcion.PadRight(60, ' ') + "| " + t.dueño.PadRight(45, ' ') + "| " + t.codigoDueño.ToString().PadRight(15, ' ') + "| " + t.condicion.PadRight(15, ' ') + "| " + t.fechaCreacion.ToString().PadRight(23, ' ') + " | "+t.respuestaSolucion.PadRight(30, ' '));
 
                 t = t.sgte;
             }
@@ -64,7 +64,7 @@ namespace ConsoleApp1
         {
             Ticket t = listaTickets;
 
-            Console.WriteLine("| Código:".PadRight(15, ' ') + "  | Descripción:".PadRight(60, ' ') + "    | Dueño:".PadRight(45, ' ') + "      | Condición:".PadRight(15, ' ') + "     | Fecha creación:".PadRight(30, ' ') + "  | Respuesta:");
+            Console.WriteLine("| Código:".PadRight(10, ' ') + "  | Categoria:".PadRight(60, ' ') + "  | Descripción:".PadRight(60, ' ') + "    | Dueño:".PadRight(45, ' ') + "      | Condición:".PadRight(15, ' ') + "     | Fecha creación:".PadRight(30, ' ') + "  | Respuesta:");
             Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             while (t != null)
@@ -72,7 +72,7 @@ namespace ConsoleApp1
 
                 if (t.codigoDueño == codigoBusqueda)
                 {
-                    Console.Write("\n| " +t.codigoTicket.ToString().PadRight(15, ' ')+ "| " + t.descripcion.PadRight(60, ' ')+ "| " + t.dueño.PadRight(45, ' ')+ "| " + t.condicion.PadRight(15, ' ') + "| "+t.fechaCreacion.ToString().PadRight(25, ' ') + "| "+t.respuestaSolucion.PadRight(30, ' '));
+                    Console.Write("\n| " +t.codigoTicket.ToString().PadRight(10, ' ')+ "| " + t.categoria.PadRight(60, ' ')+ t.descripcion.PadRight(60, ' ')+ "| " + t.dueño.PadRight(45, ' ')+ "| " + t.condicion.PadRight(15, ' ') + "| "+t.fechaCreacion.ToString().PadRight(25, ' ') + "| "+t.respuestaSolucion.PadRight(30, ' '));
                 }
 
                 t = t.sgte;
@@ -218,15 +218,14 @@ namespace ConsoleApp1
             Ticket t = listaTickets;
             Console.WriteLine("       Tickets resueltos");
             Console.WriteLine("-----------------------------------");
-
-            Console.WriteLine("| Código:".PadRight(15, ' ') + "  | Descripción:".PadRight(60, ' ') + "    | Dueño:".PadRight(45, ' ') + "      | Código Dueño:".PadRight(15, ' ') + "  | Condición:".PadRight(15, ' ') + "    | Fecha creación:".PadRight(30, ' ') + "| Respuesta:");
+            Console.WriteLine("| Código:".PadRight(10, ' ') + "  | Categoria:".PadRight(60, ' ') + "  | Descripción:".PadRight(60, ' ') + "    | Dueño:".PadRight(45, ' ') + "      | Código Dueño:".PadRight(15, ' ') + "  | Condición:".PadRight(15, ' ') + "    | Fecha creación:".PadRight(30, ' ') + "| Respuesta:");
             Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
          
             while (t != null)
             {
                 if(t.condicion == "Resuelto")
                 {
-                    Console.Write("\n| " + t.codigoTicket.ToString().PadRight(15, ' ') + "| " + t.descripcion.PadRight(60, ' ') + "| " + t.dueño.PadRight(45, ' ') + "| " + t.codigoDueño.ToString().PadRight(15, ' ') + "| " + t.condicion.PadRight(15, ' ') + "| " + t.fechaCreacion.ToString().PadRight(23, ' ') + " | " + t.respuestaSolucion.PadRight(30, ' '));
+                    Console.Write("\n| " + t.codigoTicket.ToString().PadRight(10, ' ') + "| " + t.categoria.PadRight(60, ' ') + "| " + t.descripcion.PadRight(60, ' ') + "| " + t.dueño.PadRight(45, ' ') + "| " + t.codigoDueño.ToString().PadRight(15, ' ') + "| " + t.condicion.PadRight(15, ' ') + "| " + t.fechaCreacion.ToString().PadRight(23, ' ') + " | " + t.respuestaSolucion.PadRight(30, ' '));
                 }
                 t = t.sgte;
             }
@@ -236,16 +235,16 @@ namespace ConsoleApp1
             Ticket t = listaTickets;
 
 
-            Console.WriteLine("| Código:".PadRight(15, ' ') + "  | Descripción:".PadRight(60, ' ') + "    | Dueño:".PadRight(45, ' ') + "      | Código Dueño:".PadRight(15, ' ') + "  | Condición:".PadRight(15, ' ') + "    | Fecha creación:".PadRight(30, ' ') + "| Respuesta:");
+            Console.WriteLine("| Código:".PadRight(10, ' ') + "  | Categoria:".PadRight(60, ' ') + "  | Descripción:".PadRight(60, ' ') + "    | Dueño:".PadRight(45, ' ') + "      | Código Dueño:".PadRight(15, ' ') + "  | Condición:".PadRight(15, ' ') + "    | Fecha creación:".PadRight(30, ' ') + "| Respuesta:");
             Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             while (t != null)
             {
                 if (t.condicion == "En espera")
                 {
-                    Console.Write("\n| " + t.codigoTicket.ToString().PadRight(15, ' ') + "| " + t.descripcion.PadRight(60, ' ') + "| " + t.dueño.PadRight(45, ' ') + "| " + t.codigoDueño.ToString().PadRight(15, ' ') + "| " + t.condicion.PadRight(15, ' ') + "| " + t.fechaCreacion.ToString().PadRight(23, ' ') + " | " + t.respuestaSolucion.PadRight(30, ' '));
+                    Console.Write("\n| " + t.codigoTicket.ToString().PadRight(10, ' ') + "| " + t.categoria.PadRight(60, ' ') + "| " + t.descripcion.PadRight(60, ' ') + "| " + t.dueño.PadRight(45, ' ') + "| " + t.codigoDueño.ToString().PadRight(15, ' ') + "| " + t.condicion.PadRight(15, ' ') + "| " + t.fechaCreacion.ToString().PadRight(23, ' ') + " | " + t.respuestaSolucion.PadRight(30, ' '));
                 }
-                    t = t.sgte;
+                t = t.sgte;
             }
         }
         public void MostrarTicketsResueltosPorUsuario(int codigoBusqueda)
@@ -253,13 +252,13 @@ namespace ConsoleApp1
             Ticket t = listaTickets;
             Console.WriteLine("       Tickets resueltos");
             Console.WriteLine("-----------------------------------");
-            Console.WriteLine("| Código:".PadRight(15, ' ') + "  | Descripción:".PadRight(60, ' ') + "    | Dueño:".PadRight(45, ' ') + "      | Condición:".PadRight(15, ' ') + "     | Fecha creación:".PadRight(30, ' ') + "  | Respuesta:");
+            Console.WriteLine("| Código:".PadRight(10, ' ') + "  | Categoria:".PadRight(60, ' ') + "  | Descripción:".PadRight(60, ' ') + "    | Dueño:".PadRight(45, ' ') + "      | Condición:".PadRight(15, ' ') + "     | Fecha creación:".PadRight(30, ' ') + "  | Respuesta:");
             Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             while (t != null)
             {
                 if (t.condicion == "Resuelto" && t.codigoDueño == codigoBusqueda)
                 {
-                    Console.Write("\n| " + t.codigoTicket.ToString().PadRight(15, ' ') + "| " + t.descripcion.PadRight(60, ' ') + "| " + t.dueño.PadRight(45, ' ') + "| " + t.condicion.PadRight(15, ' ') + "| " + t.fechaCreacion.ToString().PadRight(25, ' ') + "| " + t.respuestaSolucion.PadRight(30, ' '));
+                    Console.Write("\n| " + t.codigoTicket.ToString().PadRight(10, ' ') + "| " + t.categoria.PadRight(60, ' ') + t.descripcion.PadRight(60, ' ') + "| " + t.dueño.PadRight(45, ' ') + "| " + t.condicion.PadRight(15, ' ') + "| " + t.fechaCreacion.ToString().PadRight(25, ' ') + "| " + t.respuestaSolucion.PadRight(30, ' '));
                 }
                 t = t.sgte;
             }
@@ -267,14 +266,16 @@ namespace ConsoleApp1
         public void MostrarTicketsEsperaPorUsuario(int codigoBusqueda)
         {
 
-            Ticket t = listaTickets;
-            Console.WriteLine("| Código:".PadRight(15, ' ') + "  | Descripción:".PadRight(60, ' ') + "    | Dueño:".PadRight(45, ' ') + "      | Condición:".PadRight(15, ' ') + "     | Fecha creación:".PadRight(30, ' ') + "  | Respuesta:");
+            Ticket t = listaTickets; 
+            
+            Console.WriteLine("| Código:".PadRight(10, ' ') + "  | Categoria:".PadRight(60, ' ') + "  | Descripción:".PadRight(60, ' ') + "    | Dueño:".PadRight(45, ' ') + "      | Condición:".PadRight(15, ' ') + "     | Fecha creación:".PadRight(30, ' ') + "  | Respuesta:");
+
             Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             while (t != null)
             {
                 if (t.condicion == "En espera" && t.codigoDueño == codigoBusqueda)
                 {
-                    Console.Write("\n| " + t.codigoTicket.ToString().PadRight(15, ' ') + "| " + t.descripcion.PadRight(60, ' ') + "| " + t.dueño.PadRight(45, ' ') + "| " + t.condicion.PadRight(15, ' ') + "| " + t.fechaCreacion.ToString().PadRight(25, ' ') + "| " + t.respuestaSolucion.PadRight(30, ' '));
+                    Console.Write("\n| " + t.codigoTicket.ToString().PadRight(10, ' ') + "| " + t.categoria.PadRight(60, ' ') + t.descripcion.PadRight(60, ' ') + "| " + t.dueño.PadRight(45, ' ') + "| " + t.condicion.PadRight(15, ' ') + "| " + t.fechaCreacion.ToString().PadRight(25, ' ') + "| " + t.respuestaSolucion.PadRight(30, ' '));
                 }
                 t = t.sgte;
             }

@@ -10,7 +10,7 @@ namespace ConsoleApp1
     internal class Generacion_Aleatorio
     {   
         public static Random Nro = new Random();
-        public static int chaparNombre, chaparApellido, chaparTelefono, chaparDni, chaparParaContra, chaparTicket;
+        public static int chaparNombre, chaparApellido, chaparTelefono, chaparDni, chaparParaContra, chaparTicket, chaparCategoriaTicket;
         public static string contrasena, Nombre, Apellido;
 
         public static string[] nombres = {  "Diego", "Andre", "Frachesco", "Cesár", "Mauricio", "Raul", "Christian", "Eduardo", "Omar", "Juan", "Elias", "Alexi", "Alexander",
@@ -24,8 +24,11 @@ namespace ConsoleApp1
         public static string[] caracterescontraseña = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y","z", 
                                                         "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}; //36 caracteres
 
-        public static string[] Tickesito = { "Falla de computadora en Laboratarios de Computo", "Falla de internet dentro del campus de la universidad", 
-                                             "Falla en comunicaciones entre redes institucionales", "Página web de la institución falla"};//4 tipos generales de problemas
+        public static string[] TickesitoDescripcion = { "Falla de computadora en Laboratarios de Computo", "Falla de internet dentro del campus de la universidad", 
+                                                        "Falla en comunicaciones entre redes institucionales", "Página web de la institución falla"};//4 tipos generales de problemas
+            
+        public static string[] TicketsitoCategoria = { "VPN: Conexion, error en VPN", "Equipos de computo y accesorios", "Redes: Falla de conexión, lentitud, etc", "Software: Teams, Windows, Office, etc", 
+                                                       "Wifi: falla de conexión, etc", "Internet: caida del servicio", "Correo: No envia ni recibe correo", "Antivirus:AMP, Umbrella"};//8 tipos de categoria
         public void GenerarUsuariosAdmisYTrabajadoresAleatorios(Lista_Usuarios Lu, Lista_Administrativos La, Lista_Trabajadores LTra)
         {
             bool flag, flag2 , flag3;
@@ -67,7 +70,7 @@ namespace ConsoleApp1
                        
                         for (int i = 0; i < 6; i++)
                         {
-                            chaparParaContra = Nro.Next(0, 25);
+                            chaparParaContra = Nro.Next(0, 36);
                             contrasena += caracterescontraseña[chaparParaContra];
                         }
                         flag = Lu.SaberSiExisteContraUser(contrasena);
@@ -95,8 +98,8 @@ namespace ConsoleApp1
                 nombre = Lu.ObtenerNombreCompletoUser(codigo);
 
                 chaparTicket = Nro.Next(0, 4);
-
-                Ltick.AgregarTicket(nombre, Tickesito[chaparTicket], codigo);
+                chaparCategoriaTicket = Nro.Next(0, 8);
+                Ltick.AgregarTicket(nombre, TickesitoDescripcion[chaparTicket], codigo, TicketsitoCategoria[chaparCategoriaTicket]);
             }
             
         }
