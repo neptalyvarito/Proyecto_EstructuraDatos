@@ -60,7 +60,6 @@
   <ItemGroup>
     <Compile Include="Administrativos.cs" />
     <Compile Include="AsignacionTrabajos.cs" />
-    <Compile Include="Colas_SolisAceptadas.cs" />
     <Compile Include="Cola_Solicitudes.cs" />
     <Compile Include="Generacion_Aleatorio.cs" />
     <Compile Include="Lista_Administrativos.cs" />
