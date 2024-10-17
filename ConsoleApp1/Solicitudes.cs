@@ -9,10 +9,13 @@ namespace ConsoleApp1
     internal class Solicitudes
     {
         private int codigoSolicitud;
+        private int codigoDueno;
         private string solicitante;
         private string tipoSolicitud;
         private string destinatario; // se busca entre todos los dnis
         private string condicion;
+        private string mensajeParaUsuario;
+        private DateTime fechaCreacion;
         private Solicitudes sgte;
         private Solicitudes delante;
         private Solicitudes atras;
@@ -22,6 +25,11 @@ namespace ConsoleApp1
             get { return codigoSolicitud; }
             set { codigoSolicitud = value; }
 
+        }
+        public int CodigoDueno
+        {
+            get { return codigoDueno;}
+            set { codigoDueno = value; }
         }
         public string Solicitante
         {
@@ -42,6 +50,16 @@ namespace ConsoleApp1
         {
             get { return condicion; }
             set { condicion = value; }
+        }
+        public string MensajeParaUsuario
+        {
+            get { return mensajeParaUsuario; }
+            set { mensajeParaUsuario = value; }
+        }
+        public DateTime FechaCreacion
+        {
+            get { return fechaCreacion; }
+            set { fechaCreacion = value; }
         }
         public Solicitudes Sgte
         {

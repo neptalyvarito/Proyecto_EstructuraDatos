@@ -13,7 +13,7 @@ namespace ConsoleApp1
 
         public static int codigoBusquedaUser;
         public static string nombreCompleto;
-        public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Usuarios Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Cola_Solicitudes ColSol, ref Solicitudes q, ref int dniUser, ref int dniTrabajador, ref int dniAdmin)
+        public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Usuarios Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Cola_Solicitudes ColSol, ref Solicitudes q, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, Pila_Sugerencia PilaSug)
         {
             bool verificacion = false;
             do
@@ -63,7 +63,7 @@ namespace ConsoleApp1
 
                         Console.WriteLine(" Bienvenido alumno(a) " + nombreCompleto);
                         Console.WriteLine("---------------------------------------------");
-                        Console.WriteLine(" 1. Generar Ticket\n 2. Ver todos mis tickets \n 3. Ver mis tickets resueltos \n 4. Ver mis tickets en espera \n 5. Modificar mis datos \n 6. Realizar Solicitud \n 7. Volver");
+                        Console.WriteLine(" 1. Generar Ticket\n 2. Ver todos mis tickets \n 3. Ver mis tickets resueltos \n 4. Ver mis tickets en espera \n 5. Modificar mis datos \n 6. Realizar Solicitud \n 7. Ver mis solicitudes \n 8. Realizar Sugerencias a la empresa \n 9. Volver");
                         Console.WriteLine("---------------------------------------------");
                         Console.Write(" Ingrese opción: ");
                         opc = int.Parse(Console.ReadLine());
@@ -386,7 +386,7 @@ namespace ConsoleApp1
                                                     }
                                                     else if (verificacion == true)
                                                     {
-                                                        ColSol.AgregarSolicitud(ref q, nombreCompleto,descripcion, nombreCompleto);
+                                                        ColSol.AgregarSolicitud(ref q, nombreCompleto,descripcion, nombreCompleto, codigoBusquedaUser);
 
                                                         Console.WriteLine("----------------------------------------------------");
                                                         Console.WriteLine(" Tu solicitud ha sido enviada con exito");
@@ -397,6 +397,7 @@ namespace ConsoleApp1
                                                         Console.WriteLine("La solicitud no puede estar en blanco");
                                                         Console.ReadLine();
                                                     }
+                                                    Console.Clear();
                                                 } while (verificacion != true);
                                                 break;
 
@@ -428,7 +429,7 @@ namespace ConsoleApp1
                                                         }
                                                         else if (verificacion == true)
                                                         {
-                                                            ColSol.AgregarSolicitud(ref q, nombreCompleto, descripcion, Lu.ObtenerNombreCompletoUser(codigo));
+                                                            ColSol.AgregarSolicitud(ref q, nombreCompleto, descripcion, Lu.ObtenerNombreCompletoUser(codigo), codigoBusquedaUser);
 
                                                             Console.WriteLine("----------------------------------------------------");
                                                             Console.WriteLine(" Tu solicitud ha sido enviada con exito");
@@ -444,7 +445,9 @@ namespace ConsoleApp1
                                                     {
                                                         Console.WriteLine(" Usuario no encontrado!");
                                                         Console.WriteLine(" Por favor, ingrese de forma correcta el codigo del usuario destinatario");
+                                                        Console.ReadLine();
                                                     }
+                                                    Console.Clear();
                                                 } while (flag != true);
 
                                                 break;
@@ -461,6 +464,48 @@ namespace ConsoleApp1
                                 break;
 
                             case 7:
+                                ColSol.MostrarSolicitudesPorUsuario(q, codigoBusquedaUser);
+                                Console.ReadLine();
+                                break;
+
+                            case 8:
+                                do
+                                {
+
+                                    Console.Clear();
+                                    Console.WriteLine(" Realizando sugerencia a la empresa");
+                                    Console.WriteLine("---------------------------------------------------------------");
+                                    Console.WriteLine(" Sientase libre de expresar lo que guste, sugerencia es anonima ");
+                                    Console.WriteLine(" (Para volver ingrese elnúmero 2) ");
+                                    Console.WriteLine("---------------------------------------------------------------");
+                                    Console.Write(" Ingrese su sugerencia : ");
+
+                                    string descripcion = Console.ReadLine();
+
+                                    verificacion = validacion.ValidacionDeCadenaVaciaEIngresoNum2(descripcion);
+                                    if (descripcion == "2")
+                                    {
+                                        break;
+                                    }
+                                    else if (verificacion == true)
+                                    {
+                                        PilaSug.AgregarSug(descripcion);
+
+                                        Console.WriteLine("----------------------------------------------------");
+                                        Console.WriteLine(" Su sugerencia ha sido mandada con exito!");
+                                        Console.ReadLine();
+                                    }
+                                    else if (verificacion == false)
+                                    {
+                                        Console.WriteLine("La sugerencia no debe quedar en blanco");
+                                        Console.ReadLine();
+                                    }
+
+                                } while (verificacion != true);
+
+                                break;
+                            
+                            case 9:
                                 break;
                             default:
                                 Console.WriteLine("\n........Ingrese una opción valida");
@@ -474,7 +519,7 @@ namespace ConsoleApp1
                         Console.ReadLine();
                     }
 
-                } while (opc != 7);
+                } while (opc != 9);
             }
         }
         public static void GeneraTicketUser(Lista_Tickets Ltick, string categoria)

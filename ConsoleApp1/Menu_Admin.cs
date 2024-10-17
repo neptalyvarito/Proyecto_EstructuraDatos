@@ -14,7 +14,7 @@ namespace ConsoleApp1
         public static Validaciones validacion = new Validaciones();
         public static Reportes reportes = new Reportes();
         public static string nombreCompleto;
-        public void menuAdmin(int opc, Log_in inicioSesion, Lista_Usuarios Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick,Cola_Solicitudes ColSol, ref Solicitudes q, Registros registro, ref int dniUser, ref int dniTrabajador, ref int dniAdmin)
+        public void menuAdmin(int opc, Log_in inicioSesion, Lista_Usuarios Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick,Cola_Solicitudes ColSol, ref Solicitudes q, Pila_Sugerencia PilSug, Registros registro, ref int dniUser, ref int dniTrabajador, ref int dniAdmin)
 
         {
             bool verificacion = false;
@@ -73,8 +73,9 @@ namespace ConsoleApp1
                         Console.WriteLine(" 3. Gestionar administrativos");
                         Console.WriteLine(" 4. Gestionar tickets");
                         Console.WriteLine(" 5. Gestionar solicitudes");
-                        Console.WriteLine(" 6. Generar Reporte");
-                        Console.WriteLine(" 7. Volver");
+                        Console.WriteLine(" 6. Gestionar sugerecias");
+                        Console.WriteLine(" 7. Generar Reporte");
+                        Console.WriteLine(" 8. Volver");
                         Console.WriteLine("-----------------------------------------------");
                         Console.Write(" Ingrese opción: ");
                         opcMandar = int.Parse(Console.ReadLine());
@@ -391,6 +392,7 @@ namespace ConsoleApp1
                             case 5:
                                 do
                                 {
+                                    Console.Clear();
                                     try
                                     {
                                         Console.WriteLine(" Gestionando solicitudes ");
@@ -399,22 +401,45 @@ namespace ConsoleApp1
                                         Console.WriteLine(" 2. Confirmar o denegar solicitud");
                                         Console.WriteLine(" 3. Eliminar lista en orden");
                                         Console.WriteLine(" 4. Vaciar lista de solicitudes");
-                                        Console.WriteLine(" 5. Voler");
-
+                                        Console.WriteLine(" 5. Volver");
+                                        Console.WriteLine("-----------------------------------");
+                                        Console.Write(" Ingrese su opcion: ");
                                         opc = int.Parse(Console.ReadLine());
                                         switch (opc)
                                         {
                                             case 1:
+                                                Console.WriteLine(" ");
                                                 ColSol.MostrarSolicitudes(q);
+                                                Console.ReadLine();
                                                 break;
                                             case 2:
 
                                                 break;
                                             case 3:
-                                                ColSol.EliminarSolicitud(ref q);
+                                                if (q.Delante != null)
+                                                {
+                                                    Solicitudes muestra;
+                                                    muestra = ColSol.EliminarSolicitud(ref q);
+                                                    Console.WriteLine(" Se ha eliminado la primera solicitud en espera");
+                                                    Console.WriteLine(" Caracteristicas de solicitud eliminada:");
+                                                    Console.WriteLine("-------------------------------------------------");
+                                                    Console.WriteLine(" Solicitante: "+ muestra.Solicitante);
+                                                    Console.WriteLine(" Destinatarios: " + muestra.Destinatario);
+                                                    Console.WriteLine(" Tipo de Solicitud: " + muestra.TipoSolicitud);
+                                                    Console.WriteLine(" Condicion: " + muestra.Condicion);
+                                                    Console.WriteLine(" Mensaje: " + muestra.MensajeParaUsuario);
+                                                    Console.ReadLine();
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("Cola está vacia");
+                                                }
+                                                Console.ReadLine();
                                                 break;
                                             case 4:
                                                 ColSol.EliminarTodasSolicitudes(ref q);
+                                                Console.WriteLine("Todas las solicitudes han sido eliminadas!");
+                                                Console.ReadLine();
                                                 break;
                                             case 5:
                                                 break;
@@ -457,7 +482,6 @@ namespace ConsoleApp1
                                             default:
                                                 Console.WriteLine("....Ingrese una opción valida");
                                                 break;
-
                                         }
                                     }
                                     catch
@@ -467,7 +491,54 @@ namespace ConsoleApp1
                                 } while (opc!=3);
                                 opc = 0;
                                 break;
-                            case 7: //SALIDA
+
+                            case 7:
+                                do
+                                {
+                                    try
+                                    {
+                                        Console.Clear();
+                                        Sugerencias mostrar;
+                                        Console.WriteLine(" Gestionando sugerencias");
+                                        Console.WriteLine("----------------------------------------");
+                                        Console.WriteLine(" 1. Visualizar sugerencias");
+                                        Console.WriteLine(" 2. Eliminar ultima sugerencia hecha");
+                                        Console.WriteLine(" 3. Volver");
+                                        Console.WriteLine("----------------------------------------");
+                                        Console.Write(" Ingrese opción: ");
+                                        opc = int.Parse(Console.ReadLine());
+                                        switch (opc)
+                                        {
+                                            case 1:
+                                                PilSug.MostrarSugerencia();
+                                                Console.ReadLine();
+                                                break;
+                                            case 2:
+                                                mostrar = PilSug.QuitarSug();
+                                                Console.WriteLine(" ");
+                                                Console.WriteLine(" Se ha removido la ulima sugerencia que ha sido agregada.");
+                                                Console.WriteLine("---------------------------------------------------------------");
+                                                Console.WriteLine(" Especificaciones de la sugerencia: ");
+                                                Console.WriteLine(" Sugerencia:  " + mostrar.sugerencia);
+                                                Console.WriteLine(" Fecha de creación: " + mostrar.fechaCreacion);
+                                                Console.ReadLine();
+                                                break;
+                                            case 3:
+                                                break;
+                                            default:
+                                                Console.WriteLine("Ingrese una opción valida");
+                                                break;
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        Console.WriteLine(" Ingrese un dato valido.");
+                                    }
+
+                                } while (opc != 3);
+                                
+                                break;
+                            case 8: //SALIDA
                                 break;
 
                             default:
@@ -484,7 +555,7 @@ namespace ConsoleApp1
                         Console.ReadLine();
                     }
 
-                } while (opcMandar != 6);
+                } while (opcMandar != 8);
             }
 
 
