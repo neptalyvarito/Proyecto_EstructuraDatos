@@ -14,25 +14,41 @@ namespace ConsoleApp1
         public static int chaparNombre, chaparApellido, chaparTelefono, chaparDni, chaparParaContra, chaparTicket, chaparCategoriaTicket;
         public static string contrasena, Nombre, Apellido;
 
-        public static string[] nombres = {  "Diego", "Andre", "Frachesco", "Cesár", "Mauricio", "Raul", "Christian", "Eduardo", "Omar", "Juan", "Elias", "Alexi", "Alexander",
-                                            "Carlos", "Alvaro", "Renato", "Jesús", "Moises", "Joaquin", "Gabriel", "Jose", "Alberto", "Steven", "Raúl", "Tomas", "Josue", "Bryan",
-                                            "Alejandro", "Dyer", "Alonso"}; //arreglo de 30 nombres
+        //arreglo de 30 nombres
+        public static string[] nombres = {  "Diego", "Andre", "Frachesco", "Cesár", "Mauricio", "Raul", "Christian", "Eduardo", 
+                                            "Omar", "Juan", "Elias", "Alexi", "Alexander", "Carlos", "Alvaro", "Renato", "Jesús", 
+                                            "Moises", "Joaquin", "Gabriel", "Jose", "Alberto", "Steven", "Raúl", "Tomas", "Josue", 
+                                            "Bryan", "Alejandro", "Dyer", "Alonso"}; 
 
-        public static string[] apellidos ={ "Diaz", "Chavez", "Cahuas", "Mayo", "Abril", "Morales", "Silvera", "Figueredo", "Ayala", "Tapia", "Reyes", "Santos", "De la Vega", "Lopez",
-                                            "Hilario", "Ramos", "Casas", "Torres", "Fernandez", "Garcia", "Ore", "Marquezano", "Crispin", "Estrada", "Chuqui","Solis", "Molina", "Acuña",
-                                            "Fujimori", "Mandujano", "Ramirez", "Chipana", "Mercado", "Apaza", "Cifuentes", "Alor", "Ajalcriña", "", "Alimaña", "Navaja"}; //arreglo de 40 nombres
+        //40
+        public static string[] apellidos ={ "Diaz", "Chavez", "Cahuas", "Mayo", "Abril", "Morales", "Silvera", "Figueredo", "Ayala",
+                                            "Tapia", "Reyes", "Santos", "De la Vega", "Lopez", "Hilario", "Ramos", "Casas", "Torres", 
+                                            "Fernandez", "Garcia", "Ore", "Marquezano", "Crispin", "Estrada", "Chuqui", "Solis", "Molina", 
+                                            "Acuña", "Fujimori", "Mandujano", "Ramirez", "Chipana", "Mercado", "Apaza", "Cifuentes", "Alor", 
+                                            "Ajalcriña", "Lovera", "Alimaña", "Navaja"};
 
-        public static string[] caracterescontraseña = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y","z", 
-                                                        "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}; //36 caracteres
+        //arreglo de 66 nombres
+        public static string[] caracterescontraseña = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", 
+                                                        "r", "s", "t", "u", "v", "w", "x", "y","z", "1", "2", "3", "4", "5", "6", "7", "8",
+                                                        "9","0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O",
+                                                        "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y","Z"};
 
+        //4 tipos generales de problemas
         public static string[] TickesitoDescripcion = { "Falla de computadora en Laboratarios de Computo", "Falla de internet dentro del campus de la universidad", 
-                                                        "Falla en comunicaciones entre redes institucionales", "Página web de la institución falla"};//4 tipos generales de problemas
-            
-        public static string[] TicketsitoCategoria = { "VPN: Conexion, error en VPN", "Equipos de computo y accesorios", "Redes: Falla de conexión, lentitud, etc", "Software: Teams, Windows, Office, etc", 
-                                                       "Wifi: falla de conexión, etc", "Internet: caida del servicio", "Correo: No envia ni recibe correo", "Antivirus:AMP, Umbrella"};//8 tipos de categoria
+                                                        "Falla en comunicaciones entre redes institucionales", "Página web de la institución falla"};
+
+        //8 tipos de categoria
+        public static string[] TicketsitoCategoria = { "VPN: Conexion, error en VPN", "Equipos de computo y accesorios", "Redes: Falla de conexión, lentitud, etc", 
+                                                       "Software: Teams, Windows, Office, etc", "Wifi: falla de conexión, etc", "Internet: caida del servicio",
+                                                       "Correo: No envia ni recibe correo", "Antivirus:AMP, Umbrella"};
+
+        //3 tipos de solicitudes
         public static string[] Solicitudes = { "Prestamo de laptop", "Prestamo de pc", "Servicios especificos de TI "};
 
-        public static string[] Sugerencias = { "Mejoara interfaz grafica del programa", "Hacer más rondas de chequeo a Pcs", "Agregar más opciones en el programa", "Mejorar atención al cliente"};//4 tipos de sugerencias
+        //4 tipos de sugerencias
+        public static string[] Sugerencias = { "Mejorar interfaz grafica del programa", "Hacer más rondas de chequeo a Pcs", "Agregar más opciones en el programa", 
+                                               "Mejorar atención al cliente"};
+
         public void GenerarUsuariosAdmisYTrabajadoresAleatorios(Lista_Usuarios Lu, Lista_Administrativos La, Lista_Trabajadores LTra)
         {
             bool flag, flag2 , flag3;

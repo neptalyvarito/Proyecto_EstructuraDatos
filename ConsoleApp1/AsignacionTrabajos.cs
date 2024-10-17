@@ -64,8 +64,5 @@ namespace ConsoleApp1
                 t = t.sgte;
             }
         }
-
-
-
     }
 }

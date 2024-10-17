@@ -20,11 +20,11 @@ namespace ConsoleApp1
                 {
 
                     Console.Clear();
-
-                    Console.WriteLine(" Está iniciando sesión como trabajador");
-                    Console.WriteLine("-----------------------------------------------------");
-                    Console.WriteLine(" Por favor, llene los siguientes campos \n (Si desea volver, por favor, ingrese el número 2):");
-                    Console.WriteLine("-----------------------------------------------------");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("\n\n              Está iniciando sesión como trabajador");
+                    Console.WriteLine("===================================================================");
+                    Console.WriteLine("  Llene los siguientes campos o ingrese el número 2 para volver");
+                    Console.WriteLine("===================================================================");
 
                     verificacion = inicioSesion.InicioSesión(opc, Lu, LTra, La, ref dniUser, ref dniTrabajador, ref dniAdmin);
 
@@ -38,13 +38,15 @@ namespace ConsoleApp1
                     }
                     else if (verificacion == false)
                     {
-                        Console.WriteLine("....Número de DNI o contraseña incorrectos.");
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("\n... Número de DNI o contraseña incorrectos.");
                         Console.ReadLine();
                     }
                 }
                 catch
                 {
-                    Console.WriteLine(" Error.... Dni debe contener solo caracteres númericos");
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("\n  Error... Dni debe contener solo caracteres númericos");
                     Console.ReadLine();
                 }
             } while (verificacion == false);
@@ -56,25 +58,21 @@ namespace ConsoleApp1
                 {
                     try
                     {
-
-                       
-
                         Console.Clear();
-
                         nombreCompleto = LTra.NombreCompletoTrabajador(dniTrabajador);
-
+                        
+                        Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine(" Bienvenido señor " + nombreCompleto);
-                        Console.WriteLine("---------------------------------------------------------");
-                        Console.WriteLine(" 1. Gestionar tickets\n 2. Gestionar alumnos\n 3. Marcar hora de salida \n 4. Volver");
-                        Console.WriteLine("---------------------------------------------------------");
-                        Console.Write(" Ingrese opción: ");
+                        Console.WriteLine("\n==============================================");
+                        Console.WriteLine("\n >  1. Gestionar tickets\n\n >  2. Gestionar alumnos\n\n >  3. Marcar hora de salida \n\n >  4. Volver");
+                        Console.WriteLine("\n==============================================");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write(" >  Elija una opción: ");
                         opc = int.Parse(Console.ReadLine());
                         switch (opc)
                         {
                             case 1:
-
                                 program.GestionTickets();
-
                                 opc = 0;
                                 break;
 
@@ -85,10 +83,12 @@ namespace ConsoleApp1
                                     try
                                     {
                                         Console.Clear();
-                                        Console.WriteLine("     Gestionando Alumnos");
-                                        Console.WriteLine("------------------------------");
-                                        Console.WriteLine(" 1. Mostrar lista de alumnos\n 2. Modificar datos del alumno \n 3. Eliminar alumno \n 4. Volver");
-                                        Console.WriteLine("------------------------------");
+                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                        Console.WriteLine("\n\n======== Gestionando Alumnos ========");
+                                        Console.WriteLine("\n >  1. Mostrar lista de alumnos\n\n >  2. Modificar datos del alumno \n\n >  3. Eliminar alumno \n\n >  4. Volver");
+                                        Console.WriteLine("\n=====================================");
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write(" >  Elija una opción: ");
                                         opc = int.Parse(Console.ReadLine());
                                         switch (opc)
                                         {
@@ -100,7 +100,6 @@ namespace ConsoleApp1
                                                 opc = 0;
                                                 break;
 
-
                                             case 2:
                                                 do
                                                 {
@@ -109,10 +108,10 @@ namespace ConsoleApp1
                                                     Lu.MostrarListaUsuarios();
                                                     int codigo1;
                                                     string aux;
-                                                    Console.WriteLine("-------------------------------------------------------------------\n");
-                                                    Console.WriteLine("Ingrese el número 2 para volver ");
-                                                    Console.WriteLine("-------------------------------------------------------------------");
-                                                    Console.Write("Ingrese el código del alumno del cual desea modificar datos: ");
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    Console.WriteLine("========================================================================================");
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    Console.Write(" >  Ingrese el código del alumno del cual desea modificar datos: ");
                                                     aux = Console.ReadLine();
 
                                                     verificacion = validacion.ValidacionIngresoSoloNum(aux);
@@ -131,13 +130,15 @@ namespace ConsoleApp1
                                                         }
                                                         else
                                                         {
-                                                            Console.WriteLine("....Alumno no econtrado. Ingrese el código correcto o el ingrese el número 2 para volver");
+                                                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                                                            Console.WriteLine("... Alumno no econtrado. Ingrese el código correcto o el ingrese el número 2 para volver");
                                                             Console.ReadLine();
                                                         }
                                                     }
                                                     else if (verificacion == false)
                                                     {
-                                                        Console.WriteLine("....El código debe contener solo caracteres númericos");
+                                                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                                                        Console.WriteLine("... El código debe contener solo caracteres númericos");
                                                         Console.ReadLine();
                                                     }
                                                 } while (verificacion != true);
@@ -155,8 +156,9 @@ namespace ConsoleApp1
                                                 break;
 
                                             default:
-                                                Console.Clear();
-                                                Console.WriteLine("\n........Ingrese una opción valida");
+
+                                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                                Console.WriteLine("\n... Ingrese una opción valida");
                                                 Console.ReadLine();
                                                 opc = 0;
                                                 break;
@@ -165,7 +167,8 @@ namespace ConsoleApp1
                                     }
                                     catch
                                     {
-                                        Console.Write("\n\n........Ingrese una opción valida");
+                                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                                        Console.WriteLine("\n.. < Ingrese una opción valida >");
                                         Console.ReadLine();
                                     }
 
@@ -184,8 +187,8 @@ namespace ConsoleApp1
                                 break;
 
                             default:
-                                Console.Clear();
-                                Console.WriteLine("\n........Ingrese una opción valida");
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("\n.. < Ingrese una opción valida >");
                                 Console.ReadLine();
                                 break;
 
@@ -193,7 +196,7 @@ namespace ConsoleApp1
                     }
                     catch
                     {
-                        Console.Write("\n\n........Ingrese una opción valida");
+                        Console.WriteLine("\n.. < Ingrese una opción valida >");
                         Console.ReadLine();
                     }
                 } while (opc != 4);
