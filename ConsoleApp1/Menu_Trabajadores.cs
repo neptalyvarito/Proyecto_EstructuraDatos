@@ -22,9 +22,9 @@ namespace ConsoleApp1
                     Console.Clear();
 
                     Console.WriteLine(" Está iniciando sesión como trabajador");
-                    Console.WriteLine("-----------------------------------------");
+                    Console.WriteLine("-----------------------------------------------------");
                     Console.WriteLine(" Por favor, llene los siguientes campos \n (Si desea volver, por favor, ingrese el número 2):");
-                    Console.WriteLine("-----------------------------------------");
+                    Console.WriteLine("-----------------------------------------------------");
 
                     verificacion = inicioSesion.InicioSesión(opc, Lu, LTra, La, ref dniUser, ref dniTrabajador, ref dniAdmin);
 
@@ -65,7 +65,7 @@ namespace ConsoleApp1
 
                         Console.WriteLine(" Bienvenido señor " + nombreCompleto);
                         Console.WriteLine("---------------------------------------------------------");
-                        Console.WriteLine(" 1. Gestionar tickets\n 2. Gestionar alumnos\n 3. Volver");
+                        Console.WriteLine(" 1. Gestionar tickets\n 2. Gestionar alumnos\n 3. Marcar hora de salida \n 4. Volver");
                         Console.WriteLine("---------------------------------------------------------");
                         Console.Write(" Ingrese opción: ");
                         opc = int.Parse(Console.ReadLine());
@@ -107,7 +107,7 @@ namespace ConsoleApp1
 
                                                     Console.Clear();
                                                     Lu.MostrarListaUsuarios();
-                                                    int codigo;
+                                                    int codigo1;
                                                     string aux;
                                                     Console.WriteLine("-------------------------------------------------------------------\n");
                                                     Console.WriteLine("Ingrese el número 2 para volver ");
@@ -123,11 +123,11 @@ namespace ConsoleApp1
                                                     }
                                                     else if (verificacion == true)
                                                     {
-                                                        codigo = int.Parse(aux);
-                                                        verificacion = Lu.SaberSiExisteUsuarioConCodigo(codigo);
+                                                        codigo1 = int.Parse(aux);
+                                                        verificacion = Lu.SaberSiExisteUsuarioConCodigo(codigo1);
                                                         if (verificacion == true)
                                                         {
-                                                            program.ModificacionUsuariosTrabajsYAdmins(codigo, 1);
+                                                            program.ModificacionUsuariosTrabajsYAdmins(codigo1, 1);
                                                         }
                                                         else
                                                         {
@@ -174,7 +174,13 @@ namespace ConsoleApp1
                                 opc = 0;
                                 break;
 
-                            case 3://SALIDA DEL PROGRAMA
+                            case 3:
+                                Console.Clear();
+                                int codigo = LTra.ObtenerCodigoConDNI(dniTrabajador);
+                                LTra.MarcarSalida(codigo);
+                                break;
+
+                            case 4://SALIDA DEL PROGRAMA
                                 break;
 
                             default:
@@ -190,7 +196,7 @@ namespace ConsoleApp1
                         Console.Write("\n\n........Ingrese una opción valida");
                         Console.ReadLine();
                     }
-                } while (opc != 3);
+                } while (opc != 4);
             }
          }
     }

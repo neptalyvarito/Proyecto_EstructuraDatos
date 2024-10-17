@@ -15,10 +15,12 @@ namespace ConsoleApp1
         public int codigoTrabajador;
         public int cantidadTicketsRespondidos = 0;
         public string contrasena;
-
+        public DateTime horaEntrada;
+        public DateTime horaSalida;
+        public string totalHorasTrabajadas;
         public Trabajador sgte;
 
-        public Trabajador(string nombres, string apellidos, int dni, int numeroCel, int codigoTrabajador,  string contrasena)
+        public Trabajador(string nombres, string apellidos, int dni, int numeroCel, int codigoTrabajador,  string contrasena, DateTime horaEntrada, DateTime horaSalida, string totalHorasTrabajadas)
         {
             this.nombres = nombres;
             this.apellidos = apellidos;
@@ -28,6 +30,9 @@ namespace ConsoleApp1
             this.contrasena = contrasena;
             cantidadTicketsRespondidos = 0;
             sgte = null;
+            this.horaEntrada = horaEntrada;
+            this.horaSalida = horaSalida;
+            this.totalHorasTrabajadas = totalHorasTrabajadas;
         }
 
 

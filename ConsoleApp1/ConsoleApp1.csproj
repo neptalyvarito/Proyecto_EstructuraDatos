@@ -59,6 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administrativos.cs" />
+    <Compile Include="AsignacionTrabajos.cs" />
+    <Compile Include="Colas_SolisAceptadas.cs" />
     <Compile Include="Cola_Solicitudes.cs" />
     <Compile Include="Generacion_Aleatorio.cs" />
     <Compile Include="Lista_Administrativos.cs" />
@@ -76,7 +78,9 @@
     <Compile Include="Reportes.cs" />
     <Compile Include="Solicitudes.cs" />
     <Compile Include="Sugerencias.cs" />
+    <Compile Include="Tecnicos.cs" />
     <Compile Include="Ticket.cs" />
+    <Compile Include="TicketsProgramados.cs" />
     <Compile Include="Trabajador.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Validaciones.cs" />

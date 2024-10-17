@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,10 @@ namespace ConsoleApp1
 
         public void RegistrarTrabajador(string nombre, string apellido, int dni, int numeroCel, string contrasena)
         {
-
-            Trabajador q = new Trabajador(nombre, apellido, dni, numeroCel, codigoTrabajador, contrasena);
+            DateTime horaEntrada = DateTime.Now;
+            DateTime horaSalida = DateTime.Now;
+            string totalHoras = " ";
+            Trabajador q = new Trabajador(nombre, apellido, dni, numeroCel, codigoTrabajador, contrasena, horaEntrada, horaSalida, totalHoras);
             Trabajador t = listaTrabajadores;
 
             if (listaTrabajadores == null)
@@ -235,6 +238,75 @@ namespace ConsoleApp1
                 t = t.sgte;
             }
             return flag;
+        }
+        public int CantidadDeTrabajadores()
+        {
+            Trabajador t = listaTrabajadores;
+            int contador = 0;
+
+            while (t != null)
+            {
+                contador++;
+                t = t.sgte;
+            }
+
+            return contador;
+        }
+        public string ObtenerNombreTrabajadoresConCodigo(int codigo)
+        {
+            string nombres = " aña ";
+            Trabajador t = listaTrabajadores;
+            
+            while(t !=null)
+            {
+                if(codigo == t.codigoTrabajador)
+                {
+                    nombres = t.nombres + " " + t.apellidos;
+                    break;
+                }
+
+                t = t.sgte;
+            }
+
+            return nombres;
+        }
+        public void MarcarSalida(int codigo)
+        {
+            string horasTrabajadas;
+            DateTime horaSalida;
+            Trabajador t = listaTrabajadores;
+            while (t != null)
+            {
+                if(t.codigoTrabajador == codigo)
+                {
+                    horaSalida = DateTime.Now;
+                    horasTrabajadas = (horaSalida - t.horaEntrada).ToString();
+                    t.horaSalida = horaSalida;
+                    Console.WriteLine("----------------------------");
+                    Console.WriteLine(" Ha marcado su salida...");
+                    Console.WriteLine("----------------------------");
+                    Console.WriteLine(" Hora de entrada: " + t.horaEntrada.ToString());
+                    Console.WriteLine(" Hora de entrada: " + t.horaSalida.ToString());
+                    Console.WriteLine(" Total de horas trabajadas: " + horasTrabajadas);
+                    Console.ReadLine();
+                }
+                t = t.sgte;
+            }
+          
+        }
+        public int ObtenerCodigoConDNI(int dni)
+        {
+            Trabajador t = listaTrabajadores;
+            int codigo = 0;
+            while(t!= null)
+            {
+                if(dni == t.dni)
+                {
+                    codigo = t.codigoTrabajador;
+                }
+                t = t.sgte;
+            }
+            return codigo;
         }
     }
 }

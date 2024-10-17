@@ -18,9 +18,11 @@ namespace ConsoleApp1
         public static Lista_Usuarios Lu = new Lista_Usuarios();
         public static Lista_Administrativos La = new Lista_Administrativos();
         public static Lista_Trabajadores LTra = new Lista_Trabajadores();
+
         public static Cola_Solicitudes ColaSol = new Cola_Solicitudes();
         public static Solicitudes q = new Solicitudes();
         public static Pila_Sugerencia PilaSug = new Pila_Sugerencia();
+        public static AsignacionTrabajos AsigTra = new AsignacionTrabajos();
 
         public static Validaciones validacion = new Validaciones();
         public static Log_in inicioSesion = new Log_in();
@@ -86,9 +88,9 @@ namespace ConsoleApp1
                                     Console.Clear();
 
                                     Console.WriteLine(" Inciar sesión como: ");
-                                    Console.WriteLine("--------------------");
+                                    Console.WriteLine("-----------------------");
                                     Console.WriteLine(" 1. Alumno\n 2. Trabajador\n 3. Administrativo\n 4. Volver");
-                                    Console.WriteLine("--------------------");
+                                    Console.WriteLine("-----------------------");
                                     Console.Write(" Ingrese opción: ");
                                     opc = int.Parse(Console.ReadLine());
 
@@ -381,7 +383,7 @@ namespace ConsoleApp1
                     Console.Clear();
                     Console.WriteLine(" Gestionando tickets");
                     Console.WriteLine("-------------------------------------");
-                    Console.WriteLine(" 1. Ver lista de tickets \n 2. Responder ticket \n 3. Ver tickets en espera \n 4. Ver tickets resueltos \n 5. Eliminar ticket\n 6. Volver ");
+                    Console.WriteLine(" 1. Ver lista de tickets \n 2. Responder ticket \n 3. Ver tickets en espera \n 4. Ver tickets resueltos \n 5. Designar tickets \n 6. Eliminar ticket\n 7. Volver ");
                     Console.WriteLine("-------------------------------------");
                     Console.Write(" Ingrese opción: ");
                     opc = int.Parse(Console.ReadLine());
@@ -419,12 +421,91 @@ namespace ConsoleApp1
                             break;
 
                         case 5:
+
+                            string codigoTi, codigoTr;
+                            bool flag;
+                           
+                            do
+                            {
+                                Console.Clear();
+                                Ltick.MostrarTicketsEspera();
+                                Console.WriteLine("-----------------------------------------------");
+                                Console.Write(" Ingrese código del ticket que desea designar:");
+                                codigoTi = Console.ReadLine();
+
+                                flag = validacion.ValidacionIngresoSoloNum(codigoTi);
+
+
+                                if (codigoTi == "2")
+                                {
+                                    break;
+                                }
+                                else if (flag == true)
+                                {
+                                    flag = false;
+
+                                    flag =  Ltick.SaberSiExisteTicket(int.Parse(codigoTi));
+
+                                    if(flag == true)
+                                    {
+                                        do
+                                        {
+                                            Console.Clear();
+                                            LTra.MostrarListaTrabajadores();
+                                            Console.WriteLine("-----------------------------------------------");
+                                            Console.Write(" Ingrese código del trabajador a designar:");
+                                            codigoTr = Console.ReadLine();
+                                            flag = validacion.ValidacionIngresoSoloNum(codigoTi);
+                                            if (codigoTr == "2")
+                                            {
+                                                break;
+                                            }
+                                            else if (flag == true)
+                                            {
+                                                flag = false;
+                                                flag = LTra.SaberSiExisteTrabajadorConCodigo(int.Parse(codigoTr));
+                                                if (flag == true)
+                                                {
+                                                    AsigTra.AsignacionTicket(int.Parse(codigoTr), int.Parse(codigoTi), Ltick);
+                                                    Console.WriteLine(" ");
+                                                    Console.WriteLine("------------------------------");
+                                                    Console.WriteLine(" Asignación hecha.");
+                                                    Console.WriteLine(" Ticket: " + codigoTi);
+                                                    Console.WriteLine(" Responsable: " + LTra.ObtenerNombreTrabajadoresConCodigo(int.Parse(codigoTr)));
+                                                    Console.ReadLine();
+                                                }
+                                            }
+                                            if (flag == false)
+                                            {
+                                                Console.WriteLine("....Trabajador no encontrado. \n....Ingrese el código correcto o el ingrese el número 2 para volver");
+                                                Console.ReadLine();
+                                            }
+                                        } while (flag != true);
+                                    }
+
+                                    if (flag == false)
+                                    {
+                                        Console.WriteLine("....Ticket no encontrado. \n....Ingrese el código correcto o el ingrese el número 2 para volver");
+                                        Console.ReadLine();
+                                    }
+
+                                }
+                                else if (flag == false)
+                                {
+                                    Console.WriteLine("...Ingrese solo un valor númerico\n");
+                                    Console.ReadLine();
+                                }
+                            } while (flag != true);
+                            opc = 0;
+                            break;
+
+                        case 6:
                             Console.Clear();
                             Ltick.EliminarTicket();
                             opc = 0;
                             break;
 
-                        case 6:
+                        case 7:
                             break;
 
                         default:

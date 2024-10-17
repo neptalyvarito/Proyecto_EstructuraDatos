@@ -23,9 +23,9 @@ namespace ConsoleApp1
                     Console.Clear();
 
                     Console.WriteLine(" Está iniciando sesión como alumno");
-                    Console.WriteLine("-----------------------------------------");
+                    Console.WriteLine("-----------------------------------------------------");
                     Console.WriteLine(" Por favor, llene los siguientes campos \n (Si desea volver, por favor, ingrese el número 2):");
-                    Console.WriteLine("-----------------------------------------");
+                    Console.WriteLine("-----------------------------------------------------");
 
                     verificacion = inicioSesion.InicioSesión(opc, Lu, LTra, La, ref dniUser, ref dniTrabajador, ref dniAdmin);
                     if (verificacion == false && (dniUser == 2 || dniAdmin == 2 || dniTrabajador == 2))

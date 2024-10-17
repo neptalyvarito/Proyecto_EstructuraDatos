@@ -35,7 +35,8 @@ namespace ConsoleApp1
         public Sugerencias QuitarSug()
         {
             Sugerencias q;
-            
+            Sugerencias aux;
+
             if (sugerencia == null)
             {
                 Console.WriteLine("Lista de sugerencias vacia ... ");
@@ -53,10 +54,11 @@ namespace ConsoleApp1
         {
             Sugerencias t = sugerencia;
            
-            Console.WriteLine(" Creador " + " | Sugerencia".PadRight(30,' ')+ " | Fecha Creacion");
+            Console.WriteLine(" Creador " + " | Sugerencia".PadRight(50,' ')+ " | Fecha Creacion");
+            Console.WriteLine("--------------------------------------------------------------------------------------------------");
             while (t != null)
             {
-                Console.WriteLine(" " + t.creador + "  | " + t.sugerencia.PadRight(30,' ') + " | " +t.fechaCreacion.ToString());
+                Console.WriteLine(" " + t.creador + "  | " + t.sugerencia.PadRight(47,' ') + " | " +t.fechaCreacion.ToString());
                 t = t.sgte;
             }
         }

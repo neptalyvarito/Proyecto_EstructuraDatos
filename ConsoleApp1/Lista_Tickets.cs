@@ -24,9 +24,10 @@ namespace ConsoleApp1
             
             string condicion = "En espera";
             string respuestaSolucion= " ";
+            int codigoTrabajador = 0;
             DateTime fechaCreacion = DateTime.Now;
             DateTime fechaRespuesta = DateTime.Now;
-            Ticket q = new Ticket(nombre, codigoTicket, condicion, descripcion, fechaCreacion, respuestaSolucion, codigoDueño, categoria, fechaRespuesta);
+            Ticket q = new Ticket(nombre, codigoTicket, condicion, descripcion, fechaCreacion, respuestaSolucion, codigoDueño, categoria, fechaRespuesta, codigoTrabajador);
 
             Ticket t = listaTickets;
 
@@ -339,6 +340,22 @@ namespace ConsoleApp1
                 t = t.sgte;
             }
             Console.Write("| "+descripcion.PadRight(60, ' ') + "| " +contador+"\n");
+        }
+        public Ticket BuscarTicket(int codigo)
+        {
+            Ticket t = listaTickets;
+
+            while(t!= null)
+            {
+                if(t.codigoTicket == codigo)
+                {
+                    t = t; 
+                    break;
+                }
+                t = t.sgte;
+            }
+
+            return t;
         }
     }
 }

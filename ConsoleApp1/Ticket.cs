@@ -10,6 +10,7 @@ namespace ConsoleApp1
     {
         public string dueño;
         public int codigoDueño;
+        public int codigoTrabajadorEncargado;
         public int codigoTicket;
         public string descripcion;
         public string categoria;
@@ -18,9 +19,8 @@ namespace ConsoleApp1
         public DateTime fechaCreacion;
         public DateTime fechaRespuesta;
         public Ticket sgte;
-       
 
-        public Ticket(string dueño, int codigoTicket, string condicion, string descripcion, DateTime fechaCreacion, string respuestaSolucion, int codigoDueño, string categoria, DateTime fechaRespuesta)
+        public Ticket(string dueño, int codigoTicket, string condicion, string descripcion, DateTime fechaCreacion, string respuestaSolucion, int codigoDueño, string categoria, DateTime fechaRespuesta, int codigoTrabajadorEncargado)
         {
             this.dueño = dueño;
             this.codigoTicket = codigoTicket;
@@ -31,6 +31,7 @@ namespace ConsoleApp1
             this.codigoDueño = codigoDueño;
             this.categoria = categoria;
             this.fechaRespuesta = fechaRespuesta;
+            this.codigoTrabajadorEncargado = codigoTrabajadorEncargado;
             sgte = null;
           
         }

@@ -69,10 +69,10 @@ namespace ConsoleApp1
             Solicitudes p; 
             
             p = q.Delante;
-            Console.WriteLine(" Código ".PadRight(20, ' ') + " | Solicitante".PadRight(25, ' ') + " | Código Solicitante".PadRight(25, ' ') + " | Tipo Solicitud".PadRight(25, ' ') + " | Destinatario".PadRight(25, ' ') + " | Condicion".PadRight(25, ' ') + " | Mensaje".PadRight(25, ' '));
+            Console.WriteLine(" Código ".PadRight(14, ' ') + " | Solicitante".PadRight(28, ' ') + " | Código Solicitante".PadRight(28, ' ') + " | Tipo Solicitud".PadRight(45, ' ') + "    | Destinatario".PadRight(40, ' ') + "       | Condicion".PadRight(28, ' ') + "       | Mensaje".PadRight(28, ' '));
             while (p != null)
             {
-                Console.WriteLine(" " + p.CodigoSolicitud.ToString().PadRight(20, ' ') + p.Solicitante.PadRight(25, ' ') + " | " + p.CodigoDueno.ToString().PadRight(25, ' ') + " | " + p.TipoSolicitud.PadRight(25, ' ') + " | " + p.Destinatario.PadRight(25, ' ') + " | " + p.Condicion.PadRight(25, ' ') + " | " + p.MensajeParaUsuario.PadRight(26, ' '));
+                Console.WriteLine(" " + p.CodigoSolicitud.ToString().PadRight(14, ' ') + "|  " + p.Solicitante.PadRight(25, ' ') + "| " + p.CodigoDueno.ToString().PadRight(25, ' ') + " | " + p.TipoSolicitud.PadRight(45, ' ') + " | " + p.Destinatario.PadRight(40, ' ') + " | " + p.Condicion.PadRight(25, ' ') + " | " + p.MensajeParaUsuario.PadRight(26, ' '));
                 p = p.Sgte; 
             }
             
@@ -81,12 +81,12 @@ namespace ConsoleApp1
         {
             Solicitudes p;
             p = q.Delante;
-            Console.WriteLine(" Código ".PadRight(20, ' ') + " | Solicitante".PadRight(25, ' ') + " | Código Solicitante".PadRight(25, ' ') + " | Tipo Solicitud".PadRight(25, ' ') + " | Destinatario".PadRight(25, ' ') + " | Condicion".PadRight(25, ' ') + " | Mensaje".PadRight(25, ' '));
+            Console.WriteLine(" Código ".PadRight(14, ' ') + " | Solicitante".PadRight(28, ' ') + " | Código Solicitante".PadRight(28, ' ') + " | Tipo Solicitud".PadRight(45, ' ') + "    | Destinatario".PadRight(40, ' ') + "       | Condicion".PadRight(28, ' ') + "       | Mensaje".PadRight(28, ' '));
             while (p != null)
             {
                 if(p.Condicion == "En espera")
                 {
-                    Console.WriteLine(" " + p.CodigoSolicitud.ToString().PadRight(20, ' ') + p.Solicitante.PadRight(25, ' ') + " | " + p.CodigoDueno.ToString().PadRight(25, ' ') + " | " + p.TipoSolicitud.PadRight(25, ' ') + " | " + p.Destinatario.PadRight(25, ' ') + " | " + p.Condicion.PadRight(25, ' ') + " | " + p.MensajeParaUsuario.PadRight(26, ' '));
+                    Console.WriteLine(" " + p.CodigoSolicitud.ToString().PadRight(14, ' ') + "|  " + p.Solicitante.PadRight(25, ' ') + "| " + p.CodigoDueno.ToString().PadRight(25, ' ') + " | " + p.TipoSolicitud.PadRight(45, ' ') + " | " + p.Destinatario.PadRight(40, ' ') + " | " + p.Condicion.PadRight(25, ' ') + " | " + p.MensajeParaUsuario.PadRight(26, ' '));
                 }
                 p = p.Sgte;
             }
@@ -94,13 +94,13 @@ namespace ConsoleApp1
         public void MostrarPilaDeSolAprobar(Solicitudes q, string condicion)
         {
             Solicitudes p;
-            p = q.Delante; 
-            Console.WriteLine(" Código ".PadRight(20, ' ') + " | Solicitante".PadRight(25, ' ') + " | Código Solicitante".PadRight(25, ' ') + " | Tipo Solicitud".PadRight(25, ' ') + " | Destinatario".PadRight(25, ' ') + " | Condicion".PadRight(25, ' ') + " | Mensaje".PadRight(25, ' '));
+            p = q.Delante;
+            Console.WriteLine(" Código ".PadRight(14, ' ') + " | Solicitante".PadRight(28, ' ') + " | Código Solicitante".PadRight(28, ' ') + " | Tipo Solicitud".PadRight(45, ' ') + "    | Destinatario".PadRight(40, ' ') + "       | Condicion".PadRight(28, ' ') + "       | Mensaje".PadRight(28, ' '));
             while (p != null)
             {
                 if (p.Condicion == "Aprobada")
                 {
-                    Console.WriteLine(" " + p.CodigoSolicitud.ToString().PadRight(20, ' ') + p.Solicitante.PadRight(25, ' ') + " | " + p.CodigoDueno.ToString().PadRight(25, ' ') + " | " + p.TipoSolicitud.PadRight(25, ' ') + " | " + p.Destinatario.PadRight(25, ' ') + " | " + p.Condicion.PadRight(25, ' ') + " | " + p.MensajeParaUsuario.PadRight(26, ' '));
+                    Console.WriteLine(" " + p.CodigoSolicitud.ToString().PadRight(14, ' ') + "|  " + p.Solicitante.PadRight(25, ' ') + "| " + p.CodigoDueno.ToString().PadRight(25, ' ') + " | " + p.TipoSolicitud.PadRight(45, ' ') + " | " + p.Destinatario.PadRight(40, ' ') + " | " + p.Condicion.PadRight(25, ' ') + " | " + p.MensajeParaUsuario.PadRight(26, ' '));
                 }
                 p = p.Sgte;
             }
@@ -109,13 +109,15 @@ namespace ConsoleApp1
         {
             Solicitudes p;
             p = q.Delante;
-            Console.WriteLine(" Código ".PadRight(20, ' ') + " | Solicitante".PadRight(25, ' ') +" | Código Solicitante".PadRight(25, ' ') + " | Tipo Solicitud".PadRight(25, ' ') + " | Destinatario".PadRight(25, ' ') + " | Condicion".PadRight(25, ' ') + " | Mensaje".PadRight(25, ' '));
-            Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine(" ");
+            Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine(" Código ".PadRight(14, ' ') + " | Solicitante".PadRight(28, ' ') +" | Código Solicitante".PadRight(28, ' ') + " | Tipo Solicitud".PadRight(45, ' ') + "    | Destinatario".PadRight(40, ' ') + "       | Condicion".PadRight(28, ' ') + "       | Mensaje".PadRight(28, ' '));
+            Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             while (p != null)
             {
                 if (p.CodigoDueno == codigoDueno)
                 {
-                    Console.WriteLine(" " + p.CodigoSolicitud.ToString().PadRight(20, ' ') + p.Solicitante.PadRight(25, ' ') + " | " +p.CodigoDueno.ToString().PadRight(25, ' ') + " | " + p.TipoSolicitud.PadRight(25, ' ') + " | " + p.Destinatario.PadRight(25, ' ') + " | " + p.Condicion.PadRight(25, ' ') + " | " + p.MensajeParaUsuario.PadRight(26, ' '));
+                    Console.WriteLine(" " + p.CodigoSolicitud.ToString().PadRight(14, ' ') + "|  "+ p.Solicitante.PadRight(25, ' ') + "| " +p.CodigoDueno.ToString().PadRight(25, ' ') + " | " + p.TipoSolicitud.PadRight(45, ' ') + " | " + p.Destinatario.PadRight(40, ' ') + " | " + p.Condicion.PadRight(25, ' ') + " | " + p.MensajeParaUsuario.PadRight(26, ' '));
                 }
                 p = p.Sgte;
             }
@@ -124,6 +126,14 @@ namespace ConsoleApp1
         {
             
         }
-
+        public void ObtenerPrimerNodoColaEnEspera(ref Solicitudes q)
+        {
+            Solicitudes p;
+            p = q.Delante;
+            while (p != null)
+            {
+                p = p.Sgte;
+            }
+        }
     }
 }

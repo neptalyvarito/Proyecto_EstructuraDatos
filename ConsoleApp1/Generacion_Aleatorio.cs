@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
@@ -29,6 +30,9 @@ namespace ConsoleApp1
             
         public static string[] TicketsitoCategoria = { "VPN: Conexion, error en VPN", "Equipos de computo y accesorios", "Redes: Falla de conexión, lentitud, etc", "Software: Teams, Windows, Office, etc", 
                                                        "Wifi: falla de conexión, etc", "Internet: caida del servicio", "Correo: No envia ni recibe correo", "Antivirus:AMP, Umbrella"};//8 tipos de categoria
+        public static string[] Solicitudes = {  };
+
+        public static string[] Sugerencias = { "Mejoara interfaz grafica del programa", "Hacer más rondas de chequeo a Pcs", "Agregar más opciones en el programa", "Mejorar atención al cliente"};//4 tipos de sugerencias
         public void GenerarUsuariosAdmisYTrabajadoresAleatorios(Lista_Usuarios Lu, Lista_Administrativos La, Lista_Trabajadores LTra)
         {
             bool flag, flag2 , flag3;
