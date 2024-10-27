@@ -21,7 +21,6 @@ namespace ConsoleApp1
                 try
                 {
                     Console.Clear();
-
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("\n\n               Está iniciando sesión como alumno");
                     Console.WriteLine("===================================================================");
