@@ -88,11 +88,11 @@ namespace ConsoleApp1
 
                                     Console.Clear();
                                     Console.ForegroundColor = ConsoleColor.Cyan;                                  
-                                    Console.WriteLine("\n======== Inciar sesión como ========");
+                                    Console.WriteLine("\n======== Iniciar sesión como ========");
                                     Console.ForegroundColor = ConsoleColor.Yellow;
                                     Console.WriteLine("\n >  1. Alumno\n\n >  2. Trabajador\n\n >  3. Administrativo\n\n >  4. Volver");
                                     Console.ForegroundColor = ConsoleColor.Cyan;
-                                    Console.WriteLine("\n====================================");
+                                    Console.WriteLine("\n=====================================");
                                     Console.ForegroundColor = ConsoleColor.Yellow;
                                     Console.Write("\n >  Elija una opción: ");
                                     opc = int.Parse(Console.ReadLine());

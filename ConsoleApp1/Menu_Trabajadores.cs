@@ -64,7 +64,9 @@ namespace ConsoleApp1
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine(" Bienvenido señor " + nombreCompleto);
                         Console.WriteLine("\n==============================================");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine("\n >  1. Gestionar tickets\n\n >  2. Gestionar alumnos\n\n >  3. Marcar hora de salida \n\n >  4. Volver");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("\n==============================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.Write(" >  Elija una opción: ");
@@ -85,7 +87,9 @@ namespace ConsoleApp1
                                         Console.Clear();
                                         Console.ForegroundColor = ConsoleColor.Cyan;
                                         Console.WriteLine("\n\n======== Gestionando Alumnos ========");
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
                                         Console.WriteLine("\n >  1. Mostrar lista de alumnos\n\n >  2. Modificar datos del alumno \n\n >  3. Eliminar alumno \n\n >  4. Volver");
+                                        Console.ForegroundColor = ConsoleColor.Cyan;
                                         Console.WriteLine("\n=====================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
                                         Console.Write(" >  Elija una opción: ");
