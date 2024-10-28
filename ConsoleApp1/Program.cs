@@ -66,8 +66,33 @@ namespace ConsoleApp1
                 try
                 {
                     Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                   
+                    Console.BackgroundColor = ConsoleColor.Black; //Fondo blanco
+                    Console.ForegroundColor = ConsoleColor.Red; //Texto azul en negrita
+                    Console.WriteLine("\n\t\t\t\t\t==============================================================================================================================================================================================");
+                    Console.ForegroundColor = ConsoleColor.Yellow; //Texto azul en negrita
+                    Console.WriteLine("\t\n\t\t\t\t\t\t\t\t\t  _  __   _  __   _                 _    _     _   _   _  _  _   _          ");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t (_    |   (_    |   |_  |\\/|   /\\     | \\  |_    /_  |  (_    |    |   / \\  |\\ |   ");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t _)  _|  _)   |   |  |  |  /--\\    |/  |    \\|  |  _)   |   _|  \\_/  | \\|   ");
+                    Console.WriteLine("\t\t\t\t                                                                                  ");
+                    Console.WriteLine("\t\t\t\t\t$$$$$$$\\  $$$$$$$$\\        $$$$$$\\   $$$$$$\\  $$$$$$$\\   $$$$$$\\  $$$$$$$\\  $$$$$$$$\\ $$$$$$$$\\       $$$$$$$$\\     $$$$$$\\           $$$$$$$\\  $$$$$$$$\\       $$\\   $$\\ $$$$$$$\\  $$\\   $$\\ ");
+                    Console.WriteLine("\t\t\t\t\t$$  _$$\\ $$  __|      $$  _$$\\ $$  _$$\\ $$  _$$\\ $$  _$$\\ $$  _$$\\ \\$$  _|$$  __|      \\$$  _|    \\$$  _|          $$  _$$\\ $$  __|      $$ |  $$ |$$  _$$\\ $$$\\  $$ |");
+                    Console.WriteLine("\t\t\t\t\t$$ |  $$ |$$ |            $$ /  \\__|$$ /  $$ |$$ |  $$ |$$ /  $$ |$$ |  $$ |   $$ |   $$ |               $$ |         $$ |            $$ |  $$ |$$ |            $$ |  $$ |$$ |  $$ |$$$$\\ $$ |");
+                    Console.WriteLine("\t\t\t\t\t$$ |  $$ |$$$$$\\          \\$$$$$$\\  $$ |  $$ |$$$$$$$  |$$ |  $$ |$$$$$$$  |   $$ |   $$$$$\\             $$ |         $$ |            $$ |  $$ |$$$$$\\          $$ |  $$ |$$$$$$$  |$$ $$\\$$ |");
+                    Console.WriteLine("\t\t\t\t\t$$ |  $$ |$$  _|          \\_$$\\ $$ |  $$ |$$  _/ $$ |  $$ |$$  _$$<    $$ |   $$  _|            $$ |         $$ |            $$ |  $$ |$$  _|         $$ |  $$ |$$  __/ $$ \\$$$$ |");
+                    Console.WriteLine("\t\t\t\t\t$$ |  $$ |$$ |            $$\\   $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |   $$ |   $$ |               $$ |         $$ |            $$ |  $$ |$$ |            $$ |  $$ |$$ |      $$ |\\$$$ |");
+                    Console.WriteLine("\t\t\t\t\t$$$$$$$  |$$$$$$$$\\       \\$$$$$$  | $$$$$$  |$$ |       $$$$$$  |$$ |  $$ |   $$ |   $$$$$$$$\\          $$ |   $$\\ $$$$$$\\ $$\\       $$$$$$$  |$$$$$$$$\\       \\$$$$$$  |$$ |      $$ | \\$$ |");
+                    Console.WriteLine("\t\t\t\t\t\\__/ \\__|       \\__/  \\__/ \\|       \\__/ \\|  \\|   \\|   \\__|         \\|   \\|\\__|\\|      \\__/ \\___|       \\__/ \\|      \\|  \\_|");
+
+                    Console.ForegroundColor = ConsoleColor.Red; //Texto azul en negrita
+                    Console.WriteLine("\n\t\t\t\t\t==============================================================================================================================================================================================");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t-------------------");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t1. Iniciar sesión                                                 ");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2. Salir");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t-------------------");
+                    Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tIngrese opción: ");
+                    opc = int.Parse(Console.ReadLine());
+                    Console.Clear();
+
                     Console.WriteLine("==========================");
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("  \n >  1. Iniciar sesión\n\n >  2. Salir");
