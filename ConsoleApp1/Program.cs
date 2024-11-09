@@ -83,7 +83,7 @@ namespace ConsoleApp1
                     Console.WriteLine("\t\t\t\t\t$$$$$$$  |$$$$$$$$\\       \\$$$$$$  | $$$$$$  |$$ |       $$$$$$  |$$ |  $$ |   $$ |   $$$$$$$$\\          $$ |   $$\\ $$$$$$\\ $$\\       $$$$$$$  |$$$$$$$$\\       \\$$$$$$  |$$ |      $$ | \\$$ |");
                     Console.WriteLine("\t\t\t\t\t\\__/ \\__|       \\__/  \\__/ \\|       \\__/ \\|  \\|   \\|   \\__|         \\|   \\|\\__|\\|      \\__/ \\___|       \\__/ \\|      \\|  \\_|");
 
-                    Console.ForegroundColor = ConsoleColor.Red; //Texto azul en negrita
+                    Console.ForegroundColor = ConsoleColor.Red; 
                     Console.WriteLine("\n\t\t\t\t\t==============================================================================================================================================================================================");
                     Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t-------------------");
                     Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t1. Iniciar sesión                                                 ");
