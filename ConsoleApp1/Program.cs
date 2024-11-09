@@ -66,13 +66,13 @@ namespace ConsoleApp1
                 try
                 {
                     Console.Clear();
-                    Console.BackgroundColor = ConsoleColor.Black; //Fondo blanco
-                    Console.ForegroundColor = ConsoleColor.Red; //Texto azul en negrita
+                    Console.BackgroundColor = ConsoleColor.Black; 
+                    Console.ForegroundColor = ConsoleColor.Red; 
                     Console.WriteLine("\n\t\t\t\t\t==============================================================================================================================================================================================");
-                    Console.ForegroundColor = ConsoleColor.Yellow; //Texto azul en negrita
-                    Console.WriteLine("\t\n\t\t\t\t\t\t\t\t\t  _  __   _  __   _                 _    _     _   _   _  _  _   _          ");
+                    Console.ForegroundColor = ConsoleColor.Yellow; 
+                    Console.WriteLine("\t\n\t\t\t\t\t\t\t\t\t\t\t  _   ___   _  __   _                 _    _     _   _   _  _  _   _          ");
                     Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t (_    |   (_    |   |_  |\\/|   /\\     | \\  |_    /_  |  (_    |    |   / \\  |\\ |   ");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t _)  _|  _)   |   |  |  |  /--\\    |/  |    \\|  |  _)   |   _|  \\_/  | \\|   ");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t __)  _|_  __)   |   |  |  |  /--\\    |/  |    \\|  |  _)   |   _|  \\_/  | \\|   ");
                     Console.WriteLine("\t\t\t\t                                                                                  ");
                     Console.WriteLine("\t\t\t\t\t$$$$$$$\\  $$$$$$$$\\        $$$$$$\\   $$$$$$\\  $$$$$$$\\   $$$$$$\\  $$$$$$$\\  $$$$$$$$\\ $$$$$$$$\\       $$$$$$$$\\     $$$$$$\\           $$$$$$$\\  $$$$$$$$\\       $$\\   $$\\ $$$$$$$\\  $$\\   $$\\ ");
                     Console.WriteLine("\t\t\t\t\t$$  _$$\\ $$  __|      $$  _$$\\ $$  _$$\\ $$  _$$\\ $$  _$$\\ $$  _$$\\ \\$$  _|$$  __|      \\$$  _|    \\$$  _|          $$  _$$\\ $$  __|      $$ |  $$ |$$  _$$\\ $$$\\  $$ |");
