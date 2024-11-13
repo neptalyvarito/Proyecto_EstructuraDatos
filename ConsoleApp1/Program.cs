@@ -57,6 +57,7 @@ namespace ConsoleApp1
             AdminPorDefecto();
             GAletorio.GenerarUsuariosAdmisYTrabajadoresAleatorios(Lu, La, LTra);
             GAletorio.GenerarTickets(Ltick, Lu);
+            GAletorio.GeneraCompus(ArbolitoCompus);
 
 
             int opc = 0;

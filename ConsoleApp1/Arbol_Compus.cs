@@ -18,7 +18,7 @@ namespace ConsoleApp1
         public void AgregarCompu(string codigoCompu, double ram, double almacenamiento, string marca, string sistemaOperativo, string salon, int piso, string edificio, string tarjetaMadre)
         {
             string valorRaiz;
-            Computadoras q = new Computadoras(codigoCompu, ram, almacenamiento, marca, sistemaOperativo, salon, piso, edificio, tarjetaMadre);
+            Computadoras q = new Computadoras(codigoCompu, ram, almacenamiento, marca.ToUpper(), sistemaOperativo.ToUpper(), salon, piso, edificio, tarjetaMadre.ToUpper());
             Computadoras t = arbolito;
 
             if (arbolito == null)

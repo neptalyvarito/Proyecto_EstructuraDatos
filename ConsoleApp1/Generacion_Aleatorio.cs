@@ -11,8 +11,9 @@ namespace ConsoleApp1
     internal class Generacion_Aleatorio
     {   
         public static Random Nro = new Random();
-        public static int chaparNombre, chaparApellido, chaparTelefono, chaparDni, chaparParaContra, chaparTicket, chaparCategoriaTicket;
-        public static string contrasena, Nombre, Apellido;
+        public static int chaparNombre, chaparApellido, chaparTelefono, chaparDni, chaparParaContra, chaparTicket, chaparCategoriaTicket, piso;
+        public static string contrasena, Nombre, Apellido, codigoCompu, marca, sistemaOperativo, salon, edificio, tarjetaMadre;
+        public static double ram, almacenamiento;
 
         //arreglo de 30 nombres
         public static string[] nombres = {  "Diego", "Andre", "Frachesco", "Cesár", "Mauricio", "Raul", "Christian", "Eduardo", 
@@ -28,10 +29,10 @@ namespace ConsoleApp1
                                             "Ajalcriña", "Lovera", "Alimaña", "Navaja"};
 
         //arreglo de 66 nombres
-        public static string[] caracterescontraseña = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", 
+        public static string[] caracterescontraseña = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O",
+                                                        "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y","Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", 
                                                         "r", "s", "t", "u", "v", "w", "x", "y","z", "1", "2", "3", "4", "5", "6", "7", "8",
-                                                        "9","0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O",
-                                                        "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y","Z"};
+                                                        "9","0"};
 
         //4 tipos generales de problemas
         public static string[] TickesitoDescripcion = { "Falla de computadora en Laboratarios de Computo", "Falla de internet dentro del campus de la universidad", 
@@ -50,6 +51,16 @@ namespace ConsoleApp1
                                                "Mejorar atención al cliente"};
 
         public static string[] Salones = { "LCOM1", "LCOM2", "LCOM3", "LCOM4", "LCOM5", "LAB_ELEC", "TALL_ROBOTICA", "CONF1", "CONF2"};
+
+        public static string[] MarcaCompus = { "Toshiba", "HP", "Lenovo"};
+
+        public static double[] Rams = { 4, 8, 16, 32 };
+
+        public static double[] Almacenamiento = { 250, 500, 1024}; 
+
+        public static string[] SistemaOperativo = {"Windows", "Linux", "Apple"};
+
+        public static string[] TarjetasMadres = {"Nvidia", "Amx", "NoseManoxD" };
 
         public void GenerarUsuariosAdmisYTrabajadoresAleatorios(Lista_Alumnos Lu, Lista_Administrativos La, Lista_Trabajadores LTra)
         {
@@ -127,7 +138,26 @@ namespace ConsoleApp1
         }
         public void GeneraCompus(Arbol_Compus arbolito)
         {
-            arbolito.AgregarCompu("ISIO_12", 32.00 , 1000.00, "Toshiba", "Windows", "LCOM1", 6 , "A", "NVIDIA");
+            //string codigoCompu, double ram, double almacenamiento, string marca, string sistemaOperativo, string salon, int piso, string edificio, string tarjetaMadre
+            int chaparAl;
+            for(int i = 0; i <50; i++)
+            {
+                for (int j = 0;j  < 6; j++)
+                {
+                    chaparAl = Nro.Next(); chaparParaContra = Nro.Next(0, 36);
+                    codigoCompu += caracterescontraseña[chaparAl];
+                }
+
+                ram = Rams[Nro.Next(0,4)];
+                almacenamiento = Almacenamiento[Nro.Next(0, 3)];
+                marca = MarcaCompus[Nro.Next(0, 4)];
+                sistemaOperativo = SistemaOperativo[Nro.Next(0, 3)];
+                salon = Salones[Nro.Next(0, 9)];
+                piso = Nro.Next(1, 6);
+                edificio = caracterescontraseña[Nro.Next(0, 5)];
+                tarjetaMadre = TarjetasMadres[Nro.Next(0, 3)];
+
+            }
         }
     }
 }
