@@ -15,7 +15,7 @@ namespace ConsoleApp1
     {
         
         public static Lista_Tickets Ltick = new Lista_Tickets();
-        public static Lista_Usuarios Lu = new Lista_Usuarios();
+        public static Lista_Alumnos Lu = new Lista_Alumnos();
         public static Lista_Administrativos La = new Lista_Administrativos();
         public static Lista_Trabajadores LTra = new Lista_Trabajadores();
 
@@ -23,6 +23,7 @@ namespace ConsoleApp1
         public static Solicitudes q = new Solicitudes();
         public static Pila_Sugerencia PilaSug = new Pila_Sugerencia();
         public static AsignacionTrabajos AsigTra = new AsignacionTrabajos();
+        public static Arbol_Compus ArbolitoCompus = new Arbol_Compus();
 
         public static Validaciones validacion = new Validaciones();
         public static Log_in inicioSesion = new Log_in();
@@ -85,21 +86,14 @@ namespace ConsoleApp1
 
                     Console.ForegroundColor = ConsoleColor.Red; 
                     Console.WriteLine("\n\t\t\t\t\t==============================================================================================================================================================================================");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t-------------------");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t1. Iniciar sesión                                                 ");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2. Salir");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t-------------------");
-                    Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tIngrese opción: ");
-                    opc = int.Parse(Console.ReadLine());
-                    Console.Clear();
-
-                    Console.WriteLine("==========================");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("  \n >  1. Iniciar sesión\n\n >  2. Salir");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t==========================");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Iniciar sesión" +
+                        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  >  2. Salir");
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("\n==========================");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t==========================");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write("\n >  Elija una opción: ");
+                    Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t >  Elija una opción: ");
                    
                     opc = int.Parse(Console.ReadLine());
 
@@ -134,7 +128,7 @@ namespace ConsoleApp1
 
                                         case 2:// Desarrollo parte trabajadores
 
-                                            menuTrabajador.menuTrabajaor(opc, inicioSesion, Lu, LTra, La, Ltick, ref dniUser, ref dniTrabajador, ref dniAdmin);
+                                            menuTrabajador.menuTrabajaor(opc, inicioSesion, Lu, LTra, La, Ltick, ArbolitoCompus, ref dniUser, ref dniTrabajador, ref dniAdmin);
                                             opc = 0;
                                             break; 
 

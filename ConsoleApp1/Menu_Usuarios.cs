@@ -13,7 +13,7 @@ namespace ConsoleApp1
 
         public static int codigoBusquedaUser;
         public static string nombreCompleto;
-        public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Usuarios Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Cola_Solicitudes ColSol, ref Solicitudes q, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, Pila_Sugerencia PilaSug)
+        public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Cola_Solicitudes ColSol, ref Solicitudes q, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, Pila_Sugerencia PilaSug)
         {
             bool verificacion = false;
             do

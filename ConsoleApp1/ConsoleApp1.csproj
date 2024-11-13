@@ -59,13 +59,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administrativos.cs" />
+    <Compile Include="Arbol_Compus.cs" />
     <Compile Include="AsignacionTrabajos.cs" />
+    <Compile Include="ColaPrio_Ticket.cs" />
     <Compile Include="Cola_Solicitudes.cs" />
+    <Compile Include="Computadoras.cs" />
     <Compile Include="Generacion_Aleatorio.cs" />
     <Compile Include="Lista_Administrativos.cs" />
     <Compile Include="Lista_Tickets.cs" />
     <Compile Include="Lista_Trabajadores.cs" />
-    <Compile Include="Lista_Usuarios.cs" />
+    <Compile Include="Lista_Alumnos.cs" />
     <Compile Include="Log_in.cs" />
     <Compile Include="Menu_Admin.cs" />
     <Compile Include="Menu_Usuarios.cs" />
@@ -81,7 +84,7 @@
     <Compile Include="Ticket.cs" />
     <Compile Include="TicketsProgramados.cs" />
     <Compile Include="Trabajador.cs" />
-    <Compile Include="Usuario.cs" />
+    <Compile Include="Alumnos.cs" />
     <Compile Include="Validaciones.cs" />
   </ItemGroup>
   <ItemGroup>

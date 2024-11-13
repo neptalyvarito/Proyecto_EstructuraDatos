@@ -12,7 +12,7 @@ namespace ConsoleApp1
 
         public static Validaciones validacion = new Validaciones();
         public static string contrasena;
-        public bool InicioSesión(int TipoIngresante, Lista_Usuarios Lu, Lista_Trabajadores LTra, Lista_Administrativos La, ref int dniUser, ref int dniTrabajador, ref int dniAdmin)
+        public bool InicioSesión(int TipoIngresante, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, ref int dniUser, ref int dniTrabajador, ref int dniAdmin)
         {
             bool verificacion = false;
             Console.ForegroundColor = ConsoleColor.Yellow;

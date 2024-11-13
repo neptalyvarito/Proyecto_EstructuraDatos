@@ -49,7 +49,9 @@ namespace ConsoleApp1
         public static string[] Sugerencias = { "Mejorar interfaz grafica del programa", "Hacer más rondas de chequeo a Pcs", "Agregar más opciones en el programa", 
                                                "Mejorar atención al cliente"};
 
-        public void GenerarUsuariosAdmisYTrabajadoresAleatorios(Lista_Usuarios Lu, Lista_Administrativos La, Lista_Trabajadores LTra)
+        public static string[] Salones = { "LCOM1", "LCOM2", "LCOM3", "LCOM4", "LCOM5", "LAB_ELEC", "TALL_ROBOTICA", "CONF1", "CONF2"};
+
+        public void GenerarUsuariosAdmisYTrabajadoresAleatorios(Lista_Alumnos Lu, Lista_Administrativos La, Lista_Trabajadores LTra)
         {
             bool flag, flag2 , flag3;
 
@@ -106,7 +108,7 @@ namespace ConsoleApp1
             }
            
         }
-        public void GenerarTickets(Lista_Tickets Ltick, Lista_Usuarios Lu)
+        public void GenerarTickets(Lista_Tickets Ltick, Lista_Alumnos Lu)
         {
             for (int i = 0; i < 30; i++)
             {
@@ -122,6 +124,10 @@ namespace ConsoleApp1
                 Ltick.AgregarTicket(nombre, TickesitoDescripcion[chaparTicket], codigo, TicketsitoCategoria[chaparCategoriaTicket]);
             }
             
+        }
+        public void GeneraCompus(Arbol_Compus arbolito)
+        {
+            arbolito.AgregarCompu("ISIO_12", 32.00 , 1000.00, "Toshiba", "Windows", "LCOM1", 6 , "A", "NVIDIA");
         }
     }
 }

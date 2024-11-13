@@ -9,7 +9,7 @@ namespace ConsoleApp1
 {
     internal class Reportes
     {
-        public void GeneraReporte1(Lista_Tickets Lts, Lista_Usuarios Lu)
+        public void GeneraReporte1(Lista_Tickets Lts, Lista_Alumnos Lu)
         {
             Console.Clear();
            

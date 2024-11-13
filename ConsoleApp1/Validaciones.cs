@@ -99,6 +99,10 @@ namespace ConsoleApp1
         public bool ValidacionIngresoSoloNum(string cadena)
         {
             return int.TryParse(cadena, out int numero);
-        } 
+        }
+        public bool ValidacionIngresoSoloNumDouble(string cadena)
+        {
+            return double.TryParse(cadena, out double numero);
+        }
     }
 }

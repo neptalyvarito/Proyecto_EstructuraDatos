@@ -8,21 +8,21 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal class Lista_Usuarios
+    internal class Lista_Alumnos
     {
-        public Usuario ListaUsuario;
+        public Alumnos ListaUsuario;
         public static int codigoCliente = 4400001;
         public static Validaciones validación = new Validaciones();
 
-        public Lista_Usuarios()
+        public Lista_Alumnos()
         {
             ListaUsuario = null;
         }
         public void RegistrarUsuarios(string nombre, string apellidos, int dni, int numeroCel, string contrasena)
         {
 
-            Usuario q = new Usuario(nombre, apellidos, dni, numeroCel, codigoCliente, contrasena);
-            Usuario t = ListaUsuario;
+            Alumnos q = new Alumnos(nombre, apellidos, dni, numeroCel, codigoCliente, contrasena);
+            Alumnos t = ListaUsuario;
 
             if (ListaUsuario == null)
             {
@@ -40,7 +40,7 @@ namespace ConsoleApp1
         }
         public void MostrarListaUsuarios()
         {
-            Usuario q = ListaUsuario;
+            Alumnos q = ListaUsuario;
             Console.WriteLine("| Código:".PadRight(30, ' ') + "  | Nombre:".PadRight(50, ' ') + "    | DNI:".PadRight(30, ' ') + "      | Número de celular:".PadRight(30, ' ') + " |Contraseña:".PadRight(20, ' '));
             Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             while (q != null)
@@ -53,7 +53,7 @@ namespace ConsoleApp1
         public bool BuscarCuentaUsuario(int dni, string contrasena)
         {
 
-            Usuario q = ListaUsuario;
+            Alumnos q = ListaUsuario;
             bool verificación = false;
 
             while (q != null)
@@ -73,7 +73,7 @@ namespace ConsoleApp1
         public string NombreCompletoUsuario(int dni)
         {
             string nombreCompleto = " ";
-            Usuario q = ListaUsuario;
+            Alumnos q = ListaUsuario;
 
             while (q != null)
             {
@@ -92,7 +92,7 @@ namespace ConsoleApp1
         }
         public int ObtenerCodigoUser(int dni)
         {
-            Usuario q = ListaUsuario;
+            Alumnos q = ListaUsuario;
             int codigo = 0;
             while (q != null)
             {
@@ -111,7 +111,7 @@ namespace ConsoleApp1
         }
         public void ModificarDatosUsers(string modificable1, int modificable2, int codigo, int opc)
         {
-            Usuario q = ListaUsuario;
+            Alumnos q = ListaUsuario;
 
             while (q != null)
             {
@@ -130,8 +130,8 @@ namespace ConsoleApp1
         public void EliminarUsuario()
         {
 
-            Usuario q = ListaUsuario;
-            Usuario t = ListaUsuario;
+            Alumnos q = ListaUsuario;
+            Alumnos t = ListaUsuario;
             string codigo;
             bool flag = false;
             do
@@ -194,7 +194,7 @@ namespace ConsoleApp1
         }
         public bool SaberSiExisteUsuarioConCodigo(int codigoBusqueda)
         {
-            Usuario t = ListaUsuario;
+            Alumnos t = ListaUsuario;
             bool flag = false;
 
             while (t != null)
@@ -211,7 +211,7 @@ namespace ConsoleApp1
         }
         public bool SaberSiExisteUsuarioConDni(int dniBusqueda)
         {
-            Usuario t = ListaUsuario;
+            Alumnos t = ListaUsuario;
             bool flag = false;
 
             while (t != null)
@@ -227,7 +227,7 @@ namespace ConsoleApp1
         }
         public bool SaberSiExisteNumCelularUsuario(int numCelular)
         {
-            Usuario t = ListaUsuario;
+            Alumnos t = ListaUsuario;
             bool flag = false;
 
             while (t != null)
@@ -243,7 +243,7 @@ namespace ConsoleApp1
         }
         public bool SaberSiExisteContraUser(string contrasena)
         {
-            Usuario t = ListaUsuario;
+            Alumnos t = ListaUsuario;
             bool flag = false;
 
             while (t != null)
@@ -260,7 +260,7 @@ namespace ConsoleApp1
         public int ObtenerCodigoAleatorioUser(int detener)
         {
             int codigo = 0;
-            Usuario t = ListaUsuario;
+            Alumnos t = ListaUsuario;
             int contador = 0;
 
             while (t != null)
@@ -278,7 +278,7 @@ namespace ConsoleApp1
         public string ObtenerNombreCompletoUser(int codigoUser)
         {
             string nombreCompleto = " ";
-            Usuario q = ListaUsuario;
+            Alumnos q = ListaUsuario;
 
             while (q != null)
             {
@@ -296,7 +296,7 @@ namespace ConsoleApp1
         }
         public int CantidadDeUsuarios()
         {
-            Usuario t = ListaUsuario;
+            Alumnos t = ListaUsuario;
             int contador = 0;
       
             while(t != null)
@@ -309,7 +309,7 @@ namespace ConsoleApp1
         }
         public void CantidadTickets(int cantidad, int codigo)
         {
-            Usuario t = ListaUsuario;
+            Alumnos t = ListaUsuario;
             while(t != null)
             {
                ;
@@ -324,7 +324,7 @@ namespace ConsoleApp1
         }
         public void ImprimirReporte1()
         {
-            Usuario t = ListaUsuario;
+            Alumnos t = ListaUsuario;
             Console.WriteLine("| Usuario".PadRight(48, ' ') + "| Cantidad de Tickets Generados");
             Console.WriteLine("--------------------------------------------------------------------------------------");
             while(t!= null)

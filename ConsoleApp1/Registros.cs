@@ -14,7 +14,7 @@ namespace ConsoleApp1
         public static string nombres, apellidos, contrasena;
         public static int dni, numeroCel;
 
-        public void RegistroUsersTrabajadoresAdmins(Lista_Usuarios Lu, Lista_Trabajadores LTra, Lista_Administrativos La, int TipoAModificar)
+        public void RegistroUsersTrabajadoresAdmins(Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, int TipoAModificar)
         {
             bool flag = false, verificacion = false;
             

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal class Usuario
+    internal class Alumnos
     {
         public string nombres;
         public string apellidos;
@@ -15,9 +15,9 @@ namespace ConsoleApp1
         public int codigoCliente;
         public string contrasena;
         public int cantidadTicketsCreados =0;
-        public Usuario sgte;
+        public Alumnos sgte;
 
-        public Usuario(string nombres, string apellidos, int dni, int numeroCel, int codigoCliente,string contrasena)
+        public Alumnos(string nombres, string apellidos, int dni, int numeroCel, int codigoCliente,string contrasena)
         {
             this.nombres = nombres;
             this.apellidos = apellidos;
