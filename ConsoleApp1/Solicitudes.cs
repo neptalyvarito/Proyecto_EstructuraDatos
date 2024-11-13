@@ -12,7 +12,7 @@ namespace ConsoleApp1
         private int codigoDueno;
         private string solicitante;
         private string tipoSolicitud;
-        private string destinatario; // se busca entre todos los dnis
+        private string destinatario; 
         private string condicion;
         private string mensajeParaUsuario;
         private DateTime fechaCreacion;

@@ -13,7 +13,7 @@ namespace ConsoleApp1
 {
     internal class Program
     {
-        
+        public static ColaPrio_Ticket colitaPrioridad = new ColaPrio_Ticket();
         public static Lista_Tickets Ltick = new Lista_Tickets();
         public static Lista_Alumnos Lu = new Lista_Alumnos();
         public static Lista_Administrativos La = new Lista_Administrativos();
@@ -24,12 +24,13 @@ namespace ConsoleApp1
         public static Pila_Sugerencia PilaSug = new Pila_Sugerencia();
         public static AsignacionTrabajos AsigTra = new AsignacionTrabajos();
         public static Arbol_Compus ArbolitoCompus = new Arbol_Compus();
+  
 
         public static Validaciones validacion = new Validaciones();
         public static Log_in inicioSesion = new Log_in();
         public static Generacion_Aleatorio GAletorio = new Generacion_Aleatorio();
 
-        public static Menu_Clientes menuUsario = new Menu_Clientes();
+        public static Menu_Alumnos menuUsario = new Menu_Alumnos();
         public static Menu_Trabajadores menuTrabajador = new Menu_Trabajadores();
         public static Menu_Admin menuAdministrador = new Menu_Admin();
 
@@ -46,18 +47,31 @@ namespace ConsoleApp1
         public static void AdminPorDefecto()
         {
             La.AgregarAdmin("Alvaro Neptaly", "Mayo de la Vega", 901789730, 75433366, "alvaroneptaly");
-            La.AgregarAdmin("Neiser Omar", "Chavez Chuqui", 922240578, 70826687, "neiseromar");
             La.AgregarAdmin("Sandy Andrea", "Solis Molina", 953261550, 76802211, "sandyandrea");
             La.AgregarAdmin("Elias Alejandro", "Diaz Cahuas", 927073589, 74877780, "eliasalejandro");
         }
-        
+        public static void TrabajadorPorDefecto()
+        {
+            LTra.RegistrarTrabajador("Neiser Omar", "Chavez Chuqui", 70826687, 922240578, "neiseromar");
+        }
+           
         static void Main(string[] args)
         {
             UserPorDefecto();
             AdminPorDefecto();
+            TrabajadorPorDefecto();
             GAletorio.GenerarUsuariosAdmisYTrabajadoresAleatorios(Lu, La, LTra);
-            GAletorio.GenerarTickets(Ltick, Lu);
+            GAletorio.GenerarTickets(Ltick, Lu, colitaPrioridad);
             GAletorio.GeneraCompus(ArbolitoCompus);
+            Ltick.LlenarLista(colitaPrioridad.colaPrio);
+
+            colitaPrioridad.ImprimirTicketsPrio();
+
+            Console.WriteLine("********************************************************************");
+
+            Ltick.ImprimirTicket();
+
+            Console.ReadLine();
 
 
             int opc = 0;
@@ -122,7 +136,7 @@ namespace ConsoleApp1
                                         case 1:// Desarrollo de la parte usuario
 
 
-                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, ColaSol, ref q, ref dniUser, ref dniTrabajador, ref dniAdmin, PilaSug);
+                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, ColaSol, ref q, ref dniUser, ref dniTrabajador, ref dniAdmin, PilaSug, colitaPrioridad);
                                           
                                             opc = 0;
                                             break;
@@ -135,7 +149,7 @@ namespace ConsoleApp1
 
                                         case 3: // Desarrollo de la parte aministrativos
 
-                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, ColaSol, ref q, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin);
+                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, ColaSol, ref q, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, colitaPrioridad);
                                             
                                             opc = 0;
                                             break;// Desarrollo parte Admins
@@ -437,7 +451,7 @@ namespace ConsoleApp1
                         case 1:
 
                             Console.Clear();
-                            Ltick.ImprimirTickets();
+                            colitaPrioridad.ImprimirTicketsPrio();
                             Console.ReadLine();
 
                             opc = 0;
@@ -446,21 +460,21 @@ namespace ConsoleApp1
                         case 2:
 
                             Console.Clear();
-                            Ltick.ResponderTicket();
+                            Ltick.ResponderTicket(colitaPrioridad);
 
                             opc = 0;
                             break;
 
                         case 3:
                             Console.Clear();
-                            Ltick.MostrarTicketsEspera();
+                            colitaPrioridad.MostrarTicketsEsperaPrio();
                             Console.ReadLine();
                             opc = 0;
                             break;
 
                         case 4:
                             Console.Clear();
-                            Ltick.MostrarTicketsResueltos();
+                            colitaPrioridad.MostrarTicketsResueltosPrio();
                             Console.ReadLine();
                             opc = 0;
                             break;
@@ -473,7 +487,7 @@ namespace ConsoleApp1
                             do
                             {
                                 Console.Clear();
-                                Ltick.MostrarTicketsEspera();
+                                colitaPrioridad.MostrarTicketsEsperaPrio();
                                 Console.ForegroundColor = ConsoleColor.Cyan;
                                 Console.Write("\n\n=====================================================================");
                                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -489,7 +503,7 @@ namespace ConsoleApp1
                                 {
                                     flag = false;
 
-                                    flag =  Ltick.SaberSiExisteTicket(int.Parse(codigoTi));
+                                    flag =  colitaPrioridad.SaberSiExisteTicketPrio(int.Parse(codigoTi));
 
                                     if(flag == true)
                                     {
@@ -513,7 +527,7 @@ namespace ConsoleApp1
                                                 flag = LTra.SaberSiExisteTrabajadorConCodigo(int.Parse(codigoTr));
                                                 if (flag == true)
                                                 {
-                                                    AsigTra.AsignacionTicket(int.Parse(codigoTr), int.Parse(codigoTi), Ltick);
+                                                    AsigTra.AsignacionTicket(int.Parse(codigoTr), int.Parse(codigoTi), Ltick, colitaPrioridad);
                                                  
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
                                                     Console.WriteLine("\n=============================");
@@ -553,7 +567,7 @@ namespace ConsoleApp1
 
                         case 6:
                             Console.Clear();
-                            Ltick.EliminarTicket();
+                            Ltick.EliminarTicket(colitaPrioridad);
                             opc = 0;
                             break;
 

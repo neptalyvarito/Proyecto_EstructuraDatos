@@ -119,20 +119,25 @@ namespace ConsoleApp1
             }
            
         }
-        public void GenerarTickets(Lista_Tickets Ltick, Lista_Alumnos Lu)
+        public void GenerarTickets(Lista_Tickets Ltick, Lista_Alumnos Lu, ColaPrio_Ticket colaPrio)
         {
             for (int i = 0; i < 30; i++)
             {
-                int detener = Nro.Next(0, 19);
+                int detener = Nro.Next(0, Lu.CantidadDeUsuarios());
                 int codigo = 0;
                 string nombre = "";
-
+                string cate = "";
                 codigo = Lu.ObtenerCodigoAleatorioUser(detener);
                 nombre = Lu.ObtenerNombreCompletoUser(codigo);
 
                 chaparTicket = Nro.Next(0, 4);
                 chaparCategoriaTicket = Nro.Next(0, 8);
-                Ltick.AgregarTicket(nombre, TickesitoDescripcion[chaparTicket], codigo, TicketsitoCategoria[chaparCategoriaTicket]);
+                int a = Nro.Next(1, 4);
+                if (a == 4) cate = "Alumno";
+                else if (a == 3) cate = "Trabajador";
+                else if (a == 2) cate = "Profesor";
+                else if (a == 1) cate = "Administrativo";
+                colaPrio.AgregarTicketPrioridad(nombre, TickesitoDescripcion[chaparTicket], codigo, TicketsitoCategoria[chaparCategoriaTicket],a, cate );
             }
             
         }
@@ -142,21 +147,23 @@ namespace ConsoleApp1
             int chaparAl;
             for(int i = 0; i <50; i++)
             {
+                codigoCompu = "";
                 for (int j = 0;j  < 6; j++)
                 {
-                    chaparAl = Nro.Next(); chaparParaContra = Nro.Next(0, 36);
+                    chaparAl = Nro.Next(0, 36);
                     codigoCompu += caracterescontraseña[chaparAl];
                 }
 
                 ram = Rams[Nro.Next(0,4)];
                 almacenamiento = Almacenamiento[Nro.Next(0, 3)];
-                marca = MarcaCompus[Nro.Next(0, 4)];
+                marca = MarcaCompus[Nro.Next(0, 3)];
                 sistemaOperativo = SistemaOperativo[Nro.Next(0, 3)];
                 salon = Salones[Nro.Next(0, 9)];
                 piso = Nro.Next(1, 6);
                 edificio = caracterescontraseña[Nro.Next(0, 5)];
                 tarjetaMadre = TarjetasMadres[Nro.Next(0, 3)];
 
+                arbolito.AgregarCompu(codigoCompu, ram, almacenamiento, marca, sistemaOperativo, salon, piso, edificio, tarjetaMadre);
             }
         }
     }

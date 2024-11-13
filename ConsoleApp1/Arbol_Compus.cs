@@ -118,128 +118,62 @@ namespace ConsoleApp1
                 }
             }
         }
-        public void buscarPorCompuPorSalon(string SalonCom)
+     
+        public void MostrarArbolitoPorSalon(Computadoras arb, string salon)
         {
-            string valorRaiz;
-            Computadoras t = arbolito;
-            int nivel = 0;
-
-            if (arbolito == null)
+            if (arb == null)
             {
-                Console.WriteLine("Lista de computadoras vacia... ");
+                return;
             }
             else
             {
-                while (t != null)
+                MostrarArbolitoPorSalon(arb.izquierda, salon);
+                if (salon.ToUpper() == arb.salon.ToUpper())
                 {
-                    valorRaiz = t.salon;
-                    if (SalonCom.CompareTo(valorRaiz) == 0)
-                    {
-                        Console.WriteLine("------------------------");
-                        Console.WriteLine("Computadora encontrada");
-                        Console.WriteLine("------------------------");
-                        Console.WriteLine("Código del computador : " + t.codigoCompu);
-                        Console.WriteLine("Edificio              : " + t.edificio);
-                        Console.WriteLine("Piso                  : " + t.piso);
-                        Console.WriteLine("Salon                 : " + t.salon);
-                        Console.WriteLine("-------------------------");
-                        Console.WriteLine("Especificaciones: ");
-                        Console.WriteLine("-------------------------");
-                        Console.WriteLine("Marca                 : " + t.marca);
-                        Console.WriteLine("Sistema Operativo     : " + t.sistemaOperativo);
-                        Console.WriteLine("Almacenamiento        : " + t.almacenamiento);
-                        Console.WriteLine("Ram                   : " + t.ram);
-                        Console.WriteLine("Tarjeta madres        : " + t.tarjetaMadre);
-
-
-                    }
-
-                    if (SalonCom.CompareTo(valorRaiz) == -1)
-                    {
-                        if (t.izquierda != null)
-                        {
-                            t = t.izquierda;
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        if (t.derecha != null)
-                        {
-                            t = t.derecha;
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Computadora encontrada");
+                    Console.WriteLine("------------------------");
+                    Console.WriteLine("Código del computador : " + arb.codigoCompu);
+                    Console.WriteLine("Edificio              : " + arb.edificio);
+                    Console.WriteLine("Piso                  : " + arb.piso);
+                    Console.WriteLine("Salon                 : " + arb.salon);
+                    Console.WriteLine("Marca                 : " + arb.marca);
+                    Console.WriteLine("Sistema Operativo     : " + arb.sistemaOperativo);
+                    Console.WriteLine("Almacenamiento        : " + arb.almacenamiento);
+                    Console.WriteLine("Ram                   : " + arb.ram);
+                    Console.WriteLine("Tarjeta madres        : " + arb.tarjetaMadre);
                 }
+                MostrarArbolitoPorSalon(arb.derecha, salon);
             }
         }
-        public void buscarPorCompuPorMarca(string MarcaCom)
+        public void MostrarArbolitoPorMarca(Computadoras arb, string marca)
         {
-            string valorRaiz;
-            Computadoras t = arbolito;
-            int nivel = 0;
-
-            if (arbolito == null)
+            if (arb == null)
             {
-                Console.WriteLine("Lista de computadoras vacia... ");
+                return;
             }
             else
             {
-                while (t != null)
+                MostrarArbolitoPorMarca(arb.izquierda, marca);
+                if (marca.ToUpper() == arb.marca.ToUpper())
                 {
-                    valorRaiz = t.marca;
-                    if (MarcaCom.CompareTo(valorRaiz) == 0)
-                    {
-                        Console.WriteLine("------------------------");
-                        Console.WriteLine("Computadora encontrada");
-                        Console.WriteLine("------------------------");
-                        Console.WriteLine("Código del computador : " + t.codigoCompu);
-                        Console.WriteLine("Edificio              : " + t.edificio);
-                        Console.WriteLine("Piso                  : " + t.piso);
-                        Console.WriteLine("Salon                 : " + t.salon);
-                        Console.WriteLine("-------------------------");
-                        Console.WriteLine("Especificaciones: ");
-                        Console.WriteLine("-------------------------");
-                        Console.WriteLine("Marca                 : " + t.marca);
-                        Console.WriteLine("Sistema Operativo     : " + t.sistemaOperativo);
-                        Console.WriteLine("Almacenamiento        : " + t.almacenamiento);
-                        Console.WriteLine("Ram                   : " + t.ram);
-                        Console.WriteLine("Tarjeta madres        : " + t.tarjetaMadre);
-
-
-                    }
-
-                    if (MarcaCom.CompareTo(valorRaiz) == -1)
-                    {
-                        if (t.izquierda != null)
-                        {
-                            t = t.izquierda;
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        if (t.derecha != null)
-                        {
-                            t = t.derecha;
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Computadora encontrada");
+                    Console.WriteLine("------------------------");
+                    Console.WriteLine("Código del computador : " + arb.codigoCompu);
+                    Console.WriteLine("Edificio              : " + arb.edificio);
+                    Console.WriteLine("Piso                  : " + arb.piso);
+                    Console.WriteLine("Salon                 : " + arb.salon);
+                    Console.WriteLine("Marca                 : " + arb.marca);
+                    Console.WriteLine("Sistema Operativo     : " + arb.sistemaOperativo);
+                    Console.WriteLine("Almacenamiento        : " + arb.almacenamiento);
+                    Console.WriteLine("Ram                   : " + arb.ram);
+                    Console.WriteLine("Tarjeta madres        : " + arb.tarjetaMadre);
                 }
+                MostrarArbolitoPorMarca(arb.derecha, marca);
             }
-        }
+        }   
+       
         public void mostrarArbolito(Computadoras arb, int cont)
         {
             if (arb == null)

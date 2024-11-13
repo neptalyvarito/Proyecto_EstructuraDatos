@@ -26,10 +26,10 @@ namespace ConsoleApp1
             }
         }
 
-        public void AsignacionTicket(int codigoTra, int codigoTicket, Lista_Tickets lt)
+        public void AsignacionTicket(int codigoTra, int codigoTicket, Lista_Tickets lt, ColaPrio_Ticket colitaPrio)
         {
             Tecnicos q = cabeza;
-            Ticket t = lt.BuscarTicket(codigoTicket);
+            Ticket t = colitaPrio.BuscarTicketPrio(codigoTicket);
             while (q != null)
             {
                 if(q.datosTecnico.codigoTrabajador == codigoTra)

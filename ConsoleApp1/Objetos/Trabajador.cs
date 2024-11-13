@@ -15,6 +15,7 @@ namespace ConsoleApp1
         public int codigoTrabajador;
         public int cantidadTicketsRespondidos = 0;
         public string contrasena;
+        public string categoria = "Trabajador";
         public DateTime horaEntrada;
         public DateTime horaSalida;
         public string totalHorasTrabajadas;

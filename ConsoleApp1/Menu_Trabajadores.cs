@@ -207,7 +207,7 @@ namespace ConsoleApp1
                                         Console.WriteLine("\n > 7. Visualizar lista de computadoras");
                                         Console.WriteLine("\n > 8. Volver");
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("\n=======================================================================");
+                                        Console.WriteLine("\n====================================================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
                                         Console.Write(" > Elija una opción: ");
                                         opc = int.Parse(Console.ReadLine());
@@ -459,11 +459,12 @@ namespace ConsoleApp1
                                                 break;
                                             
                                             case 2:
-
+                                                Console.Clear();
                                                 Console.Write("Ingrese el código de la computadora a buscar: ");
                                                 string codigoBus = Console.ReadLine();
                                                 ArbCom.buscarPorCompuPorCodigo(codigoBus);
                                                 Console.ReadLine();
+
                                                 opc = 0;
                                                 break;
 
@@ -477,7 +478,7 @@ namespace ConsoleApp1
                                                 Console.Clear();
                                                 Console.Write(" Ingrese el salon: ");
                                                 string codigoBusSal = Console.ReadLine();
-                                                ArbCom.buscarPorCompuPorSalon(codigoBusSal);
+                                                ArbCom.MostrarArbolitoPorSalon(ArbCom.arbolito, codigoBusSal);
                                                 Console.ReadLine();
 
 
@@ -486,9 +487,11 @@ namespace ConsoleApp1
 
                                             case 5:
 
+                                                Console.Clear();
+
                                                 Console.Write("Ingrese la marca que desea buscar: ");
                                                 string marcaBus = Console.ReadLine();
-                                                ArbCom.buscarPorCompuPorMarca(marcaBus);
+                                                ArbCom.MostrarArbolitoPorMarca(ArbCom.arbolito, marcaBus);
 
                                                 Console.ReadLine();
 

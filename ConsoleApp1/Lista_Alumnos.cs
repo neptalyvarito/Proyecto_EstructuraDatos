@@ -312,7 +312,6 @@ namespace ConsoleApp1
             Alumnos t = ListaUsuario;
             while(t != null)
             {
-               ;
                 if(codigo == t.codigoCliente)
                 {
                     t.cantidadTicketsCreados = cantidad;

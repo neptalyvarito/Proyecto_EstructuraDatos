@@ -242,5 +242,42 @@ namespace ConsoleApp1
             }
             return flag;
         }
+        public int ObtenerCodigoAleatorioAdmin(int detener)
+        {
+            int codigo = 0;
+            Administrativos t = listaAdmins;
+            int contador = 0;
+
+            while (t != null)
+            {
+                if (detener == contador)
+                {
+                    codigo = t.codigoAdmin;
+                    break;
+                }
+                t = t.sgte;
+                contador++;
+            }
+            return codigo;
+        }
+        public string ObtenerNombreCompletoAdmin(int codigoUser)
+        {
+            string nombreCompleto = " ";
+            Administrativos q = listaAdmins;
+
+            while (q != null)
+            {
+                if (codigoUser == q.codigoAdmin)
+                {
+                    nombreCompleto = q.nombres + " " + q.apellidos;
+                    break;
+                }
+                else
+                {
+                    q = q.sgte;
+                }
+            }
+            return nombreCompleto;
+        }
     }
 }

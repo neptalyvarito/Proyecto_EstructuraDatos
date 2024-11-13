@@ -14,7 +14,7 @@ namespace ConsoleApp1
         public static Validaciones validacion = new Validaciones();
         public static Reportes reportes = new Reportes();
         public static string nombreCompleto;
-        public void menuAdmin(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick,Cola_Solicitudes ColSol, ref Solicitudes q, Pila_Sugerencia PilSug, Registros registro, ref int dniUser, ref int dniTrabajador, ref int dniAdmin)
+        public void menuAdmin(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick,Cola_Solicitudes ColSol, ref Solicitudes q, Pila_Sugerencia PilSug, Registros registro, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ColaPrio_Ticket colitaPrio)
 
         {
             bool verificacion = false;
@@ -605,10 +605,10 @@ namespace ConsoleApp1
                                         switch (opc)
                                         {
                                             case 1:
-                                                reportes.GeneraReporte1(Ltick, Lu);
+                                                reportes.GeneraReporte1(Ltick, Lu, colitaPrio);
                                                 break;
                                             case 2:
-                                                reportes.GeneraReporte2(Ltick);
+                                                reportes.GeneraReporte2(Ltick, colitaPrio);
                                                 break;
                                             case 3:
                                                 break;

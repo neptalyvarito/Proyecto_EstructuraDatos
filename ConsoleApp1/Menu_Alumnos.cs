@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal class Menu_Clientes
+    internal class Menu_Alumnos
     {
         public static Validaciones validacion = new Validaciones();
 
         public static int codigoBusquedaUser;
         public static string nombreCompleto;
-        public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Cola_Solicitudes ColSol, ref Solicitudes q, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, Pila_Sugerencia PilaSug)
+        public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Cola_Solicitudes ColSol, ref Solicitudes q, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, Pila_Sugerencia PilaSug, ColaPrio_Ticket colaPrio)
         {
             bool verificacion = false;
             do
@@ -106,35 +106,35 @@ namespace ConsoleApp1
                                         {
                                             case 1:
                                                 categoria = "VPN: Conexion, error en VPN";
-                                                GeneraTicketUser(Ltick, categoria);
+                                                GeneraTicketUser(Ltick, categoria, colaPrio);
                                                 break;
                                             case 2:
                                                 categoria = "Equipos de computo y accesorios";
-                                                GeneraTicketUser(Ltick, categoria);
+                                                GeneraTicketUser(Ltick, categoria, colaPrio);
                                                 break;
                                             case 3:
                                                 categoria = "Redes: Falla de conexión, lentitud, etc";
-                                                GeneraTicketUser(Ltick, categoria);
+                                                GeneraTicketUser(Ltick, categoria, colaPrio);
                                                 break;
                                             case 4:
                                                 categoria = "Software: Teams, Windows, Office, etc";
-                                                GeneraTicketUser(Ltick, categoria);
+                                                GeneraTicketUser(Ltick, categoria, colaPrio);
                                                 break;
                                             case 5:
                                                 categoria = "Wifi: falla de conexión, etc";
-                                                GeneraTicketUser(Ltick, categoria);
+                                                GeneraTicketUser(Ltick, categoria, colaPrio);
                                                 break;
                                             case 6:
                                                 categoria = "Internet: caida del servicio";
-                                                GeneraTicketUser(Ltick, categoria);
+                                                GeneraTicketUser(Ltick, categoria, colaPrio);
                                                 break;
                                             case 7:
                                                 categoria = "Correo: No envia ni recibe correo ";
-                                                GeneraTicketUser(Ltick, categoria);
+                                                GeneraTicketUser(Ltick, categoria, colaPrio);
                                                 break;
                                             case 8:
                                                 categoria = "Antivirus:AMP, Umbrell";
-                                                GeneraTicketUser(Ltick, categoria);
+                                                GeneraTicketUser(Ltick, categoria, colaPrio);
                                                 break;
                                             case 9: // sale de do while
                                                 break;
@@ -155,7 +155,7 @@ namespace ConsoleApp1
                             case 2:
 
                                 Console.Clear();
-                                Ltick.ImprimirTicketsPorUsuario(codigoBusquedaUser);
+                                colaPrio.ImprimirTicketsPorUsuarioPrio(codigoBusquedaUser);
                                 Console.ReadLine();
                                 opc = 0;
                                 break;
@@ -163,7 +163,7 @@ namespace ConsoleApp1
                             case 3:
 
                                 Console.Clear();
-                                Ltick.MostrarTicketsResueltosPorUsuario(codigoBusquedaUser);
+                                colaPrio.MostrarTicketsResueltosPorUsuarioPrio(codigoBusquedaUser);
                                 Console.ReadLine();
                                 opc = 0;
                                 break;
@@ -171,7 +171,7 @@ namespace ConsoleApp1
                             case 4:
 
                                 Console.Clear();
-                                Ltick.MostrarTicketsEsperaPorUsuario(codigoBusquedaUser);
+                                colaPrio.MostrarTicketsEsperaPorUsuarioPrio(codigoBusquedaUser);
                                 Console.ReadLine();
                                 opc = 0;
                                 break;
@@ -561,7 +561,7 @@ namespace ConsoleApp1
                 } while (opc != 9);
             }
         }
-        public static void GeneraTicketUser(Lista_Tickets Ltick, string categoria)
+        public static void GeneraTicketUser(Lista_Tickets Ltick, string categoria, ColaPrio_Ticket colaPrio)
         {
             bool verificacion;
             do
@@ -585,7 +585,7 @@ namespace ConsoleApp1
                 }
                 else if (verificacion == true)
                 {
-                    Ltick.AgregarTicket(nombreCompleto, descripcion, codigoBusquedaUser, categoria);
+                    colaPrio.AgregarTicketPrioridad(nombreCompleto, descripcion, codigoBusquedaUser, categoria, 4, "Alumno");
                     Console.WriteLine("  ->  Su ticket ha sido creado con exito!");
                     Console.ReadLine();
                 }

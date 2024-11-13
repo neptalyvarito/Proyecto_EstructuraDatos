@@ -6,27 +6,29 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal class Alumnos
+    internal class Administrativos
     {
         public string nombres;
         public string apellidos;
-        public int dni;
         public int numeroCel;
-        public int codigoCliente;
+        public int dni;
         public string contrasena;
-        public int cantidadTicketsCreados =0;
-        public Alumnos sgte;
-
-        public Alumnos(string nombres, string apellidos, int dni, int numeroCel, int codigoCliente,string contrasena)
+        public int cantidadTicketsRespondidos = 0;
+        public int codigoAdmin;
+        public string categoria = "Administrativo";
+        public Administrativos sgte;
+        public Administrativos(string nombres, string apellidos, int numeroCel, int dni, string contrasena, int codigoAdmin)
         {
             this.nombres = nombres;
             this.apellidos = apellidos;
-            this.dni = dni;
             this.numeroCel = numeroCel;
-            this.codigoCliente = codigoCliente;
+            this.dni = dni;
+            cantidadTicketsRespondidos = 0;
             this.contrasena = contrasena;
-            cantidadTicketsCreados = 0;
+            this.codigoAdmin = codigoAdmin;
             sgte = null;
         }
+
+
     }
 }
