@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -178,25 +179,59 @@ namespace ConsoleApp1
                 }
                 MostrarArbolitoPorMarca(arb.derecha, marca);
             }
-        }   
-       
-        public void mostrarArbolito(Computadoras arb, int cont)
+        }
+
+        public void mostrarArbolitoVertical(Computadoras arb, int cont)
         {
             if (arb == null)
             {
                 return;
             }
-            else
+
+           
+            mostrarArbolitoVertical(arb.derecha, cont + 1);
+
+           
+            for (int i = 0; i < cont; i++)
             {
-                mostrarArbolito(arb.derecha, cont + 1);
-                for (int i = 0; i < cont; i++)
+                Console.Write("   ");
+            }
+
+            
+            Console.WriteLine(" " + arb.codigoCompu + " (" + arb.marca + ")");
+
+           
+            if (arb.izquierda != null || arb.derecha != null) 
+            {
+                if (arb.izquierda != null)
                 {
-                    Console.Write("   ");
+                    mostrarArbolitoVertical(arb.izquierda, cont + 1);
                 }
-                Console.WriteLine(arb.codigoCompu);
-                mostrarArbolito(arb.izquierda, cont + 1);
+                else
+                {
+                    for (int i = 0; i < cont + 1; i++)
+                    {
+                        Console.Write("   ");
+                    }
+                   // Console.WriteLine("|-- (nulo)"); // Nodo nulo
+                }
+
+                if (arb.derecha != null)
+                {
+                    mostrarArbolitoVertical(arb.derecha, cont + 1);
+                }
+                else
+                {
+                  
+                    for (int i = 0; i < cont + 1; i++)
+                    {
+                        Console.Write("   ");
+                    }
+                  //  Console.WriteLine("|-- (nulo)"); // Nodo nulo
+                }
             }
         }
+
         public void MostrarArbolitoEnOrden(Computadoras arb)
         {
             if (arb == null)
@@ -248,6 +283,27 @@ namespace ConsoleApp1
                 }
                 ModificarDatosCompu(modificable1, modificable2, modificable3, codigo, opc, arb.derecha);
              
+            }
+        }
+    }
+}
+        }
+        public void buscarPorSalon(Computadoras arb, string salon, ref int piso, ref string edificio, ref string codigoCompu)
+        {
+            if (arb == null)
+            {
+                return;
+            }
+            else
+            {
+                buscarPorSalon(arb.izquierda, salon, ref piso, ref edificio, ref codigoCompu);
+                if (salon.ToUpper() == arb.salon.ToUpper())
+                {
+                    piso = arb.piso;
+                    edificio = arb.edificio;
+                    codigoCompu = arb.codigoCompu;
+                }
+                buscarPorSalon(arb.derecha, salon, ref piso, ref edificio, ref codigoCompu);
             }
         }
     }

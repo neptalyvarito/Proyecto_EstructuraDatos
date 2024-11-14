@@ -636,7 +636,17 @@ namespace ConsoleApp1
                                                 opc = 0;
                                                 break;
 
-                                            case 8: 
+                                            case 8:
+                                                //ARBOL VERTICAL
+                                                Console.Clear();
+                                                Console.WriteLine("Árbol de computadoras en formato vertical:");
+                                                ArbCom.mostrarArbolitoVertical(ArbCom.arbolito, 0);
+                                                Console.ReadLine();
+                                                opc = 0;
+                                                break;
+
+                                            case 9:
+                                                
                                                 break;
                                             default:
                                                 Console.ForegroundColor = ConsoleColor.DarkRed;

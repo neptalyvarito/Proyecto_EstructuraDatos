@@ -58,6 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABBOptimizado_Salon.cs" />
+    <Compile Include="ArbolSatis.cs" />
     <Compile Include="Generar_DataGeneral\GenerarTicket.cs" />
     <Compile Include="Listas\Lista_Profes.cs" />
     <Compile Include="Menus\Menu_Profes.cs" />
@@ -67,6 +69,19 @@
     <Compile Include="Estructuras\ColaPrio_Ticket.cs" />
     <Compile Include="Estructuras\Cola_Solicitudes.cs" />
     <Compile Include="Objetos\Computadoras.cs" />
+    <Compile Include="Generacion_Aleatorio.cs" />
+    <Compile Include="Lista_Administrativos.cs" />
+    <Compile Include="Lista_Tickets.cs" />
+    <Compile Include="Lista_Trabajadores.cs" />
+    <Compile Include="Lista_Alumnos.cs" />
+    <Compile Include="Log_in.cs" />
+    <Compile Include="Menu_Admin.cs" />
+    <Compile Include="Menu_Alumnos.cs" />
+    <Compile Include="Menu_Trabajadores.cs" />
+    <Compile Include="Objetos\Satisfaccion.cs" />
+    <Compile Include="Objetos\Salones.cs" />
+    <Compile Include="PilaSatis.cs" />
+    <Compile Include="Pila_Sugerencia.cs" />
     <Compile Include="Generar_DataGeneral\Generacion_Aleatorio.cs" />
     <Compile Include="Listas\Lista_Administrativos.cs" />
     <Compile Include="Listas\Lista_Tickets.cs" />

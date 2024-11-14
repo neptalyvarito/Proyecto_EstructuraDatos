@@ -147,9 +147,9 @@ namespace ConsoleApp1
                                         Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese un dato valido >");
                                         Console.ReadLine();
                                     }
-                                    
+
                                 } while (opc != 9);
-                       
+
                                 opc = 0;
                                 break;
 
@@ -417,7 +417,7 @@ namespace ConsoleApp1
                                                     }
                                                     else if (verificacion == true)
                                                     {
-                                                        ColSol.AgregarSolicitud(ref q, nombreCompleto,descripcion, nombreCompleto, codigoBusquedaUser);
+                                                        ColSol.AgregarSolicitud(ref q, nombreCompleto, descripcion, nombreCompleto, codigoBusquedaUser);
                                                         Console.ForegroundColor = ConsoleColor.Cyan;
                                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t=====================================================");
                                                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -542,8 +542,42 @@ namespace ConsoleApp1
                                 } while (verificacion != true);
 
                                 break;
-                            
+
                             case 9:
+                                do
+                                {
+                                    Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("                 Realizando encuesta de satisfacción                   ");
+                                    Console.WriteLine("======================================================================");
+                                    Console.WriteLine("    Siéntase libre de expresar lo que guste, la encuesta es anónima    ");
+                                    Console.WriteLine("======================================================================");
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("\n >  ¿Está satisfecho(a) con la atención dada? (Sí/No): ");
+                                    string satisfaccion = Console.ReadLine();
+
+                                    verificacion = validacion.ValidacionDeCadenaVaciaEIngresoNum2(satisfaccion);
+                                    if (satisfaccion == "2")
+                                    {
+                                        break;
+                                    }
+                                    else if (verificacion == true)
+                                    {
+                                        PilaSug.AgregarSug(satisfaccion);
+                                        Console.WriteLine("----------------------------------------------------");
+                                        Console.WriteLine("  ->  Su sugerencia ha sido mandada con exito!");
+                                        Console.ReadLine();
+                                    }
+                                    else if (verificacion == false)
+                                    {
+                                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                                        Console.WriteLine("\n... Su respuesta no debe quedar en blanco");
+                                        Console.ReadLine();
+                                    }
+
+                                } while (verificacion != true);
+                        break;
+                            case 10:
                                 break;
                             default:
                                 Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -561,6 +595,44 @@ namespace ConsoleApp1
 
                 } while (opc != 9);
             }
+        }
+        public static void GeneraTicketUser(Lista_Tickets Ltick, string categoria, ColaPrio_Ticket colaPrio)
+        {
+            bool verificacion;
+            do
+            {
+
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine(" Categoria Seleccionada:  " + categoria);
+                Console.WriteLine("======================================================================");
+                Console.WriteLine(" Proporciona una breve descripción de tu incidente : ");
+                Console.WriteLine("======================================================================");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("\n >  Ingrese qué problemas está teniendo: ");
+                Console.Write("\n    ");
+                string descripcion = Console.ReadLine();
+
+                verificacion = validacion.ValidacionDeCadenaVaciaEIngresoNum2(descripcion);
+                if (descripcion == "2")
+                {
+                    break;
+                }
+                else if (verificacion == true)
+                {
+                    colaPrio.AgregarTicketPrioridad(nombreCompleto, descripcion, codigoBusquedaUser, categoria, 4, "Alumno");
+                    Console.WriteLine("  ->  Su ticket ha sido creado con exito!");
+                    Console.ReadLine();
+                }
+                else if (verificacion == false)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("\n... El ingreso de descripcón del ticket no puede estar en blanco");
+                    Console.ReadLine();
+                }
+
+            } while (verificacion != true);
+
         }
     }
 }            
