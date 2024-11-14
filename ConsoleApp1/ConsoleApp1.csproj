@@ -63,7 +63,7 @@
     <Compile Include="AsignacionTrabajos.cs" />
     <Compile Include="ColaPrio_Ticket.cs" />
     <Compile Include="Cola_Solicitudes.cs" />
-    <Compile Include="Computadoras.cs" />
+    <Compile Include="Objetos\Computadoras.cs" />
     <Compile Include="Generacion_Aleatorio.cs" />
     <Compile Include="Lista_Administrativos.cs" />
     <Compile Include="Lista_Tickets.cs" />
