@@ -13,9 +13,10 @@ namespace ConsoleApp1
         public static Program program = new Program();
         public static Validaciones validacion = new Validaciones();
         public static Reportes reportes = new Reportes();
+        public static GenerarTicket generarTikcetsito = new GenerarTicket();
         public static string nombreCompleto;
-        public void menuAdmin(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick,Cola_Solicitudes ColSol, ref Solicitudes q, Pila_Sugerencia PilSug, Registros registro, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ColaPrio_Ticket colitaPrio)
-
+        
+        public void menuAdmin(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Cola_Solicitudes ColSol, ref Solicitudes q, Pila_Sugerencia PilSug, Registros registro, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, ColaPrio_Ticket colitaPrio)
         {
             bool verificacion = false;
             int opcMandar = 0;
@@ -31,7 +32,7 @@ namespace ConsoleApp1
                     Console.WriteLine("  Llene los siguientes campos o ingrese el número 2 para volver");
                     Console.WriteLine("===================================================================");
 
-                    verificacion = inicioSesion.InicioSesión(opc, Lu, LTra, La, ref dniUser, ref dniTrabajador, ref dniAdmin);
+                    verificacion = inicioSesion.InicioSesión(opc, Lu, LTra, La, Lp, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe);
 
                     if (verificacion == false && (dniUser == 2 || dniAdmin == 2 || dniTrabajador == 2))
                     {
@@ -66,20 +67,21 @@ namespace ConsoleApp1
                         Console.Clear();
 
                         nombreCompleto = La.NombreCompletoAmdin(dniAdmin);
-                       
+          
                         opc = 0;
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine(" Bienvenido señor " + nombreCompleto);
                         Console.WriteLine("===============================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine("\n >  1. Gestionar alumnos");
-                        Console.WriteLine("\n >  2. Gestionar trabajadores");
-                        Console.WriteLine("\n >  3. Gestionar administrativos");
-                        Console.WriteLine("\n >  4. Gestionar tickets");
-                        Console.WriteLine("\n >  5. Gestionar solicitudes");
-                        Console.WriteLine("\n >  6. Gestionar sugerencias");
-                        Console.WriteLine("\n >  7. Generar Reporte");
-                        Console.WriteLine("\n >  8. Volver");
+                        Console.WriteLine("\n >  2. Gestionar docentes");
+                        Console.WriteLine("\n >  3. Gestionar trabajadores");
+                        Console.WriteLine("\n >  4. Gestionar administrativos");
+                        Console.WriteLine("\n >  5. Gestionar tickets");
+                        Console.WriteLine("\n >  6. Gestionar solicitudes");
+                        Console.WriteLine("\n >  7. Gestionar sugerencias");
+                        Console.WriteLine("\n >  8. Generar Reporte");
+                        Console.WriteLine("\n >  9. Volver");
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("\n===============================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -129,7 +131,7 @@ namespace ConsoleApp1
 
                                                     Console.Clear();
                                                     Lu.MostrarListaUsuarios();
-                                                    int codigo;
+                                                    
                                                     string aux;
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
                                                     Console.Write("\n============================================================================");
@@ -145,11 +147,11 @@ namespace ConsoleApp1
                                                     }
                                                     else if (verificacion == true)
                                                     {
-                                                        codigo = int.Parse(aux);
-                                                        verificacion = Lu.SaberSiExisteUsuarioConCodigo(codigo);
+                                                        int codigo3 = int.Parse(aux);
+                                                        verificacion = Lu.SaberSiExisteUsuarioConCodigo(codigo3);
                                                         if (verificacion == true)
                                                         {
-                                                            program.ModificacionUsuariosTrabajsYAdmins(codigo, opcMandar);
+                                                            program.ModificacionUsuariosTrabajsYAdmins(codigo3, opcMandar);
                                                         }
                                                         else
                                                         {
@@ -197,6 +199,49 @@ namespace ConsoleApp1
                                 break;
 
                             case 2:
+                                do
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("======== Gestionando docentes =======");
+                                    Console.WriteLine("\n >  1. Agregar docente");
+                                    Console.WriteLine("\n >  2. Mostrar lista de docentes");
+                                    Console.WriteLine("\n >  3. Volver");
+                                    Console.WriteLine("=====================================");
+                                    Console.Write("\n >  Ingrese opción: ");
+                                    opc = int.Parse(Console.ReadLine());
+
+                                    switch (opc)
+                                    {
+                                        case 1:
+                                            Console.Clear();
+                                            Console.WriteLine("         Registrando nuevo profesor           ");
+                                            Console.WriteLine("----------------------------------------------");
+                                            Console.Write("\n >  Nombres: ");
+                                            string nombres = Console.ReadLine();
+                                            Console.Write("\n >  Apellidos: ");
+                                            string apellido = Console.ReadLine();
+                                            Console.Write("\n >  Dni: ");
+                                            int dni = int.Parse(Console.ReadLine());
+                                            Console.Write("\n >  Número celular: ");
+                                            int numeroCel = int.Parse(Console.ReadLine());
+                                            Console.Write("\n >  Contraseña: ");
+                                            string contrasena = Console.ReadLine();
+                                            Lp.RegistrarProfe(nombres, apellido, dni, numeroCel, contrasena);
+                                            break;
+                                        case 2:
+                                            Lp.MostrarListaProfes();
+                                            Console.ReadLine();
+                                            break;
+                                        case 3:
+                                            break;
+                                        default:
+                                            break;
+                                    }
+
+                                } while (opc != 3);
+                                break;
+
+                            case 3:
 
                                 do
                                 {
@@ -235,7 +280,7 @@ namespace ConsoleApp1
 
                                                     Console.Clear();
                                                     LTra.MostrarListaTrabajadores();
-                                                    int codigo;
+                                                    int codigo2;
                                                     string aux;
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
                                                     Console.Write("\n===============================================================================");
@@ -251,11 +296,11 @@ namespace ConsoleApp1
                                                     }
                                                     else if (verificacion == true)
                                                     {
-                                                        codigo = int.Parse(aux);
-                                                        verificacion = LTra.SaberSiExisteTrabajadorConCodigo(codigo);
+                                                        codigo2 = int.Parse(aux);
+                                                        verificacion = LTra.SaberSiExisteTrabajadorConCodigo(codigo2);
                                                         if (verificacion == true)
                                                         {
-                                                            program.ModificacionUsuariosTrabajsYAdmins(codigo, opcMandar);
+                                                            program.ModificacionUsuariosTrabajsYAdmins(codigo2, opcMandar);
                                                         }
                                                         else
                                                         {
@@ -302,7 +347,7 @@ namespace ConsoleApp1
                                 opc = 0;
                                 break;
 
-                            case 3:
+                            case 4:
                                 do
                                 {
                                     try
@@ -342,7 +387,7 @@ namespace ConsoleApp1
 
                                                     Console.Clear();
                                                     La.MostrarListaAdministrativos();
-                                                    int codigo;
+                                                    int codigo1;
                                                     string aux;
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
                                                     Console.Write("\n\n==================================================================================");
@@ -358,11 +403,11 @@ namespace ConsoleApp1
                                                     }
                                                     else if (verificacion == true)
                                                     {
-                                                        codigo = int.Parse(aux);
-                                                        verificacion = La.SaberSiExisteAdminConCodigo(codigo);
+                                                        codigo1 = int.Parse(aux);
+                                                        verificacion = La.SaberSiExisteAdminConCodigo(codigo1);
                                                         if (verificacion == true)
                                                         {
-                                                            program.ModificacionUsuariosTrabajsYAdmins(codigo, opcMandar);
+                                                            program.ModificacionUsuariosTrabajsYAdmins(codigo1, opcMandar);
                                                         }
                                                         else
                                                         {
@@ -412,13 +457,16 @@ namespace ConsoleApp1
                                 opc = 0;
                                 break;
 
-                            case 4:
+                            case 5:
 
-                                program.GestionTickets();
+                                int codigo;
+                                codigo = La.ObtenerCodigoAdmin(dniAdmin);
+                                program.GestionTickets(1, nombreCompleto, codigo);
 
                                 opc = 0;
                                 break;
-                            case 5:
+
+                            case 6:
                                 do
                                 {
                                     try
@@ -509,7 +557,7 @@ namespace ConsoleApp1
                                 opc = 0;
                                 break;
 
-                            case 6:
+                            case 7:
 
                                 do
                                 {
@@ -584,7 +632,7 @@ namespace ConsoleApp1
                                 opc = 0;
                                 break;
 
-                            case 7:
+                            case 8:
                                 do
                                 {
                                     try
@@ -626,7 +674,8 @@ namespace ConsoleApp1
                                 } while (opc != 3);
                                 opc = 0;
                                 break;
-                            case 8: //SALIDA
+
+                            case 9: //SALIDA
                                 break;
 
                             default:
@@ -643,7 +692,7 @@ namespace ConsoleApp1
                         Console.ReadLine();
                     }
 
-                } while (opcMandar != 8);
+                } while (opcMandar != 9);
             }
 
 

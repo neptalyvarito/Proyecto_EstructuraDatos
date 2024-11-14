@@ -10,10 +10,10 @@ namespace ConsoleApp1
     internal class Menu_Alumnos
     {
         public static Validaciones validacion = new Validaciones();
-
+        public static GenerarTicket generarTikcetsito = new GenerarTicket();
         public static int codigoBusquedaUser;
         public static string nombreCompleto;
-        public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Cola_Solicitudes ColSol, ref Solicitudes q, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, Pila_Sugerencia PilaSug, ColaPrio_Ticket colaPrio)
+        public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Cola_Solicitudes ColSol, ref Solicitudes q, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, Pila_Sugerencia PilaSug, ColaPrio_Ticket colaPrio)
         {
             bool verificacion = false;
             do
@@ -27,12 +27,13 @@ namespace ConsoleApp1
                     Console.WriteLine("  Llene los siguientes campos o ingrese el número 2 para volver");
                     Console.WriteLine("===================================================================");
 
-                    verificacion = inicioSesion.InicioSesión(opc, Lu, LTra, La, ref dniUser, ref dniTrabajador, ref dniAdmin);
+                    verificacion = inicioSesion.InicioSesión(opc, Lu, LTra, La, Lp, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe);
                     if (verificacion == false && (dniUser == 2 || dniAdmin == 2 || dniTrabajador == 2))
                     {
                         dniUser = 0;
                         dniAdmin = 0;
                         dniTrabajador = 0;
+                        dniProfe = 0;
                         break;
                     }
                     else if (verificacion == false)
@@ -106,35 +107,35 @@ namespace ConsoleApp1
                                         {
                                             case 1:
                                                 categoria = "VPN: Conexion, error en VPN";
-                                                GeneraTicketUser(Ltick, categoria, colaPrio);
+                                                generarTikcetsito.GenerarTickesito(4, categoria, nombreCompleto, colaPrio, codigoBusquedaUser);
                                                 break;
                                             case 2:
                                                 categoria = "Equipos de computo y accesorios";
-                                                GeneraTicketUser(Ltick, categoria, colaPrio);
+                                                generarTikcetsito.GenerarTickesito(4, categoria, nombreCompleto, colaPrio, codigoBusquedaUser);
                                                 break;
                                             case 3:
                                                 categoria = "Redes: Falla de conexión, lentitud, etc";
-                                                GeneraTicketUser(Ltick, categoria, colaPrio);
+                                                generarTikcetsito.GenerarTickesito(4, categoria, nombreCompleto, colaPrio, codigoBusquedaUser);
                                                 break;
                                             case 4:
                                                 categoria = "Software: Teams, Windows, Office, etc";
-                                                GeneraTicketUser(Ltick, categoria, colaPrio);
+                                                generarTikcetsito.GenerarTickesito(4, categoria, nombreCompleto, colaPrio, codigoBusquedaUser);
                                                 break;
                                             case 5:
                                                 categoria = "Wifi: falla de conexión, etc";
-                                                GeneraTicketUser(Ltick, categoria, colaPrio);
+                                                generarTikcetsito.GenerarTickesito(4, categoria, nombreCompleto, colaPrio, codigoBusquedaUser);
                                                 break;
                                             case 6:
                                                 categoria = "Internet: caida del servicio";
-                                                GeneraTicketUser(Ltick, categoria, colaPrio);
+                                                generarTikcetsito.GenerarTickesito(4, categoria, nombreCompleto, colaPrio, codigoBusquedaUser);
                                                 break;
                                             case 7:
                                                 categoria = "Correo: No envia ni recibe correo ";
-                                                GeneraTicketUser(Ltick, categoria, colaPrio);
+                                                generarTikcetsito.GenerarTickesito(4, categoria, nombreCompleto, colaPrio, codigoBusquedaUser);
                                                 break;
                                             case 8:
                                                 categoria = "Antivirus:AMP, Umbrell";
-                                                GeneraTicketUser(Ltick, categoria, colaPrio);
+                                                generarTikcetsito.GenerarTickesito(4, categoria, nombreCompleto, colaPrio, codigoBusquedaUser);
                                                 break;
                                             case 9: // sale de do while
                                                 break;
@@ -560,44 +561,6 @@ namespace ConsoleApp1
 
                 } while (opc != 9);
             }
-        }
-        public static void GeneraTicketUser(Lista_Tickets Ltick, string categoria, ColaPrio_Ticket colaPrio)
-        {
-            bool verificacion;
-            do
-            {
-
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine(" Categoria Seleccionada:  " + categoria);
-                Console.WriteLine("======================================================================");
-                Console.WriteLine(" Proporciona una breve descripción de tu incidente : ");
-                Console.WriteLine("======================================================================");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write("\n >  Ingrese qué problemas está teniendo: ");
-                Console.Write("\n    ");
-                string descripcion = Console.ReadLine();
-
-                verificacion = validacion.ValidacionDeCadenaVaciaEIngresoNum2(descripcion);
-                if (descripcion == "2")
-                {
-                    break;
-                }
-                else if (verificacion == true)
-                {
-                    colaPrio.AgregarTicketPrioridad(nombreCompleto, descripcion, codigoBusquedaUser, categoria, 4, "Alumno");
-                    Console.WriteLine("  ->  Su ticket ha sido creado con exito!");
-                    Console.ReadLine();
-                }
-                else if (verificacion == false)
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("\n... El ingreso de descripcón del ticket no puede estar en blanco");
-                    Console.ReadLine();
-                }
-
-            } while (verificacion != true);
-
         }
     }
 }            

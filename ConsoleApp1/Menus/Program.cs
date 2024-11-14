@@ -13,8 +13,14 @@ namespace ConsoleApp1
 {
     internal class Program
     {
-        public static ColaPrio_Ticket colitaPrioridad = new ColaPrio_Ticket();
+        public static Menu_Alumnos menuUsario = new Menu_Alumnos();
+        public static Menu_Trabajadores menuTrabajador = new Menu_Trabajadores();
+        public static Menu_Admin menuAdministrador = new Menu_Admin();
+        public static Menu_Profes menuProfes = new Menu_Profes();
 
+
+        public static ColaPrio_Ticket colitaPrioridad = new ColaPrio_Ticket();
+        public static GenerarTicket generarTicketsito = new GenerarTicket();
         public static Lista_Tickets Ltick = new Lista_Tickets();
         public static Lista_Alumnos Lu = new Lista_Alumnos();
         public static Lista_Administrativos La = new Lista_Administrativos();
@@ -32,15 +38,13 @@ namespace ConsoleApp1
         public static Log_in inicioSesion = new Log_in();
         public static Generacion_Aleatorio GAletorio = new Generacion_Aleatorio();
 
-        public static Menu_Alumnos menuUsario = new Menu_Alumnos();
-        public static Menu_Trabajadores menuTrabajador = new Menu_Trabajadores();
-        public static Menu_Admin menuAdministrador = new Menu_Admin();
+        
 
         public static Registros registro = new Registros();
         
 
         public static int dni;
-        public static int codigoBusquedaTrabajador, codigoBusquedaAdmin, dniUser = 0, dniTrabajador = 0, dniAdmin =0;
+        public static int codigoBusquedaTrabajador, codigoBusquedaAdmin, dniUser = 0, dniTrabajador = 0, dniAdmin =0, dniProfe = 0;
 
         public static void UserPorDefecto()
         {
@@ -129,7 +133,7 @@ namespace ConsoleApp1
                                     Console.ForegroundColor = ConsoleColor.Cyan;                                  
                                     Console.WriteLine("\n======== Iniciar sesión como ========");
                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                    Console.WriteLine("\n >  1. Alumno\n\n >  2. Trabajador\n\n >  3. Administrativo\n\n >  4. Volver");
+                                    Console.WriteLine("\n >  1. Alumno\n\n >  2. Trabajador\n\n >  3. Administrativo\n\n >  4. Docente \n\n >  5. Volver");
                                     Console.ForegroundColor = ConsoleColor.Cyan;
                                     Console.WriteLine("\n=====================================");
                                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -140,26 +144,29 @@ namespace ConsoleApp1
                                     {
                                         case 1:// Desarrollo de la parte usuario
 
-
-                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, ColaSol, ref q, ref dniUser, ref dniTrabajador, ref dniAdmin, PilaSug, colitaPrioridad);
+                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref q, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, PilaSug, colitaPrioridad);
                                           
                                             opc = 0;
                                             break;
 
                                         case 2:// Desarrollo parte trabajadores
 
-                                            menuTrabajador.menuTrabajaor(opc, inicioSesion, Lu, LTra, La, Ltick, ArbolitoCompus, ref dniUser, ref dniTrabajador, ref dniAdmin);
+                                            menuTrabajador.menuTrabajador(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ArbolitoCompus, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe);
                                             opc = 0;
                                             break; 
 
                                         case 3: // Desarrollo de la parte aministrativos
 
-                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, ColaSol, ref q, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, colitaPrioridad);
+                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref q, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, colitaPrioridad);
                                             
                                             opc = 0;
                                             break;// Desarrollo parte Admins
 
-                                        case 4:// Salida
+                                        case 4:
+
+                                            break;
+
+                                        case 5:// Salida
                                             break;
 
                                         default:
@@ -436,7 +443,7 @@ namespace ConsoleApp1
                 }
             } while (opc != 5);
         }
-        public void GestionTickets()
+        public void GestionTickets(int tipoIngresante, string nombreCompleto, int codigoCreador)
         {
             int opc = 0;
             do
@@ -446,7 +453,9 @@ namespace ConsoleApp1
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("======= Gestionando tickets =======");
-                    Console.WriteLine("\n >  1. Ver lista de tickets \n\n >  2. Responder ticket \n\n >  3. Ver tickets en espera \n\n >  4. Ver tickets resueltos \n\n >  5. Designar tickets \n\n >  6. Eliminar ticket\n\n >  7. Volver ");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\n >  1. Ver lista de tickets \n\n >  2. Generar ticket \n\n >  3. Responder ticket \n\n >  4. Ver tickets en espera \n\n >  5. Ver tickets resueltos \n\n >  6. Designar tickets \n\n >  7. Eliminar ticket\n\n >  8. Volver ");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("\n===================================");
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write("\n >  Elija una opción: ");
@@ -463,6 +472,82 @@ namespace ConsoleApp1
                             break;
 
                         case 2:
+                            do
+                            {
+                                try
+                                {
+                                    string categoria;
+
+                                    Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("    Indicanos el servicio que presenta fallas");
+                                    Console.WriteLine("====================================================");
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.WriteLine("\n >  1. VPN: Conexion, error en VPN");
+                                    Console.WriteLine("\n >  2. Equipos de computo y accesorios");
+                                    Console.WriteLine("\n >  3. Redes: Falla de conexión, lentitud, etc.");
+                                    Console.WriteLine("\n >  4. Software: Teams, Windows, Office, etc. ");
+                                    Console.WriteLine("\n >  5. Wifi: falla de conexión, etc.");
+                                    Console.WriteLine("\n >  6. Internet: caida del servicio ");
+                                    Console.WriteLine("\n >  7. Correo: No envia ni recibe correo ");
+                                    Console.WriteLine("\n >  8. Antivirus:AMP, Umbrell");
+                                    Console.WriteLine("\n >  9. Volver");
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("\n====================================================");
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("\n >  Elija una opción: ");
+                                    opc = int.Parse(Console.ReadLine());
+                                    switch (opc)
+                                    {
+                                        case 1:
+                                            categoria = "VPN: Conexion, error en VPN";
+                                            generarTicketsito.GenerarTickesito(tipoIngresante, categoria, nombreCompleto, colitaPrioridad, codigoCreador);
+                                            break;
+                                        case 2:
+                                            categoria = "Equipos de computo y accesorios";
+                                            generarTicketsito.GenerarTickesito(tipoIngresante, categoria, nombreCompleto, colitaPrioridad, codigoCreador);
+                                            break;
+                                        case 3:
+                                            categoria = "Redes: Falla de conexión, lentitud, etc";
+                                            generarTicketsito.GenerarTickesito(tipoIngresante, categoria, nombreCompleto, colitaPrioridad, codigoCreador);
+                                            break;
+                                        case 4:
+                                            categoria = "Software: Teams, Windows, Office, etc";
+                                            generarTicketsito.GenerarTickesito(tipoIngresante, categoria, nombreCompleto, colitaPrioridad, codigoCreador);
+                                            break;
+                                        case 5:
+                                            categoria = "Wifi: falla de conexión, etc";
+                                            generarTicketsito.GenerarTickesito(tipoIngresante, categoria, nombreCompleto, colitaPrioridad, codigoCreador);
+                                            break;
+                                        case 6:
+                                            categoria = "Internet: caida del servicio";
+                                            generarTicketsito.GenerarTickesito(tipoIngresante, categoria, nombreCompleto, colitaPrioridad, codigoCreador);
+                                            break;
+                                        case 7:
+                                            categoria = "Correo: No envia ni recibe correo ";
+                                            generarTicketsito.GenerarTickesito(tipoIngresante, categoria, nombreCompleto, colitaPrioridad, codigoCreador);
+                                            break;
+                                        case 8:
+                                            categoria = "Antivirus:AMP, Umbrell";
+                                            generarTicketsito.GenerarTickesito(tipoIngresante, categoria, nombreCompleto, colitaPrioridad, codigoCreador);
+                                            break;
+                                        case 9: // sale de do while
+                                            break;
+                                    }
+                                }
+                                catch
+                                {
+                                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                                    Console.Write("\n\n.. < Ingrese un dato valido >");
+                                    Console.ReadLine();
+                                }
+
+                            } while (opc != 9);
+
+                            opc = 0;
+                            break;
+
+                        case 3:
 
                             Console.Clear();
                             Ltick.ResponderTicket(colitaPrioridad);
@@ -470,21 +555,21 @@ namespace ConsoleApp1
                             opc = 0;
                             break;
 
-                        case 3:
+                        case 4:
                             Console.Clear();
                             colitaPrioridad.MostrarTicketsEsperaPrio();
                             Console.ReadLine();
                             opc = 0;
                             break;
 
-                        case 4:
+                        case 5:
                             Console.Clear();
                             colitaPrioridad.MostrarTicketsResueltosPrio();
                             Console.ReadLine();
                             opc = 0;
                             break;
 
-                        case 5:
+                        case 6:
 
                             string codigoTi, codigoTr;
                             bool flag;
@@ -570,13 +655,13 @@ namespace ConsoleApp1
                             opc = 0;
                             break;
 
-                        case 6:
+                        case 7:
                             Console.Clear();
                             Ltick.EliminarTicket(colitaPrioridad);
                             opc = 0;
                             break;
 
-                        case 7:
+                        case 8:
                             break;
 
                         default:
@@ -593,7 +678,7 @@ namespace ConsoleApp1
                     Console.WriteLine("\n.. < Ingrese una opción valida >");
                     Console.ReadLine();
                 }
-            } while (opc != 6);
+            } while (opc != 8);
         }
 
     }

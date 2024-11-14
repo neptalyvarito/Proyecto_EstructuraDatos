@@ -112,6 +112,8 @@ namespace ConsoleApp1
                         }
                         else
                         {
+                            Console.WriteLine("  >  Computadora no encontrada");
+                            Console.ReadLine();
                             return;
                         }
                     }
@@ -123,6 +125,8 @@ namespace ConsoleApp1
         {
             if (arb == null)
             {
+                Console.WriteLine("  >  Salon no encontrado");
+                Console.ReadLine();
                 return;
             }
             else
@@ -150,6 +154,8 @@ namespace ConsoleApp1
         {
             if (arb == null)
             {
+                Console.WriteLine("  >  Computadoras con dicha marca no encontrada");
+                Console.ReadLine();
                 return;
             }
             else

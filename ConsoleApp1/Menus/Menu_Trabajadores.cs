@@ -12,7 +12,7 @@ namespace ConsoleApp1
         public static Program program = new Program();
         public static Validaciones validacion = new Validaciones();
         public static string nombreCompleto;
-        public void menuTrabajaor(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Arbol_Compus ArbCom, ref int dniUser, ref int dniTrabajador, ref int dniAdmin) 
+        public void menuTrabajador(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Arbol_Compus ArbCom, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe) 
         {
             bool verificacion = false;
             do
@@ -27,7 +27,7 @@ namespace ConsoleApp1
                     Console.WriteLine("  Llene los siguientes campos o ingrese el número 2 para volver");
                     Console.WriteLine("===================================================================");
 
-                    verificacion = inicioSesion.InicioSesión(opc, Lu, LTra, La, ref dniUser, ref dniTrabajador, ref dniAdmin);
+                    verificacion = inicioSesion.InicioSesión(opc, Lu, LTra, La, Lp, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe);
 
                     //etornar = int.Parse(Console.ReadLine());
                     if (verificacion == false && (dniUser == 2 || dniAdmin == 2 || dniTrabajador == 2))
@@ -35,6 +35,7 @@ namespace ConsoleApp1
                         dniUser = 0;
                         dniAdmin = 0;
                         dniTrabajador = 0;
+                        dniProfe = 0;
                         break;
                     }
                     else if (verificacion == false)
@@ -66,7 +67,7 @@ namespace ConsoleApp1
                         Console.WriteLine(" Bienvenido señor " + nombreCompleto);
                         Console.WriteLine("\n==============================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("\n >  1. Gestionar tickets\n\n >  2. Gestionar alumnos\n\n >  3. Marcar hora de salida \n\n >  4. Gestionar computadoras \n\n > 5. Volver");
+                        Console.WriteLine("\n >  1. Gestionar tickets\n\n >  2. Gestionar alumnos\n\n >  3. Marcar hora de salida \n\n >  4. Gestionar computadoras \n\n >  5. Volver");
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("\n==============================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -75,7 +76,9 @@ namespace ConsoleApp1
                         switch (opc)
                         {
                             case 1:
-                                program.GestionTickets();
+                                int codigo;
+                                codigo = LTra.ObtenerCodigoConDNI(dniTrabajador);
+                                program.GestionTickets(3, nombreCompleto, codigo);
                                 opc = 0;
                                 break;
 
@@ -184,8 +187,8 @@ namespace ConsoleApp1
 
                             case 3:
                                 Console.Clear();
-                                int codigo = LTra.ObtenerCodigoConDNI(dniTrabajador);
-                                LTra.MarcarSalida(codigo);
+                                int codigoYea = LTra.ObtenerCodigoConDNI(dniTrabajador);
+                                LTra.MarcarSalida(codigoYea);
                                 break;
 
                             case 4:

@@ -34,8 +34,18 @@ namespace ConsoleApp1
             }
             codigoProfe++;
         }
+        public void MostrarListaProfes()
+        {
+            Profesor q = listaProfes;
+            Console.WriteLine("| Código:".PadRight(30, ' ') + "  | Nombre:".PadRight(50, ' ') + "    | DNI:".PadRight(30, ' ') + "      | Número de celular:".PadRight(30, ' ') + " |Contraseña:".PadRight(20, ' '));
+            Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            while (q != null)
+            {
+                Console.WriteLine("\n| " + q.codigoProfe.ToString().PadRight(30, ' ') + "| " + (q.nombres + " " + q.apellidos).PadRight(50, ' ') + "| " + q.dni.ToString().PadRight(30, ' ') + "| " + q.numerocel.ToString().PadRight(20, ' ') + "   |" + q.contrasena.PadRight(20, ' '));
+                q = q.sgte;
+            }
+        }
 
-        
         public bool SaberSiExisteProfeConDni(int dniBusqueda)
         {
             Profesor t = listaProfes;
@@ -123,6 +133,46 @@ namespace ConsoleApp1
                 }
             }
             return nombreCompleto;
+        }
+        public bool BuscarCuentaProfes(int dni, string contrasena)
+        {
+
+            Profesor q = listaProfes;
+
+            bool verificación = false;
+
+            while (q != null)
+            {
+                if (dni == q.dni && contrasena == q.contrasena)
+                {
+                    verificación = true;
+                    break;
+                }
+                else
+                {
+                    q = q.sgte;
+                }
+            }
+            return verificación;
+        }
+        public int ObtenerCodigoProfe(int dni)
+        {
+            Profesor q = listaProfes;
+            int codigo = 0;
+            while (q != null)
+            {
+                if (dni == q.dni)
+                {
+                    codigo = q.codigoProfe;
+                    break;
+                }
+                else
+                {
+                    q = q.sgte;
+
+                }
+            }
+            return codigo;
         }
     }
 }

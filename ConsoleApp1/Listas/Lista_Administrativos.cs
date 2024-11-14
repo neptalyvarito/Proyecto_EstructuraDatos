@@ -60,7 +60,6 @@ namespace ConsoleApp1
                 }
             }
             return verificación;
-
         }
 
         public string NombreCompletoAmdin(int dni)
@@ -193,7 +192,7 @@ namespace ConsoleApp1
             }
             return flag;
         }
-        //se usa
+
         public bool SaberSiExisteAdminConDni(int dniBusqueda)
         {
             Administrativos t = listaAdmins;
@@ -281,6 +280,25 @@ namespace ConsoleApp1
                 }
             }
             return nombreCompleto;
+        }
+        public int ObtenerCodigoAdmin(int dni)
+        {
+            Administrativos q = listaAdmins;
+            int codigo = 0;
+            while (q != null)
+            {
+                if (dni == q.dni)
+                {
+                    codigo = q.codigoAdmin;
+                    break;
+                }
+                else
+                {
+                    q = q.sgte;
+
+                }
+            }
+            return codigo;
         }
     }
 }

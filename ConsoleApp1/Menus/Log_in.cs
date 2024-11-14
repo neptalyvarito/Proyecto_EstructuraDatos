@@ -12,7 +12,7 @@ namespace ConsoleApp1
 
         public static Validaciones validacion = new Validaciones();
         public static string contrasena;
-        public bool InicioSesión(int TipoIngresante, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, ref int dniUser, ref int dniTrabajador, ref int dniAdmin)
+        public bool InicioSesión(int TipoIngresante, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Profes Lp, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe)
         {
             bool verificacion = false;
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -31,6 +31,11 @@ namespace ConsoleApp1
             {
                 dniAdmin = int.Parse(Console.ReadLine());
                 verificacion = validacion.ValidacionIngresoDni(dniAdmin);
+            }
+            else if (TipoIngresante == 4)
+            {
+                dniProfe = int.Parse(Console.ReadLine());
+                verificacion = validacion.ValidacionIngresoDni(dniProfe);
             }
             if (verificacion == true)
             {
@@ -52,6 +57,10 @@ namespace ConsoleApp1
                     else if (TipoIngresante == 3)
                     {
                         verificacion = La.BuscarCuentaAdmin(dniAdmin, contrasena);
+                    }
+                    else if (TipoIngresante == 5)
+                    {
+                        verificacion = Lp.BuscarCuentaProfes(dniAdmin, contrasena);
                     }
                 }
             }

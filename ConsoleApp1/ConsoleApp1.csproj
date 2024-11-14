@@ -58,7 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenerarTicket.cs" />
     <Compile Include="Listas\Lista_Profes.cs" />
+    <Compile Include="Menus\Menu_Profes.cs" />
     <Compile Include="Objetos\Administrativos.cs" />
     <Compile Include="Arbol_Compus.cs" />
     <Compile Include="AsignacionTrabajos.cs" />
@@ -70,13 +72,13 @@
     <Compile Include="Listas\Lista_Tickets.cs" />
     <Compile Include="Listas\Lista_Trabajadores.cs" />
     <Compile Include="Listas\Lista_Alumnos.cs" />
-    <Compile Include="Log_in.cs" />
-    <Compile Include="Menu_Admin.cs" />
-    <Compile Include="Menu_Alumnos.cs" />
-    <Compile Include="Menu_Trabajadores.cs" />
+    <Compile Include="Menus\Log_in.cs" />
+    <Compile Include="Menus\Menu_Admin.cs" />
+    <Compile Include="Menus\Menu_Alumnos.cs" />
+    <Compile Include="Menus\Menu_Trabajadores.cs" />
     <Compile Include="Pila_Sugerencia.cs" />
     <Compile Include="Objetos\Profesor.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Menus\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registros.cs" />
     <Compile Include="Reportes.cs" />
