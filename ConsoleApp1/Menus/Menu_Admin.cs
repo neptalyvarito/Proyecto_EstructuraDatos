@@ -461,7 +461,7 @@ namespace ConsoleApp1
 
                                 int codigo;
                                 codigo = La.ObtenerCodigoAdmin(dniAdmin);
-                                program.GestionTickets(1, nombreCompleto, codigo);
+                                program.GestionTickets(4, nombreCompleto, codigo);
 
                                 opc = 0;
                                 break;

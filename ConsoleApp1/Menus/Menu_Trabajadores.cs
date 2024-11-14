@@ -12,7 +12,7 @@ namespace ConsoleApp1
         public static Program program = new Program();
         public static Validaciones validacion = new Validaciones();
         public static string nombreCompleto;
-        public void menuTrabajador(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Arbol_Compus ArbCom, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe) 
+        public void menuTrabajador(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Arbol_Compus ArbCom, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, AsignacionTrabajos Asignacion) 
         {
             bool verificacion = false;
             do
@@ -78,7 +78,7 @@ namespace ConsoleApp1
                             case 1:
                                 int codigo;
                                 codigo = LTra.ObtenerCodigoConDNI(dniTrabajador);
-                                program.GestionTickets(3, nombreCompleto, codigo);
+                                program.GestionTickets(2, nombreCompleto, codigo);
                                 opc = 0;
                                 break;
 

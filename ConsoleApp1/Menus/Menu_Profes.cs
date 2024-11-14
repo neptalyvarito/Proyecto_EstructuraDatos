@@ -111,35 +111,35 @@ namespace ConsoleApp1
                                     {
                                         case 1:
                                             categoria = "VPN: Conexion, error en VPN";
-                                            generarTicketsito.GenerarTickesito(2, categoria, nombreCompleto, colitaPrio, codiguito);
+                                            generarTicketsito.GenerarTickesito(categoria, nombreCompleto, colitaPrio, codiguito, 3, "Profesor");
                                             break;
                                         case 2:
                                             categoria = "Equipos de computo y accesorios";
-                                            generarTicketsito.GenerarTickesito(2, categoria, nombreCompleto, colitaPrio, codiguito);
+                                            generarTicketsito.GenerarTickesito(categoria, nombreCompleto, colitaPrio, codiguito, 3, "Profesor");
                                             break;
                                         case 3:
                                             categoria = "Redes: Falla de conexión, lentitud, etc";
-                                            generarTicketsito.GenerarTickesito(2, categoria, nombreCompleto, colitaPrio, codiguito);
+                                            generarTicketsito.GenerarTickesito(categoria, nombreCompleto, colitaPrio, codiguito, 3, "Profesor");
                                             break;
                                         case 4:
                                             categoria = "Software: Teams, Windows, Office, etc";
-                                            generarTicketsito.GenerarTickesito(2, categoria, nombreCompleto, colitaPrio, codiguito);
+                                            generarTicketsito.GenerarTickesito(categoria, nombreCompleto, colitaPrio, codiguito, 3, "Profesor");
                                             break;
                                         case 5:
                                             categoria = "Wifi: falla de conexión, etc";
-                                            generarTicketsito.GenerarTickesito(2, categoria, nombreCompleto, colitaPrio, codiguito);
+                                            generarTicketsito.GenerarTickesito(categoria, nombreCompleto, colitaPrio, codiguito, 3, "Profesor");
                                             break;
                                         case 6:
                                             categoria = "Internet: caida del servicio";
-                                            generarTicketsito.GenerarTickesito(2, categoria, nombreCompleto, colitaPrio, codiguito);
+                                            generarTicketsito.GenerarTickesito(categoria, nombreCompleto, colitaPrio, codiguito, 3, "Profesor");
                                             break;
                                         case 7:
                                             categoria = "Correo: No envia ni recibe correo ";
-                                            generarTicketsito.GenerarTickesito(2, categoria, nombreCompleto, colitaPrio, codiguito);
+                                            generarTicketsito.GenerarTickesito(categoria, nombreCompleto, colitaPrio, codiguito, 3, "Profesor");
                                             break;
                                         case 8:
                                             categoria = "Antivirus:AMP, Umbrell";
-                                            generarTicketsito.GenerarTickesito(2, categoria, nombreCompleto, colitaPrio, codiguito);
+                                            generarTicketsito.GenerarTickesito(categoria, nombreCompleto, colitaPrio, codiguito, 3, "Profesor");
                                             break;
                                         case 9: 
                                             break;

@@ -80,6 +80,7 @@
     <Compile Include="Objetos\Profesor.cs" />
     <Compile Include="Menus\Program.cs" />
     <Compile Include="Estructuras\Papelera_Tickets.cs" />
+    <Compile Include="Estructuras\PilaMostrarTicket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Generar_DataGeneral\Registros.cs" />
     <Compile Include="Generar_DataGeneral\Reportes.cs" />

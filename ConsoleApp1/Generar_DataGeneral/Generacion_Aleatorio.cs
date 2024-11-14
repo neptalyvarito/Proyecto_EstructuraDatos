@@ -137,25 +137,25 @@ namespace ConsoleApp1
 
                 int a = Nro.Next(1, 5);
 
-                if (a == 4)
+                if (a == 1)
                 {
                     cate = "Alumno";
                     codigo = Lu.ObtenerCodigoAleatorioUser(detener);
                     nombre = Lu.ObtenerNombreCompletoUser(codigo);
                 }
-                else if (a == 3)
+                else if (a == 2)
                 {
                     cate = "Trabajador";
                     codigo = LTra.ObtenerCodigoAleatorioTrabajador(detener);
                     nombre = LTra.ObtenerNombreTrabajadoresConCodigo(codigo);
                 }
-                else if (a == 2)
+                else if (a == 3)
                 {
                     cate = "Profesor";
                     codigo = Lp.ObtenerCodigoAleatorioProfe(detener);
                     nombre = Lp.ObtenerNombreCompletoProfe(codigo);
                 }
-                else if (a == 1)
+                else if (a == 4)
                 {
                     cate = "Administrativo";
                     codigo = La.ObtenerCodigoAleatorioAdmin(detener);

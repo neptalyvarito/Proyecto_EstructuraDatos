@@ -9,7 +9,7 @@ namespace ConsoleApp1
     internal class GenerarTicket
     {
         Validaciones validacion = new Validaciones();
-        public void GenerarTickesito(int tipoIngresante, string categoria, string nombreCompleto, ColaPrio_Ticket colaPrio, int codigoDelCreador)
+        public void GenerarTickesito(string categoria, string nombreCompleto, ColaPrio_Ticket colaPrio, int codigoDelCreador, int tipoIngresante, string nivel)
         {
             bool verificacion;
             do
@@ -33,7 +33,7 @@ namespace ConsoleApp1
                 }
                 else if (verificacion == true)
                 {
-                    colaPrio.AgregarTicketPrioridad(nombreCompleto, descripcion, codigoDelCreador, categoria, 4, "Alumno");
+                    colaPrio.AgregarTicketPrioridad(nombreCompleto, descripcion, codigoDelCreador, categoria, tipoIngresante, nivel);
                     Console.WriteLine("  ->  Su ticket ha sido creado con exito!");
                     Console.ReadLine();
                 }

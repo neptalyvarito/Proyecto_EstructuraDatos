@@ -37,7 +37,7 @@ namespace ConsoleApp1
                 t = t.sgte;
             }
         }
-        public void EliminarTicket(ColaPrio_Ticket colaPr, Papelera_Tickets papelera)
+        public void EliminarTicket(ColaPrio_Ticket colaPr, Papelera_Tickets papelera, PilaMostrarTicket mostrarListaTick)
         {
         
             Ticket q = listaTickets;
@@ -47,7 +47,7 @@ namespace ConsoleApp1
             do
             {
                 Console.Clear();
-                colaPr.ImprimirTicketsPrio();
+                colaPr.ImprimirTicketsPrio(mostrarListaTick);
                 Console.WriteLine("\n------------------------------------------------------------------");
                 Console.WriteLine("|--- Para volver ingrese el número 2");
                 Console.Write(" Ingrese el código del ticket a eliminar: ");

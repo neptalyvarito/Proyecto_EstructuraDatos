@@ -104,20 +104,21 @@ namespace ConsoleApp1
             }
             return null;
         }
-        public void ImprimirTicketsPrio()
+        public void ImprimirTicketsPrio(PilaMostrarTicket pilaMostrar)
         {
             Ticket t = colaPrio;
 
-            Console.WriteLine("| Código:".PadRight(10, ' ') + "  | Categoria:".PadRight(60, ' ') + "  | Descripción:".PadRight(60, ' ') + "    | Dueño:".PadRight(45, ' ') + "      | Código Dueño:".PadRight(15, ' ') + "  | Condición:".PadRight(15, ' ') + "    | Fecha creación:".PadRight(30, ' ') + "| Respuesta:".PadRight(30, ' ') + "| Nivel: " );
+            Console.WriteLine("| Código:".PadRight(10, ' ') + "  | Categoria:".PadRight(60, ' ') + "  | Descripción:".PadRight(60, ' ') + "    | Dueño:".PadRight(45, ' ') + "      | Código Dueño:".PadRight(15, ' ') + "  | Condición:".PadRight(15, ' ') + "    | Fecha creación:".PadRight(30, ' ') + "| Respuesta:".PadRight(30, ' ') + "| Nivel: ");
             Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             while (t != null)
             {
 
-                Console.Write("\n| " + t.codigoTicket.ToString().PadRight(10, ' ') + "| " + t.categoria.PadRight(60, ' ') + "| " + t.descripcion.PadRight(60, ' ') + "| " + t.dueño.PadRight(45, ' ') + "| " + t.codigoDueño.ToString().PadRight(15, ' ') + "| " + t.condicion.PadRight(15, ' ') + "| " + t.fechaCreacion.ToString().PadRight(23, ' ') + " | " + t.respuestaSolucion.PadRight(30, ' ') + " | "+ t.prioridadDes);
+                Console.Write("\n| " + t.codigoTicket.ToString().PadRight(10, ' ') + "| " + t.categoria.PadRight(60, ' ') + "| " + t.descripcion.PadRight(60, ' ') + "| " + t.dueño.PadRight(45, ' ') + "| " + t.codigoDueño.ToString().PadRight(15, ' ') + "| " + t.condicion.PadRight(15, ' ') + "| " + t.fechaCreacion.ToString().PadRight(23, ' ') + " | " + t.respuestaSolucion.PadRight(30, ' ') + " | " + t.prioridadDes);
 
                 t = t.sgte;
             }
+
         }
         public void ImprimirTicketsPorUsuarioPrio(int codigoBusqueda)
         {
@@ -279,6 +280,17 @@ namespace ConsoleApp1
             }
 
             return t;
+        }
+        public int CodigoEncargadoTicket(string descripcion)
+        {
+            Ticket t = colaPrio;
+            int contador = 0;
+            while (t != null)
+            {
+                if (descripcion == t.descripcion) contador++;
+                t = t.sgte;
+            }
+            return contador;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace ConsoleApp1
         public static Menu_Admin menuAdministrador = new Menu_Admin();
         public static Menu_Profes menuProfes = new Menu_Profes();
 
-
+        public static PilaMostrarTicket pilMostrar = new PilaMostrarTicket();
         public static ColaPrio_Ticket colitaPrioridad = new ColaPrio_Ticket();
         public static GenerarTicket generarTicketsito = new GenerarTicket();
         public static Lista_Tickets Ltick = new Lista_Tickets();
@@ -145,7 +145,7 @@ namespace ConsoleApp1
 
                                         case 2:// Desarrollo parte trabajadores
 
-                                            menuTrabajador.menuTrabajador(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ArbolitoCompus, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe);
+                                            menuTrabajador.menuTrabajador(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ArbolitoCompus, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, AsigTra);
                                             opc = 0;
                                             break; 
 
@@ -448,7 +448,7 @@ namespace ConsoleApp1
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t======= Gestionando tickets =======");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Ver lista de tickets \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Generar ticket \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Responder ticket \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Ver tickets en espera \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Ver tickets resueltos \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  6. Designar tickets \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  7. Eliminar ticket\n\n >  8. Volver ");
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Ver lista de tickets \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Generar ticket \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Responder ticket \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Ver tickets en espera \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Ver tickets resueltos \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  6. Designar tickets \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  7. Eliminar ticket\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  8. Mostrar Papelera \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 9. Ver tickets asignados \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 10. Volver ");
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t===================================");
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -459,7 +459,7 @@ namespace ConsoleApp1
                         case 1:
 
                             Console.Clear();
-                            colitaPrioridad.ImprimirTicketsPrio();
+                            colitaPrioridad.ImprimirTicketsPrio(pilMostrar);
                             Console.ReadLine();
 
                             opc = 0;
@@ -471,7 +471,9 @@ namespace ConsoleApp1
                                 try
                                 {
                                     string categoria;
-
+                                    string nivel = " ";
+                                    if (tipoIngresante == 4) nivel = "Administrador";
+                                    else if (tipoIngresante == 2) nivel = "Trabajador";
                                     Console.Clear();
                                     Console.ForegroundColor = ConsoleColor.Cyan;
                                     Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t    Indicanos el servicio que presenta fallas");
@@ -495,35 +497,35 @@ namespace ConsoleApp1
                                     {
                                         case 1:
                                             categoria = "VPN: Conexion, error en VPN";
-                                            generarTicketsito.GenerarTickesito(tipoIngresante, categoria, nombreCompleto, colitaPrioridad, codigoCreador);
+                                            generarTicketsito.GenerarTickesito(categoria, nombreCompleto, colitaPrioridad, codigoCreador, tipoIngresante, nivel);
                                             break;
                                         case 2:
                                             categoria = "Equipos de computo y accesorios";
-                                            generarTicketsito.GenerarTickesito(tipoIngresante, categoria, nombreCompleto, colitaPrioridad, codigoCreador);
+                                            generarTicketsito.GenerarTickesito(categoria, nombreCompleto, colitaPrioridad, codigoCreador, tipoIngresante, nivel);
                                             break;
                                         case 3:
                                             categoria = "Redes: Falla de conexión, lentitud, etc";
-                                            generarTicketsito.GenerarTickesito(tipoIngresante, categoria, nombreCompleto, colitaPrioridad, codigoCreador);
+                                            generarTicketsito.GenerarTickesito(categoria, nombreCompleto, colitaPrioridad, codigoCreador, tipoIngresante, nivel);
                                             break;
                                         case 4:
                                             categoria = "Software: Teams, Windows, Office, etc";
-                                            generarTicketsito.GenerarTickesito(tipoIngresante, categoria, nombreCompleto, colitaPrioridad, codigoCreador);
+                                            generarTicketsito.GenerarTickesito(categoria, nombreCompleto, colitaPrioridad, codigoCreador, tipoIngresante, nivel);
                                             break;
                                         case 5:
                                             categoria = "Wifi: falla de conexión, etc";
-                                            generarTicketsito.GenerarTickesito(tipoIngresante, categoria, nombreCompleto, colitaPrioridad, codigoCreador);
+                                            generarTicketsito.GenerarTickesito(categoria, nombreCompleto, colitaPrioridad, codigoCreador, tipoIngresante, nivel);
                                             break;
                                         case 6:
                                             categoria = "Internet: caida del servicio";
-                                            generarTicketsito.GenerarTickesito(tipoIngresante, categoria, nombreCompleto, colitaPrioridad, codigoCreador);
+                                            generarTicketsito.GenerarTickesito(categoria, nombreCompleto, colitaPrioridad, codigoCreador, tipoIngresante, nivel);
                                             break;
                                         case 7:
                                             categoria = "Correo: No envia ni recibe correo ";
-                                            generarTicketsito.GenerarTickesito(tipoIngresante, categoria, nombreCompleto, colitaPrioridad, codigoCreador);
+                                            generarTicketsito.GenerarTickesito(categoria, nombreCompleto, colitaPrioridad, codigoCreador, tipoIngresante, nivel);
                                             break;
                                         case 8:
                                             categoria = "Antivirus:AMP, Umbrell";
-                                            generarTicketsito.GenerarTickesito(tipoIngresante, categoria, nombreCompleto, colitaPrioridad, codigoCreador);
+                                            generarTicketsito.GenerarTickesito(categoria, nombreCompleto, colitaPrioridad, codigoCreador, tipoIngresante, nivel);
                                             break;
                                         case 9: // sale de do while
                                             break;
@@ -656,20 +658,26 @@ namespace ConsoleApp1
                             opc = 0;
                             break;
 
-                        case 8:
-                            Console.Clear();
-                            Ltick.EliminarTicket(colitaPrioridad, Papelera);
-                            colitaPrioridad.ActulizarCola(Ltick.listaTickets);
-                            opc = 0;
-                            break;
+                        //case 8:
+                        //    Console.Clear();
+                        //    Ltick.EliminarTicket(colitaPrioridad, Papelera);
+                        //    colitaPrioridad.ActulizarCola(Ltick.listaTickets);
+                        //    opc = 0;
+                        //    break;
 
-                        case 9:
+                        case 8:
                             Console.Clear();
                             Papelera.MostrarPapelera();
                             Console.ReadLine();
                             break;
 
                         case 10:
+                            if (tipoIngresante == 4) { Console.WriteLine("\n\n\n\t\t\t\t\t\t Como administrador no se le puede designar tickets..."); Console.ReadLine(); }
+                            else if (tipoIngresante == 2) 
+                            {
+
+                                AsigTra.MostrarTicketPorTrabajor(codigoCreador, colitaPrioridad); 
+                            }
                             break;
 
                         default:
@@ -686,7 +694,7 @@ namespace ConsoleApp1
                     Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opción valida >");
                     Console.ReadLine();
                 }
-            } while (opc != 10);
+            } while (opc != 9);
         }
 
     }

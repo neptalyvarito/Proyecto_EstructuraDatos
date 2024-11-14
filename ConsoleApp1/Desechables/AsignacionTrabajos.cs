@@ -41,27 +41,20 @@ namespace ConsoleApp1
             }
         }
 
-        public void MostrarTicketPorTrabajor(int codigoTra, Ticket t, Lista_Tickets lt)
+        public void MostrarTicketPorTrabajor(int codigoTra, ColaPrio_Ticket colita)
         {
             Tecnicos q = cabeza;
             Console.WriteLine("Dueño Ticket: ".PadRight(40,' ') + "| Encargado del ticket: ".PadRight(40,' ') + "| Código del encargado: ".PadRight(15,' ') + " | Estado del ticket".PadRight(15,' '));
             string nombre;
-            while(q!= null)
+           
+            while (colita.colaPrio != null)
             {
-                if (q.datosTecnico.codigoTrabajador == codigoTra)
+                if (q.datosTecnico.codigoTrabajador == colita.colaPrio.codigoTrabajadorEncargado)
                 {
-                    nombre = q.datosTecnico.nombres + " " + q.datosTecnico.apellidos;
-                }
-            }
-            
-            while (t != null)
-            {
-                if (t.codigoTrabajadorEncargado == codigoTra)
-                {
-                    Console.WriteLine(t.dueño.PadRight(40, ' ') + "| " + (q.datosTecnico.nombres + " " + q.datosTecnico.apellidos).PadRight(40, ' ') + "| " + q.datosTecnico.codigoTrabajador.ToString().PadRight(15, ' ') + " |" + t.condicion);
+                    Console.WriteLine(colita.colaPrio.dueño.PadRight(40, ' ') + "| " + (q.datosTecnico.nombres + " " + q.datosTecnico.apellidos).PadRight(40, ' ') + "| " + q.datosTecnico.codigoTrabajador.ToString().PadRight(15, ' ') + " |" + colita.colaPrio.condicion);
                 }
 
-                t = t.sgte;
+                colita.colaPrio = colita.colaPrio.sgte;
             }
         }
     }

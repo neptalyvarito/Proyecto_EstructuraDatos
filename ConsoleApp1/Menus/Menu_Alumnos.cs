@@ -107,35 +107,35 @@ namespace ConsoleApp1
                                         {
                                             case 1:
                                                 categoria = "\t\t\t\t\t\t\t\t\t\t\t\t\tVPN: Conexion, error en VPN";
-                                                generarTikcetsito.GenerarTickesito(4, categoria, nombreCompleto, colaPrio, codigoBusquedaUser);
+                                                generarTikcetsito.GenerarTickesito(categoria, nombreCompleto, colaPrio, codigoBusquedaUser, 1, "Alumnos");
                                                 break;
                                             case 2:
                                                 categoria = "\t\t\t\t\t\t\t\t\t\t\t\t\tEquipos de computo y accesorios";
-                                                generarTikcetsito.GenerarTickesito(4, categoria, nombreCompleto, colaPrio, codigoBusquedaUser);
+                                                generarTikcetsito.GenerarTickesito(categoria, nombreCompleto, colaPrio, codigoBusquedaUser, 1, "Alumnos");
                                                 break;
                                             case 3:
                                                 categoria = "\t\t\t\t\t\t\t\t\t\t\t\t\tRedes: Falla de conexión, lentitud, etc";
-                                                generarTikcetsito.GenerarTickesito(4, categoria, nombreCompleto, colaPrio, codigoBusquedaUser);
+                                                generarTikcetsito.GenerarTickesito(categoria, nombreCompleto, colaPrio, codigoBusquedaUser, 1, "Alumnos");
                                                 break;
                                             case 4:
-                                                categoria = "\t\t\t\t\t\t\t\t\t\t\t\t\tSoftware: Teams, Windows, Office, etc";
-                                                generarTikcetsito.GenerarTickesito(4, categoria, nombreCompleto, colaPrio, codigoBusquedaUser);
+                                                categoria = "\t\t\t\t\t\t\t\t\t\t\t\t\tSoftware: Teams, Windows, Office, etc"; 
+                                                generarTikcetsito.GenerarTickesito(categoria, nombreCompleto, colaPrio, codigoBusquedaUser, 1, "Alumnos");
                                                 break;
                                             case 5:
                                                 categoria = "\t\t\t\t\t\t\t\t\t\t\t\t\tWifi: falla de conexión, etc";
-                                                generarTikcetsito.GenerarTickesito(4, categoria, nombreCompleto, colaPrio, codigoBusquedaUser);
+                                                generarTikcetsito.GenerarTickesito(categoria, nombreCompleto, colaPrio, codigoBusquedaUser, 1, "Alumnos");
                                                 break;
                                             case 6:
                                                 categoria = "\t\t\t\t\t\t\t\t\t\t\t\t\tInternet: caida del servicio";
-                                                generarTikcetsito.GenerarTickesito(4, categoria, nombreCompleto, colaPrio, codigoBusquedaUser);
+                                                generarTikcetsito.GenerarTickesito(categoria, nombreCompleto, colaPrio, codigoBusquedaUser, 1, "Alumnos");
                                                 break;
                                             case 7:
                                                 categoria = "\t\t\t\t\t\t\t\t\t\t\t\t\tCorreo: No envia ni recibe correo ";
-                                                generarTikcetsito.GenerarTickesito(4, categoria, nombreCompleto, colaPrio, codigoBusquedaUser);
+                                                generarTikcetsito.GenerarTickesito(categoria, nombreCompleto, colaPrio, codigoBusquedaUser, 1, "Alumnos"); ;
                                                 break;
                                             case 8:
                                                 categoria = "\t\t\t\t\t\t\t\t\t\t\t\t\tAntivirus:AMP, Umbrell";
-                                                generarTikcetsito.GenerarTickesito(4, categoria, nombreCompleto, colaPrio, codigoBusquedaUser);
+                                                generarTikcetsito.GenerarTickesito(categoria, nombreCompleto, colaPrio, codigoBusquedaUser, 1, "Alumnos");
                                                 break;
                                             case 9: // sale de do while
                                                 break;
