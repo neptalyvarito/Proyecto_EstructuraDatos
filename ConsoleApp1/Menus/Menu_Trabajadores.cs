@@ -67,7 +67,7 @@ namespace ConsoleApp1
                         Console.WriteLine(" Bienvenido señor " + nombreCompleto);
                         Console.WriteLine("\n==============================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("\n >  1. Gestionar tickets\n\n >  2. Gestionar alumnos\n\n >  3. Marcar hora de salida \n\n >  4. Gestionar computadoras \n\n >  5. Volver");
+                        Console.WriteLine("\n >  1. Gestionar tickets\n\n >  2. Gestionar alumnos\n\n >  3. Gestionar computadoras\n\n >  4. Marcar hora de salida \n\n >  5. Volver");
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("\n==============================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -186,12 +186,6 @@ namespace ConsoleApp1
                                 break;
 
                             case 3:
-                                Console.Clear();
-                                int codigoYea = LTra.ObtenerCodigoConDNI(dniTrabajador);
-                                LTra.MarcarSalida(codigoYea);
-                                break;
-
-                            case 4:
 
                                 do
                                 {
@@ -461,7 +455,7 @@ namespace ConsoleApp1
                                                 opc = 0;
                                                 break;
                                             
-                                            case 2:
+                                            case 2: 
                                                 Console.Clear();
                                                 Console.Write("Ingrese el código de la computadora a buscar: ");
                                                 string codigoBus = Console.ReadLine();
@@ -473,8 +467,136 @@ namespace ConsoleApp1
 
                                             case 3:
 
-                                                Console.WriteLine(" Indique la computadora de la cual quiere modificar información: ");
+                                                do
+                                                {
 
+                                                    Console.Clear();
+                                                    Console.WriteLine("               Modificación de datos de una computadora            ");
+                                                    Console.WriteLine("-------------------------------------------------------------------");
+                                                    Console.Write(" >  Ingrese código de la computadora a modificar: ");
+                                                    string codigoBusqueda = Console.ReadLine();
+
+                                                    verificacion = ArbCom.SaberSiExisteCompu(ArbCom.arbolito, codigoBusqueda);
+
+                                                    if (verificacion == true)
+                                                    {
+                                                        do
+                                                        {
+                                                            
+                                                            Console.Clear();
+                                                            Console.WriteLine("        Modificación de datos de una computadora       ");
+                                                            Console.WriteLine("-------------------------------------------------------");
+                                                            Console.WriteLine(" >  1. Modificar Salon");
+                                                            Console.WriteLine(" >  2. Modificar Piso");
+                                                            Console.WriteLine(" >  3. Modificar Edificio");
+                                                            Console.WriteLine(" >  4. Modificar Sistema Operativo");
+                                                            Console.WriteLine(" >  5. Modificar Ram");
+                                                            Console.WriteLine(" >  6. Modificar Almacenamiento");
+                                                            Console.WriteLine(" >  7. Modificar Marca");
+                                                            Console.WriteLine(" >  8. Volver");
+                                                            Console.WriteLine("-------------------------------------------------------");
+                                                            Console.Write(" >  Elija una opción: ");
+                                                            opc = int.Parse(Console.ReadLine());
+                                                            Console.WriteLine("-------------------------------------------------------");
+                                                            switch (opc)
+                                                            {
+                                                                case 1:
+
+                                                                    Console.Clear();
+                                                                    Console.Write("  Ingrese el nuevo salon donde se encontrará la computadora:");
+                                                                    string salonNew = Console.ReadLine();
+
+                                                                    ArbCom.ModificarDatosCompu(salonNew, 0, 0, codigoBusqueda, opc, ArbCom.arbolito);
+
+                                                                    Console.WriteLine(" Data modificada con exito! ");
+                                                                    Console.ReadLine();
+
+                                                                    break;
+                                                                case 2:
+
+                                                                    Console.Clear();
+                                                                    Console.Write("  Ingrese el nuevo piso donde se encontrará la computadora:");
+                                                                    int pisoNew = int.Parse(Console.ReadLine());
+
+                                                                    ArbCom.ModificarDatosCompu(" ", 0, pisoNew, codigoBusqueda, opc, ArbCom.arbolito);
+
+                                                                    Console.WriteLine(" Data modificada con exito! ");
+                                                                    Console.ReadLine();
+
+                                                                    break;
+                                                                case 3:
+
+                                                                    Console.Clear();
+                                                                    Console.Write("  Ingrese el nuevo edificio donde se encontrará la computadora:");
+                                                                    string edificioNew = Console.ReadLine();
+
+                                                                    ArbCom.ModificarDatosCompu(edificioNew, 0, 0, codigoBusqueda, opc, ArbCom.arbolito);
+
+
+                                                                    Console.WriteLine(" Data modificada con exito! ");
+                                                                    Console.ReadLine();
+
+                                                                    break;
+                                                                case 4:
+
+                                                                    Console.Clear();
+                                                                    Console.Write("  Ingrese el nuevo sistema operativo de la computadora:");
+                                                                    string SistemaOpNew = Console.ReadLine();
+
+                                                                    ArbCom.ModificarDatosCompu(SistemaOpNew, 0, 0, codigoBusqueda, opc, ArbCom.arbolito);
+
+                                                                    Console.WriteLine(" Data modificada con exito! ");
+                                                                    Console.ReadLine();
+
+                                                                    break;
+                                                                case 5:
+
+                                                                    Console.Clear();
+                                                                    Console.Write("  Ingrese la nueva ram de la computadora:");
+                                                                    double ramNew = double.Parse(Console.ReadLine());
+
+                                                                    ArbCom.ModificarDatosCompu(" ", ramNew, 0, codigoBusqueda, opc, ArbCom.arbolito);
+
+                                                                    Console.WriteLine(" Data modificada con exito! ");
+                                                                    Console.ReadLine();
+                                                                    break;
+                                                                case 6:
+
+                                                                    Console.Clear();
+                                                                    Console.Write("  Ingrese el nuevo almacenamiento de la computadora:");
+                                                                    double almacenamientoNew = double.Parse(Console.ReadLine()); 
+
+                                                                    ArbCom.ModificarDatosCompu(" ", almacenamientoNew, 0, codigoBusqueda, opc, ArbCom.arbolito);
+
+                                                                    Console.WriteLine(" Data modificada con exito! ");
+                                                                    Console.ReadLine();
+
+                                                                    break;
+                                                                case 7:
+                                                                    Console.Clear();
+                                                                    Console.Write("  Ingrese la nueva marca de la computadora:");
+                                                                    string marcaNew = Console.ReadLine();
+
+                                                                    ArbCom.ModificarDatosCompu(marcaNew, 0, 0, codigoBusqueda, opc, ArbCom.arbolito);
+
+                                                                    Console.WriteLine(" Data modificada con exito! ");
+                                                                    Console.ReadLine();
+
+                                                                    break;
+                                                                case 8:
+                                                                    break;
+                                                                default:
+                                                                    Console.WriteLine(" >  Ingrese una opción valida");
+                                                                    break;
+                                                            }
+                                                        } while (opc != 8);
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine(" >.  Máquina no encontrada, por favor verifique el código.");
+                                                    }
+
+                                                } while (verificacion != true);
                                                 opc = 0;
                                                 break;
                                             case 4:
@@ -534,6 +656,12 @@ namespace ConsoleApp1
 
                                 }while(opc != 5);
 
+                                break;
+                            
+                            case 4:
+                                Console.Clear();
+                                int codigoYea = LTra.ObtenerCodigoConDNI(dniTrabajador);
+                                LTra.MarcarSalida(codigoYea);
                                 break;
 
                             case 5://SALIDA DEL PROGRAMA

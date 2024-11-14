@@ -58,16 +58,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GenerarTicket.cs" />
+    <Compile Include="Generar_DataGeneral\GenerarTicket.cs" />
     <Compile Include="Listas\Lista_Profes.cs" />
     <Compile Include="Menus\Menu_Profes.cs" />
     <Compile Include="Objetos\Administrativos.cs" />
-    <Compile Include="Arbol_Compus.cs" />
-    <Compile Include="AsignacionTrabajos.cs" />
-    <Compile Include="ColaPrio_Ticket.cs" />
-    <Compile Include="Cola_Solicitudes.cs" />
+    <Compile Include="Estructuras\Arbol_Compus.cs" />
+    <Compile Include="Desechables\AsignacionTrabajos.cs" />
+    <Compile Include="Estructuras\ColaPrio_Ticket.cs" />
+    <Compile Include="Estructuras\Cola_Solicitudes.cs" />
     <Compile Include="Objetos\Computadoras.cs" />
-    <Compile Include="Generacion_Aleatorio.cs" />
+    <Compile Include="Generar_DataGeneral\Generacion_Aleatorio.cs" />
     <Compile Include="Listas\Lista_Administrativos.cs" />
     <Compile Include="Listas\Lista_Tickets.cs" />
     <Compile Include="Listas\Lista_Trabajadores.cs" />
@@ -76,20 +76,20 @@
     <Compile Include="Menus\Menu_Admin.cs" />
     <Compile Include="Menus\Menu_Alumnos.cs" />
     <Compile Include="Menus\Menu_Trabajadores.cs" />
-    <Compile Include="Pila_Sugerencia.cs" />
+    <Compile Include="Estructuras\Pila_Sugerencia.cs" />
     <Compile Include="Objetos\Profesor.cs" />
     <Compile Include="Menus\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registros.cs" />
-    <Compile Include="Reportes.cs" />
-    <Compile Include="Solicitudes.cs" />
-    <Compile Include="Sugerencias.cs" />
-    <Compile Include="Tecnicos.cs" />
+    <Compile Include="Generar_DataGeneral\Registros.cs" />
+    <Compile Include="Generar_DataGeneral\Reportes.cs" />
+    <Compile Include="Objetos\Solicitudes.cs" />
+    <Compile Include="Objetos\Sugerencias.cs" />
+    <Compile Include="Desechables\Tecnicos.cs" />
     <Compile Include="Objetos\Ticket.cs" />
-    <Compile Include="TicketsProgramados.cs" />
+    <Compile Include="Desechables\TicketsProgramados.cs" />
     <Compile Include="Objetos\Trabajador.cs" />
     <Compile Include="Objetos\Alumnos.cs" />
-    <Compile Include="Validaciones.cs" />
+    <Compile Include="Generar_DataGeneral\Validaciones.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

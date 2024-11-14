@@ -206,13 +206,49 @@ namespace ConsoleApp1
             else
             {
                 MostrarArbolitoEnOrden(arb.izquierda);
-
                 Console.WriteLine(arb.codigoCompu +  " |" + arb.edificio + "|  " +arb.piso +" | "  + arb.salon);
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
-
                 MostrarArbolitoEnOrden(arb.derecha );
             }
         }
 
+        public bool SaberSiExisteCompu(Computadoras arb, string codigo)
+        {
+            bool flag = false;
+            if (arb == null)
+            {
+                return flag ;
+            }
+            else
+            {
+                SaberSiExisteCompu(arb.izquierda, codigo);
+                if(codigo == arb.codigoCompu) flag = true;
+                SaberSiExisteCompu(arb.derecha, codigo);
+                return flag;
+            }
+        }
+        public void ModificarDatosCompu(string modificable1, double modificable2, int modificable3, string codigo, int opc, Computadoras arb)
+        {
+            if (arb == null)
+            {
+                return;
+            }
+            else
+            {
+                ModificarDatosCompu(modificable1, modificable2, modificable3, codigo, opc, arb.izquierda);
+                if (codigo == arb.codigoCompu)
+                {
+                    if (opc == 1) arb.salon = modificable1;
+                    else if (opc == 2) arb.piso = modificable3;
+                    else if (opc == 3) arb.edificio = modificable1;
+                    else if (opc == 4) arb.sistemaOperativo = modificable1;
+                    else if (opc == 5) arb.ram = modificable2;
+                    else if (opc == 6) arb.almacenamiento = modificable2;
+                    else if (opc == 7) arb.marca = modificable1;
+                }
+                ModificarDatosCompu(modificable1, modificable2, modificable3, codigo, opc, arb.derecha);
+             
+            }
+        }
     }
 }
