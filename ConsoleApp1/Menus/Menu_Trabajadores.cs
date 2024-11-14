@@ -199,8 +199,8 @@ namespace ConsoleApp1
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 2. Buscar computadora por código");
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 3. Modificar información de una computadora excepto su código");
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 4. Mostrar computadoras de un mismo salon.");
-                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 6. Eliminar una computadora de la lista");
-                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 7. Visualizar lista de computadoras");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 6. Visualizar lista de computadoras");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 7. Arbolito vertical");
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 8. Volver");
                                         Console.ForegroundColor = ConsoleColor.Cyan;
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t====================================================================");
@@ -622,13 +622,13 @@ namespace ConsoleApp1
                                                 opc = 0;
                                                 break;
 
-                                            case 6: 
+                                            //case 6: 
                                                 
                                                 
-                                                opc = 0;
-                                                break;
+                                            //    opc = 0;
+                                            //    break;
 
-                                            case 7:
+                                            case 6:
 
                                                 Console.Clear();
                                                 ArbCom.MostrarArbolitoEnOrden(ArbCom.arbolito);
@@ -636,7 +636,7 @@ namespace ConsoleApp1
                                                 opc = 0;
                                                 break;
 
-                                            case 8:
+                                            case 7:
                                                 //ARBOL VERTICAL
                                                 Console.Clear();
                                                 Console.WriteLine("Árbol de computadoras en formato vertical:");
@@ -645,7 +645,7 @@ namespace ConsoleApp1
                                                 opc = 0;
                                                 break;
 
-                                            case 9:
+                                            case 8:
                                                 
                                                 break;
                                             default:
@@ -663,7 +663,7 @@ namespace ConsoleApp1
                                         Console.ReadLine();
                                     }
 
-                                }while(opc != 5);
+                                }while(opc != 8);
 
                                 break;
                             

@@ -242,7 +242,7 @@ namespace ConsoleApp1
             {
                 MostrarArbolitoEnOrden(arb.izquierda);
                 Console.WriteLine(arb.codigoCompu +  " |" + arb.edificio + "|  " +arb.piso +" | "  + arb.salon);
-                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("----------------------------------------------------------------------------");
                 MostrarArbolitoEnOrden(arb.derecha );
             }
         }
