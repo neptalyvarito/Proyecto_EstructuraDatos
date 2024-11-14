@@ -26,7 +26,7 @@ namespace ConsoleApp1
         public static Lista_Administrativos La = new Lista_Administrativos();
         public static Lista_Trabajadores LTra = new Lista_Trabajadores();
         public static Lista_Profes Lp = new Lista_Profes();
-
+        public static Papelera_Tickets Papelera = new Papelera_Tickets();
         public static Cola_Solicitudes ColaSol = new Cola_Solicitudes();
         public static Solicitudes q = new Solicitudes();
         public static Pila_Sugerencia PilaSug = new Pila_Sugerencia();
@@ -71,13 +71,7 @@ namespace ConsoleApp1
             GAletorio.GeneraCompus(ArbolitoCompus);
             Ltick.LlenarLista(colitaPrioridad.colaPrio);
 
-            colitaPrioridad.ImprimirTicketsPrio();
-
-            Console.WriteLine("********************************************************************");
-
-            Ltick.ImprimirTicket();
-
-            Console.ReadLine();
+            
 
 
             int opc = 0;
@@ -454,7 +448,7 @@ namespace ConsoleApp1
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("======= Gestionando tickets =======");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("\n >  1. Ver lista de tickets \n\n >  2. Generar ticket \n\n >  3. Responder ticket \n\n >  4. Ver tickets en espera \n\n >  5. Ver tickets resueltos \n\n >  6. Designar tickets \n\n >  7. Eliminar ticket\n\n >  8. Volver ");
+                    Console.WriteLine("\n >  1. Ver lista de tickets \n\n >  2. Generar ticket \n\n >  3. Responder ticket \n\n >  4. Ver tickets en espera \n\n >  5. Ver tickets resueltos \n\n >  6. Designar tickets \n\n >  7. Eliminar ticket en orden\n\n >  8. Eliminar ticket\n\n >  9. Mostrar papelera \n\n >  10. Volver");
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("\n===================================");
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -551,6 +545,7 @@ namespace ConsoleApp1
 
                             Console.Clear();
                             Ltick.ResponderTicket(colitaPrioridad);
+                                
 
                             opc = 0;
                             break;
@@ -657,11 +652,24 @@ namespace ConsoleApp1
 
                         case 7:
                             Console.Clear();
-                            Ltick.EliminarTicket(colitaPrioridad);
+                            colitaPrioridad.EliminarTicketPrioridad(Papelera);
                             opc = 0;
                             break;
 
                         case 8:
+                            Console.Clear();
+                            Ltick.EliminarTicket(colitaPrioridad, Papelera);
+                            colitaPrioridad.ActulizarCola(Ltick.listaTickets);
+                            opc = 0;
+                            break;
+
+                        case 9:
+                            Console.Clear();
+                            Papelera.MostrarPapelera();
+                            Console.ReadLine();
+                            break;
+
+                        case 10:
                             break;
 
                         default:
@@ -678,7 +686,7 @@ namespace ConsoleApp1
                     Console.WriteLine("\n.. < Ingrese una opción valida >");
                     Console.ReadLine();
                 }
-            } while (opc != 8);
+            } while (opc != 10);
         }
 
     }

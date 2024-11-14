@@ -157,8 +157,6 @@ namespace ConsoleApp1
                             opc = 0;
                             break;
 
-
-                            break;
                         case 2:
                             break;
 

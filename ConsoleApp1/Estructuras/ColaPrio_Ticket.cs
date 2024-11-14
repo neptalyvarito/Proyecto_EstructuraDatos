@@ -16,6 +16,10 @@ namespace ConsoleApp1
         {
             colaPrio = null;
         }
+        public void ActulizarCola(Ticket listaTicket)
+        {
+            colaPrio = listaTicket;
+        }
 
         public void AgregarTicketPrioridad(string nombre, string descripcion, int codigoDueño, string categoria, int prioridadNum, string prioridadDes)
         {
@@ -61,9 +65,44 @@ namespace ConsoleApp1
                     ant = t;
                     t = t.sgte;
                 }
-
-
             }
+        }
+        public Ticket EliminarTicketPrioridad(Papelera_Tickets papelera)
+        {
+            Ticket t = colaPrio;
+            Ticket ant = null;
+            Ticket valor = null;
+            if (colaPrio != null)
+            {
+                if (colaPrio.sgte == null)
+                {
+                    valor = t;
+                    papelera.LlenarPapelera(colaPrio);
+                    colaPrio = null;
+                    Console.WriteLine("Ticket eliminado!");
+                    Console.ReadLine();
+                    return valor;
+                }
+                else
+                {
+                    while (t.sgte != null)
+                    {
+                        ant = t;
+                        t = t.sgte;
+                    }
+                    valor = t;
+                    papelera.LlenarPapelera(ant.sgte);
+                    ant.sgte = null;
+                    Console.WriteLine("Ticket eliminado!");
+                    Console.ReadLine();
+                    return valor;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Cola vacia ... ");
+            }
+            return null;
         }
         public void ImprimirTicketsPrio()
         {

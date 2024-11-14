@@ -37,7 +37,7 @@ namespace ConsoleApp1
                 t = t.sgte;
             }
         }
-        public void EliminarTicket(ColaPrio_Ticket colaPr)
+        public void EliminarTicket(ColaPrio_Ticket colaPr, Papelera_Tickets papelera)
         {
         
             Ticket q = listaTickets;
@@ -68,7 +68,8 @@ namespace ConsoleApp1
                         {
                             if (q == listaTickets)
                             {
-                                listaTickets = listaTickets.sgte;
+                                papelera.LlenarPapelera(listaTickets);
+                                listaTickets = null;
                                 Console.WriteLine("\n....Ticket eliminado");
                                 Console.ReadLine();
                                 flag = true;
@@ -77,6 +78,7 @@ namespace ConsoleApp1
                             else
                             {
                                 t.sgte = q.sgte;
+                                papelera.LlenarPapelera(q);
                                 q = null;
                                 Console.WriteLine("\n....Ticket eliminado");
                                 Console.ReadLine();
