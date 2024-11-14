@@ -205,7 +205,8 @@ namespace ConsoleApp1
                                         Console.WriteLine("\n > 5. Mostrar computadoras de la misma marca.");
                                         Console.WriteLine("\n > 6. Eliminar una computadora de la lista");
                                         Console.WriteLine("\n > 7. Visualizar lista de computadoras");
-                                        Console.WriteLine("\n > 8. Volver");
+                                        Console.WriteLine("\n > 8. Visualizar el árbol de computadoras en formato vertical");
+                                        Console.WriteLine("\n > 9. Volver");
                                         Console.ForegroundColor = ConsoleColor.Cyan;
                                         Console.WriteLine("\n====================================================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -512,7 +513,17 @@ namespace ConsoleApp1
                                                 opc = 0;
                                                 break;
 
-                                            case 8: 
+                                            case 8:
+                                                //ARBOL VERTICAL
+                                                Console.Clear();
+                                                Console.WriteLine("Árbol de computadoras en formato vertical:");
+                                                ArbCom.mostrarArbolitoVertical(ArbCom.arbolito, 0);
+                                                Console.ReadLine();
+                                                opc = 0;
+                                                break;
+
+                                            case 9:
+                                                
                                                 break;
                                             default:
                                                 Console.ForegroundColor = ConsoleColor.DarkRed;

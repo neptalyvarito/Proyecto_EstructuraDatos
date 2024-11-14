@@ -172,25 +172,59 @@ namespace ConsoleApp1
                 }
                 MostrarArbolitoPorMarca(arb.derecha, marca);
             }
-        }   
-       
-        public void mostrarArbolito(Computadoras arb, int cont)
+        }
+
+        public void mostrarArbolitoVertical(Computadoras arb, int cont)
         {
             if (arb == null)
             {
                 return;
             }
-            else
+
+           
+            mostrarArbolitoVertical(arb.derecha, cont + 1);
+
+           
+            for (int i = 0; i < cont; i++)
             {
-                mostrarArbolito(arb.derecha, cont + 1);
-                for (int i = 0; i < cont; i++)
+                Console.Write("   ");
+            }
+
+            
+            Console.WriteLine(" " + arb.codigoCompu + " (" + arb.marca + ")");
+
+           
+            if (arb.izquierda != null || arb.derecha != null) 
+            {
+                if (arb.izquierda != null)
                 {
-                    Console.Write("   ");
+                    mostrarArbolitoVertical(arb.izquierda, cont + 1);
                 }
-                Console.WriteLine(arb.codigoCompu);
-                mostrarArbolito(arb.izquierda, cont + 1);
+                else
+                {
+                    for (int i = 0; i < cont + 1; i++)
+                    {
+                        Console.Write("   ");
+                    }
+                   // Console.WriteLine("|-- (nulo)"); // Nodo nulo
+                }
+
+                if (arb.derecha != null)
+                {
+                    mostrarArbolitoVertical(arb.derecha, cont + 1);
+                }
+                else
+                {
+                  
+                    for (int i = 0; i < cont + 1; i++)
+                    {
+                        Console.Write("   ");
+                    }
+                  //  Console.WriteLine("|-- (nulo)"); // Nodo nulo
+                }
             }
         }
+
         public void MostrarArbolitoEnOrden(Computadoras arb)
         {
             if (arb == null)
