@@ -252,24 +252,6 @@ namespace ConsoleApp1
 
             return contador;
         }
-        public string ObtenerNombreTrabajadoresConCodigo(int codigo)
-        {
-            string nombres = " aña ";
-            Trabajador t = listaTrabajadores;
-            
-            while(t !=null)
-            {
-                if(codigo == t.codigoTrabajador)
-                {
-                    nombres = t.nombres + " " + t.apellidos;
-                    break;
-                }
-
-                t = t.sgte;
-            }
-
-            return nombres;
-        }
         public void MarcarSalida(int codigo)
         {
             string horasTrabajadas;
@@ -305,6 +287,44 @@ namespace ConsoleApp1
                     codigo = t.codigoTrabajador;
                 }
                 t = t.sgte;
+            }
+            return codigo;
+        }
+
+        public string ObtenerNombreTrabajadoresConCodigo(int codigo)
+        {
+            string nombres = " ";
+            Trabajador t = listaTrabajadores;
+
+            while (t != null)
+            {
+                if (codigo == t.codigoTrabajador)
+                {
+                    nombres = t.nombres + " " + t.apellidos;
+                    break;
+                }
+
+                t = t.sgte;
+            }
+
+            return nombres;
+        }
+
+        public int ObtenerCodigoAleatorioTrabajador(int detener)
+        {
+            int codigo = 0;
+            Trabajador t = listaTrabajadores;
+            int contador = 0;
+
+            while (t != null)
+            {
+                if (detener == contador)
+                {
+                    codigo = t.codigoTrabajador;
+                    break;
+                }
+                t = t.sgte;
+                contador++;
             }
             return codigo;
         }

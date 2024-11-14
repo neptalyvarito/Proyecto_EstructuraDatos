@@ -193,6 +193,7 @@ namespace ConsoleApp1
             }
             return flag;
         }
+        //se usa
         public bool SaberSiExisteAdminConDni(int dniBusqueda)
         {
             Administrativos t = listaAdmins;
@@ -210,6 +211,7 @@ namespace ConsoleApp1
             }
             return flag;
         }
+       
         public bool SaberSiExisteNumCelularAdmin(int numCelular)
         {
             Administrativos t = listaAdmins;
@@ -226,6 +228,7 @@ namespace ConsoleApp1
             }
             return flag;
         }
+       
         public bool SaberSiExisteContraAdmin(string contrasena)
         {
             Administrativos t = listaAdmins;

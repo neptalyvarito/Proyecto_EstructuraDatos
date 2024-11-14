@@ -62,11 +62,11 @@ namespace ConsoleApp1
 
         public static string[] TarjetasMadres = {"Nvidia", "Amx", "NoseManoxD" };
 
-        public void GenerarUsuariosAdmisYTrabajadoresAleatorios(Lista_Alumnos Lu, Lista_Administrativos La, Lista_Trabajadores LTra)
+        public void GenerarUsuariosAdmisYTrabajadoresAleatorios(Lista_Alumnos Lu, Lista_Administrativos La, Lista_Trabajadores LTra, Lista_Profes Lp)
         {
-            bool flag, flag2 , flag3;
+            bool flag, flag2 , flag3, flag4;
 
-            for (int k = 0; k < 3; k++)
+            for (int k = 0; k < 4; k++)
             {
                 for (int j = 0; j < 20; j++)
                 {
@@ -87,8 +87,9 @@ namespace ConsoleApp1
                         flag = Lu.SaberSiExisteUsuarioConDni(chaparDni);
                         flag2 = La.SaberSiExisteAdminConDni(chaparDni);
                         flag3 = LTra.SaberSiExisteTrabajadorConDni(chaparDni);
+                        flag4 = Lp.SaberSiExisteProfeConDni(chaparDni);
 
-                    } while (flag != false && flag2 != false && flag3 != false);
+                    } while (flag != false && flag2 != false && flag3 != false && flag4 != false);
                     do
                     {
 
@@ -96,8 +97,9 @@ namespace ConsoleApp1
                         flag = Lu.SaberSiExisteNumCelularUsuario(chaparTelefono);
                         flag2 = La.SaberSiExisteNumCelularAdmin(chaparTelefono);
                         flag3 = LTra.SaberSiExisteNumCelularTrabajador(chaparTelefono);
+                        flag4 = Lp.SaberSiExisteNumCelularProfe(chaparTelefono);
 
-                    } while (flag != false && flag2 != false && flag3 != false);
+                    } while (flag != false && flag2 != false && flag3 != false && flag4 != false);
                     do
                     {
                        
@@ -109,17 +111,19 @@ namespace ConsoleApp1
                         flag = Lu.SaberSiExisteContraUser(contrasena);
                         flag2 = La.SaberSiExisteContraAdmin(contrasena);
                         flag3 = LTra.SaberSiExisteContraTrabajador(contrasena);
+                        flag4 = Lp.SaberSiExisteContraProfe(contrasena);
                     
-                    } while (flag != false && flag2 != false && flag3 != false);
+                    } while (flag != false && flag2 != false && flag3 != false && flag4 != false);
 
                     if (k == 0) Lu.RegistrarUsuarios(Nombre, Apellido, chaparDni, chaparTelefono, contrasena);
                     else if (k == 1) La.AgregarAdmin(Nombre, Apellido, chaparTelefono, chaparDni, contrasena);
                     else if (k == 2) LTra.RegistrarTrabajador(Nombre, Apellido, chaparDni, chaparTelefono, contrasena);
+                    else if (k == 3) Lp.RegistrarProfe(Nombre, Apellido, chaparDni, chaparTelefono, contrasena);
                 }
             }
            
         }
-        public void GenerarTickets(Lista_Tickets Ltick, Lista_Alumnos Lu, ColaPrio_Ticket colaPrio)
+        public void GenerarTickets(Lista_Tickets Ltick, Lista_Alumnos Lu, ColaPrio_Ticket colaPrio, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Profes Lp)
         {
             for (int i = 0; i < 30; i++)
             {
@@ -127,16 +131,36 @@ namespace ConsoleApp1
                 int codigo = 0;
                 string nombre = "";
                 string cate = "";
-                codigo = Lu.ObtenerCodigoAleatorioUser(detener);
-                nombre = Lu.ObtenerNombreCompletoUser(codigo);
-
+              
                 chaparTicket = Nro.Next(0, 4);
                 chaparCategoriaTicket = Nro.Next(0, 8);
-                int a = Nro.Next(1, 4);
-                if (a == 4) cate = "Alumno";
-                else if (a == 3) cate = "Trabajador";
-                else if (a == 2) cate = "Profesor";
-                else if (a == 1) cate = "Administrativo";
+
+                int a = Nro.Next(1, 5);
+
+                if (a == 4)
+                {
+                    cate = "Alumno";
+                    codigo = Lu.ObtenerCodigoAleatorioUser(detener);
+                    nombre = Lu.ObtenerNombreCompletoUser(codigo);
+                }
+                else if (a == 3)
+                {
+                    cate = "Trabajador";
+                    codigo = LTra.ObtenerCodigoAleatorioTrabajador(detener);
+                    nombre = LTra.ObtenerNombreTrabajadoresConCodigo(codigo);
+                }
+                else if (a == 2)
+                {
+                    cate = "Profesor";
+                    codigo = Lp.ObtenerCodigoAleatorioProfe(detener);
+                    nombre = Lp.ObtenerNombreCompletoProfe(codigo);
+                }
+                else if (a == 1)
+                {
+                    cate = "Administrativo";
+                    codigo = La.ObtenerCodigoAleatorioAdmin(detener);
+                    nombre = La.ObtenerNombreCompletoAdmin(codigo);
+                }
                 colaPrio.AgregarTicketPrioridad(nombre, TickesitoDescripcion[chaparTicket], codigo, TicketsitoCategoria[chaparCategoriaTicket],a, cate );
             }
             

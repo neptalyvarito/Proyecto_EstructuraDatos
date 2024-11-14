@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Listas\Lista_Profes.cs" />
     <Compile Include="Objetos\Administrativos.cs" />
     <Compile Include="Arbol_Compus.cs" />
     <Compile Include="AsignacionTrabajos.cs" />
@@ -65,10 +66,10 @@
     <Compile Include="Cola_Solicitudes.cs" />
     <Compile Include="Objetos\Computadoras.cs" />
     <Compile Include="Generacion_Aleatorio.cs" />
-    <Compile Include="Lista_Administrativos.cs" />
-    <Compile Include="Lista_Tickets.cs" />
-    <Compile Include="Lista_Trabajadores.cs" />
-    <Compile Include="Lista_Alumnos.cs" />
+    <Compile Include="Listas\Lista_Administrativos.cs" />
+    <Compile Include="Listas\Lista_Tickets.cs" />
+    <Compile Include="Listas\Lista_Trabajadores.cs" />
+    <Compile Include="Listas\Lista_Alumnos.cs" />
     <Compile Include="Log_in.cs" />
     <Compile Include="Menu_Admin.cs" />
     <Compile Include="Menu_Alumnos.cs" />
@@ -103,5 +104,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

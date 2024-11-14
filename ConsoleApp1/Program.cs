@@ -14,10 +14,12 @@ namespace ConsoleApp1
     internal class Program
     {
         public static ColaPrio_Ticket colitaPrioridad = new ColaPrio_Ticket();
+
         public static Lista_Tickets Ltick = new Lista_Tickets();
         public static Lista_Alumnos Lu = new Lista_Alumnos();
         public static Lista_Administrativos La = new Lista_Administrativos();
         public static Lista_Trabajadores LTra = new Lista_Trabajadores();
+        public static Lista_Profes Lp = new Lista_Profes();
 
         public static Cola_Solicitudes ColaSol = new Cola_Solicitudes();
         public static Solicitudes q = new Solicitudes();
@@ -60,8 +62,8 @@ namespace ConsoleApp1
             UserPorDefecto();
             AdminPorDefecto();
             TrabajadorPorDefecto();
-            GAletorio.GenerarUsuariosAdmisYTrabajadoresAleatorios(Lu, La, LTra);
-            GAletorio.GenerarTickets(Ltick, Lu, colitaPrioridad);
+            GAletorio.GenerarUsuariosAdmisYTrabajadoresAleatorios(Lu, La, LTra, Lp);
+            GAletorio.GenerarTickets(Ltick, Lu, colitaPrioridad, LTra, La, Lp);
             GAletorio.GeneraCompus(ArbolitoCompus);
             Ltick.LlenarLista(colitaPrioridad.colaPrio);
 
