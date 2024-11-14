@@ -24,10 +24,10 @@ namespace ConsoleApp1
 
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("\n\n           Está iniciando sesión como Docente");
-                    Console.WriteLine("===================================================================");
-                    Console.WriteLine("  Llene los siguientes campos o ingrese el número 2 para volver");
-                    Console.WriteLine("===================================================================");
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t           Está iniciando sesión como Docente");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t===================================================================");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t  Llene los siguientes campos o ingrese el número 2 para volver");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t===================================================================");
 
                     verificacion = inicioSesion.InicioSesión(opc, Lu, LTra, La, Lp, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe);
 
@@ -42,14 +42,14 @@ namespace ConsoleApp1
                     else if (verificacion == false)
                     {
                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                        Console.WriteLine("... Número de DNI o contraseña incorrectos.");
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t... Número de DNI o contraseña incorrectos.");
                         Console.ReadLine();
                     }
                 }
                 catch
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine(" Error.... Dni debe contener solo caracteres númericos");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Error.... Dni debe contener solo caracteres númericos");
                     Console.ReadLine();
                 }
 
@@ -64,15 +64,15 @@ namespace ConsoleApp1
        
                     opc = 0;
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine(" Bienvenido señor " + nombreCompleto);
-                    Console.WriteLine("===============================================");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Bienvenido señor " + nombreCompleto);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t===============================================");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("\n >  1. Generar ticket");
-                    Console.WriteLine("\n >  2. Volver");
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Generar ticket");
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Volver");
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("\n===============================================");
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t===============================================");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write("\n >  Ingrese opción: ");
+                    Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese opción: ");
                     opc = int.Parse(Console.ReadLine());
 
                     switch (opc)
@@ -87,22 +87,22 @@ namespace ConsoleApp1
 
                                     Console.Clear();
                                     Console.ForegroundColor = ConsoleColor.Cyan;
-                                    Console.WriteLine("    Indicanos el servicio que presenta fallas");
-                                    Console.WriteLine("====================================================");
+                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t    Indicanos el servicio que presenta fallas");
+                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t====================================================");
                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                    Console.WriteLine("\n >  1. VPN: Conexion, error en VPN");
-                                    Console.WriteLine("\n >  2. Equipos de computo y accesorios");
-                                    Console.WriteLine("\n >  3. Redes: Falla de conexión, lentitud, etc.");
-                                    Console.WriteLine("\n >  4. Software: Teams, Windows, Office, etc. ");
-                                    Console.WriteLine("\n >  5. Wifi: falla de conexión, etc.");
-                                    Console.WriteLine("\n >  6. Internet: caida del servicio ");
-                                    Console.WriteLine("\n >  7. Correo: No envia ni recibe correo ");
-                                    Console.WriteLine("\n >  8. Antivirus:AMP, Umbrell");
-                                    Console.WriteLine("\n >  9. Volver");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. VPN: Conexion, error en VPN");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Equipos de computo y accesorios");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Redes: Falla de conexión, lentitud, etc.");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Software: Teams, Windows, Office, etc. ");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Wifi: falla de conexión, etc.");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  6. Internet: caida del servicio ");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  7. Correo: No envia ni recibe correo ");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  8. Antivirus:AMP, Umbrell");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  9. Volver");
                                     Console.ForegroundColor = ConsoleColor.Cyan;
-                                    Console.WriteLine("\n====================================================");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t====================================================");
                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                    Console.Write("\n >  Elija una opción: ");
+                                    Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Elija una opción: ");
                                     opc = int.Parse(Console.ReadLine());
 
                                     codiguito = Lp.ObtenerCodigoProfe(dniTrabajador);
@@ -148,7 +148,7 @@ namespace ConsoleApp1
                                 catch
                                 {
                                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                                    Console.Write("\n\n.. < Ingrese un dato valido >");
+                                    Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese un dato valido >");
                                     Console.ReadLine();
                                 }
 

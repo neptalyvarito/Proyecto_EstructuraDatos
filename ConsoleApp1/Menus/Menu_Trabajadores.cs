@@ -22,10 +22,10 @@ namespace ConsoleApp1
 
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("\n\n              Está iniciando sesión como trabajador");
-                    Console.WriteLine("===================================================================");
-                    Console.WriteLine("  Llene los siguientes campos o ingrese el número 2 para volver");
-                    Console.WriteLine("===================================================================");
+                    Console.WriteLine("\n\\t\t\t\t\t\t\t\t\t\t\t\t\t              Está iniciando sesión como trabajador");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t===================================================================");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t  Llene los siguientes campos o ingrese el número 2 para volver");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t===================================================================");
 
                     verificacion = inicioSesion.InicioSesión(opc, Lu, LTra, La, Lp, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe);
 
@@ -41,14 +41,14 @@ namespace ConsoleApp1
                     else if (verificacion == false)
                     {
                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                        Console.WriteLine("\n... Número de DNI o contraseña incorrectos.");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t... Número de DNI o contraseña incorrectos.");
                         Console.ReadLine();
                     }
                 }
                 catch
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("\n  Error... Dni debe contener solo caracteres númericos");
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t  Error... Dni debe contener solo caracteres númericos");
                     Console.ReadLine();
                 }
             } while (verificacion == false);
@@ -64,14 +64,14 @@ namespace ConsoleApp1
                         nombreCompleto = LTra.NombreCompletoTrabajador(dniTrabajador);
                         
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine(" Bienvenido señor " + nombreCompleto);
-                        Console.WriteLine("\n==============================================");
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Bienvenido señor " + nombreCompleto);
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t==============================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("\n >  1. Gestionar tickets\n\n >  2. Gestionar alumnos\n\n >  3. Gestionar computadoras\n\n >  4. Marcar hora de salida \n\n >  5. Volver");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Gestionar tickets\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Gestionar alumnos\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Gestionar computadoras\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Marcar hora de salida \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Volver");
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("\n==============================================");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t==============================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.Write(" >  Elija una opción: ");
+                        Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t >  Elija una opción: ");
                         opc = int.Parse(Console.ReadLine());
                         switch (opc)
                         {
@@ -90,13 +90,13 @@ namespace ConsoleApp1
                                     {
                                         Console.Clear();
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("\n\n======== Gestionando Alumnos ========");
+                                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t======== Gestionando Alumnos ========");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.WriteLine("\n >  1. Mostrar lista de alumnos\n\n >  2. Modificar datos del alumno \n\n >  3. Eliminar alumno \n\n >  4. Volver");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Mostrar lista de alumnos\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Modificar datos del alumno \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Eliminar alumno \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Volver");
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("\n=====================================");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t=====================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.Write(" >  Elija una opción: ");
+                                        Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t >  Elija una opción: ");
                                         opc = int.Parse(Console.ReadLine());
                                         switch (opc)
                                         {
@@ -117,9 +117,9 @@ namespace ConsoleApp1
                                                     int codigo1;
                                                     string aux;
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
-                                                    Console.WriteLine("========================================================================================");
+                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t========================================================================================");
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                                    Console.Write(" >  Ingrese el código del alumno del cual desea modificar datos: ");
+                                                    Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese el código del alumno del cual desea modificar datos: ");
                                                     aux = Console.ReadLine();
 
                                                     verificacion = validacion.ValidacionIngresoSoloNum(aux);
@@ -139,14 +139,14 @@ namespace ConsoleApp1
                                                         else
                                                         {
                                                             Console.ForegroundColor = ConsoleColor.DarkRed;
-                                                            Console.WriteLine("... Alumno no econtrado. Ingrese el código correcto o el ingrese el número 2 para volver");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t... Alumno no econtrado. Ingrese el código correcto o el ingrese el número 2 para volver");
                                                             Console.ReadLine();
                                                         }
                                                     }
                                                     else if (verificacion == false)
                                                     {
                                                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                                                        Console.WriteLine("... El código debe contener solo caracteres númericos");
+                                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t... El código debe contener solo caracteres númericos");
                                                         Console.ReadLine();
                                                     }
                                                 } while (verificacion != true);
@@ -166,7 +166,7 @@ namespace ConsoleApp1
                                             default:
 
                                                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                                                Console.WriteLine("\n... Ingrese una opción valida");
+                                                Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t... Ingrese una opción valida");
                                                 Console.ReadLine();
                                                 opc = 0;
                                                 break;
@@ -176,7 +176,7 @@ namespace ConsoleApp1
                                     catch
                                     {
                                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                                        Console.WriteLine("\n.. < Ingrese una opción valida >");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opción valida >");
                                         Console.ReadLine();
                                     }
 
@@ -193,20 +193,19 @@ namespace ConsoleApp1
                                     {
                                         Console.Clear();
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("\n\n==================== Gestionando Computadoras ====================");
+                                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t==================== Gestionando Computadoras ====================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.WriteLine("\n > 1. Agregar nueva computadora a la lista");
-                                        Console.WriteLine("\n > 2. Buscar computadora por código");
-                                        Console.WriteLine("\n > 3. Modificar información de una computadora excepto su código");
-                                        Console.WriteLine("\n > 4. Mostrar computadoras de un mismo salon.");
-                                        Console.WriteLine("\n > 5. Mostrar computadoras de la misma marca.");
-                                        Console.WriteLine("\n > 6. Eliminar una computadora de la lista");
-                                        Console.WriteLine("\n > 7. Visualizar lista de computadoras");
-                                        Console.WriteLine("\n > 8. Volver");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 1. Agregar nueva computadora a la lista");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 2. Buscar computadora por código");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 3. Modificar información de una computadora excepto su código");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 4. Mostrar computadoras de un mismo salon.");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 6. Eliminar una computadora de la lista");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 7. Visualizar lista de computadoras");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 8. Volver");
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("\n====================================================================");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t====================================================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.Write(" > Elija una opción: ");
+                                        Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t > Elija una opción: ");
                                         opc = int.Parse(Console.ReadLine());
 
                                         switch (opc)
@@ -219,12 +218,12 @@ namespace ConsoleApp1
                                                 {
 
                                                     Console.Clear();
-                                                    Console.WriteLine("                  Registrando computadoras ");
-                                                    Console.WriteLine("---------------------------------------------------------");
-                                                    Console.WriteLine(" Si desea salir y no registrar nada, \ningrese el numero 2 en cualquier parte del código  ");
-                                                    Console.WriteLine("---------------------------------------------------------");
+                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t                  Registrando computadoras ");
+                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t---------------------------------------------------------");
+                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Si desea salir y no registrar nada, \n\t\t\t\t\t\t\t\t\t\t\t\t\tingrese el numero 2 en cualquier parte del código  ");
+                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t---------------------------------------------------------");
                                                     
-                                                    Console.Write(" Código de la computadora        : ");
+                                                    Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t Código de la computadora        : ");
                                                     codigoC = Console.ReadLine();
                                                     flag = validacion.ValidacionDeCadenaVaciaEIngresoNum2(codigoC);
                                                     if (codigoC == "2")
@@ -234,7 +233,7 @@ namespace ConsoleApp1
                                                     }
                                                     else if (flag == false)
                                                     {
-                                                        Console.WriteLine(" El código de la computadora no puede quedar en blanco.");
+                                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t El código de la computadora no puede quedar en blanco.");
                                                         Console.ReadLine();
                                                     }
 
@@ -244,7 +243,7 @@ namespace ConsoleApp1
                                                 {
                                                     do
                                                     {
-                                                        Console.Write(" Marca de la computadora         : ");
+                                                        Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t Marca de la computadora         : ");
                                                         marca = Console.ReadLine();
 
                                                         flag = validacion.ValidacionDeCadenaVaciaEIngresoNum2(marca);
@@ -256,7 +255,7 @@ namespace ConsoleApp1
                                                         }
                                                         else if (flag == false)
                                                         {
-                                                            Console.WriteLine(" La marca de la computadora no puede quedar en blanco.");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t La marca de la computadora no puede quedar en blanco.");
                                                             Console.ReadLine();
                                                         }
                                                     } while (flag == false);
@@ -265,7 +264,7 @@ namespace ConsoleApp1
                                                 {
                                                     do
                                                     {
-                                                        Console.Write(" Sistema Operativo               : ");
+                                                        Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t Sistema Operativo               : ");
                                                         sistemaO = Console.ReadLine();
 
                                                         flag = validacion.ValidacionDeCadenaVaciaEIngresoNum2(sistemaO);
@@ -277,7 +276,7 @@ namespace ConsoleApp1
                                                         }
                                                         else if (flag == false)
                                                         {
-                                                            Console.WriteLine(" El Sistema Operativo de la computadora no puede quedar en blanco.");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t El Sistema Operativo de la computadora no puede quedar en blanco.");
                                                             Console.ReadLine();
                                                         }
 
@@ -288,7 +287,7 @@ namespace ConsoleApp1
                                                     do
                                                     {
 
-                                                        Console.Write(" RAM (poner dos decimales .00)   : ");
+                                                        Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t RAM (poner dos decimales .00)   : ");
                                                         ram = Console.ReadLine();
                                                         flag = validacion.ValidacionDeCadenaVaciaEIngresoNum2(ram);
                                                         if(ram == "2")
@@ -302,13 +301,13 @@ namespace ConsoleApp1
                                                           
                                                             if (flag == false)
                                                             {
-                                                                Console.WriteLine("La ram no puede poseer caracteres no númericos");
+                                                                Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tLa ram no puede poseer caracteres no númericos");
                                                                 Console.ReadLine();
                                                             }
                                                         }
                                                         else if (flag == false)
                                                         {
-                                                            Console.WriteLine("La ram no puede quedar vacia");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tLa ram no puede quedar vacia");
                                                             Console.ReadLine();
                                                         }
 
@@ -318,7 +317,7 @@ namespace ConsoleApp1
                                                 if(flag == true)
                                                 {
                                                     do { 
-                                                        Console.Write(" Almacenamiento de la computadora: ");
+                                                        Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t Almacenamiento de la computadora: ");
                                                         almacenamiento = Console.ReadLine();
                                                         flag = validacion.ValidacionDeCadenaVaciaEIngresoNum2(almacenamiento);
                                                         if (almacenamiento == "2")
@@ -332,13 +331,13 @@ namespace ConsoleApp1
 
                                                             if (flag == false)
                                                             {
-                                                                Console.WriteLine("La ram no puede poseer caracteres no númericos");
+                                                                Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tLa ram no puede poseer caracteres no númericos");
                                                                 Console.ReadLine();
                                                             }
                                                         }
                                                         else if (flag == false)
                                                         {
-                                                            Console.WriteLine("La ram no puede quedar vacia");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tLa ram no puede quedar vacia");
                                                             Console.ReadLine();
                                                         }
 
@@ -347,7 +346,7 @@ namespace ConsoleApp1
                                                 if (flag == true)
                                                 {
                                                     do { 
-                                                        Console.Write(" Tarjeta madre: ");
+                                                        Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t Tarjeta madre: ");
                                                         tarjetaM = Console.ReadLine();
 
                                                         flag = validacion.ValidacionDeCadenaVaciaEIngresoNum2(tarjetaM);
@@ -358,7 +357,7 @@ namespace ConsoleApp1
                                                         }
                                                         else if (flag == false)
                                                         {
-                                                            Console.WriteLine(" El código de la computadora no puede quedar en blanco.");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t El código de la computadora no puede quedar en blanco.");
                                                             Console.ReadLine();
                                                         }
 
@@ -367,16 +366,16 @@ namespace ConsoleApp1
                                                 
                                                 if (flag == true)
                                                 {
-                                                    Console.WriteLine("            Ubicación de uso de la computadora ");
-                                                    Console.WriteLine("===========================================================");
-                                                    Console.WriteLine(" ");
+                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t            Ubicación de uso de la computadora ");
+                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t===========================================================");
+                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t ");
                                                 }
                                                 
                                                 if(flag == true)
                                                 {
                                                     do
                                                     {
-                                                        Console.Write("Salón                            : ");
+                                                        Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\tSalón                            : ");
                                                          salon = Console.ReadLine();
 
                                                         flag = validacion.ValidacionDeCadenaVaciaEIngresoNum2(salon);
@@ -387,7 +386,7 @@ namespace ConsoleApp1
                                                         }
                                                         else if (flag == false)
                                                         {
-                                                            Console.WriteLine(" El código de la computadora no puede quedar en blanco.");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t El código de la computadora no puede quedar en blanco.");
                                                             Console.ReadLine();
                                                         }
 
@@ -399,7 +398,7 @@ namespace ConsoleApp1
                                                 {
                                                     do
                                                     {
-                                                        Console.Write("Piso                             : ");
+                                                        Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\tPiso                             : ");
                                                         piso = Console.ReadLine();
 
                                                         flag = validacion.ValidacionDeCadenaVaciaEIngresoNum2(piso);
@@ -415,13 +414,13 @@ namespace ConsoleApp1
 
                                                             if (flag == false)
                                                             {
-                                                                Console.WriteLine("El piso no puede poseer caracteres no númericos");
+                                                                Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tEl piso no puede poseer caracteres no númericos");
                                                                 Console.ReadLine();
                                                             }
                                                         }
                                                         else if (flag == false)
                                                         {
-                                                            Console.WriteLine("El piso no puede quedar vacia");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tEl piso no puede quedar vacia");
                                                             Console.ReadLine();
                                                         }
 
@@ -431,7 +430,7 @@ namespace ConsoleApp1
                                                 {
                                                     do
                                                     {
-                                                        Console.Write("Edificio                         : ");
+                                                        Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\tEdificio                         : ");
                                                         edificio = Console.ReadLine();
                                                         flag = validacion.ValidacionDeCadenaVaciaEIngresoNum2(edificio);
                                                         
@@ -442,7 +441,7 @@ namespace ConsoleApp1
                                                         }
                                                         else if(flag == false)
                                                         {
-                                                            Console.WriteLine(" Edificio no puede quedar en blanco.");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Edificio no puede quedar en blanco.");
                                                             Console.ReadLine();
                                                         }
 
@@ -457,7 +456,7 @@ namespace ConsoleApp1
                                             
                                             case 2: 
                                                 Console.Clear();
-                                                Console.Write("Ingrese el código de la computadora a buscar: ");
+                                                Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\tIngrese el código de la computadora a buscar: ");
                                                 string codigoBus = Console.ReadLine();
                                                 ArbCom.buscarPorCompuPorCodigo(codigoBus);
                                                 Console.ReadLine();
@@ -471,9 +470,9 @@ namespace ConsoleApp1
                                                 {
 
                                                     Console.Clear();
-                                                    Console.WriteLine("               Modificación de datos de una computadora            ");
-                                                    Console.WriteLine("-------------------------------------------------------------------");
-                                                    Console.Write(" >  Ingrese código de la computadora a modificar: ");
+                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t               Modificación de datos de una computadora            ");
+                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t-------------------------------------------------------------------");
+                                                    Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese código de la computadora a modificar: ");
                                                     string codigoBusqueda = Console.ReadLine();
 
                                                     verificacion = ArbCom.SaberSiExisteCompu(ArbCom.arbolito, codigoBusqueda);
@@ -484,116 +483,116 @@ namespace ConsoleApp1
                                                         {
                                                             
                                                             Console.Clear();
-                                                            Console.WriteLine("        Modificación de datos de una computadora       ");
-                                                            Console.WriteLine("-------------------------------------------------------");
-                                                            Console.WriteLine(" >  1. Modificar Salon");
-                                                            Console.WriteLine(" >  2. Modificar Piso");
-                                                            Console.WriteLine(" >  3. Modificar Edificio");
-                                                            Console.WriteLine(" >  4. Modificar Sistema Operativo");
-                                                            Console.WriteLine(" >  5. Modificar Ram");
-                                                            Console.WriteLine(" >  6. Modificar Almacenamiento");
-                                                            Console.WriteLine(" >  7. Modificar Marca");
-                                                            Console.WriteLine(" >  8. Volver");
-                                                            Console.WriteLine("-------------------------------------------------------");
-                                                            Console.Write(" >  Elija una opción: ");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t        Modificación de datos de una computadora       ");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t-------------------------------------------------------");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Modificar Salon");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Modificar Piso");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Modificar Edificio");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Modificar Sistema Operativo");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Modificar Ram");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t >  6. Modificar Almacenamiento");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t >  7. Modificar Marca");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t >  8. Volver");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t-------------------------------------------------------");
+                                                            Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t >  Elija una opción: ");
                                                             opc = int.Parse(Console.ReadLine());
-                                                            Console.WriteLine("-------------------------------------------------------");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t-------------------------------------------------------");
                                                             switch (opc)
                                                             {
                                                                 case 1:
 
                                                                     Console.Clear();
-                                                                    Console.Write("  Ingrese el nuevo salon donde se encontrará la computadora:");
+                                                                    Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t  Ingrese el nuevo salon donde se encontrará la computadora:");
                                                                     string salonNew = Console.ReadLine();
 
                                                                     ArbCom.ModificarDatosCompu(salonNew, 0, 0, codigoBusqueda, opc, ArbCom.arbolito);
 
-                                                                    Console.WriteLine(" Data modificada con exito! ");
+                                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Data modificada con exito! ");
                                                                     Console.ReadLine();
 
                                                                     break;
                                                                 case 2:
 
                                                                     Console.Clear();
-                                                                    Console.Write("  Ingrese el nuevo piso donde se encontrará la computadora:");
+                                                                    Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t  Ingrese el nuevo piso donde se encontrará la computadora:");
                                                                     int pisoNew = int.Parse(Console.ReadLine());
 
                                                                     ArbCom.ModificarDatosCompu(" ", 0, pisoNew, codigoBusqueda, opc, ArbCom.arbolito);
 
-                                                                    Console.WriteLine(" Data modificada con exito! ");
+                                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Data modificada con exito! ");
                                                                     Console.ReadLine();
 
                                                                     break;
                                                                 case 3:
 
                                                                     Console.Clear();
-                                                                    Console.Write("  Ingrese el nuevo edificio donde se encontrará la computadora:");
+                                                                    Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t  Ingrese el nuevo edificio donde se encontrará la computadora:");
                                                                     string edificioNew = Console.ReadLine();
 
                                                                     ArbCom.ModificarDatosCompu(edificioNew, 0, 0, codigoBusqueda, opc, ArbCom.arbolito);
 
 
-                                                                    Console.WriteLine(" Data modificada con exito! ");
+                                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Data modificada con exito! ");
                                                                     Console.ReadLine();
 
                                                                     break;
                                                                 case 4:
 
                                                                     Console.Clear();
-                                                                    Console.Write("  Ingrese el nuevo sistema operativo de la computadora:");
+                                                                    Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t  Ingrese el nuevo sistema operativo de la computadora:");
                                                                     string SistemaOpNew = Console.ReadLine();
 
                                                                     ArbCom.ModificarDatosCompu(SistemaOpNew, 0, 0, codigoBusqueda, opc, ArbCom.arbolito);
 
-                                                                    Console.WriteLine(" Data modificada con exito! ");
+                                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Data modificada con exito! ");
                                                                     Console.ReadLine();
 
                                                                     break;
                                                                 case 5:
 
                                                                     Console.Clear();
-                                                                    Console.Write("  Ingrese la nueva ram de la computadora:");
+                                                                    Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t  Ingrese la nueva ram de la computadora:");
                                                                     double ramNew = double.Parse(Console.ReadLine());
 
                                                                     ArbCom.ModificarDatosCompu(" ", ramNew, 0, codigoBusqueda, opc, ArbCom.arbolito);
 
-                                                                    Console.WriteLine(" Data modificada con exito! ");
+                                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Data modificada con exito! ");
                                                                     Console.ReadLine();
                                                                     break;
                                                                 case 6:
 
                                                                     Console.Clear();
-                                                                    Console.Write("  Ingrese el nuevo almacenamiento de la computadora:");
+                                                                    Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t  Ingrese el nuevo almacenamiento de la computadora:");
                                                                     double almacenamientoNew = double.Parse(Console.ReadLine()); 
 
                                                                     ArbCom.ModificarDatosCompu(" ", almacenamientoNew, 0, codigoBusqueda, opc, ArbCom.arbolito);
 
-                                                                    Console.WriteLine(" Data modificada con exito! ");
+                                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Data modificada con exito! ");
                                                                     Console.ReadLine();
 
                                                                     break;
                                                                 case 7:
                                                                     Console.Clear();
-                                                                    Console.Write("  Ingrese la nueva marca de la computadora:");
+                                                                    Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t  Ingrese la nueva marca de la computadora:");
                                                                     string marcaNew = Console.ReadLine();
 
                                                                     ArbCom.ModificarDatosCompu(marcaNew, 0, 0, codigoBusqueda, opc, ArbCom.arbolito);
 
-                                                                    Console.WriteLine(" Data modificada con exito! ");
+                                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Data modificada con exito! ");
                                                                     Console.ReadLine();
 
                                                                     break;
                                                                 case 8:
                                                                     break;
                                                                 default:
-                                                                    Console.WriteLine(" >  Ingrese una opción valida");
+                                                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese una opción valida");
                                                                     break;
                                                             }
                                                         } while (opc != 8);
                                                     }
                                                     else
                                                     {
-                                                        Console.WriteLine(" >.  Máquina no encontrada, por favor verifique el código.");
+                                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t >.  Máquina no encontrada, por favor verifique el código.");
                                                     }
 
                                                 } while (verificacion != true);
@@ -601,7 +600,7 @@ namespace ConsoleApp1
                                                 break;
                                             case 4:
                                                 Console.Clear();
-                                                Console.Write(" Ingrese el salon: ");
+                                                Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t Ingrese el salon: ");
                                                 string codigoBusSal = Console.ReadLine();
                                                 ArbCom.MostrarArbolitoPorSalon(ArbCom.arbolito, codigoBusSal);
                                                 Console.ReadLine();
@@ -614,7 +613,7 @@ namespace ConsoleApp1
 
                                                 Console.Clear();
 
-                                                Console.Write("Ingrese la marca que desea buscar: ");
+                                                Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\tIngrese la marca que desea buscar: ");
                                                 string marcaBus = Console.ReadLine();
                                                 ArbCom.MostrarArbolitoPorMarca(ArbCom.arbolito, marcaBus);
 
@@ -641,7 +640,7 @@ namespace ConsoleApp1
                                                 break;
                                             default:
                                                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                                                Console.WriteLine("\n... Ingrese una opción valida");
+                                                Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t... Ingrese una opción valida");
                                                 Console.ReadLine();
                                                 opc = 0;
                                                 break;
@@ -650,7 +649,7 @@ namespace ConsoleApp1
                                     catch
                                     {
                                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                                        Console.WriteLine("\n.. < Ingrese una opción valida >");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opción valida >");
                                         Console.ReadLine();
                                     }
 
@@ -669,7 +668,7 @@ namespace ConsoleApp1
 
                             default:
                                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                                Console.WriteLine("\n.. < Ingrese una opción valida >");
+                                Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opción valida >");
                                 Console.ReadLine();
                                 break;
 
@@ -678,7 +677,7 @@ namespace ConsoleApp1
                     catch
                     {
                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                        Console.WriteLine("\n.. < Ingrese una opción valida >");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opción valida >");
                         Console.ReadLine();
                     }
                 } while (opc != 5);

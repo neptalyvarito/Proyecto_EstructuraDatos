@@ -27,10 +27,10 @@ namespace ConsoleApp1
 
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("\n\n           Está iniciando sesión como administrador");
-                    Console.WriteLine("===================================================================");
-                    Console.WriteLine("  Llene los siguientes campos o ingrese el número 2 para volver");
-                    Console.WriteLine("===================================================================");
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t           Está iniciando sesión como administrador");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t===================================================================");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t  Llene los siguientes campos o ingrese el número 2 para volver");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t===================================================================");
 
                     verificacion = inicioSesion.InicioSesión(opc, Lu, LTra, La, Lp, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe);
 
@@ -44,14 +44,14 @@ namespace ConsoleApp1
                     else if (verificacion == false)
                     {
                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                        Console.WriteLine("... Número de DNI o contraseña incorrectos.");
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t... Número de DNI o contraseña incorrectos.");
                         Console.ReadLine();
                     }
                 }
                 catch 
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine(" Error.... Dni debe contener solo caracteres númericos");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Error.... Dni debe contener solo caracteres númericos");
                     Console.ReadLine();
                 }
 
@@ -70,22 +70,22 @@ namespace ConsoleApp1
           
                         opc = 0;
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine(" Bienvenido señor " + nombreCompleto);
-                        Console.WriteLine("===============================================");
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Bienvenido señor " + nombreCompleto);
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t===============================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("\n >  1. Gestionar alumnos");
-                        Console.WriteLine("\n >  2. Gestionar docentes");
-                        Console.WriteLine("\n >  3. Gestionar trabajadores");
-                        Console.WriteLine("\n >  4. Gestionar administrativos");
-                        Console.WriteLine("\n >  5. Gestionar tickets");
-                        Console.WriteLine("\n >  6. Gestionar solicitudes");
-                        Console.WriteLine("\n >  7. Gestionar sugerencias");
-                        Console.WriteLine("\n >  8. Generar Reporte");
-                        Console.WriteLine("\n >  9. Volver");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Gestionar alumnos");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Gestionar docentes");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Gestionar trabajadores");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Gestionar administrativos");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Gestionar tickets");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  6. Gestionar solicitudes");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  7. Gestionar sugerencias");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  8. Generar Reporte");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  9. Volver");
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("\n===============================================");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t===============================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.Write("\n >  Ingrese opción: ");
+                        Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese opción: ");
                         opcMandar = int.Parse(Console.ReadLine());
 
                         switch (opcMandar)
@@ -97,14 +97,14 @@ namespace ConsoleApp1
                                     {
                                         Console.Clear();
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("           Gestionando Alumnos");
-                                        Console.WriteLine("==============================================");
+                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t           Gestionando Alumnos");
+                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t==============================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.WriteLine("\n >  1. Crear alumnos\n\n >  2. Ver lista de alumnos\n\n >  3. Modificar datos del alumno \n\n >  4. Eliminar alumno\n\n >  5. Volver");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Crear alumnos\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Ver lista de alumnos\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Modificar datos del alumno \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Eliminar alumno\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Volver");
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("\n==============================================");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t==============================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.Write("\n >  Ingrese opción: ");
+                                        Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese opción: ");
                                         opc = int.Parse(Console.ReadLine());
 
                                         switch (opc)
@@ -134,9 +134,9 @@ namespace ConsoleApp1
                                                     
                                                     string aux;
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
-                                                    Console.Write("\n============================================================================");
+                                                    Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t============================================================================");
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                                    Console.Write("\n\n >  Ingrese el código del alumno del cual desea modificar datos: ");
+                                                    Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese el código del alumno del cual desea modificar datos: ");
                                                     aux = Console.ReadLine();
 
                                                     verificacion = validacion.ValidacionIngresoSoloNum(aux);
@@ -156,14 +156,14 @@ namespace ConsoleApp1
                                                         else
                                                         {
                                                             Console.ForegroundColor = ConsoleColor.DarkRed;
-                                                            Console.WriteLine("\n... Alumno no econtrado.\n... Ingrese el código correcto o el ingrese el número 2 para volver.");
+                                                            Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t... Alumno no econtrado.\n\t\t\t\t\t\t\t\t\t\t\t\t\t... Ingrese el código correcto o el ingrese el número 2 para volver.");
                                                             Console.ReadLine();
                                                         }
                                                     }
                                                     else if(verificacion == false)
                                                     {
                                                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                                                        Console.WriteLine("\n... El código debe contener solo caracteres númericos");
+                                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t... El código debe contener solo caracteres númericos");
                                                         Console.ReadLine();
                                                     }
                                                 } while ( verificacion != true);
@@ -181,7 +181,7 @@ namespace ConsoleApp1
                                                 break;
                                             default:
                                                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                                                Console.WriteLine("\n.. < Ingrese una opción valida >");
+                                                Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opción valida >");
                                                 Console.ReadLine();
                                                 break;
                                         }
@@ -189,7 +189,7 @@ namespace ConsoleApp1
                                     catch
                                     {
                                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                                        Console.WriteLine("\n.. < Ingrese un dato valido >");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese un dato valido >");
                                         Console.ReadLine();
                                     }
 
@@ -202,29 +202,29 @@ namespace ConsoleApp1
                                 do
                                 {
                                     Console.Clear();
-                                    Console.WriteLine("======== Gestionando docentes =======");
-                                    Console.WriteLine("\n >  1. Agregar docente");
-                                    Console.WriteLine("\n >  2. Mostrar lista de docentes");
-                                    Console.WriteLine("\n >  3. Volver");
-                                    Console.WriteLine("=====================================");
-                                    Console.Write("\n >  Ingrese opción: ");
+                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t======== Gestionando docentes =======");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Agregar docente");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Mostrar lista de docentes");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Volver");
+                                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t=====================================");
+                                    Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese opción: ");
                                     opc = int.Parse(Console.ReadLine());
 
                                     switch (opc)
                                     {
                                         case 1:
                                             Console.Clear();
-                                            Console.WriteLine("         Registrando nuevo profesor           ");
-                                            Console.WriteLine("----------------------------------------------");
-                                            Console.Write("\n >  Nombres: ");
+                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t         Registrando nuevo profesor           ");
+                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t----------------------------------------------");
+                                            Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Nombres: ");
                                             string nombres = Console.ReadLine();
-                                            Console.Write("\n >  Apellidos: ");
+                                            Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Apellidos: ");
                                             string apellido = Console.ReadLine();
-                                            Console.Write("\n >  Dni: ");
+                                            Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Dni: ");
                                             int dni = int.Parse(Console.ReadLine());
-                                            Console.Write("\n >  Número celular: ");
+                                            Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Número celular: ");
                                             int numeroCel = int.Parse(Console.ReadLine());
-                                            Console.Write("\n >  Contraseña: ");
+                                            Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Contraseña: ");
                                             string contrasena = Console.ReadLine();
                                             Lp.RegistrarProfe(nombres, apellido, dni, numeroCel, contrasena);
                                             break;
@@ -249,14 +249,14 @@ namespace ConsoleApp1
                                     {
                                         Console.Clear();
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("      Gestionando Trabajadores");
-                                        Console.WriteLine("============================================");
+                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t      Gestionando Trabajadores");
+                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t============================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.WriteLine("\n >  1. Crear trabajador\n\n >  2. Ver lista de trabajadorres \n\n >  3. Modificar datos del trabajador \n\n >  4. Eliminar trabajador\n\n >  5. Volver");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Crear trabajador\n\n >  2. Ver lista de trabajadorres \n\n >  3. Modificar datos del trabajador \n\n >  4. Eliminar trabajador\n\n >  5. Volver");
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("\n============================================");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t============================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.Write(" >  Ingrese opción: ");
+                                        Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese opción: ");
                                         opc = int.Parse(Console.ReadLine());
 
                                         switch (opc)
@@ -283,9 +283,9 @@ namespace ConsoleApp1
                                                     int codigo2;
                                                     string aux;
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
-                                                    Console.Write("\n===============================================================================");
+                                                    Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t===============================================================================");
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                                    Console.Write("\n >  Ingrese el código del trabajador del cual desea modificar datos: ");
+                                                    Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese el código del trabajador del cual desea modificar datos: ");
                                                     aux = Console.ReadLine();
 
                                                     verificacion = validacion.ValidacionIngresoSoloNum(aux);
@@ -305,14 +305,14 @@ namespace ConsoleApp1
                                                         else
                                                         {
                                                             Console.ForegroundColor = ConsoleColor.DarkRed;
-                                                            Console.WriteLine("... Trabajador no econtrado. Ingrese el código correcto o el ingrese el número 2 para volver");
+                                                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t... Trabajador no econtrado. Ingrese el código correcto o el ingrese el número 2 para volver");
                                                             Console.ReadLine();
                                                         }
                                                     }
                                                     else if (verificacion == false)
                                                     {
                                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                                        Console.WriteLine("... El código debe contener solo caracteres númericos");
+                                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t... El código debe contener solo caracteres númericos");
                                                         Console.ReadLine();
                                                     }
                                                 } while (verificacion != true);
@@ -330,7 +330,7 @@ namespace ConsoleApp1
                                                 break;
                                             default:
                                                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                                                Console.WriteLine("\n.. < Ingrese una opción valida >");
+                                                Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opción valida >");
                                                 Console.ReadLine();
 
                                                 break;
@@ -338,7 +338,7 @@ namespace ConsoleApp1
                                     }
                                     catch
                                     {
-                                        Console.WriteLine("\n.. < Ingrese un dato valido >");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese un dato valido >");
                                         Console.ReadLine();
                                     }
 
@@ -354,14 +354,14 @@ namespace ConsoleApp1
                                     {
                                         Console.Clear();
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("       Gestionando Administrativos");
-                                        Console.WriteLine("===========================================");
+                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t       Gestionando Administrativos");
+                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t===========================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.WriteLine("\n >  1. Crear administrativo\n\n >  2. Ver lista de administrativos \n\n >  3. Modificar datos del administrativo \n\n >  4. Elimar administrativo \n\n >  5. Volver");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Crear administrativo\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Ver lista de administrativos \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Modificar datos del administrativo \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Elimar administrativo \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Volver");
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("\n===========================================");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t===========================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.Write(" >  Ingrese opción: ");
+                                        Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese opción: ");
                                         opc = int.Parse(Console.ReadLine());
 
                                         switch (opc)
@@ -390,9 +390,9 @@ namespace ConsoleApp1
                                                     int codigo1;
                                                     string aux;
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
-                                                    Console.Write("\n\n==================================================================================");
+                                                    Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t==================================================================================");
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                                    Console.Write("\n >  Ingrese el código del administrador del cual desea modificar datos: ");
+                                                    Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese el código del administrador del cual desea modificar datos: ");
                                                     aux = Console.ReadLine();
 
                                                     verificacion = validacion.ValidacionIngresoSoloNum(aux);
@@ -412,14 +412,14 @@ namespace ConsoleApp1
                                                         else
                                                         {
                                                             Console.ForegroundColor = ConsoleColor.DarkRed;
-                                                            Console.WriteLine("\n... Administrador no econtrado.\n... Ingrese el código correcto o el ingrese el número 2 para volver");
+                                                            Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t... Administrador no econtrado.\n\t\t\t\t\t\t\t\t\t\t\t\t\t... Ingrese el código correcto o el ingrese el número 2 para volver");
                                                             Console.ReadLine();
                                                         }
                                                     }
                                                     else if (verificacion == false)
                                                     {
                                                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                                                        Console.WriteLine("\n... El código debe contener solo caracteres númericos");
+                                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t... El código debe contener solo caracteres númericos");
                                                         Console.ReadLine();
                                                     }
                                                 } while (verificacion != true);
@@ -439,7 +439,7 @@ namespace ConsoleApp1
 
                                             default:
                                                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                                                Console.WriteLine("\n.. < Ingrese un dato valido >");
+                                                Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese un dato valido >");
                                                 Console.ReadLine();
                                                 break;
 
@@ -448,7 +448,7 @@ namespace ConsoleApp1
                                     catch
                                     {
                                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                                        Console.WriteLine("\n.. < Ingrese una opción valida > ");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opción valida > ");
                                         Console.ReadLine();
                                     }
 
@@ -473,18 +473,18 @@ namespace ConsoleApp1
                                     {
                                         Console.Clear();
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("        Gestionando solicitudes     ");
-                                        Console.WriteLine("=======================================");
+                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t        Gestionando solicitudes     ");
+                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t=======================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.WriteLine("\n >  1. Ver todas las solicitudes");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Ver todas las solicitudes");
                                         //Console.WriteLine(" 2. Confirmar o denegar solicitud");
-                                        Console.WriteLine("\n >  2. Eliminar lista en orden");
-                                        Console.WriteLine("\n >  3. Vaciar lista de solicitudes");
-                                        Console.WriteLine("\n >  4. Volver");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Eliminar lista en orden");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Vaciar lista de solicitudes");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Volver");
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("\n=======================================");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t=======================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.Write("\n >  Ingrese su opcion: ");
+                                        Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese su opcion: ");
                                         opc = int.Parse(Console.ReadLine());
                                         switch (opc)
                                         {
@@ -501,30 +501,30 @@ namespace ConsoleApp1
                                                     muestra = ColSol.EliminarSolicitud(ref q);
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
 
-                                                    Console.WriteLine("\n Se ha eliminado la primera solicitud en espera");
-                                                    Console.WriteLine("\n Caracteristicas de solicitud eliminada: ");
-                                                    Console.Write("\n\n Solicitante: ");
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Se ha eliminado la primera solicitud en espera");
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Caracteristicas de solicitud eliminada: ");
+                                                    Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Solicitante: ");
 
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
                                                     Console.Write(muestra.Solicitante);
 
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
-                                                    Console.Write("\n\n Destinatarios: ");
+                                                    Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Destinatarios: ");
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
                                                     Console.Write(muestra.Destinatario);
 
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
-                                                    Console.Write("\n\n Tipo de Solicitud: ");
+                                                    Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Tipo de Solicitud: ");
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
                                                     Console.Write(muestra.TipoSolicitud);
 
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
-                                                    Console.Write("\n\n Condicion: ");
+                                                    Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Condicion: ");
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
                                                     Console.Write(muestra.Condicion);
 
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
-                                                    Console.Write("\n\n Mensaje: ");
+                                                    Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Mensaje: ");
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
                                                     Console.Write(muestra.MensajeParaUsuario);
 
@@ -533,14 +533,14 @@ namespace ConsoleApp1
                                                 else
                                                 {
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                                    Console.WriteLine("\n  ¡Cola de solicitudes está vacia!");
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t  ¡Cola de solicitudes está vacia!");
                                                 }
                                                 Console.ReadLine();
                                                 break;
                                             case 3:
                                                 ColSol.EliminarTodasSolicitudes(ref q);
                                                 Console.ForegroundColor = ConsoleColor.Yellow;
-                                                Console.WriteLine("\n ¡Todas las solicitudes han sido eliminadas!");
+                                                Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t ¡Todas las solicitudes han sido eliminadas!");
                                                 Console.ReadLine();
                                                 break;
                                             case 4:
@@ -550,7 +550,7 @@ namespace ConsoleApp1
                                     catch
                                     {
                                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                                        Console.WriteLine("\n.. < Ingrese una opcion valida >");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opcion valida >");
                                     }
                                 }
                                 while (opc != 4);
@@ -566,16 +566,16 @@ namespace ConsoleApp1
                                         Console.Clear();
                                         Sugerencias mostrar;
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("         Gestionando sugerencias");
-                                        Console.WriteLine("============================================");
+                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t         Gestionando sugerencias");
+                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t============================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.WriteLine("\n >  1. Visualizar sugerencias");
-                                        Console.WriteLine("\n >  2. Eliminar ultima sugerencia hecha");
-                                        Console.WriteLine("\n >  3. Volver");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Visualizar sugerencias");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Eliminar ultima sugerencia hecha");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Volver");
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("\n============================================");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t============================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.Write("\n >  Ingrese opción: ");
+                                        Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese opción: ");
                                         opc = int.Parse(Console.ReadLine());
                                         switch (opc)
                                         {
@@ -589,27 +589,27 @@ namespace ConsoleApp1
                                                 {
                                                     mostrar = PilSug.QuitarSug();
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
-                                                    Console.WriteLine("\n\n  ¡Se ha removido la ulima sugerencia que ha sido agregada!");
-                                                    Console.WriteLine("\n Especificaciones de la sugerencia: ");
+                                                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t  ¡Se ha removido la ulima sugerencia que ha sido agregada!");
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Especificaciones de la sugerencia: ");
 
-                                                    Console.Write("\n\n Sugerencia:  ");
+                                                    Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Sugerencia:  ");
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
                                                     Console.Write(mostrar.sugerencia);
 
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
-                                                    Console.Write("\n\n Fecha de creación: ");
+                                                    Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Fecha de creación: ");
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
                                                     Console.Write(mostrar.fechaCreacion);
 
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
-                                                    Console.WriteLine("\n Tabla actualizada: \n\n");
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Tabla actualizada: \n\n");
                                                     PilSug.MostrarSugerencia();
                                                     Console.ReadLine();
                                                 }
                                                 else
                                                 {
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                                    Console.WriteLine("\n  ¡Lista de sugerencias vacia!");
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t  ¡Lista de sugerencias vacia!");
                                                     Console.ReadLine();
                                                 }
                                                 break;
@@ -617,14 +617,14 @@ namespace ConsoleApp1
                                                 break;
                                             default:
                                                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                                                Console.WriteLine("\n.. < Ingrese una opción valida >");
+                                                Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opción valida >");
                                                 break;
                                         }
                                     }
                                     catch 
                                     { 
                                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                                        Console.WriteLine("\n.. < Ingrese un dato valido >");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese un dato valido >");
                                     }
 
                                 } while (opc != 3);
@@ -639,16 +639,16 @@ namespace ConsoleApp1
                                     {
                                         Console.Clear();
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("          Seleccione que reporte desea visualizar           ");
-                                        Console.WriteLine("===============================================================");
+                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t          Seleccione que reporte desea visualizar           ");
+                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t===============================================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.WriteLine("\n >  1. Cantidad de tickets que ha creado cada usuario. ");
-                                        Console.WriteLine("\n >  2. Cantidad de tickets que se hacreado de cada tipo. ");
-                                        Console.WriteLine("\n >  3. Volver.");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Cantidad de tickets que ha creado cada usuario. ");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Cantidad de tickets que se hacreado de cada tipo. ");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Volver.");
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("\n===============================================================");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t===============================================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.Write("\n >  Ingrese una opción: ");
+                                        Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese una opción: ");
                                         opc = int.Parse(Console.ReadLine());
                                         switch (opc)
                                         {
@@ -662,14 +662,14 @@ namespace ConsoleApp1
                                                 break;
                                             default:
                                                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                                                Console.WriteLine("\n.. < Ingrese una opción valida >");
+                                                Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opción valida >");
                                                 break;
                                         }
                                     }
                                     catch
                                     {
                                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                                        Console.WriteLine("\n.. < Ingrese un dato valido >");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese un dato valido >");
                                     }
                                 } while (opc != 3);
                                 opc = 0;
@@ -680,7 +680,7 @@ namespace ConsoleApp1
 
                             default:
                                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                                Console.WriteLine("\n.. < Ingrese un dato valido >");
+                                Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese un dato valido >");
                                 Console.ReadLine();
                                 break;
                         }
@@ -688,7 +688,7 @@ namespace ConsoleApp1
                     catch
                     {
                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                        Console.WriteLine("\n.. < Ingrese una opción valida >");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opción valida >");
                         Console.ReadLine();
                     }
 
