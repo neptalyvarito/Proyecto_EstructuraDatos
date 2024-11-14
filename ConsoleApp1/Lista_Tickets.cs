@@ -129,8 +129,8 @@ namespace ConsoleApp1
                     {
                         do
                         {
-                            Console.WriteLine("-------------------------------------------------");
-                            Console.Write("\n Escriba la solución al problema: ");
+                            Console.WriteLine("---------------------------------------------------------------");
+                            Console.Write("\n Escriba la solución al problema (coloque su nombre y apellido): ");
                             solucion = Console.ReadLine();
                             verificacion = validación.ValidacionDeCadenaVaciaEIngresoNum2(solucion);
                             if (solucion == "2")

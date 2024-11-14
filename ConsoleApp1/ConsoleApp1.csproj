@@ -58,6 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABBOptimizado_Salon.cs" />
+    <Compile Include="ArbolSatis.cs" />
     <Compile Include="Objetos\Administrativos.cs" />
     <Compile Include="Arbol_Compus.cs" />
     <Compile Include="AsignacionTrabajos.cs" />
@@ -73,6 +75,9 @@
     <Compile Include="Menu_Admin.cs" />
     <Compile Include="Menu_Alumnos.cs" />
     <Compile Include="Menu_Trabajadores.cs" />
+    <Compile Include="Objetos\Satisfaccion.cs" />
+    <Compile Include="Objetos\Salones.cs" />
+    <Compile Include="PilaSatis.cs" />
     <Compile Include="Pila_Sugerencia.cs" />
     <Compile Include="Objetos\Profesor.cs" />
     <Compile Include="Program.cs" />

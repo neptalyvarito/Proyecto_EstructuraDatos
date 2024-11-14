@@ -67,7 +67,7 @@ namespace ConsoleApp1
                         Console.WriteLine(" Bienvenido alumno(a) " + nombreCompleto);
                         Console.WriteLine("================================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("\n >  1. Generar Ticket\n\n >  2. Ver todos mis tickets \n\n >  3. Ver mis tickets resueltos \n\n >  4. Ver mis tickets en espera \n\n >  5. Modificar mis datos \n\n >  6. Realizar Solicitud \n\n >  7. Ver mis solicitudes \n\n >  8. Realizar Sugerencias a la empresa \n\n >  9. Volver");
+                        Console.WriteLine("\n >  1. Generar Ticket\n\n >  2. Ver todos mis tickets \n\n >  3. Ver mis tickets resueltos \n\n >  4. Ver mis tickets en espera \n\n >  5. Modificar mis datos \n\n >  6. Realizar Solicitud \n\n >  7. Ver mis solicitudes \n\n >  8. Realizar Sugerencias a la empresa \n\n >  9. Realizar la encuesta de satisfacción \n\n >  10. Volver");
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("\n================================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -146,9 +146,9 @@ namespace ConsoleApp1
                                         Console.Write("\n\n.. < Ingrese un dato valido >");
                                         Console.ReadLine();
                                     }
-                                    
+
                                 } while (opc != 9);
-                       
+
                                 opc = 0;
                                 break;
 
@@ -416,7 +416,7 @@ namespace ConsoleApp1
                                                     }
                                                     else if (verificacion == true)
                                                     {
-                                                        ColSol.AgregarSolicitud(ref q, nombreCompleto,descripcion, nombreCompleto, codigoBusquedaUser);
+                                                        ColSol.AgregarSolicitud(ref q, nombreCompleto, descripcion, nombreCompleto, codigoBusquedaUser);
                                                         Console.ForegroundColor = ConsoleColor.Cyan;
                                                         Console.WriteLine("\n=====================================================");
                                                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -541,8 +541,42 @@ namespace ConsoleApp1
                                 } while (verificacion != true);
 
                                 break;
-                            
+
                             case 9:
+                                do
+                                {
+                                    Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("                 Realizando encuesta de satisfacción                   ");
+                                    Console.WriteLine("======================================================================");
+                                    Console.WriteLine("    Siéntase libre de expresar lo que guste, la encuesta es anónima    ");
+                                    Console.WriteLine("======================================================================");
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("\n >  ¿Está satisfecho(a) con la atención dada? (Sí/No): ");
+                                    string satisfaccion = Console.ReadLine();
+
+                                    verificacion = validacion.ValidacionDeCadenaVaciaEIngresoNum2(satisfaccion);
+                                    if (satisfaccion == "2")
+                                    {
+                                        break;
+                                    }
+                                    else if (verificacion == true)
+                                    {
+                                        PilaSug.AgregarSug(satisfaccion);
+                                        Console.WriteLine("----------------------------------------------------");
+                                        Console.WriteLine("  ->  Su sugerencia ha sido mandada con exito!");
+                                        Console.ReadLine();
+                                    }
+                                    else if (verificacion == false)
+                                    {
+                                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                                        Console.WriteLine("\n... Su respuesta no debe quedar en blanco");
+                                        Console.ReadLine();
+                                    }
+
+                                } while (verificacion != true);
+                        break;
+                            case 10:
                                 break;
                             default:
                                 Console.ForegroundColor = ConsoleColor.DarkRed;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -207,6 +208,23 @@ namespace ConsoleApp1
                 MostrarArbolitoEnOrden(arb.derecha );
             }
         }
-
+        public void buscarPorSalon(Computadoras arb, string salon, ref int piso, ref string edificio, ref string codigoCompu)
+        {
+            if (arb == null)
+            {
+                return;
+            }
+            else
+            {
+                buscarPorSalon(arb.izquierda, salon, ref piso, ref edificio, ref codigoCompu);
+                if (salon.ToUpper() == arb.salon.ToUpper())
+                {
+                    piso = arb.piso;
+                    edificio = arb.edificio;
+                    codigoCompu = arb.codigoCompu;
+                }
+                buscarPorSalon(arb.derecha, salon, ref piso, ref edificio, ref codigoCompu);
+            }
+        }
     }
 }
