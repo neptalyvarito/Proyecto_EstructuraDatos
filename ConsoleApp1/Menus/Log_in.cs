@@ -16,7 +16,7 @@ namespace ConsoleApp1
         {
             bool verificacion = false;
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write("\n >  Ingrese su dni: ");
+            Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese su dni: ");
             if (TipoIngresante == 1)
             {
                 dniUser = int.Parse(Console.ReadLine());
@@ -42,7 +42,7 @@ namespace ConsoleApp1
                 if (dniUser != 2 && dniAdmin != 2 && dniTrabajador != 2)
                 {
 
-                    Console.Write("\n >  Ingrese su contraseña: ");
+                    Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese su contraseña: ");
                     contrasena = Console.ReadLine();
 
 
@@ -67,7 +67,7 @@ namespace ConsoleApp1
             else if(verificacion == false)
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("... Longitud de Dni incorrecta");
+                Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t... Longitud de Dni incorrecta");
             }
             return verificacion;
         }

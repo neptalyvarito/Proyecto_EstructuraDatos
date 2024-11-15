@@ -125,7 +125,7 @@ namespace ConsoleApp1
         }
         public void GenerarTickets(Lista_Tickets Ltick, Lista_Alumnos Lu, ColaPrio_Ticket colaPrio, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Profes Lp)
         {
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < 90; i++)
             {
                 int detener = Nro.Next(0, Lu.CantidadDeUsuarios());
                 int codigo = 0;

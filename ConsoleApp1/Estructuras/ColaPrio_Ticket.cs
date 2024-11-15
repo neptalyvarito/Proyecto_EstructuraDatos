@@ -263,7 +263,18 @@ namespace ConsoleApp1
                 if (t.descripcion == descripcion) contador++;
                 t = t.sgte;
             }
-            Console.Write("| " + descripcion.PadRight(60, ' ') + "| " + contador + "\n");
+            Console.WriteLine("\n\t\t\t\t\t\t\t\t| " + descripcion.PadRight(60, ' ') + "| " + contador + "");
+            int a = CantidadDeTicketsPrio();
+            Console.Write("\n\t\t\t\t\t\t\t\t->:| ");
+            for(int i = 0; i<contador; i++)
+            {
+                Console.Write("|");
+            }
+            for(int i = 0; i<(a-contador); i++)
+            {
+                Console.Write("I");
+            }
+            Console.ReadLine();
         }
         public Ticket BuscarTicketPrio(int codigo)
         {
