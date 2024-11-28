@@ -72,6 +72,7 @@
     <Compile Include="Objetos\Computadoras.cs" />
     <Compile Include="Objetos\Satisfaccion.cs" />
     <Compile Include="Objetos\Salones.cs" />
+    <Compile Include="Estrucutras basicas\PilaParaSolicitudes.cs" />
     <Compile Include="PilaSatis.cs" />
     <Compile Include="Generar_DataGeneral\Generacion_Aleatorio.cs" />
     <Compile Include="Listas Simples\Lista_Administrativos.cs" />

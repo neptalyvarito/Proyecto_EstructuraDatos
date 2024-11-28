@@ -20,11 +20,8 @@ namespace ConsoleApp1
         public string prioridadDes;
         public DateTime fechaCreacion;
         public DateTime fechaRespuesta;
-        public Ticket delante;
-        public Ticket atras;
         public Ticket sgte;
-        public Ticket cabeza;
-        public Ticket cola;
+      
 
         public Ticket(string dueño, int codigoTicket, string condicion, string descripcion, DateTime fechaCreacion, string respuestaSolucion, int codigoDueño, string categoria, DateTime fechaRespuesta, int codigoTrabajadorEncargado, int prioridadNum, string prioridadDes)
         {
@@ -41,10 +38,6 @@ namespace ConsoleApp1
             this.prioridadNum = prioridadNum;
             this.prioridadDes = prioridadDes;
             sgte = null;
-            delante = null;
-            atras = null;
-
-         
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,77 +9,28 @@ namespace ConsoleApp1
 {
     internal class Solicitudes
     {
-        private int codigoSolicitud;
-        private int codigoDueno;
-        private string solicitante;
-        private string tipoSolicitud;
-        private string destinatario; 
-        private string condicion;
-        private string mensajeParaUsuario;
-        private DateTime fechaCreacion;
-        private Solicitudes sgte;
-        private Solicitudes delante;
-        private Solicitudes atras;
+        public int codigoSolicitud;
+        public int codigoDueno;
+        public string solicitante;
+        public string tipoSolicitud;
+        public string destinatario;
+        public string condicion;
+        public string mensajeParaUsuario;
+        public DateTime fechaCreacion;
+        public Solicitudes sgte;
 
-        public int CodigoSolicitud
+        public Solicitudes(int codigoSolicitud, int codigoDueno, string solicitante, string tipoSolicitud, string destinatario, string condicion, string mensajeParaUsuario)
         {
-            get { return codigoSolicitud; }
-            set { codigoSolicitud = value; }
-
-        }
-        public int CodigoDueno
-        {
-            get { return codigoDueno;}
-            set { codigoDueno = value; }
-        }
-        public string Solicitante
-        {
-            get { return solicitante; }
-            set { solicitante = value; }
-        }
-        public string TipoSolicitud
-        {
-            get { return tipoSolicitud; }
-            set { tipoSolicitud = value; }
-        }
-        public string Destinatario
-        {
-            get { return destinatario; }
-            set { destinatario = value; }
-        }
-        public string Condicion
-        {
-            get { return condicion; }
-            set { condicion = value; }
-        }
-        public string MensajeParaUsuario
-        {
-            get { return mensajeParaUsuario; }
-            set { mensajeParaUsuario = value; }
-        }
-        public DateTime FechaCreacion
-        {
-            get { return fechaCreacion; }
-            set { fechaCreacion = value; }
-        }
-        public Solicitudes Sgte
-        {
-            get { return sgte; }
-            set { sgte = value; }
-        }
-
-        public Solicitudes Delante
-        { 
-            get { return delante; }
-            set { delante = value; } 
-        }
-
-        public Solicitudes Atras
-        {
-            get { return atras; }
-            set { atras = value; }
-        }
-
+            this.codigoSolicitud = codigoSolicitud;
+            this.codigoDueno = codigoDueno;
+            this.solicitante = solicitante;
+            this.tipoSolicitud = tipoSolicitud;
+            this.destinatario = destinatario;
+            this.condicion = condicion;
+            this.mensajeParaUsuario = mensajeParaUsuario;
+            fechaCreacion = DateTime.Now;
+            this.sgte = null;
       
+        }
     }
 }

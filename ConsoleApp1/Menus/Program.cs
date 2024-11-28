@@ -32,7 +32,7 @@ namespace ConsoleApp1
 
         public static Papelera_Tickets Papelera = new Papelera_Tickets();
         public static Cola_Solicitudes ColaSol = new Cola_Solicitudes();
-        public static Solicitudes q = new Solicitudes();
+
         public static Pila_Sugerencia PilaSug = new Pila_Sugerencia();
         public static AsignacionTrabajos AsigTra = new AsignacionTrabajos();
         public static Arbol_Compus ArbolitoCompus = new Arbol_Compus();
@@ -42,7 +42,7 @@ namespace ConsoleApp1
         public static Log_in inicioSesion = new Log_in();
         public static Generacion_Aleatorio GAletorio = new Generacion_Aleatorio();
 
-        
+        public static PilaParaSolicitudes pilaSolicitudes = new PilaParaSolicitudes();
 
         public static Registros registro = new Registros();
         
@@ -182,7 +182,7 @@ namespace ConsoleApp1
                                     {
                                         case 1:// Desarrollo de la parte usuario
 
-                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref q, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, PilaSug, colitaPrioridad);
+                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, PilaSug, colitaPrioridad, pilaSolicitudes);
                                           
                                             opc = 0;
                                             break;
@@ -195,7 +195,7 @@ namespace ConsoleApp1
 
                                         case 3: // Desarrollo de la parte aministrativos
 
-                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref q, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, colitaPrioridad);
+                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, colitaPrioridad, pilaSolicitudes);
                                             
                                             opc = 0;
                                             break;// Desarrollo parte Admins

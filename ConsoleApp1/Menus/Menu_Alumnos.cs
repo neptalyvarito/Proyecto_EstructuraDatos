@@ -13,7 +13,7 @@ namespace ConsoleApp1
         public static GenerarTicket generarTikcetsito = new GenerarTicket();
         public static int codigoBusquedaUser;
         public static string nombreCompleto;
-        public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Cola_Solicitudes ColSol, ref Solicitudes q, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, Pila_Sugerencia PilaSug, ColaPrio_Ticket colaPrio)
+        public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Cola_Solicitudes ColSol, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, Pila_Sugerencia PilaSug, ColaPrio_Ticket colaPrio, PilaParaSolicitudes pilaSoli)
         {
             bool verificacion = false;
             do
@@ -417,7 +417,7 @@ namespace ConsoleApp1
                                                     }
                                                     else if (verificacion == true)
                                                     {
-                                                        ColSol.AgregarSolicitud(ref q, nombreCompleto, descripcion, nombreCompleto, codigoBusquedaUser);
+                                                        ColSol.AgregarSolicitud(nombreCompleto, descripcion, nombreCompleto, codigoBusquedaUser);
                                                         Console.ForegroundColor = ConsoleColor.Cyan;
                                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t=====================================================");
                                                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -463,7 +463,7 @@ namespace ConsoleApp1
                                                         }
                                                         else if (verificacion == true)
                                                         {
-                                                            ColSol.AgregarSolicitud(ref q, nombreCompleto, descripcion, Lu.ObtenerNombreCompletoUser(codigo), codigoBusquedaUser);
+                                                            ColSol.AgregarSolicitud(nombreCompleto, descripcion, Lu.ObtenerNombreCompletoUser(codigo), codigoBusquedaUser);
 
                                                             Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t==================================================");
                                                             Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t  ->  Tu solicitud ha sido enviada con exito");
@@ -501,7 +501,8 @@ namespace ConsoleApp1
                                 break;
 
                             case 7:
-                                ColSol.MostrarSolicitudesPorUsuario(q, codigoBusquedaUser);
+                                ColSol.MostrarSolicitudesPorUsuario(codigoBusquedaUser);
+                                pilaSoli.MostrarSugerenciaPorUser(codigoBusquedaUser);
                                 Console.ReadLine();
                                 break;
 

@@ -16,7 +16,7 @@ namespace ConsoleApp1
         public static GenerarTicket generarTikcetsito = new GenerarTicket();
         public static string nombreCompleto;
         
-        public void menuAdmin(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Cola_Solicitudes ColSol, ref Solicitudes q, Pila_Sugerencia PilSug, Registros registro, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, ColaPrio_Ticket colitaPrio)
+        public void menuAdmin(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Cola_Solicitudes ColSol, Pila_Sugerencia PilSug, Registros registro, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, ColaPrio_Ticket colitaPrio, PilaParaSolicitudes pilaSoli)
         {
             bool verificacion = false;
             int opcMandar = 0;
@@ -477,10 +477,10 @@ namespace ConsoleApp1
                                         Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t=======================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Ver todas las solicitudes");
-                                        //Console.WriteLine(" 2. Confirmar o denegar solicitud");
-                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Eliminar lista en orden");
-                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Vaciar lista de solicitudes");
-                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Volver");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Confirmar o denegar solicitud");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Eliminar lista en orden");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Vaciar lista de solicitudes");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Volver");
                                         Console.ForegroundColor = ConsoleColor.Cyan;
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t=======================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -490,15 +490,22 @@ namespace ConsoleApp1
                                         {
                                             case 1:
                                                 
-                                                ColSol.MostrarSolicitudes(q);
+                                                ColSol.MostrarSolicitudes();
+                                                pilaSoli.MostrarSugerencia();
+                                                
                                                 Console.ReadLine();
                                                 break;
                                             
                                             case 2:
-                                                if (q.Delante != null)
+
+                                                ColSol.AceptarORechazar(pilaSoli);
+
+                                                break;
+                                            case 3:
+                                                Solicitudes muestra;
+                                                muestra = ColSol.EliminarSolicitud();
+                                                if (muestra != null)
                                                 {
-                                                    Solicitudes muestra;
-                                                    muestra = ColSol.EliminarSolicitud(ref q);
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
 
                                                     Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Se ha eliminado la primera solicitud en espera");
@@ -506,29 +513,30 @@ namespace ConsoleApp1
                                                     Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Solicitante: ");
 
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                                    Console.Write(muestra.Solicitante);
+                                                    Console.Write(muestra.solicitante);
 
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
                                                     Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Destinatarios: ");
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                                    Console.Write(muestra.Destinatario);
+                                                    Console.Write(muestra.destinatario);
 
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
                                                     Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Tipo de Solicitud: ");
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                                    Console.Write(muestra.TipoSolicitud);
+                                                    Console.Write(muestra.tipoSolicitud);
 
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
                                                     Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Condicion: ");
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                                    Console.Write(muestra.Condicion);
+                                                    Console.Write(muestra.condicion);
 
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
                                                     Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Mensaje: ");
                                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                                    Console.Write(muestra.MensajeParaUsuario);
+                                                    Console.Write(muestra.mensajeParaUsuario);
 
                                                     Console.ReadLine();
+
                                                 }
                                                 else
                                                 {
@@ -537,13 +545,13 @@ namespace ConsoleApp1
                                                 }
                                                 Console.ReadLine();
                                                 break;
-                                            case 3:
-                                                ColSol.EliminarTodasSolicitudes(ref q);
+                                            case 4:
+                                                ColSol.EliminarTodasSolicitudes();
                                                 Console.ForegroundColor = ConsoleColor.Yellow;
                                                 Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t ¡Todas las solicitudes han sido eliminadas!");
                                                 Console.ReadLine();
                                                 break;
-                                            case 4:
+                                            case 5:
                                                 break;
                                         }
                                     }
@@ -553,7 +561,7 @@ namespace ConsoleApp1
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opcion valida >");
                                     }
                                 }
-                                while (opc != 4);
+                                while (opc != 5);
                                 opc = 0;
                                 break;
 
