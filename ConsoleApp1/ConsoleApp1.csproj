@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="ABBOptimizado_Salon.cs" />
     <Compile Include="ArbolSatis.cs" />
+    <Compile Include="Estructuras\ColaPrioSalones.cs" />
     <Compile Include="Estrucutras basicas\Cola_TicketsResueltos.cs" />
     <Compile Include="Generar_DataGeneral\GenerarTicket.cs" />
     <Compile Include="Listas Simples\Lista_Profes.cs" />

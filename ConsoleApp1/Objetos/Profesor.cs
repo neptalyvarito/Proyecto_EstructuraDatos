@@ -10,6 +10,7 @@ namespace ConsoleApp1
     {
         public string nombres;
         public string apellidos;
+        public string salondesignado;
         public int codigoProfe;
         public int dni;
         public string contrasena;
@@ -17,7 +18,7 @@ namespace ConsoleApp1
         public string categoria = "Profesor";
         public Profesor sgte;
 
-        public Profesor(string nombres, string apellidos, int codigoProfe, int dni, string contrasena, int numerocel)
+        public Profesor(string nombres, string apellidos, int codigoProfe, int dni, string contrasena, int numerocel, string salondesignado)
         {
             this.contrasena = contrasena;
             this.nombres = nombres;
@@ -25,6 +26,7 @@ namespace ConsoleApp1
             this.codigoProfe = codigoProfe;
             this.dni = dni;
             this.numerocel = numerocel;
+            this.salondesignado = salondesignado;
             sgte = null;
         }
 

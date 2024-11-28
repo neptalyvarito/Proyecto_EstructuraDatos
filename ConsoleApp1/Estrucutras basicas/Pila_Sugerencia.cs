@@ -62,7 +62,10 @@ namespace ConsoleApp1
                 t = t.sgte;
             }
         }
-
+        public void EliminarTodasSugerencias()
+        {
+            sugerencia = null;
+        }
 
 
     }

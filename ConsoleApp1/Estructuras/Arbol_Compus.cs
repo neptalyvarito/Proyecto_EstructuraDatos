@@ -246,7 +246,21 @@ namespace ConsoleApp1
                 MostrarArbolitoEnOrden(arb.derecha );
             }
         }
-
+        public bool SaberSiExisteSalon(Computadoras arb, string codigo)
+        {
+            bool flag = false;
+            if (arb == null)
+            {
+                return flag;
+            }
+            else
+            {
+                SaberSiExisteSalon(arb.izquierda, codigo);
+                if (codigo == arb.salon) flag = true;
+                SaberSiExisteSalon(arb.derecha, codigo);
+                return flag;
+            }
+        }
         public bool SaberSiExisteCompu(Computadoras arb, string codigo)
         {
             bool flag = false;

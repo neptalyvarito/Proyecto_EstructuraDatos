@@ -491,7 +491,7 @@ namespace ConsoleApp1
                                             case 1:
                                                 
                                                 ColSol.MostrarSolicitudes();
-                                                pilaSoli.MostrarSugerencia();
+                                                pilaSoli.MostrarSolicitud();
                                                 
                                                 Console.ReadLine();
                                                 break;

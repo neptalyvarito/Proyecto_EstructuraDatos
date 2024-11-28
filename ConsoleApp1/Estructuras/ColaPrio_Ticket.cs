@@ -39,7 +39,7 @@ namespace ConsoleApp1
             {
                 while (t != null)
                 {
-                    if ((prioridadNum <= t.prioridadNum))
+                    if ((t.prioridadNum <= prioridadNum))
                     {
                         if (t != colaPrio)
                         {
@@ -103,18 +103,14 @@ namespace ConsoleApp1
                 }
                 else
                 {
-                    while (t.sgte != null)
-                    {
-                        ant = t;
-                        t = t.sgte;
-                    }
+
                     Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t   Datos del ticket a responder ");
                     Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t-------------------------------------");
-                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tPrioridad : " + ant.sgte.prioridadDes);
-                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tCodigo    : " + ant.sgte.codigoTicket);
-                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tDueño     : " + ant.sgte.dueño);
-                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tCategoria : " + ant.sgte.categoria);
-                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tProblema  : " + ant.sgte.descripcion);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tPrioridad : " + colaPrio.prioridadDes);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tCodigo    : " + colaPrio.codigoTicket);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tDueño     : " + colaPrio.dueño);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tCategoria : " + colaPrio.sgte);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tProblema  : " + colaPrio.descripcion);
                     string solucion = responder();
                     if (solucion == "2")
                     {
@@ -123,11 +119,11 @@ namespace ConsoleApp1
                     }
                     else
                     {
-                        ant.sgte.condicion = "Resuelto";
-                        ant.sgte.respuestaSolucion = solucion;
+                        colaPrio.condicion = "Resuelto";
+                        colaPrio.respuestaSolucion = solucion;
                         valor = t;
-                        colaTickResueltos.AgregarTicketResuelto(ant.sgte);
-                        ant.sgte = null;
+                        colaTickResueltos.AgregarTicketResuelto(colaPrio);
+                        colaPrio = colaPrio.sgte;
                         Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tTicket respondido con exito!");
                         Console.ReadLine();
                     }
@@ -148,8 +144,8 @@ namespace ConsoleApp1
             
             do
             {
-                Console.WriteLine("---------------------------------------------------------------");
-                Console.Write("\n Escriba la solución al problema : ");
+                Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t---------------------------------------------------------------");
+                Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tEscriba la solución al problema : ");
                 solucion = Console.ReadLine();
                 verificacion = validacion.ValidacionDeCadenaVaciaEIngresoNum2(solucion);
                 if (solucion == "2")
@@ -168,42 +164,49 @@ namespace ConsoleApp1
             return solucion;
         }
 
-        public Ticket EliminarTicketPrioridad(Papelera_Tickets papelera)
+        public void EliminarTicketPrioridad(Papelera_Tickets papelera)
         {
             Ticket t = colaPrio;
-            Ticket ant = null;
             Ticket valor = null;
+
             if (colaPrio != null)
             {
                 if (colaPrio.sgte == null)
                 {
                     valor = t;
+                  
+                    
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t   ¡El ticket ha sido eliminado!");
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t-------------------------------------");
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tDueño       : " + colaPrio.dueño);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tPrioridad   : " + colaPrio.prioridadDes);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tDescripción : " + colaPrio.descripcion);
                     papelera.LlenarPapelera(colaPrio);
                     colaPrio = null;
-                    Console.WriteLine("Ticket eliminado!");
                     Console.ReadLine();
-                    return valor;
+
                 }
                 else
                 {
-                    while (t.sgte != null)
-                    {
-                        ant = t;
-                        t = t.sgte;
-                    }
-                    valor = t;
-                    papelera.LlenarPapelera(ant.sgte);
-                    ant.sgte = null;
-                    Console.WriteLine("Ticket eliminado!");
+                    valor = colaPrio;
+            
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t   ¡El ticket ha sido eliminado!");
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t-------------------------------------");
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tDueño       : " + colaPrio.dueño);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tPrioridad   : " + colaPrio.prioridadDes);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tDescripción : " + colaPrio.descripcion);
+                    papelera.LlenarPapelera(colaPrio);
+
+                    colaPrio = colaPrio.sgte;
                     Console.ReadLine();
-                    return valor;
+
                 }
             }
             else
             {
-                Console.WriteLine("Cola vacia ... ");
+                Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tCola vacia ... ");
                 Console.ReadLine();
-                return null;
+     
             }
         }
         public void ImprimirTicketsPrio()
@@ -217,7 +220,6 @@ namespace ConsoleApp1
             {
 
                 Console.Write("\n| " + t.codigoTicket.ToString().PadRight(10, ' ') + "| " + t.categoria.PadRight(60, ' ') + "| " + t.descripcion.PadRight(60, ' ') + "| " + t.dueño.PadRight(45, ' ') + "| " + t.codigoDueño.ToString().PadRight(15, ' ') + "| " + t.condicion.PadRight(15, ' ') + "| " + t.fechaCreacion.ToString().PadRight(23, ' ') + " | " + t.respuestaSolucion.PadRight(30, ' ') + " | " + t.prioridadDes);
-
                 t = t.sgte;
             }
 

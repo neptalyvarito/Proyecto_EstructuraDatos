@@ -9,25 +9,26 @@ namespace ConsoleApp1
     internal class Papelera_Tickets
     {
         public Ticket TicketsEliminados;
+        public Ticket cola;
 
         public Papelera_Tickets()
         {
             TicketsEliminados = null;
         }
 
-        public void LlenarPapelera(Ticket ticket)
+        public void LlenarPapelera(Ticket q)
         {
-            Ticket q = ticket;
+            Ticket t = new Ticket(q.dueño, q.codigoTicket, q.condicion, q.descripcion, q.fechaCreacion, q.respuestaSolucion, q.codigoDueño, q.categoria, q.fechaRespuesta, q.codigoTrabajadorEncargado, q.prioridadNum, q.prioridadDes);
 
             if (TicketsEliminados == null)
             {
-                TicketsEliminados = q;
+                TicketsEliminados = t;
             }
             else
             {
-                q.sgte = TicketsEliminados;
-                TicketsEliminados = q;
+                cola.sgte = t;
             }
+            cola = t;
         }
         public void MostrarPapelera()
         {
@@ -38,9 +39,7 @@ namespace ConsoleApp1
 
             while (t != null)
             {
-
                 Console.Write("\n| " + t.codigoTicket.ToString().PadRight(10, ' ') + "| " + t.categoria.PadRight(60, ' ') + "| " + t.descripcion.PadRight(60, ' ') + "| " + t.dueño.PadRight(45, ' ') + "| " + t.codigoDueño.ToString().PadRight(15, ' ') + "| " + t.condicion.PadRight(15, ' ') + "| " + t.fechaCreacion.ToString().PadRight(23, ' ') + " | " + t.respuestaSolucion.PadRight(30, ' ') + " | " + t.prioridadDes);
-
                 t = t.sgte;
             }
         }

@@ -133,7 +133,7 @@ namespace ConsoleApp1
                             Console.Write("Ingrese un breve mensaje para el solicitantes: ");
                             mensaje = Console.ReadLine();
                             frente.mensajeParaUsuario = mensaje;
-                            pilaSoli.AgregarSug(frente);
+                            pilaSoli.AgregarSoli(frente);
                             Console.WriteLine("Solicitud respondida con exito");
                             Console.ReadLine();
                             opc = 0;
@@ -144,7 +144,7 @@ namespace ConsoleApp1
                             Console.Write("Ingrese un breve mensaje para el solicitantes: ");
                             mensaje = Console.ReadLine();
                             frente.mensajeParaUsuario = mensaje;
-                            pilaSoli.AgregarSug(frente);
+                            pilaSoli.AgregarSoli(frente);
                             Console.WriteLine("Solicitud respondida con exito");
                             Console.ReadLine();
                             opc = 0;

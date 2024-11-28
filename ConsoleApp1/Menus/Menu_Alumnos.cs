@@ -502,7 +502,7 @@ namespace ConsoleApp1
 
                             case 7:
                                 ColSol.MostrarSolicitudesPorUsuario(codigoBusquedaUser);
-                                pilaSoli.MostrarSugerenciaPorUser(codigoBusquedaUser);
+                                pilaSoli.MostrarSsolicitudesPorUser(codigoBusquedaUser);
                                 Console.ReadLine();
                                 break;
 

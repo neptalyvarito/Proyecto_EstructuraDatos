@@ -15,7 +15,7 @@ namespace ConsoleApp1
             pilaSolic = null;
         }
 
-        public void AgregarSug(Solicitudes q)
+        public void AgregarSoli(Solicitudes q)
         {
         
             if (pilaSolic == null)
@@ -28,7 +28,7 @@ namespace ConsoleApp1
                 pilaSolic = q;
             }
         }
-        public void MostrarSugerencia()
+        public void MostrarSolicitud()
         {
             Solicitudes p = pilaSolic;
 
@@ -39,7 +39,7 @@ namespace ConsoleApp1
                 p = p.sgte;
             }
         }
-        public void MostrarSugerenciaAceptadas()
+        public void MostrarSolicitudesAceptadas()
         {
             Solicitudes p = pilaSolic;
 
@@ -53,7 +53,7 @@ namespace ConsoleApp1
                  p = p.sgte;
             }
         }
-        public void MostrarSugerenciaRechazadas()
+        public void MostrarSolicitudesRechazadas()
         {
             Solicitudes p = pilaSolic;
 
@@ -67,7 +67,7 @@ namespace ConsoleApp1
                 p = p.sgte;
             }
         }
-        public void MostrarSugerenciaPorUser(int codigoDueno)
+        public void MostrarSsolicitudesPorUser(int codigoDueno)
         {
             Solicitudes p = pilaSolic;
 
