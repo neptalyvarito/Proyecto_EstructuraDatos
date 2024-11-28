@@ -31,8 +31,11 @@ namespace ConsoleApp1
         public void GeneraReporte2(Lista_Tickets LTick, ColaPrio_Ticket colitaPrio)
         {
             Console.Clear();
-            Console.WriteLine("| Tipo de ticket".PadRight(60,' ')+ "  | Cantidad de veces que se reporto");
-            Console.WriteLine("----------------------------------------------------------------------------------------");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("\n\n");
+            Console.WriteLine("\t\t\t\t\t\t\t\t| Tipo de ticket".PadRight(60,' ')+ "          | Cantidad de veces que se reporto");
+            Console.WriteLine("\t\t\t\t\t\t\t\t----------------------------------------------------------------------------------------");
+            Console.ForegroundColor = ConsoleColor.Yellow;
             colitaPrio.ImprimirTicketPorCadaTipoPrio("Falla de computadora en Laboratarios de Computo");
             colitaPrio.ImprimirTicketPorCadaTipoPrio("Falla de internet dentro del campus de la universidad");
             colitaPrio.ImprimirTicketPorCadaTipoPrio("Falla en comunicaciones entre redes institucionales");

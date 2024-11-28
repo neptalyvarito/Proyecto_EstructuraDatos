@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Objetos
 {
-    //Nodo del árbol "Salón"
     internal class Salones
     {
         public string codigoSalon, tipo, horarios, profesor, equipos, estado, edificio, codigoCompu;

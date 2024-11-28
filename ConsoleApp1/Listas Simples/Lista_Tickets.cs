@@ -37,72 +37,72 @@ namespace ConsoleApp1
                 t = t.sgte;
             }
         }
-        public void EliminarTicket(ColaPrio_Ticket colaPr, Papelera_Tickets papelera, PilaMostrarTicket mostrarListaTick)
-        {
+        //public void EliminarTicket(ColaPrio_Ticket colaPr, Papelera_Tickets papelera, PilaMostrarTicket mostrarListaTick)
+        //{
         
-            Ticket q = listaTickets;
-            Ticket t = listaTickets;
-            string codigo;
-            bool flag = false;
-            do
-            {
-                Console.Clear();
-                colaPr.ImprimirTicketsPrio(mostrarListaTick);
-                Console.WriteLine("\n------------------------------------------------------------------");
-                Console.WriteLine("|--- Para volver ingrese el número 2");
-                Console.Write(" Ingrese el código del ticket a eliminar: ");
-                codigo = Console.ReadLine();
-                flag = validación.ValidacionIngresoSoloNum(codigo);
+        //    Ticket q = listaTickets;
+        //    Ticket t = listaTickets;
+        //    string codigo;
+        //    bool flag = false;
+        //    do
+        //    {
+        //        Console.Clear();
+        //        colaPr.ImprimirTicketsPrio(mostrarListaTick);
+        //        Console.WriteLine("\n------------------------------------------------------------------");
+        //        Console.WriteLine("|--- Para volver ingrese el número 2");
+        //        Console.Write(" Ingrese el código del ticket a eliminar: ");
+        //        codigo = Console.ReadLine();
+        //        flag = validación.ValidacionIngresoSoloNum(codigo);
 
 
-                if (codigo == "2")
-                {
-                    break;
-                }
-                else if (flag == true)
-                {
-                    flag = false;
-                    while (q != null)
-                    {
-                        if (q.codigoTicket == int.Parse(codigo))
-                        {
-                            if (q == listaTickets)
-                            {
-                                papelera.LlenarPapelera(listaTickets);
-                                listaTickets = null;
-                                Console.WriteLine("\n....Ticket eliminado");
-                                Console.ReadLine();
-                                flag = true;
-                                return;
-                            }
-                            else
-                            {
-                                t.sgte = q.sgte;
-                                papelera.LlenarPapelera(q);
-                                q = null;
-                                Console.WriteLine("\n....Ticket eliminado");
-                                Console.ReadLine();
-                                flag = true;
-                                return;
-                            }
-                        }
-                        t = q;
-                        q = q.sgte;
-                    }
-                    if (flag == false)
-                    {
-                        Console.WriteLine("....Ticket no encontrado. \n....Ingrese el código correcto o el ingrese el número 2 para volver");
-                        Console.ReadLine();
-                    }
+        //        if (codigo == "2")
+        //        {
+        //            break;
+        //        }
+        //        else if (flag == true)
+        //        {
+        //            flag = false;
+        //            while (q != null)
+        //            {
+        //                if (q.codigoTicket == int.Parse(codigo))
+        //                {
+        //                    if (q == listaTickets)
+        //                    {
+        //                        papelera.LlenarPapelera(listaTickets);
+        //                        listaTickets = null;
+        //                        Console.WriteLine("\n....Ticket eliminado");
+        //                        Console.ReadLine();
+        //                        flag = true;
+        //                        return;
+        //                    }
+        //                    else
+        //                    {
+        //                        t.sgte = q.sgte;
+        //                        papelera.LlenarPapelera(q);
+        //                        q = null;
+        //                        Console.WriteLine("\n....Ticket eliminado");
+        //                        Console.ReadLine();
+        //                        flag = true;
+        //                        return;
+        //                    }
+        //                }
+        //                t = q;
+        //                q = q.sgte;
+        //            }
+        //            if (flag == false)
+        //            {
+        //                Console.WriteLine("....Ticket no encontrado. \n....Ingrese el código correcto o el ingrese el número 2 para volver");
+        //                Console.ReadLine();
+        //            }
 
-                }
-                else if (flag == false)
-                {
-                    Console.WriteLine("...Ingrese solo un valor númerico\n");
-                    Console.ReadLine();
-                }
-            } while (flag != true);
-        }
+        //        }
+        //        else if (flag == false)
+        //        {
+        //            Console.WriteLine("...Ingrese solo un valor númerico\n");
+        //            Console.ReadLine();
+        //        }
+        //    } while (flag != true);
+        //}
         public void ResponderTicket(ColaPrio_Ticket colitaPrio)
         {
             Ticket q = listaTickets;

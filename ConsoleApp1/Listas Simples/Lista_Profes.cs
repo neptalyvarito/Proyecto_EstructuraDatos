@@ -17,7 +17,8 @@ namespace ConsoleApp1
 
         public void RegistrarProfe(string nombres, string apellidos, int dni, int numerocel, string contrasena)
         {
-            Profesor q = new Profesor(nombres, apellidos, codigoProfe, dni, contrasena, numerocel);
+            string salondesigado = " ";
+            Profesor q = new Profesor(nombres, apellidos, codigoProfe, dni, contrasena, numerocel, salondesigado);
             Profesor t = listaProfes;
             
             if(listaProfes == null)
@@ -173,6 +174,17 @@ namespace ConsoleApp1
                 }
             }
             return codigo;
+        }
+        public string ObtenerNombrePorSalon(string codigoSalon)
+        {
+            Profesor q = listaProfes;
+            string nombre = null;
+            while (q != null)
+            {
+                if (q.salondesignado == codigoSalon) nombre = q.nombres;
+                q = q.sgte;
+            }
+            return nombre;
         }
     }
 }

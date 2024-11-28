@@ -62,11 +62,12 @@ namespace ConsoleApp1
         {
             string valorRaiz;
             Computadoras t = arbolito;
-            int nivel = 0;
+      
 
             if (arbolito == null)
             {
-                Console.WriteLine("Lista de computadoras vacia... ");
+                Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\tLista de computadoras vacia... ");
+                Console.ReadLine();
             }
             else
             {
@@ -75,21 +76,21 @@ namespace ConsoleApp1
                     valorRaiz = t.codigoCompu;
                     if (codigoCom.CompareTo(valorRaiz) == 0)
                     {
-                        Console.WriteLine("------------------------");
-                        Console.WriteLine("Computadora encontrada");
-                        Console.WriteLine("------------------------");
-                        Console.WriteLine("Código del computador : " + t.codigoCompu);
-                        Console.WriteLine("Edificio              : " + t.edificio);
-                        Console.WriteLine("Piso                  : " + t.piso);
-                        Console.WriteLine("Salon                 : " + t.salon);
-                        Console.WriteLine("-------------------------");
-                        Console.WriteLine("Especificaciones: ");
-                        Console.WriteLine("-------------------------");
-                        Console.WriteLine("Marca                 : " + t.marca);
-                        Console.WriteLine("Sistema Operativo     : " + t.sistemaOperativo);
-                        Console.WriteLine("Almacenamiento        : " + t.almacenamiento);
-                        Console.WriteLine("Ram                   : " + t.ram);
-                        Console.WriteLine("Tarjeta madres        : " + t.tarjetaMadre);
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t------------------------");
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tComputadora encontrada");
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t------------------------");
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tCódigo del computador : " + t.codigoCompu);
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tEdificio              : " + t.edificio);
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tPiso                  : " + t.piso);
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tSalon                 : " + t.salon);
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t-------------------------");
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tEspecificaciones: ");
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t-------------------------");
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tMarca                 : " + t.marca);
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tSistema Operativo     : " + t.sistemaOperativo);
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tAlmacenamiento        : " + t.almacenamiento);
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tRam                   : " + t.ram);
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tTarjeta madres        : " + t.tarjetaMadre);
                         
                         
                     }
@@ -113,7 +114,7 @@ namespace ConsoleApp1
                         }
                         else
                         {
-                            Console.WriteLine("  >  Computadora no encontrada");
+                            Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t  >  Computadora no encontrada");
                             Console.ReadLine();
                             return;
                         }
@@ -126,8 +127,7 @@ namespace ConsoleApp1
         {
             if (arb == null)
             {
-                Console.WriteLine("  >  Salon no encontrado");
-                Console.ReadLine();
+               
                 return;
             }
             else
@@ -136,17 +136,17 @@ namespace ConsoleApp1
                 if (salon.ToUpper() == arb.salon.ToUpper())
                 {
                     Console.WriteLine(" ");
-                    Console.WriteLine("Computadora encontrada");
-                    Console.WriteLine("------------------------");
-                    Console.WriteLine("Código del computador : " + arb.codigoCompu);
-                    Console.WriteLine("Edificio              : " + arb.edificio);
-                    Console.WriteLine("Piso                  : " + arb.piso);
-                    Console.WriteLine("Salon                 : " + arb.salon);
-                    Console.WriteLine("Marca                 : " + arb.marca);
-                    Console.WriteLine("Sistema Operativo     : " + arb.sistemaOperativo);
-                    Console.WriteLine("Almacenamiento        : " + arb.almacenamiento);
-                    Console.WriteLine("Ram                   : " + arb.ram);
-                    Console.WriteLine("Tarjeta madres        : " + arb.tarjetaMadre);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tComputadora encontrada");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t------------------------");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tCódigo del computador : " + arb.codigoCompu);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tEdificio              : " + arb.edificio);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tPiso                  : " + arb.piso);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tSalon                 : " + arb.salon);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tMarca                 : " + arb.marca);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tSistema Operativo     : " + arb.sistemaOperativo);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tAlmacenamiento        : " + arb.almacenamiento);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tRam                   : " + arb.ram);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tTarjeta madres        : " + arb.tarjetaMadre);
                 }
                 MostrarArbolitoPorSalon(arb.derecha, salon);
             }
@@ -155,7 +155,7 @@ namespace ConsoleApp1
         {
             if (arb == null)
             {
-                Console.WriteLine("  >  Computadoras con dicha marca no encontrada");
+                Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t >  Computadoras con dicha marca no encontrada");
                 Console.ReadLine();
                 return;
             }
@@ -165,17 +165,17 @@ namespace ConsoleApp1
                 if (marca.ToUpper() == arb.marca.ToUpper())
                 {
                     Console.WriteLine(" ");
-                    Console.WriteLine("Computadora encontrada");
-                    Console.WriteLine("------------------------");
-                    Console.WriteLine("Código del computador : " + arb.codigoCompu);
-                    Console.WriteLine("Edificio              : " + arb.edificio);
-                    Console.WriteLine("Piso                  : " + arb.piso);
-                    Console.WriteLine("Salon                 : " + arb.salon);
-                    Console.WriteLine("Marca                 : " + arb.marca);
-                    Console.WriteLine("Sistema Operativo     : " + arb.sistemaOperativo);
-                    Console.WriteLine("Almacenamiento        : " + arb.almacenamiento);
-                    Console.WriteLine("Ram                   : " + arb.ram);
-                    Console.WriteLine("Tarjeta madres        : " + arb.tarjetaMadre);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tComputadora encontrada");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t------------------------");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tCódigo del computador : " + arb.codigoCompu);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tEdificio              : " + arb.edificio);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tPiso                  : " + arb.piso);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tSalon                 : " + arb.salon);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tMarca                 : " + arb.marca);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tSistema Operativo     : " + arb.sistemaOperativo);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tAlmacenamiento        : " + arb.almacenamiento);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tRam                   : " + arb.ram);
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\tTarjeta madres        : " + arb.tarjetaMadre);
                 }
                 MostrarArbolitoPorMarca(arb.derecha, marca);
             }
@@ -241,12 +241,26 @@ namespace ConsoleApp1
             else
             {
                 MostrarArbolitoEnOrden(arb.izquierda);
-                Console.WriteLine(arb.codigoCompu +  " |" + arb.edificio + "|  " +arb.piso +" | "  + arb.salon);
-                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("\t\t\t\t\t\t\t\t\t\t"+arb.codigoCompu +  " |" + arb.edificio + "|  " +arb.piso +" | "  + arb.salon);
+                Console.WriteLine("\t\t\t\t\t\t\t\t\t\t----------------------------------------------------------------------------");
                 MostrarArbolitoEnOrden(arb.derecha );
             }
         }
-
+        public bool SaberSiExisteSalon(Computadoras arb, string codigo)
+        {
+            bool flag = false;
+            if (arb == null)
+            {
+                return flag;
+            }
+            else
+            {
+                SaberSiExisteSalon(arb.izquierda, codigo);
+                if (codigo == arb.salon) flag = true;
+                SaberSiExisteSalon(arb.derecha, codigo);
+                return flag;
+            }
+        }
         public bool SaberSiExisteCompu(Computadoras arb, string codigo)
         {
             bool flag = false;

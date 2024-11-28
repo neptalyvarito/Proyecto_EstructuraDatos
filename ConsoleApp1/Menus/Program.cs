@@ -5,8 +5,11 @@ using System.Data.SqlTypes;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Policy;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ConsoleApp1
@@ -18,21 +21,24 @@ namespace ConsoleApp1
         public static Menu_Admin menuAdministrador = new Menu_Admin();
         public static Menu_Profes menuProfes = new Menu_Profes();
 
-        public static PilaMostrarTicket pilMostrar = new PilaMostrarTicket();
+        public static Cola_TicketsResueltos ColaTicketsResueltos = new Cola_TicketsResueltos();
+ 
         public static ColaPrio_Ticket colitaPrioridad = new ColaPrio_Ticket();
         public static GenerarTicket generarTicketsito = new GenerarTicket();
+
         public static Lista_Tickets Ltick = new Lista_Tickets();
         public static Lista_Alumnos Lu = new Lista_Alumnos();
         public static Lista_Administrativos La = new Lista_Administrativos();
         public static Lista_Trabajadores LTra = new Lista_Trabajadores();
         public static Lista_Profes Lp = new Lista_Profes();
+
         public static Papelera_Tickets Papelera = new Papelera_Tickets();
         public static Cola_Solicitudes ColaSol = new Cola_Solicitudes();
-        public static Solicitudes q = new Solicitudes();
+
         public static Pila_Sugerencia PilaSug = new Pila_Sugerencia();
         public static AsignacionTrabajos AsigTra = new AsignacionTrabajos();
         public static Arbol_Compus ArbolitoCompus = new Arbol_Compus();
-  
+        public static ListaDoble_MensajeriaInterna mensajeriaInterna = new ListaDoble_MensajeriaInterna();
 
         public static Validaciones validacion = new Validaciones();
         public static Log_in inicioSesion = new Log_in();
@@ -40,7 +46,7 @@ namespace ConsoleApp1
         public static PilaSatis PilaS = new PilaSatis();
         public static ArbolSatis ArbolT = new ArbolSatis();
 
-        
+        public static PilaParaSolicitudes pilaSolicitudes = new PilaParaSolicitudes();
 
         public static Registros registro = new Registros();
         
@@ -83,13 +89,12 @@ namespace ConsoleApp1
                 Console.Clear(); 
                 try
                 {
+                    
                     Console.Clear();
                     Console.BackgroundColor = ConsoleColor.Black; 
                     Console.ForegroundColor = ConsoleColor.Red; 
                     Console.BackgroundColor = ConsoleColor.Black; //Fondo NEGRO
-                    Console.ForegroundColor = ConsoleColor.Red; //Texto RED en negrita
-                    Console.WriteLine("\n\t\t\t\t\t==============================================================================================================================================================================================");
-                    Console.ForegroundColor = ConsoleColor.Yellow; //Texto AMARILO en negrita
+
                     Console.WriteLine("\t\n\t\t\t\t\t\t\t\t\t\t\t   ___ ___ ___ _____ ___ __  __   _     ___  ___    ___ ___ ___ _____ ___ ___  _  _ ");
                     Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t  / __|_ _/ __|_   _| __|  \\/  | /_\\   |   \\| __|  / __| __/ __|_   _|_ _/ _ \\| \\| |");
                     Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t  \\__ \\| |\\__ \\ | | | _|| |\\/| |/ _ \\  | |) | _|  | (_ | _|\\__ \\ | |  | | (_) | .` | ");
@@ -104,16 +109,59 @@ namespace ConsoleApp1
                     Console.WriteLine("\t\t\t\t\t$$ |  $$ |$$ |            $$\\   $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |  $$ |   $$ |               $$ |      $$ |            $$ |  $$ |$$ |            $$ |  $$ |$$ |      $$ |\\$$$ |");
                     Console.WriteLine("\t\t\t\t\t$$$$$$$  |$$$$$$$$\\       \\$$$$$$  | $$$$$$  |$$ |       $$$$$$  |$$ |  $$ |  $$ |   $$$$$$$$\\          $$ |$$\\ $$$$$$\\ $$\\       $$$$$$$  |$$$$$$$$\\       \\$$$$$$  |$$ |      $$ | \\$$ |");
                     Console.WriteLine("\t\t\t\t\t\\_______/ \\________|       \\______/  \\______/ \\__|       \\______/ \\__|  \\__|  \\__|   \\________|         \\__|\\__|\\______|\\__|      \\_______/ \\________|       \\______/ \\__|      \\__|  \\__|");
+                  
                     Console.ForegroundColor = ConsoleColor.Red; //Texto ROJO en negrita
                     Console.WriteLine("\n\t\t\t\t\t==============================================================================================================================================================================================");
+                    Console.ForegroundColor = ConsoleColor.Red; //Texto RED en negrita
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t==========================");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Iniciar sesión" +
-                        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  >  2. Salir");
+                    Console.WriteLine("\t\n\t\t\t\t\t\t\t\t\t\t\t...........................................................':ccc:,'....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t...........,cc:,.........................................':lddxxxxxxdc'...");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t........';lxO00Oxdo:'...................'ldool,.........':cc:::cclokOOo'...");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.......;okkdc::cdOKKd'.................,dkoldOk:.......,:c::;''';:clxOOd,...");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.......ck0x;....'oO0k:.................cOx;..c0O:......:c:;:,....';clxOOo'....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.......ckKO;.....oO00l.....','.........'lOOocdko'......;ccclc.....,cc:dOOc..");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....',,oO0kc;;cdkOko;'...,::c;..........;clll:.........;clkOo,...;::,:o:'....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....;'.ckxxkkkxxdo:'.....';;,,.......'..................;clllc;,;::;::,...");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....;,.l0OkkxdodkOOkxxdoolllc:;,,,''',ccc::;;;,,,,,'''..',;::::;;;;:;'..");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....;,.c0O000000000O000000000000OOOkxxkOkkkkkxxxdddooollcc::::;,,,,'..");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....,,.c00O000000000000000000000000OOO0KXXKKKKKKKK00000OOOkkkkxxo:..',.");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....,,.:O000000000000000000000000OOO0KXXXXXKKKXKKKKK00KKKKKKKKKKkl,..'...");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t....;odcoO0000000000000000000000Okxk00000000000KKXXXXXK000000KK0Kkl,...");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t...:olloodxkO00000000000000000OxdkO0000OxxdxxO000000KNNK00000000Kkl,..");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t..;c:::',:cdkOO0000000000000OdlokOO0Oxc;'..'',:dO0000KXK0KKK00000kl,....cddddo;.....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.';c;cc.'lc:coxkO0000000000Ol;lkOOOOd;'';coddol::xO000KXXKK000000Ol;..'oOxlclkOl'.....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t..,:cdx;,dl::;lxO00000000O0Ol;dOOO0k:,;oO000000Oo:lx00KXX00000000Oo;..ckk:...,x0d'...");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t...':odl::::;cdOOO0000000000dcdOOO0xlcdO00000000Ol,o000KXK0000000Oo;..;dOOo;,ckkc.....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....,;;,;;:oxO0000000000000OllkOOK0kOO000000000Oo:d000KNK0000000Oo;'..'lxkkxxo;....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t......;'.lkkO000000OO00000O00OlcxOO0XNNNK00O0000Odoxk000KNKOO000000d;'.....''''.....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t......;'.o0O000000OkkkkO00O00OlcdOO0XNWN0OOOOOxddk0000K0xldk000000d:'....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t......;;'o00000000OkkOOkkOOO00x::xOOO0KK0OOOOkkOOOOO0OdloxO000000d:'.....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t......cOOO0KK000000OkOkxxkO000Ol,;ldkOOOOOOOOOOOOOkkdloxO000000000xlc;'.......','....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....,xklokkO0KOO000OOOkOO00000kdlc::cldxxkkkkkxdolloxO00000000OOkxxxkdc'....'c:,;,...");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....:kkld0OkOOkO00000000000000000Okxdolc:cclllccodkO00000O00O0Oxdo;,lxd;.....,:,,.....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t......:x0K0OkxxO00000000000000000OOO000OOkxdllldkO00000000O00O0Oxddl;ld:......");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t......'c:lkkkxk0000000000000000OOOOOOOOOOOOOOOOOOOOOO0000000000OOxlc:,........");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t......';.'x00000000000OkxxdddddooooollllllllllllooooooddddxxxkO0O0O;.....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.......;.'x0O000000000OkkkxxxxxddddddoooooooooodddddddxxxxxkkOO000O:.........");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.......;..d0O00000000O0000000000000000O0000000000000000000000000000c.'.....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.......;'.d0000000000OOOOOOOOOOOkkkkkkkxxxxxxddddddddoooooollllllcc,.'.......");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.......;'.,:;;;;;;;,,,,,,,,'''''''''''.'................'''''',,,,,,:c:;;;,,'..........");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.......';';;::c:;''.'''''''',,,,,,,,,,;;;;;;;;;;:::::::::ccccccllllcccloddxxxxxxxxdollc:;,''..");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....  ..;lokxkOxxkkkxxddoooollodoodddxxxxxxxkkkOOOOOOOOO000000KKKK0KKKXXXXXXNNNNNNNNXXK0OOkxc....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t........  .......':lodkO0KKKXXNXXKXWWWWWWWWWWNNNNNNNXXXXKK000OOOOkkxxxdolllccc:::;;;,,,''''''....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t..................   ....',,;:lc;,cxdoolllccc::;;;;;,,,'''.....");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\t\t\t\t\t==============================================================================================================================================================================================");
+                    Console.ForegroundColor = ConsoleColor.Yellow; //Texto AMARILO en negrita
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\n\t\t\t\t\t              ============================================================================================================================================================");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t                                                                 >  1. Iniciar sesión");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t                                                                 >  2. Salir");
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t==========================");
+                    Console.WriteLine("\t\t\t\t\t==============================================================================================================================================================================================");
+                    Console.Write("                                        >  Elija una opción: ");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t >  Elija una opción: ");
+                    //Console.Write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  >  Elija una opción: ");
                    
                     opc = int.Parse(Console.ReadLine());
 
@@ -144,6 +192,7 @@ namespace ConsoleApp1
                                     {
                                         case 1:// Desarrollo de la parte usuario
 
+                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, PilaSug, colitaPrioridad, pilaSolicitudes, mensajeriaInterna);
                                             menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref q, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, PilaSug, colitaPrioridad, PilaS);
                                           
                                             opc = 0;
@@ -157,6 +206,7 @@ namespace ConsoleApp1
 
                                         case 3: // Desarrollo de la parte aministrativos
 
+                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, colitaPrioridad, pilaSolicitudes, mensajeriaInterna);
                                             menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref q, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, colitaPrioridad, PilaS, ArbolT);
                                             
                                             opc = 0;
@@ -454,7 +504,18 @@ namespace ConsoleApp1
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t======= Gestionando tickets =======");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Ver lista de tickets \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Generar ticket \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Responder ticket \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Ver tickets en espera \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Ver tickets resueltos \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  6. Designar tickets \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  7. Eliminar ticket\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  8. Mostrar Papelera \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 9. Ver tickets asignados \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 10. Volver ");
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  1. Ver lista de tickets \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  2. Generar ticket \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  3. Responder ticket \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  4. Ver tickets en espera \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  5. Ver tickets resueltos \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  6. Designar tickets \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  7. Ver tickets asignados \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  8. Eliminar ticket\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  9. Mostrar Papelera \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  10. Restaurar ultimo ticket eliminado ticket \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  11. Volver");
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t===================================");
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -465,11 +526,12 @@ namespace ConsoleApp1
                         case 1:
 
                             Console.Clear();
-                            colitaPrioridad.ImprimirTicketsPrio(pilMostrar);
+                            colitaPrioridad.ImprimirTicketsPrio();
+                            ColaTicketsResueltos.ImprimirTicketsResueltos();
                             Console.ReadLine();
 
                             opc = 0;
-                            break;
+                            break; //lito
 
                         case 2:
                             do
@@ -547,30 +609,28 @@ namespace ConsoleApp1
                             } while (opc != 9);
 
                             opc = 0;
-                            break;
+                            break; //lito
 
                         case 3:
 
                             Console.Clear();
-                            Ltick.ResponderTicket(colitaPrioridad);
-                                
-
+                            colitaPrioridad.ResponderTicket(ColaTicketsResueltos);      
                             opc = 0;
-                            break;
+                            break; //lito
 
                         case 4:
                             Console.Clear();
-                            colitaPrioridad.MostrarTicketsEsperaPrio();
+                            colitaPrioridad.ImprimirTicketsPrio();
                             Console.ReadLine();
                             opc = 0;
-                            break;
+                            break; //lito
 
                         case 5:
                             Console.Clear();
-                            colitaPrioridad.MostrarTicketsResueltosPrio();
+                            ColaTicketsResueltos.ImprimirTicketsResueltos();
                             Console.ReadLine();
                             opc = 0;
-                            break;
+                            break; //lito
 
                         case 6:
 
@@ -659,33 +719,35 @@ namespace ConsoleApp1
                             break;
 
                         case 7:
+                            if (tipoIngresante == 4) { Console.WriteLine("\n\n\n\t\t\t\t\t\t Como administrador no se le puede designar tickets..."); Console.ReadLine(); }
+                            else if (tipoIngresante == 2)
+                            {
+
+                                AsigTra.MostrarTicketPorTrabajor(codigoCreador, colitaPrioridad);
+                            }
+                            break;
+
+                        case 8:
                             Console.Clear();
                             colitaPrioridad.EliminarTicketPrioridad(Papelera);
                             opc = 0;
                             break;
 
-                        //case 8:
-                        //    Console.Clear();
-                        //    Ltick.EliminarTicket(colitaPrioridad, Papelera);
-                        //    colitaPrioridad.ActulizarCola(Ltick.listaTickets);
-                        //    opc = 0;
-                        //    break;
-
-                        case 8:
+                        case 9:
                             Console.Clear();
                             Papelera.MostrarPapelera();
                             Console.ReadLine();
                             break;
 
                         case 10:
-                            if (tipoIngresante == 4) { Console.WriteLine("\n\n\n\t\t\t\t\t\t Como administrador no se le puede designar tickets..."); Console.ReadLine(); }
-                            else if (tipoIngresante == 2) 
-                            {
+                            Ticket q;
+                            q = Papelera.RestaurarElUltimoTicketIngresado();
+                            colitaPrioridad.AgregarTicketPrioridad(q.dueño, q.descripcion, q.codigoDueño, q.categoria,q.prioridadNum, q.prioridadDes);
 
-                                AsigTra.MostrarTicketPorTrabajor(codigoCreador, colitaPrioridad); 
-                            }
                             break;
 
+                        case 11:
+                            break;
                         default:
                             Console.ForegroundColor = ConsoleColor.DarkRed;
                             Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opción valida >");
@@ -700,7 +762,7 @@ namespace ConsoleApp1
                     Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opción valida >");
                     Console.ReadLine();
                 }
-            } while (opc != 9);
+            } while (opc != 11);
         }
 
     }

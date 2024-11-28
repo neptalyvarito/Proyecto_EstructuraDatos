@@ -9,25 +9,26 @@ namespace ConsoleApp1
     internal class Papelera_Tickets
     {
         public Ticket TicketsEliminados;
+        public Ticket cola;
 
         public Papelera_Tickets()
         {
             TicketsEliminados = null;
         }
 
-        public void LlenarPapelera(Ticket ticket)
+        public void LlenarPapelera(Ticket q)
         {
-            Ticket q = ticket;
+            Ticket t = new Ticket(q.dueño, q.codigoTicket, q.condicion, q.descripcion, q.fechaCreacion, q.respuestaSolucion, q.codigoDueño, q.categoria, q.fechaRespuesta, q.codigoTrabajadorEncargado, q.prioridadNum, q.prioridadDes);
 
             if (TicketsEliminados == null)
             {
-                TicketsEliminados = q;
+                TicketsEliminados = t;
             }
             else
             {
-                q.sgte = TicketsEliminados;
-                TicketsEliminados = q;
+                cola.sgte = t;
             }
+            cola = t;
         }
         public void MostrarPapelera()
         {
@@ -38,11 +39,62 @@ namespace ConsoleApp1
 
             while (t != null)
             {
-
                 Console.Write("\n| " + t.codigoTicket.ToString().PadRight(10, ' ') + "| " + t.categoria.PadRight(60, ' ') + "| " + t.descripcion.PadRight(60, ' ') + "| " + t.dueño.PadRight(45, ' ') + "| " + t.codigoDueño.ToString().PadRight(15, ' ') + "| " + t.condicion.PadRight(15, ' ') + "| " + t.fechaCreacion.ToString().PadRight(23, ' ') + " | " + t.respuestaSolucion.PadRight(30, ' ') + " | " + t.prioridadDes);
-
                 t = t.sgte;
             }
+        }
+        public void EliminarElementoPapelera()
+        {
+            Ticket q;
+            int opc = 0;
+            do
+            {
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine("Está segudo que desea eliminar el ticket de forma permanente?");
+                    Console.WriteLine("1. Si.");
+                    Console.WriteLine("2. Volver.");
+                    Console.Write(" -> Elija una opción: ");
+                    opc = int.Parse(Console.ReadLine());
+                    if (opc == 1)
+                    {
+                        if (TicketsEliminados == null)
+                        {
+                            Console.WriteLine("Papelera de tickets vacia ... ");
+                            q = null;
+                        }
+                        else
+                        {
+                            q = TicketsEliminados;
+                            TicketsEliminados = TicketsEliminados.sgte;
+                            Console.WriteLine("Ticket con el código \""+ q.codigoTicket + "\" eliminado de forma permanente");
+                        }
+                    }
+                    else if (opc == 2) break;
+                }
+                catch
+                {
+                    Console.WriteLine("Ingrese un tipo de dato valido");
+                }
+            } while (opc != 2);
+        }
+        public Ticket RestaurarElUltimoTicketIngresado()
+        {
+            Ticket q;
+            if (TicketsEliminados == null)
+            {
+                Console.WriteLine("Papelera de tickets vacia ... ");
+                q = null;
+            }
+            else
+            {
+                q = TicketsEliminados;
+                TicketsEliminados = TicketsEliminados.sgte;
+                Console.WriteLine("Ticket con el código \"" + q.codigoTicket + "\" restaurado");
+                Console.ReadLine();
+            }
+            return q;
         }
     }
 }

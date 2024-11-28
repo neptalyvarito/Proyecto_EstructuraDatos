@@ -13,6 +13,7 @@ namespace ConsoleApp1
         public static GenerarTicket generarTikcetsito = new GenerarTicket();
         public static int codigoBusquedaUser;
         public static string nombreCompleto;
+        public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Cola_Solicitudes ColSol, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, Pila_Sugerencia PilaSug, ColaPrio_Ticket colaPrio, PilaParaSolicitudes pilaSoli, ListaDoble_MensajeriaInterna mensajeriaInterna)
         public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Cola_Solicitudes ColSol, ref Solicitudes q, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, Pila_Sugerencia PilaSug, ColaPrio_Ticket colaPrio, PilaSatis pilaS)
         {
             bool verificacion = false;
@@ -71,16 +72,18 @@ namespace ConsoleApp1
                         Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Bienvenido alumno(a) " + nombreCompleto);
                         Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t================================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Generar Ticket\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
-                                                                      " >  2. Ver todos mis tickets \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
-                                                                      " >  3. Ver mis tickets resueltos \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
-                                                                      " >  4. Ver mis tickets en espera \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
-                                                                      " >  5. Modificar mis datos \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
-                                                                      " >  6. Realizar Solicitud \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
-                                                                      " >  7. Ver mis solicitudes \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
-                                                                      " >  8. Realizar Sugerencias a la empresa \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
-                                                                      " >  9. Realizar encuesta de satisfacción \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
-                                                                      " >  10 Volver");
+                        Console.WriteLine(
+                            "\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Generar Ticket" +
+                            "\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Ver todos mis tickets " +
+                            "\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Ver mis tickets resueltos " +
+                            "\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Ver mis tickets en espera" +
+                            "\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Modificar mis datos " +
+                            "\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  6. Realizar Solicitud " +
+                            "\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  7. Ver mis solicitudes " +
+                            "\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  8. Realizar Sugerencias a la empresa " +
+                            "\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  9. Encuesta de satifacción"+
+                            "\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  10. Mensajeria interna"+
+                            "\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  11. Volver");
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t================================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -429,7 +432,7 @@ namespace ConsoleApp1
                                                     }
                                                     else if (verificacion == true)
                                                     {
-                                                        ColSol.AgregarSolicitud(ref q, nombreCompleto, descripcion, nombreCompleto, codigoBusquedaUser);
+                                                        ColSol.AgregarSolicitud(nombreCompleto, descripcion, nombreCompleto, codigoBusquedaUser);
                                                         Console.ForegroundColor = ConsoleColor.Cyan;
                                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t=====================================================");
                                                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -475,7 +478,7 @@ namespace ConsoleApp1
                                                         }
                                                         else if (verificacion == true)
                                                         {
-                                                            ColSol.AgregarSolicitud(ref q, nombreCompleto, descripcion, Lu.ObtenerNombreCompletoUser(codigo), codigoBusquedaUser);
+                                                            ColSol.AgregarSolicitud(nombreCompleto, descripcion, Lu.ObtenerNombreCompletoUser(codigo), codigoBusquedaUser);
 
                                                             Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t==================================================");
                                                             Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t  ->  Tu solicitud ha sido enviada con exito");
@@ -513,7 +516,8 @@ namespace ConsoleApp1
                                 break;
 
                             case 7:
-                                ColSol.MostrarSolicitudesPorUsuario(q, codigoBusquedaUser);
+                                ColSol.MostrarSolicitudesPorUsuario(codigoBusquedaUser);
+                                pilaSoli.MostrarSsolicitudesPorUser(codigoBusquedaUser);
                                 Console.ReadLine();
                                 break;
 
@@ -606,6 +610,97 @@ namespace ConsoleApp1
                                 pilaS.push(satisfaccion, interfaz, personal, comentario, colaborador);
                         break;
                             case 10:
+                                do
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t    Mensajeria interna     ");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t----------------------------");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 1. Enviar mensaje");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 2. Responde mensaje");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 3. Ver mensajes enviados");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 4. Ver mensajes recibidos");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 5. Volver");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t----------------------------");
+                                    Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese una opción: ");
+                                    opc = int.Parse(Console.ReadLine());
+                                    switch (opc)
+                                    {
+                                        case 1:
+                                            do
+                                            {
+                                                try
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Elija una opción para mandar mensaje: ");
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t------------------------------------------");
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 1. Alumnos");
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 2. Trabajadores");
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 3. Administrativos");
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 4. Profesores");
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 5. Volver");
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t------------------------------------------");
+                                                    Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > Ingrese una opción: ");
+                                                    opc = int.Parse(Console.ReadLine());
+                                                    bool verifica;
+                                                    int codigoBuscar;
+                                                    switch (opc)
+                                                    {
+                                                        case 1:
+                                                            Lu.MostrarListaUsuarios();
+                                                            Console.Write(" >  Ingrese el código del receptor del mensaje: ");
+                                                            codigoBuscar = int.Parse(Console.ReadLine());
+                                                            verifica = Lu.SaberSiExisteUsuarioConCodigo(codigoBuscar);
+                                                            if (verifica == true)
+                                                            {
+                                                                string nombrReceptor = Lu.ObtenerNombreCompletoUser(codigoBuscar);
+                                                                Console.WriteLine(" Mensaje: ");
+                                                                string mensaje = Console.ReadLine();
+                                                                mensajeriaInterna.CrearNuevoMensaje(mensaje, nombreCompleto, nombrReceptor, codigoBusquedaUser, codigoBuscar);
+                                                                Console.WriteLine(" Mensaje enviado con exito!");
+                                                                Console.ReadLine();
+                                                            }
+                                                            break;
+                                                        case 2:
+                                                            break;
+                                                        case 3:
+                                                            break;
+                                                        case 4:
+                                                            break;
+                                                        case 5:// salida
+                                                            break;
+                                                    }
+                                                }
+                                                catch
+                                                {
+                                                    Console.WriteLine("Ingrese un tipo de dato valido");
+                                                    Console.ReadLine();
+                                                }
+
+                                            } while (opc != 5);
+                                            break;
+                                        case 2:
+                                            Console.Clear();    
+                                            mensajeriaInterna.ResponderMensaje(codigoBusquedaUser);
+                                            opc = 0;
+                                            break;
+                                        case 3:
+                                            Console.Clear();
+                                            mensajeriaInterna.MostrarMensajesEnviados(codigoBusquedaUser);
+                                            Console.ReadLine();
+                                            opc = 0;
+                                            break;
+                                        case 4:
+                                            Console.Clear();
+                                            mensajeriaInterna.MostrarMensajesRecibido(codigoBusquedaUser);
+                                            Console.ReadLine();
+                                            opc = 0;
+                                            break;
+                                        case 5://Salida
+                                            break;
+                                    }
+                                } while (opc != 4);
+                                break;
+                            case 11:
                                 break;
                             default:
                                 Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -621,7 +716,7 @@ namespace ConsoleApp1
                         Console.ReadLine();
                     }
 
-                } while (opc != 10);
+                } while (opc != 11);
             }
         }
         public static void GeneraTicketUser(Lista_Tickets Ltick, string categoria, ColaPrio_Ticket colaPrio)
