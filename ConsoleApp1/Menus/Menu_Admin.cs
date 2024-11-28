@@ -16,6 +16,9 @@ namespace ConsoleApp1
         public static GenerarTicket generarTikcetsito = new GenerarTicket();
         public static string nombreCompleto;
         
+        public void menuAdmin(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick,
+            Lista_Profes Lp, Cola_Solicitudes ColSol, ref Solicitudes q, Pila_Sugerencia PilSug, Registros registro, ref int dniUser, ref int dniTrabajador, 
+            ref int dniAdmin, ref int dniProfe, ColaPrio_Ticket colitaPrio, PilaSatis pilaS, ArbolSatis arbS)
         public void menuAdmin(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Cola_Solicitudes ColSol, Pila_Sugerencia PilSug, Registros registro, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, ColaPrio_Ticket colitaPrio, PilaParaSolicitudes pilaSoli, ListaDoble_MensajeriaInterna mensajeriaInterna)
         {
             bool verificacion = false;
@@ -71,7 +74,7 @@ namespace ConsoleApp1
                         opc = 0;
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Bienvenido señor " + nombreCompleto);
-                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t===============================================");
+                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t=====================================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Gestionar alumnos");
                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Gestionar docentes");
@@ -80,11 +83,12 @@ namespace ConsoleApp1
                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Gestionar tickets");
                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  6. Gestionar solicitudes");
                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  7. Gestionar sugerencias");
-                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  8. Mensajeria interna");
-                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  9. Generar Reporte");
-                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  10. Volver");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  8. Generar Reporte");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  9. Ver pila de encuesta de satisfacción");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  10. Ver opiniones sobre colaborador en un árbol");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  11. Volver");
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t===============================================");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t===================================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese opción: ");
                         opcMandar = int.Parse(Console.ReadLine());
@@ -358,7 +362,11 @@ namespace ConsoleApp1
                                         Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t       Gestionando Administrativos");
                                         Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t===========================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Crear administrativo\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Ver lista de administrativos \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Modificar datos del administrativo \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Elimar administrativo \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Volver");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Crear administrativo\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                                                                      " >  2. Ver lista de administrativos\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                                                                      " >  3. Modificar datos del administrativo \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                                                                      " >  4. Eliminar administrativo \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                                                                      " >  5. Volver");
                                         Console.ForegroundColor = ConsoleColor.Cyan;
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t===========================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -819,7 +827,7 @@ namespace ConsoleApp1
                                     {
                                         Console.Clear();
                                         Console.ForegroundColor = ConsoleColor.Cyan;
-                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t          Seleccione que reporte desea visualizar           ");
+                                        Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t          Seleccione qué reporte desea visualizar           ");
                                         Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t===============================================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Cantidad de tickets que ha creado cada usuario. ");
@@ -849,13 +857,24 @@ namespace ConsoleApp1
                                     catch
                                     {
                                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese un dato valido >");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese un dato válido >");
                                     }
                                 } while (opc != 3);
                                 opc = 0;
                                 break;
-
-                            case 10: //SALIDA
+                            case 9:
+                                Console.Clear();
+                                pilaS.muestraPila();
+                                Console.ReadKey();
+                                break;
+                            case 10:
+                                Console.Clear();
+                                arbS.DePilaaArbol();
+                                Console.ReadKey();
+                                arbS.buscarColaborador();
+                                Console.ReadKey();
+                                break;
+                            case 11: //SALIDA
                                 break;
 
                             default:
@@ -872,7 +891,7 @@ namespace ConsoleApp1
                         Console.ReadLine();
                     }
 
-                } while (opcMandar != 10);
+                } while (opcMandar != 11);
             }
 
 

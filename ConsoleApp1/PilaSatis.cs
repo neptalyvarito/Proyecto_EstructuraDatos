@@ -11,7 +11,7 @@ namespace ConsoleApp1
     internal class PilaSatis
     {
         public Satisfaccion pilaS;
-        public int contadorS;
+        public int contadorS = 1;
         public string usuario;
         public PilaSatis()
         {
@@ -34,31 +34,40 @@ namespace ConsoleApp1
             contadorS++;
         }
 
-        public void pop()
+        public Satisfaccion Pop()
         {
+            Satisfaccion p;
+
             if (pilaS == null)
             {
-                Console.WriteLine("Pila vacia ... ");
-
+                Console.WriteLine(" Pila vacia ... ");
+                return null;
             }
             else
             {
+                p = pilaS;
                 pilaS = pilaS.sgte;
-                Console.WriteLine(" Pila eliminada exitosamente...");
+                Console.WriteLine(" Nodo eliminado exitosamente...");
+                return p;
             }
         }
 
         public void muestraPila()
         {
             Satisfaccion t = pilaS;
-            Console.WriteLine("| Usuario |    Satisfacción    |     Interfaz     |        Personal        |        Comentario        |");
-            Console.WriteLine("-------------------------------------------------------------------------------------------------------");
-            while (t != null)
+            if (t == null) Console.WriteLine(" La pila está vacía...");
+            else
             {
-                Console.WriteLine(t.usuario + " |" + t.satisfaccion + "|  " + t.interfaz + " | " + t.personal + " | " + t.comentario + " |");
+                Console.WriteLine("| Usuario |    Satisfacción    |     Interfaz     |        Personal        |        Comentario        |");
                 Console.WriteLine("-------------------------------------------------------------------------------------------------------");
-                t = t.sgte;
+                while (t != null)
+                {
+                    Console.WriteLine(t.usuario + " |" + t.satisfaccion + "|  " + t.interfaz + " | " + t.personal + " | " + t.comentario + " |");
+                    Console.WriteLine("-------------------------------------------------------------------------------------------------------");
+                    t = t.sgte;
+                }
             }
+
         }
     }
 }

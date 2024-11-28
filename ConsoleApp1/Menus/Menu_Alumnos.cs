@@ -14,8 +14,12 @@ namespace ConsoleApp1
         public static int codigoBusquedaUser;
         public static string nombreCompleto;
         public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Cola_Solicitudes ColSol, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, Pila_Sugerencia PilaSug, ColaPrio_Ticket colaPrio, PilaParaSolicitudes pilaSoli, ListaDoble_MensajeriaInterna mensajeriaInterna)
+        public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Cola_Solicitudes ColSol, ref Solicitudes q, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, Pila_Sugerencia PilaSug, ColaPrio_Ticket colaPrio, PilaSatis pilaS)
         {
             bool verificacion = false;
+            bool verificacion1 = false;
+            bool verificacion2 = false;
+            bool verificacion3 = false;
             do
             {
                 try
@@ -576,6 +580,7 @@ namespace ConsoleApp1
                                 break;
 
                             case 9:
+                                string satisfaccion, colaborador, personal, comentario, interfaz;
                                 do
                                 {
                                     Console.Clear();
@@ -585,22 +590,36 @@ namespace ConsoleApp1
                                     Console.WriteLine("    Siéntase libre de expresar lo que guste, la encuesta es anónima    ");
                                     Console.WriteLine("======================================================================");
                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                    Console.Write("\n >  ¿Está satisfecho(a) con la atención dada? (Sí/No): ");
-                                    string satisfaccion = Console.ReadLine();
+                                    Console.WriteLine("\n    ¿Está satisfecho(a) con la atención dada? \n");
+                                    Console.WriteLine("    1. Nada Satisfecho");
+                                    Console.WriteLine("    2. Poco Satisfecho");
+                                    Console.WriteLine("    3. Satisfecho");
+                                    Console.WriteLine("    4. Muy Satisfecho");
+                                    Console.Write("\n    > Ingrese una opción: ");
+                                    satisfaccion = Console.ReadLine();
+                                    if (satisfaccion == "1") satisfaccion = "Nada Satisfecho";
+                                    else if (satisfaccion == "2") satisfaccion = "Poco Satisfecho";
+                                    else if (satisfaccion == "3") satisfaccion = "Satisfecho";
+                                    else if (satisfaccion == "4") satisfaccion = "Muy Satisfecho";
+                                    Console.Write("\n    > ¿La interfaz fue de su agrado? (Sí/No): ");
+                                    interfaz = Console.ReadLine();
+                                    Console.Write("\n    > Escriba el nombre del colaborador que atendió su consulta: ");
+                                    colaborador = Console.ReadLine();
+                                    Console.Write("\n    > ¿Recomendaría al personal que lo antendió? (Sí/No): ");
+                                    personal = Console.ReadLine();
+                                    Console.Write("\n    > Comentario libre: ");
+                                    comentario = Console.ReadLine();
 
                                     verificacion = validacion.ValidacionDeCadenaVaciaEIngresoNum2(satisfaccion);
-                                    if (satisfaccion == "2")
+                                    verificacion1 = validacion.ValidacionDeCadenaVaciaEIngresoNum2(interfaz);
+                                    verificacion2 = validacion.ValidacionDeCadenaVaciaEIngresoNum2(colaborador);
+                                    verificacion3 = validacion.ValidacionDeCadenaVaciaEIngresoNum2(personal);
+
+                                    if ((satisfaccion == "2") || (interfaz == "2") || (colaborador == "2") || (personal == "2") || (comentario == "2"))
                                     {
                                         break;
                                     }
-                                    else if (verificacion == true)
-                                    {
-                                        PilaSug.AgregarSug(satisfaccion);
-                                        Console.WriteLine("----------------------------------------------------");
-                                        Console.WriteLine("  ->  Su sugerencia ha sido mandada con exito!");
-                                        Console.ReadLine();
-                                    }
-                                    else if (verificacion == false)
+                                    else if ((verificacion == false) || (verificacion1 == false) || (verificacion2 == false) || (verificacion3 == false))
                                     {
                                         Console.ForegroundColor = ConsoleColor.DarkRed;
                                         Console.WriteLine("\n... Su respuesta no debe quedar en blanco");
@@ -608,8 +627,8 @@ namespace ConsoleApp1
                                     }
 
                                 } while (verificacion != true);
-                                 break;
-
+                                pilaS.push(satisfaccion, interfaz, personal, comentario, colaborador);
+                        break;
                             case 10:
                                 do
                                 {

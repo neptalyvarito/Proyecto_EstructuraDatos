@@ -43,6 +43,8 @@ namespace ConsoleApp1
         public static Validaciones validacion = new Validaciones();
         public static Log_in inicioSesion = new Log_in();
         public static Generacion_Aleatorio GAletorio = new Generacion_Aleatorio();
+        public static PilaSatis PilaS = new PilaSatis();
+        public static ArbolSatis ArbolT = new ArbolSatis();
 
         public static PilaParaSolicitudes pilaSolicitudes = new PilaParaSolicitudes();
 
@@ -175,7 +177,11 @@ namespace ConsoleApp1
                                     Console.ForegroundColor = ConsoleColor.Cyan;                                  
                                     Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t======== Iniciar sesión como ========");
                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Alumno\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Trabajador\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Administrativo\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Docente \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Volver");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Alumno\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                                                                  " >  2. Trabajador\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                                                                  " >  3. Administrativo\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                                                                  " >  4. Docente \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                                                                  " >  5. Volver");
                                     Console.ForegroundColor = ConsoleColor.Cyan;
                                     Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t=====================================");
                                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -187,6 +193,7 @@ namespace ConsoleApp1
                                         case 1:// Desarrollo de la parte usuario
 
                                             menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, PilaSug, colitaPrioridad, pilaSolicitudes, mensajeriaInterna);
+                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref q, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, PilaSug, colitaPrioridad, PilaS);
                                           
                                             opc = 0;
                                             break;
@@ -200,6 +207,7 @@ namespace ConsoleApp1
                                         case 3: // Desarrollo de la parte aministrativos
 
                                             menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, colitaPrioridad, pilaSolicitudes, mensajeriaInterna);
+                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref q, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, colitaPrioridad, PilaS, ArbolT);
                                             
                                             opc = 0;
                                             break;// Desarrollo parte Admins

@@ -58,17 +58,19 @@ namespace ConsoleApp1
                 }
             }
         }
-        public void buscarColaborador(string colabBuscado)
+        public void buscarColaborador()
         {
             string valorRaiz;
             NArbolSatis t = aSatis;
 
             if (aSatis == null)
             {
-                Console.WriteLine("El árbol está vacío... ");
+                Console.WriteLine(" El árbol está vacío... ");
             }
             else
             {
+                Console.Write(" ¿De qué colaborador desea ver las opiniones de los usuarios?\n\n < ");
+                string colabBuscado = Console.ReadLine();
                 while (t != null)
                 {
                     valorRaiz = t.colaborador;
@@ -141,6 +143,14 @@ namespace ConsoleApp1
                 Console.WriteLine("-------------------------------------------------------------------------------------------------------");
 
                 MostrarArbolEnOrden(arbSatis.der);
+            }
+        }
+        public void DePilaaArbol()
+        {
+            while (PilaS.pilaS != null)
+            {
+                Satisfaccion p = PilaS.Pop();
+                insertarSatis(p.satisfaccion, p.interfaz, p.personal, p.comentario, p.colaborador);
             }
         }
     }
