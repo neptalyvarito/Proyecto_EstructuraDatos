@@ -192,8 +192,8 @@ namespace ConsoleApp1
                                     {
                                         case 1:// Desarrollo de la parte usuario
 
-                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, PilaSug, colitaPrioridad, pilaSolicitudes, mensajeriaInterna);
-                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref q, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, PilaSug, colitaPrioridad, PilaS);
+                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, PilaSug, colitaPrioridad, pilaSolicitudes, mensajeriaInterna, PilaS);
+                                        
                                           
                                             opc = 0;
                                             break;
@@ -206,8 +206,8 @@ namespace ConsoleApp1
 
                                         case 3: // Desarrollo de la parte aministrativos
 
-                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, colitaPrioridad, pilaSolicitudes, mensajeriaInterna);
-                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref q, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, colitaPrioridad, PilaS, ArbolT);
+                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, colitaPrioridad, pilaSolicitudes, mensajeriaInterna, PilaS, ArbolT);
+                                  
                                             
                                             opc = 0;
                                             break;// Desarrollo parte Admins

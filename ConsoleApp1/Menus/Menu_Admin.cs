@@ -16,10 +16,9 @@ namespace ConsoleApp1
         public static GenerarTicket generarTikcetsito = new GenerarTicket();
         public static string nombreCompleto;
         
-        public void menuAdmin(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick,
-            Lista_Profes Lp, Cola_Solicitudes ColSol, ref Solicitudes q, Pila_Sugerencia PilSug, Registros registro, ref int dniUser, ref int dniTrabajador, 
-            ref int dniAdmin, ref int dniProfe, ColaPrio_Ticket colitaPrio, PilaSatis pilaS, ArbolSatis arbS)
-        public void menuAdmin(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Cola_Solicitudes ColSol, Pila_Sugerencia PilSug, Registros registro, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, ColaPrio_Ticket colitaPrio, PilaParaSolicitudes pilaSoli, ListaDoble_MensajeriaInterna mensajeriaInterna)
+        public void menuAdmin(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp,
+            Cola_Solicitudes ColSol, Pila_Sugerencia PilSug, Registros registro, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, 
+            ColaPrio_Ticket colitaPrio, PilaParaSolicitudes pilaSoli, ListaDoble_MensajeriaInterna mensajeriaInterna, PilaSatis pilaS, ArbolSatis arbS)
         {
             bool verificacion = false;
             int opcMandar = 0;
@@ -83,10 +82,11 @@ namespace ConsoleApp1
                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Gestionar tickets");
                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  6. Gestionar solicitudes");
                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  7. Gestionar sugerencias");
-                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  8. Generar Reporte");
-                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  9. Ver pila de encuesta de satisfacción");
-                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  10. Ver opiniones sobre colaborador en un árbol");
-                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  11. Volver");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  8. Mensajeria interna");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  9. Generar Reporte");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  10. Ver pila de encuesta de satisfacción");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  11. Ver opiniones sobre colaborador en un árbol");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  12. Volver");
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t===================================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -862,19 +862,19 @@ namespace ConsoleApp1
                                 } while (opc != 3);
                                 opc = 0;
                                 break;
-                            case 9:
+                            case 10:
                                 Console.Clear();
                                 pilaS.muestraPila();
                                 Console.ReadKey();
                                 break;
-                            case 10:
+                            case 11:
                                 Console.Clear();
-                                arbS.DePilaaArbol();
+                                arbS.DePilaaArbol(pilaS, arbS);
                                 Console.ReadKey();
                                 arbS.buscarColaborador();
                                 Console.ReadKey();
                                 break;
-                            case 11: //SALIDA
+                            case 12: //SALIDA
                                 break;
 
                             default:
