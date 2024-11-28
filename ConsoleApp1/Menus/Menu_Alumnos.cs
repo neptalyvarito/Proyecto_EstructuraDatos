@@ -512,9 +512,29 @@ namespace ConsoleApp1
                                 break;
 
                             case 7:
-                                ColSol.MostrarSolicitudesPorUsuario(codigoBusquedaUser);
-                                pilaSoli.MostrarSsolicitudesPorUser(codigoBusquedaUser);
-                                Console.ReadLine();
+                                do
+                                {
+                                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t---------------------------------------");
+                                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Ver mis solicitudes en espera");
+                                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Ver mis solicitudes en espera");
+                                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Volver");
+                                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t---------------------------------------");
+                                    Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese una opción: ");
+                                    opc = int.Parse(Console.ReadLine());
+                                    switch (opc)
+                                    {
+                                        case 1:
+                                            
+                                            ColSol.MostrarSolicitudesPorUsuario(codigoBusquedaUser);
+                                            Console.ReadLine();
+                                            break;
+                                        case 2:
+                                            pilaSoli.MostrarSsolicitudesPorUser(codigoBusquedaUser);
+                                            Console.ReadLine();
+                                            break;
+                                        }
+                                    
+                                } while (opc != 3);
                                 break;
 
                             case 8:

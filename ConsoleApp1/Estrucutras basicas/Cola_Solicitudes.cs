@@ -87,14 +87,14 @@ namespace ConsoleApp1
             }
             else
             {
-                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                Console.WriteLine(" Código ".PadRight(14, ' ') + " | Solicitante".PadRight(28, ' ') + " | Código Solicitante".PadRight(28, ' ') + " | Tipo Solicitud".PadRight(45, ' ') + "    | Destinatario".PadRight(40, ' ') + "       | Condicion".PadRight(28, ' ') + "       | Mensaje".PadRight(28, ' '));
-                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Código ".PadRight(14, ' ') + " | Solicitante".PadRight(28, ' ') + " | Código Solicitante".PadRight(28, ' ') + " | Tipo Solicitud".PadRight(45, ' ') + "    | Destinatario".PadRight(40, ' ') + "       | Condicion".PadRight(28, ' ') + "       | Mensaje".PadRight(28, ' '));
+                Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                 while (p != null)
                 {
                     if (p.codigoDueno == codigoDueno)
                     {
-                        Console.WriteLine(" " + p.codigoSolicitud.ToString().PadRight(14, ' ') + "|  " + p.solicitante.PadRight(25, ' ') + "| " + p.codigoDueno.ToString().PadRight(25, ' ') + " | " + p.tipoSolicitud.PadRight(45, ' ') + " | " + p.destinatario.PadRight(40, ' ') + " | " + p.condicion.PadRight(25, ' ') + " | " + p.mensajeParaUsuario.PadRight(26, ' '));
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " + p.codigoSolicitud.ToString().PadRight(14, ' ') + "|  " + p.solicitante.PadRight(25, ' ') + "| " + p.codigoDueno.ToString().PadRight(25, ' ') + " | " + p.tipoSolicitud.PadRight(45, ' ') + " | " + p.destinatario.PadRight(40, ' ') + " | " + p.condicion.PadRight(25, ' ') + " | " + p.mensajeParaUsuario.PadRight(26, ' '));
                     }
                     p = p.sgte;
                 }
@@ -117,14 +117,14 @@ namespace ConsoleApp1
 
                     retornar = frente;
 
-                    Console.WriteLine("        Detalles de la solicitud ");
-                    Console.WriteLine("-----------------------------------------");
-                    Console.WriteLine(" Solicitante  : " + frente.solicitante);
-                    Console.WriteLine(" Destinatario : " + frente.destinatario);
-                    Console.WriteLine(" Solicitud    : " + frente.tipoSolicitud);
-                    Console.WriteLine("------------------------------------------");
-                    Console.WriteLine(" 1. Aceptar  |  2. Rechazar  | 3. Volver  ");
-                    Console.Write(" > Ingrese una opción: ");
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t        Detalles de la solicitud ");
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t-----------------------------------------");
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Solicitante  : " + frente.solicitante);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Destinatario : " + frente.destinatario);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Solicitud    : " + frente.tipoSolicitud);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t------------------------------------------");
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t 1. Aceptar  |  2. Rechazar  | 3. Volver  ");
+                    Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t > Ingrese una opción: ");
                     opc = int.Parse(Console.ReadLine());
                     switch (opc)
                     {

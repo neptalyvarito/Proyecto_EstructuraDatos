@@ -199,6 +199,7 @@ namespace ConsoleApp1
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 2. Buscar computadora por código");
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 3. Modificar información de una computadora excepto su código");
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 4. Mostrar computadoras de un mismo salon.");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 5. Buscar computadora por marca");
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 6. Visualizar lista de computadoras");
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 7. Arbolito vertical");
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 8. Volver");
@@ -631,6 +632,8 @@ namespace ConsoleApp1
                                             case 6:
 
                                                 Console.Clear();
+                                                Console.WriteLine("\t\t\t\t\t\t\t\t\t\t| Código " + "| Torre " + "| Piso " + "| Tipo de Aula");
+                                                Console.WriteLine("\t\t\t\t\t\t\t\t\t\t----------------------------------------------------------------------------");
                                                 ArbCom.MostrarArbolitoEnOrden(ArbCom.arbolito);
                                                 Console.ReadLine();
                                                 opc = 0;

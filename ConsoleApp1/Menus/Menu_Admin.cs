@@ -477,11 +477,12 @@ namespace ConsoleApp1
                                         Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t        Gestionando solicitudes     ");
                                         Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t=======================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
-                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Ver todas las solicitudes");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Ver solicitudes en espera");
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Confirmar o denegar solicitud");
-                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Eliminar lista en orden");
-                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Vaciar lista de solicitudes");
-                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Volver");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Ver solicitudes respondidas");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Eliminar lista en orden");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Vaciar lista de solicitudes");
+                                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  6. Volver");
                                         Console.ForegroundColor = ConsoleColor.Cyan;
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t=======================================");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -490,19 +491,24 @@ namespace ConsoleApp1
                                         switch (opc)
                                         {
                                             case 1:
-                                                
+                                                Console.Clear();
                                                 ColSol.MostrarSolicitudes();
-                                                pilaSoli.MostrarSolicitud();
                                                 
                                                 Console.ReadLine();
                                                 break;
                                             
                                             case 2:
-
+                                                Console.Clear();
                                                 ColSol.AceptarORechazar(pilaSoli);
 
                                                 break;
                                             case 3:
+
+                                                Console.Clear();
+                                                pilaSoli.MostrarSolicitud();
+                                                Console.ReadLine();
+                                                break;
+                                            case 4:
                                                 Solicitudes muestra;
                                                 muestra = ColSol.EliminarSolicitud();
                                                 if (muestra != null)
@@ -546,13 +552,13 @@ namespace ConsoleApp1
                                                 }
                                                 Console.ReadLine();
                                                 break;
-                                            case 4:
+                                            case 5:
                                                 ColSol.EliminarTodasSolicitudes();
                                                 Console.ForegroundColor = ConsoleColor.Yellow;
                                                 Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t ¡Todas las solicitudes han sido eliminadas!");
                                                 Console.ReadLine();
                                                 break;
-                                            case 5:
+                                            case 6:
                                                 break;
                                         }
                                     }
@@ -562,7 +568,7 @@ namespace ConsoleApp1
                                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opcion valida >");
                                     }
                                 }
-                                while (opc != 5);
+                                while (opc != 6);
                                 opc = 0;
                                 break;
 
@@ -706,16 +712,72 @@ namespace ConsoleApp1
 
                                                             break;
                                                         case 2:
+                                                            Console.Clear();
                                                             LTra.MostrarListaTrabajadores();
                                                             Console.Write(" >  Ingrese el código del receptor del mensaje: ");
+                                                            codigoReceptor = int.Parse(Console.ReadLine());
+                                                            verifica = LTra.SaberSiExisteTrabajadorConCodigo(codigoReceptor);
+                                                            if (verifica == true)
+                                                            {
+                                                                string nombrReceptor = LTra.ObtenerNombreTrabajadoresConCodigo(codigoReceptor);
+                                                                Console.Write("\n\t Mensaje: ");
+                                                                string mensaje = Console.ReadLine();
+                                                                mensajeriaInterna.CrearNuevoMensaje(mensaje, nombreCompleto, nombrReceptor, codigo, codigoReceptor);
+                                                                Console.WriteLine("\n\t Mensaje enviado con exito!");
+                                                                Console.ReadLine();
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("\n\t\t\t\t\tUsuario no encontrado");
+                                                                Console.WriteLine("\n\t\t\t\t\tVelve a ingresar el codigo");
+                                                                Console.ReadLine();
+                                                            }
                                                             break;
                                                         case 3:
+                                                            Console.Clear();
                                                             La.MostrarListaAdministrativos();
                                                             Console.Write(" >  Ingrese el código del receptor del mensaje: ");
+                                                            codigoReceptor = int.Parse(Console.ReadLine());
+                                                            verifica = La.SaberSiExisteAdminConCodigo(codigoReceptor);
+                                                            if (verifica == true)
+                                                            {
+                                                                string nombrReceptor = La.ObtenerNombreCompletoAdmin(codigoReceptor);
+                                                                Console.Write("\n\t Mensaje: ");
+                                                                string mensaje = Console.ReadLine();
+                                                                mensajeriaInterna.CrearNuevoMensaje(mensaje, nombreCompleto, nombrReceptor, codigo, codigoReceptor);
+                                                                Console.WriteLine("\n\t Mensaje enviado con exito!");
+                                                                Console.ReadLine();
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("\n\t\t\t\t\tUsuario no encontrado");
+                                                                Console.WriteLine("\n\t\t\t\t\tVelve a ingresar el codigo");
+                                                                Console.ReadLine();
+                                                            }
                                                             break;
                                                         case 4:
+                                                            Console.Clear();
                                                             Lp.MostrarListaProfes();
                                                             Console.Write(" >  Ingrese el código del receptor del mensaje: ");
+                                                            codigoReceptor = int.Parse(Console.ReadLine());
+                                                            verifica = Lp.SaberSiExisteRrofeConCodigo(codigoReceptor);
+                                                            if (verifica == true)
+                                                            {
+                                                                string nombrReceptor = Lp.ObtenerNombreCompletoProfe(codigoReceptor);
+                                                                Console.Write("\n\t Mensaje: ");
+                                                                string mensaje = Console.ReadLine();
+                                                                mensajeriaInterna.CrearNuevoMensaje(mensaje, nombreCompleto, nombrReceptor, codigo, codigoReceptor);
+                                                                Console.WriteLine("\n\t Mensaje enviado con exito!");
+                                                                Console.ReadLine();
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("\n\t\t\t\t\tUsuario no encontrado");
+                                                                Console.WriteLine("\n\t\t\t\t\tVelve a ingresar el codigo");
+                                                                Console.ReadLine();
+                                                            }
+                                                            break;
+                                                        case 5:
                                                             break;
 
                                                     }

@@ -46,7 +46,23 @@ namespace ConsoleApp1
                 q = q.sgte;
             }
         }
+        public bool SaberSiExisteRrofeConCodigo(int codigoBusqueda)
+        {
+            Profesor t = listaProfes;
+            bool flag = false;
 
+            while (t != null)
+            {
+
+                if (codigoBusqueda == t.codigoProfe)
+                {
+                    flag = true;
+                    break;
+                }
+                t = t.sgte;
+            }
+            return flag;
+        }
         public bool SaberSiExisteProfeConDni(int dniBusqueda)
         {
             Profesor t = listaProfes;

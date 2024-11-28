@@ -155,8 +155,6 @@ namespace ConsoleApp1
         {
             if (arb == null)
             {
-                Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t >  Computadoras con dicha marca no encontrada");
-                Console.ReadLine();
                 return;
             }
             else
@@ -241,7 +239,7 @@ namespace ConsoleApp1
             else
             {
                 MostrarArbolitoEnOrden(arb.izquierda);
-                Console.WriteLine("\t\t\t\t\t\t\t\t\t\t"+arb.codigoCompu +  " |" + arb.edificio + "|  " +arb.piso +" | "  + arb.salon);
+                Console.WriteLine("\t\t\t\t\t\t\t\t\t\t| "+arb.codigoCompu +  " | " + arb.edificio + "     | " +arb.piso +"    | "  + arb.salon);
                 Console.WriteLine("\t\t\t\t\t\t\t\t\t\t----------------------------------------------------------------------------");
                 MostrarArbolitoEnOrden(arb.derecha );
             }
