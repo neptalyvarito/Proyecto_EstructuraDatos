@@ -143,5 +143,46 @@ namespace ConsoleApp1
 
             return flag;
         }
+
+        public void MostrarMensajesRecibidosPorMásNuevo(int codigoreceptor)
+        {
+            Mensajes t = atras;
+            while (t != null)
+            {
+                if (codigoreceptor == t.codigoReceptor)
+                {
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Mensaje del " + t.fechaMensaje);
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t---------------------------------------");
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Emisor         : " + t.emisor);
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Mensaje        : " + t.mensaje);
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Receptor       : " + t.receptor);
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Fecha respuesta: " + t.fechaRespuesta);
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Respuesta      : " + t.respuesta);
+                    Console.WriteLine("");
+
+                }
+                t = t.ant;
+            }
+        }
+        public void MostrarMensajesEnviadosPorMásNuevo(int codigoEmisor)
+        {
+            Mensajes t = atras;
+            while (t != null)
+            {
+                if (codigoEmisor == t.codigoDueño)
+                {
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Mensaje del " + t.fechaMensaje);
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t---------------------------------------");
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Emisor         : " + t.emisor);
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Mensaje        : " + t.mensaje);
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Receptor       : " + t.receptor);
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Fecha respuesta: " + t.fechaRespuesta);
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Respuesta      : " + t.respuesta);
+                    Console.WriteLine("");
+
+                }
+                t = t.ant;
+            }
+        }
     }
 }

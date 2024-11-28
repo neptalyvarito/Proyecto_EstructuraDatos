@@ -632,14 +632,20 @@ namespace ConsoleApp1
                                 do
                                 {
                                     Console.Clear();
-                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t    Mensajeria interna     ");
-                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t----------------------------");
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t                 Mensajeria interna     ");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t====================================================");
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
                                     Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 1. Enviar mensaje");
                                     Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 2. Responde mensaje");
-                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 3. Ver mensajes enviados");
-                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 4. Ver mensajes recibidos");
-                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 5. Volver");
-                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t----------------------------");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 3. Ver mensajes enviados desde el más aniguo");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 4. Ver mensajes enviados dede el más nuevo");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 5. Ver mensajes recibidos desde el más antiguo");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 6. Ver mensajes recibidos desde el más nuevo");
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 7. Volver");
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t====================================================");
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
                                     Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  Ingrese una opción: ");
                                     opc = int.Parse(Console.ReadLine());
                                     switch (opc)
@@ -650,14 +656,18 @@ namespace ConsoleApp1
                                                 try
                                                 {
                                                     Console.Clear();
-                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t Elija una opción para mandar mensaje: ");
-                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t------------------------------------------");
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t     Elija una opción para mandar mensaje: ");
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t=============================================");
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
                                                     Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 1. Alumnos");
                                                     Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 2. Trabajadores");
                                                     Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 3. Administrativos");
                                                     Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 4. Profesores");
                                                     Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t 5. Volver");
-                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t------------------------------------------");
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t=============================================");
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
                                                     Console.Write("\n\t\t\t\t\t\t\t\t\t\t\t\t\t > Ingrese una opción: ");
                                                     opc = int.Parse(Console.ReadLine());
                                                     bool verifica;
@@ -709,15 +719,27 @@ namespace ConsoleApp1
                                             opc = 0;
                                             break;
                                         case 4:
+                                            mensajeriaInterna.MostrarMensajesEnviadosPorMásNuevo(codigoBusquedaUser);
+                                            Console.Clear();
+                                            break;
+
+                                        case 5:
                                             Console.Clear();
                                             mensajeriaInterna.MostrarMensajesRecibido(codigoBusquedaUser);
                                             Console.ReadLine();
                                             opc = 0;
                                             break;
-                                        case 5://Salida
+
+                                        case 6:
+                                            Console.Clear();
+                                            mensajeriaInterna.MostrarMensajesRecibidosPorMásNuevo(codigoBusquedaUser);
+                                            Console.ReadLine();
+                                            opc = 0;
+                                            break;
+                                        case 7://Salida
                                             break;
                                     }
-                                } while (opc != 4);
+                                } while (opc != 7);
                                 break;
                             case 11:
                                 break;
