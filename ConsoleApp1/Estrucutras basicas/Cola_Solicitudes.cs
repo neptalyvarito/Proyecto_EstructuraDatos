@@ -41,12 +41,14 @@ namespace ConsoleApp1
         public Solicitudes  EliminarSolicitud(ref Solicitudes q)
         {
             Solicitudes p; 
+
             p = q.Delante;
+            
             Solicitudes retornar = p;
+            
             q.Delante = (q.Delante).Sgte;
             
             p = null;
-
 
            return retornar;
         }

@@ -11,14 +11,11 @@ namespace ConsoleApp1
     {
 
         public Ticket colaPrio;
+        public static Validaciones validacion = new Validaciones();
         public static int codigoTicket = 202400001;
         public ColaPrio_Ticket()
         {
             colaPrio = null;
-        }
-        public void ActulizarCola(Ticket listaTicket)
-        {
-            colaPrio = listaTicket;
         }
 
         public void AgregarTicketPrioridad(string nombre, string descripcion, int codigoDueño, string categoria, int prioridadNum, string prioridadDes)
@@ -67,6 +64,110 @@ namespace ConsoleApp1
                 }
             }
         }
+
+        public void ResponderTicket(Cola_TicketsResueltos colaTickResueltos)
+        {
+            Ticket t = colaPrio;
+            Ticket ant = null;
+            Ticket valor = null;
+            
+            if (colaPrio != null)
+            {
+             
+                if (colaPrio.sgte == null)
+                {
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t   Datos del ticket a responder ");
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t-------------------------------------");
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tPrioridad : " + colaPrio.prioridadDes);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tCodigo    : " + colaPrio.codigoTicket);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tDueño     : " + colaPrio.dueño);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tCategoria : " + colaPrio.categoria);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tProblema  : " + colaPrio.descripcion);
+                    string solucion = responder();
+                    if (solucion == "2")
+                    {
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tNo se respondido ningun ticket");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        colaPrio.condicion = "Resuelto";
+                        colaPrio.respuestaSolucion = solucion;
+                        valor = t;
+                    
+                        colaTickResueltos.AgregarTicketResuelto(colaPrio);
+                        colaPrio = null;
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tTicket Respondido con exito!");
+                        Console.ReadLine();
+                    }
+                }
+                else
+                {
+                    while (t.sgte != null)
+                    {
+                        ant = t;
+                        t = t.sgte;
+                    }
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t   Datos del ticket a responder ");
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t-------------------------------------");
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tPrioridad : " + ant.sgte.prioridadDes);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tCodigo    : " + ant.sgte.codigoTicket);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tDueño     : " + ant.sgte.dueño);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tCategoria : " + ant.sgte.categoria);
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tProblema  : " + ant.sgte.descripcion);
+                    string solucion = responder();
+                    if (solucion == "2")
+                    {
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tNo se respondido ningun ticket");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        ant.sgte.condicion = "Resuelto";
+                        ant.sgte.respuestaSolucion = solucion;
+                        valor = t;
+                        colaTickResueltos.AgregarTicketResuelto(ant.sgte);
+                        ant.sgte = null;
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tTicket respondido con exito!");
+                        Console.ReadLine();
+                    }
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tCola de tickets está vacia ... ");
+                Console.ReadLine();
+            }
+            
+        }
+        public string responder()
+        {
+            string solucion = " ";
+            bool verificacion;
+            
+            do
+            {
+                Console.WriteLine("---------------------------------------------------------------");
+                Console.Write("\n Escriba la solución al problema : ");
+                solucion = Console.ReadLine();
+                verificacion = validacion.ValidacionDeCadenaVaciaEIngresoNum2(solucion);
+                if (solucion == "2")
+                {
+                    break;
+                }
+                else if (verificacion == true)
+                {
+                    return solucion;
+                }
+                else if (verificacion == false)
+                {
+                    Console.WriteLine("....La respuesta no puede estar vacia.");
+                }
+            } while (verificacion != true);
+            return solucion;
+        }
+
         public Ticket EliminarTicketPrioridad(Papelera_Tickets papelera)
         {
             Ticket t = colaPrio;
@@ -101,10 +202,11 @@ namespace ConsoleApp1
             else
             {
                 Console.WriteLine("Cola vacia ... ");
+                Console.ReadLine();
+                return null;
             }
-            return null;
         }
-        public void ImprimirTicketsPrio(PilaMostrarTicket pilaMostrar)
+        public void ImprimirTicketsPrio()
         {
             Ticket t = colaPrio;
 

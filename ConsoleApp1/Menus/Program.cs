@@ -19,14 +19,17 @@ namespace ConsoleApp1
         public static Menu_Admin menuAdministrador = new Menu_Admin();
         public static Menu_Profes menuProfes = new Menu_Profes();
 
-        public static PilaMostrarTicket pilMostrar = new PilaMostrarTicket();
+        public static Cola_TicketsResueltos ColaTicketsResueltos = new Cola_TicketsResueltos();
+ 
         public static ColaPrio_Ticket colitaPrioridad = new ColaPrio_Ticket();
         public static GenerarTicket generarTicketsito = new GenerarTicket();
+
         public static Lista_Tickets Ltick = new Lista_Tickets();
         public static Lista_Alumnos Lu = new Lista_Alumnos();
         public static Lista_Administrativos La = new Lista_Administrativos();
         public static Lista_Trabajadores LTra = new Lista_Trabajadores();
         public static Lista_Profes Lp = new Lista_Profes();
+
         public static Papelera_Tickets Papelera = new Papelera_Tickets();
         public static Cola_Solicitudes ColaSol = new Cola_Solicitudes();
         public static Solicitudes q = new Solicitudes();
@@ -489,7 +492,18 @@ namespace ConsoleApp1
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t======= Gestionando tickets =======");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  1. Ver lista de tickets \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  2. Generar ticket \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  3. Responder ticket \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  4. Ver tickets en espera \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  5. Ver tickets resueltos \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  6. Designar tickets \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  7. Eliminar ticket\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  8. Mostrar Papelera \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 9. Ver tickets asignados \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t > 10. Volver ");
+                    Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  1. Ver lista de tickets \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  2. Generar ticket \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  3. Responder ticket \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  4. Ver tickets en espera \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  5. Ver tickets resueltos \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  6. Designar tickets \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  7. Ver tickets asignados \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  8. Eliminar ticket\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  9. Mostrar Papelera \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  10. Restaurar ultimo ticket eliminado ticket \n\n\t\t\t\t\t\t\t\t\t\t\t\t\t " +
+                        ">  11. Volver");
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t===================================");
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -500,11 +514,12 @@ namespace ConsoleApp1
                         case 1:
 
                             Console.Clear();
-                            colitaPrioridad.ImprimirTicketsPrio(pilMostrar);
+                            colitaPrioridad.ImprimirTicketsPrio();
+                            ColaTicketsResueltos.ImprimirTicketsResueltos();
                             Console.ReadLine();
 
                             opc = 0;
-                            break;
+                            break; //lito
 
                         case 2:
                             do
@@ -582,30 +597,28 @@ namespace ConsoleApp1
                             } while (opc != 9);
 
                             opc = 0;
-                            break;
+                            break; //lito
 
                         case 3:
 
                             Console.Clear();
-                            Ltick.ResponderTicket(colitaPrioridad);
-                                
-
+                            colitaPrioridad.ResponderTicket(ColaTicketsResueltos);      
                             opc = 0;
-                            break;
+                            break; //lito
 
                         case 4:
                             Console.Clear();
-                            colitaPrioridad.MostrarTicketsEsperaPrio();
+                            colitaPrioridad.ImprimirTicketsPrio();
                             Console.ReadLine();
                             opc = 0;
-                            break;
+                            break; //lito
 
                         case 5:
                             Console.Clear();
-                            colitaPrioridad.MostrarTicketsResueltosPrio();
+                            ColaTicketsResueltos.ImprimirTicketsResueltos();
                             Console.ReadLine();
                             opc = 0;
-                            break;
+                            break; //lito
 
                         case 6:
 
@@ -694,33 +707,35 @@ namespace ConsoleApp1
                             break;
 
                         case 7:
+                            if (tipoIngresante == 4) { Console.WriteLine("\n\n\n\t\t\t\t\t\t Como administrador no se le puede designar tickets..."); Console.ReadLine(); }
+                            else if (tipoIngresante == 2)
+                            {
+
+                                AsigTra.MostrarTicketPorTrabajor(codigoCreador, colitaPrioridad);
+                            }
+                            break;
+
+                        case 8:
                             Console.Clear();
                             colitaPrioridad.EliminarTicketPrioridad(Papelera);
                             opc = 0;
                             break;
 
-                        //case 8:
-                        //    Console.Clear();
-                        //    Ltick.EliminarTicket(colitaPrioridad, Papelera);
-                        //    colitaPrioridad.ActulizarCola(Ltick.listaTickets);
-                        //    opc = 0;
-                        //    break;
-
-                        case 8:
+                        case 9:
                             Console.Clear();
                             Papelera.MostrarPapelera();
                             Console.ReadLine();
                             break;
 
                         case 10:
-                            if (tipoIngresante == 4) { Console.WriteLine("\n\n\n\t\t\t\t\t\t Como administrador no se le puede designar tickets..."); Console.ReadLine(); }
-                            else if (tipoIngresante == 2) 
-                            {
+                            Ticket q;
+                            q = Papelera.RestaurarElUltimoTicketIngresado();
+                            colitaPrioridad.AgregarTicketPrioridad(q.dueño, q.descripcion, q.codigoDueño, q.categoria,q.prioridadNum, q.prioridadDes);
 
-                                AsigTra.MostrarTicketPorTrabajor(codigoCreador, colitaPrioridad); 
-                            }
                             break;
 
+                        case 11:
+                            break;
                         default:
                             Console.ForegroundColor = ConsoleColor.DarkRed;
                             Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opción valida >");
@@ -735,7 +750,7 @@ namespace ConsoleApp1
                     Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t.. < Ingrese una opción valida >");
                     Console.ReadLine();
                 }
-            } while (opc != 9);
+            } while (opc != 11);
         }
 
     }

@@ -44,5 +44,58 @@ namespace ConsoleApp1
                 t = t.sgte;
             }
         }
+        public void EliminarElementoPapelera()
+        {
+            Ticket q;
+            int opc = 0;
+            do
+            {
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine("Está segudo que desea eliminar el ticket de forma permanente?");
+                    Console.WriteLine("1. Si.");
+                    Console.WriteLine("2. Volver.");
+                    Console.Write(" -> Elija una opción: ");
+                    opc = int.Parse(Console.ReadLine());
+                    if (opc == 1)
+                    {
+                        if (TicketsEliminados == null)
+                        {
+                            Console.WriteLine("Papelera de tickets vacia ... ");
+                            q = null;
+                        }
+                        else
+                        {
+                            q = TicketsEliminados;
+                            TicketsEliminados = TicketsEliminados.sgte;
+                            Console.WriteLine("Ticket con el código \""+ q.codigoTicket + "\" eliminado de forma permanente");
+                        }
+                    }
+                    else if (opc == 2) break;
+                }
+                catch
+                {
+                    Console.WriteLine("Ingrese un tipo de dato valido");
+                }
+            } while (opc != 2);
+        }
+        public Ticket RestaurarElUltimoTicketIngresado()
+        {
+            Ticket q;
+            if (TicketsEliminados == null)
+            {
+                Console.WriteLine("Papelera de tickets vacia ... ");
+                q = null;
+            }
+            else
+            {
+                q = TicketsEliminados;
+                TicketsEliminados = TicketsEliminados.sgte;
+                Console.WriteLine("Ticket con el código \"" + q.codigoTicket + "\" restaurado");
+                Console.ReadLine();
+            }
+            return q;
+        }
     }
 }
