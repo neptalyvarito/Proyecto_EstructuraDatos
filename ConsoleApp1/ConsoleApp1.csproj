@@ -63,6 +63,8 @@
     <Compile Include="Estrucutras basicas\Cola_TicketsResueltos.cs" />
     <Compile Include="Generar_DataGeneral\GenerarTicket.cs" />
     <Compile Include="Listas Simples\Lista_Profes.cs" />
+    <Compile Include="lista_doble\ListaDoble.cs" />
+    <Compile Include="lista_doble\Nodo.cs" />
     <Compile Include="Menus\Menu_Profes.cs" />
     <Compile Include="Objetos\Administrativos.cs" />
     <Compile Include="Estructuras\Arbol_Compus.cs" />
