@@ -285,9 +285,6 @@ namespace ConsoleApp1
              
             }
         }
-    }
-}
-        }
         public void buscarPorSalon(Computadoras arb, string salon, ref int piso, ref string edificio, ref string codigoCompu)
         {
             if (arb == null)
