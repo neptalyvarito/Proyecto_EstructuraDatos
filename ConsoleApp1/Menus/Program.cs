@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,7 +37,7 @@ namespace ConsoleApp1
         public static Pila_Sugerencia PilaSug = new Pila_Sugerencia();
         public static AsignacionTrabajos AsigTra = new AsignacionTrabajos();
         public static Arbol_Compus ArbolitoCompus = new Arbol_Compus();
-  
+        public static ListaDoble_MensajeriaInterna mensajeriaInterna = new ListaDoble_MensajeriaInterna();
 
         public static Validaciones validacion = new Validaciones();
         public static Log_in inicioSesion = new Log_in();
@@ -182,7 +183,7 @@ namespace ConsoleApp1
                                     {
                                         case 1:// Desarrollo de la parte usuario
 
-                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, PilaSug, colitaPrioridad, pilaSolicitudes);
+                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, PilaSug, colitaPrioridad, pilaSolicitudes, mensajeriaInterna);
                                           
                                             opc = 0;
                                             break;
@@ -195,7 +196,7 @@ namespace ConsoleApp1
 
                                         case 3: // Desarrollo de la parte aministrativos
 
-                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, colitaPrioridad, pilaSolicitudes);
+                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, colitaPrioridad, pilaSolicitudes, mensajeriaInterna);
                                             
                                             opc = 0;
                                             break;// Desarrollo parte Admins
