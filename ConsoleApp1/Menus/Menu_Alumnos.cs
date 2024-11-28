@@ -13,8 +13,7 @@ namespace ConsoleApp1
         public static GenerarTicket generarTikcetsito = new GenerarTicket();
         public static int codigoBusquedaUser;
         public static string nombreCompleto;
-        public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Cola_Solicitudes ColSol, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, Pila_Sugerencia PilaSug, ColaPrio_Ticket colaPrio, PilaParaSolicitudes pilaSoli, ListaDoble_MensajeriaInterna mensajeriaInterna)
-        public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Cola_Solicitudes ColSol, ref Solicitudes q, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, Pila_Sugerencia PilaSug, ColaPrio_Ticket colaPrio, PilaSatis pilaS)
+        public void Menu_Usuarios(int opc, Log_in inicioSesion, Lista_Alumnos Lu, Lista_Trabajadores LTra, Lista_Administrativos La, Lista_Tickets Ltick, Lista_Profes Lp, Cola_Solicitudes ColSol, ref int dniUser, ref int dniTrabajador, ref int dniAdmin, ref int dniProfe, Pila_Sugerencia PilaSug, ColaPrio_Ticket colaPrio, PilaParaSolicitudes pilaSoli, ListaDoble_MensajeriaInterna mensajeriaInterna, PilaSatis pilaS)
         {
             bool verificacion = false;
             bool verificacion1 = false;
@@ -627,8 +626,8 @@ namespace ConsoleApp1
                                     }
 
                                 } while (verificacion != true);
-                                pilaS.push(satisfaccion, interfaz, personal, comentario, colaborador);
-                        break;
+                                    pilaS.push(satisfaccion, interfaz, personal, comentario, colaborador);
+                                 break;
                             case 10:
                                 do
                                 {

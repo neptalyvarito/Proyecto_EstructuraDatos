@@ -10,13 +10,12 @@ namespace ConsoleApp1
     internal class ArbolSatis
     {
         public NArbolSatis aSatis;
-        public PilaSatis PilaS = new PilaSatis();
 
         public ArbolSatis()
         {
             aSatis = null;
         }
-        public void insertarSatis(string satisfaccion, string interfaz, string personal, string comentario, string colaborador)
+        public void insertarSatis(string satisfaccion, string interfaz, string personal, string comentario, string colaborador, PilaSatis PilaS)
         {
             string valorRaiz;
             NArbolSatis q = new NArbolSatis(PilaS.usuario, satisfaccion, interfaz, personal, comentario, colaborador);
@@ -145,12 +144,12 @@ namespace ConsoleApp1
                 MostrarArbolEnOrden(arbSatis.der);
             }
         }
-        public void DePilaaArbol()
+        public void DePilaaArbol(PilaSatis PilaS, ArbolSatis arbol)
         {
             while (PilaS.pilaS != null)
             {
                 Satisfaccion p = PilaS.Pop();
-                insertarSatis(p.satisfaccion, p.interfaz, p.personal, p.comentario, p.colaborador);
+                arbol.insertarSatis(p.satisfaccion, p.interfaz, p.personal, p.comentario, p.colaborador, PilaS);
             }
         }
     }

@@ -92,7 +92,7 @@ namespace ConsoleApp1
                     
                     Console.Clear();
                     Console.BackgroundColor = ConsoleColor.Black; 
-                    Console.ForegroundColor = ConsoleColor.Red; 
+                    Console.ForegroundColor = ConsoleColor.Cyan; 
                     Console.BackgroundColor = ConsoleColor.Black; //Fondo NEGRO
 
                     Console.WriteLine("\t\n\t\t\t\t\t\t\t\t\t\t\t   ___ ___ ___ _____ ___ __  __   _     ___  ___    ___ ___ ___ _____ ___ ___  _  _ ");
@@ -110,46 +110,46 @@ namespace ConsoleApp1
                     Console.WriteLine("\t\t\t\t\t$$$$$$$  |$$$$$$$$\\       \\$$$$$$  | $$$$$$  |$$ |       $$$$$$  |$$ |  $$ |  $$ |   $$$$$$$$\\          $$ |$$\\ $$$$$$\\ $$\\       $$$$$$$  |$$$$$$$$\\       \\$$$$$$  |$$ |      $$ | \\$$ |");
                     Console.WriteLine("\t\t\t\t\t\\_______/ \\________|       \\______/  \\______/ \\__|       \\______/ \\__|  \\__|  \\__|   \\________|         \\__|\\__|\\______|\\__|      \\_______/ \\________|       \\______/ \\__|      \\__|  \\__|");
                   
-                    Console.ForegroundColor = ConsoleColor.Red; //Texto ROJO en negrita
+                    Console.ForegroundColor = ConsoleColor.Cyan; //Texto ROJO en negrita
                     Console.WriteLine("\n\t\t\t\t\t==============================================================================================================================================================================================");
-                    Console.ForegroundColor = ConsoleColor.Red; //Texto RED en negrita
+                    Console.ForegroundColor = ConsoleColor.Cyan; //Texto RED en negrita
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("\t\n\t\t\t\t\t\t\t\t\t\t\t...........................................................':ccc:,'....");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t...........,cc:,.........................................':lddxxxxxxdc'...");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t........';lxO00Oxdo:'...................'ldool,.........':cc:::cclokOOo'...");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.......;okkdc::cdOKKd'.................,dkoldOk:.......,:c::;''';:clxOOd,...");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.......ck0x;....'oO0k:.................cOx;..c0O:......:c:;:,....';clxOOo'....");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.......ckKO;.....oO00l.....','.........'lOOocdko'......;ccclc.....,cc:dOOc..");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....',,oO0kc;;cdkOko;'...,::c;..........;clll:.........;clkOo,...;::,:o:'....");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....;'.ckxxkkkxxdo:'.....';;,,.......'..................;clllc;,;::;::,...");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....;,.l0OkkxdodkOOkxxdoolllc:;,,,''',ccc::;;;,,,,,'''..',;::::;;;;:;'..");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....;,.c0O000000000O000000000000OOOkxxkOkkkkkxxxdddooollcc::::;,,,,'..");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....,,.c00O000000000000000000000000OOO0KXXKKKKKKKK00000OOOkkkkxxo:..',.");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....,,.:O000000000000000000000000OOO0KXXXXXKKKXKKKKK00KKKKKKKKKKkl,..'...");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t....;odcoO0000000000000000000000Okxk00000000000KKXXXXXK000000KK0Kkl,...");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t...:olloodxkO00000000000000000OxdkO0000OxxdxxO000000KNNK00000000Kkl,..");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t..;c:::',:cdkOO0000000000000OdlokOO0Oxc;'..'',:dO0000KXK0KKK00000kl,....cddddo;.....");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.';c;cc.'lc:coxkO0000000000Ol;lkOOOOd;'';coddol::xO000KXXKK000000Ol;..'oOxlclkOl'.....");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t..,:cdx;,dl::;lxO00000000O0Ol;dOOO0k:,;oO000000Oo:lx00KXX00000000Oo;..ckk:...,x0d'...");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t...':odl::::;cdOOO0000000000dcdOOO0xlcdO00000000Ol,o000KXK0000000Oo;..;dOOo;,ckkc.....");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....,;;,;;:oxO0000000000000OllkOOK0kOO000000000Oo:d000KNK0000000Oo;'..'lxkkxxo;....");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t......;'.lkkO000000OO00000O00OlcxOO0XNNNK00O0000Odoxk000KNKOO000000d;'.....''''.....");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t......;'.o0O000000OkkkkO00O00OlcdOO0XNWN0OOOOOxddk0000K0xldk000000d:'....");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t......;;'o00000000OkkOOkkOOO00x::xOOO0KK0OOOOkkOOOOO0OdloxO000000d:'.....");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t......cOOO0KK000000OkOkxxkO000Ol,;ldkOOOOOOOOOOOOOkkdloxO000000000xlc;'.......','....");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....,xklokkO0KOO000OOOkOO00000kdlc::cldxxkkkkkxdolloxO00000000OOkxxxkdc'....'c:,;,...");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....:kkld0OkOOkO00000000000000000Okxdolc:cclllccodkO00000O00O0Oxdo;,lxd;.....,:,,.....");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t......:x0K0OkxxO00000000000000000OOO000OOkxdllldkO00000000O00O0Oxddl;ld:......");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t......'c:lkkkxk0000000000000000OOOOOOOOOOOOOOOOOOOOOO0000000000OOxlc:,........");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t......';.'x00000000000OkxxdddddooooollllllllllllooooooddddxxxkO0O0O;.....");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.......;.'x0O000000000OkkkxxxxxddddddoooooooooodddddddxxxxxkkOO000O:.........");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.......;..d0O00000000O0000000000000000O0000000000000000000000000000c.'.....");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.......;'.d0000000000OOOOOOOOOOOkkkkkkkxxxxxxddddddddoooooollllllcc,.'.......");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.......;'.,:;;;;;;;,,,,,,,,'''''''''''.'................'''''',,,,,,:c:;;;,,'..........");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.......';';;::c:;''.'''''''',,,,,,,,,,;;;;;;;;;;:::::::::ccccccllllcccloddxxxxxxxxdollc:;,''..");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t.....  ..;lokxkOxxkkkxxddoooollodoodddxxxxxxxkkkOOOOOOOOO000000KKKK0KKKXXXXXXNNNNNNNNXXK0OOkxc....");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t........  .......':lodkO0KKKXXNXXKXWWWWWWWWWWNNNNNNNXXXXKK000OOOOkkxxxdolllccc:::;;;,,,''''''....");
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t..................   ....',,;:lc;,cxdoolllccc::;;;;;,,,'''.....");
+                    Console.WriteLine("\t\n\t\t\t\t\t\t\t\t\t\t\t\t...........................................................':ccc:,'....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t...........,cc:,.........................................':lddxxxxxxdc'...");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t........';lxO00Oxdo:'...................'ldool,.........':cc:::cclokOOo'...");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.......;okkdc::cdOKKd'.................,dkoldOk:.......,:c::;''';:clxOOd,...");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.......ck0x;....'oO0k:.................cOx;..c0O:......:c:;:,....';clxOOo'....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.......ckKO;.....oO00l.....','.........'lOOocdko'......;ccclc.....,cc:dOOc..");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.....',,oO0kc;;cdkOko;'...,::c;..........;clll:.........;clkOo,...;::,:o:'....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.....;'.ckxxkkkxxdo:'.....';;,,.......'..................;clllc;,;::;::,...");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.....;,.l0OkkxdodkOOkxxdoolllc:;,,,''',ccc::;;;,,,,,'''..',;::::;;;;:;'..");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.....;,.c0O000000000O000000000000OOOkxxkOkkkkkxxxdddooollcc::::;,,,,'..");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.....,,.c00O000000000000000000000000OOO0KXXKKKKKKKK00000OOOkkkkxxo:..',.");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.....,,.:O000000000000000000000000OOO0KXXXXXKKKXKKKKK00KKKKKKKKKKkl,..'...");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t....;odcoO0000000000000000000000Okxk00000000000KKXXXXXK000000KK0Kkl,...");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t...:olloodxkO00000000000000000OxdkO0000OxxdxxO000000KNNK00000000Kkl,..");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t..;c:::',:cdkOO0000000000000OdlokOO0Oxc;'..'',:dO0000KXK0KKK00000kl,....cddddo;.....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.';c;cc.'lc:coxkO0000000000Ol;lkOOOOd;'';coddol::xO000KXXKK000000Ol;..'oOxlclkOl'.....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t..,:cdx;,dl::;lxO00000000O0Ol;dOOO0k:,;oO000000Oo:lx00KXX00000000Oo;..ckk:...,x0d'...");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t...':odl::::;cdOOO0000000000dcdOOO0xlcdO00000000Ol,o000KXK0000000Oo;..;dOOo;,ckkc.....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.....,;;,;;:oxO0000000000000OllkOOK0kOO000000000Oo:d000KNK0000000Oo;'..'lxkkxxo;....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t......;'.lkkO000000OO00000O00OlcxOO0XNNNK00O0000Odoxk000KNKOO000000d;'.....''''.....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t......;'.o0O000000OkkkkO00O00OlcdOO0XNWN0OOOOOxddk0000K0xldk000000d:'....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t......;;'o00000000OkkOOkkOOO00x::xOOO0KK0OOOOkkOOOOO0OdloxO000000d:'.....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t......cOOO0KK000000OkOkxxkO000Ol,;ldkOOOOOOOOOOOOOkkdloxO000000000xlc;'.......','....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.....,xklokkO0KOO000OOOkOO00000kdlc::cldxxkkkkkxdolloxO00000000OOkxxxkdc'....'c:,;,...");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.....:kkld0OkOOkO00000000000000000Okxdolc:cclllccodkO00000O00O0Oxdo;,lxd;.....,:,,.....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t......:x0K0OkxxO00000000000000000OOO000OOkxdllldkO00000000O00O0Oxddl;ld:......");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t......'c:lkkkxk0000000000000000OOOOOOOOOOOOOOOOOOOOOO0000000000OOxlc:,........");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t......';.'x00000000000OkxxdddddooooollllllllllllooooooddddxxxkO0O0O;.....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.......;.'x0O000000000OkkkxxxxxddddddoooooooooodddddddxxxxxkkOO000O:.........");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.......;..d0O00000000O0000000000000000O0000000000000000000000000000c.'.....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.......;'.d0000000000OOOOOOOOOOOkkkkkkkxxxxxxddddddddoooooollllllcc,.'.......");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.......;'.,:;;;;;;;,,,,,,,,'''''''''''.'................'''''',,,,,,:c:;;;,,'..........");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.......';';;::c:;''.'''''''',,,,,,,,,,;;;;;;;;;;:::::::::ccccccllllcccloddxxxxxxxxdollc:;,''..");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t.....  ..;lokxkOxxkkkxxddoooollodoodddxxxxxxxkkkOOOOOOOOO000000KKKK0KKKXXXXXXNNNNNNNNXXK0OOkxc....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t........  .......':lodkO0KKKXXNXXKXWWWWWWWWWWNNNNNNNXXXXKK000OOOOkkxxxdolllccc:::;;;,,,''''''....");
+                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t..................   ....',,;:lc;,cxdoolllccc::;;;;;,,,'''.....");
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\t\t\t\t\t==============================================================================================================================================================================================");
                     Console.ForegroundColor = ConsoleColor.Yellow; //Texto AMARILO en negrita
@@ -192,8 +192,8 @@ namespace ConsoleApp1
                                     {
                                         case 1:// Desarrollo de la parte usuario
 
-                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, PilaSug, colitaPrioridad, pilaSolicitudes, mensajeriaInterna);
-                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref q, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, PilaSug, colitaPrioridad, PilaS);
+                                            menuUsario.Menu_Usuarios(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, PilaSug, colitaPrioridad, pilaSolicitudes, mensajeriaInterna, PilaS);
+                                        
                                           
                                             opc = 0;
                                             break;
@@ -206,8 +206,8 @@ namespace ConsoleApp1
 
                                         case 3: // Desarrollo de la parte aministrativos
 
-                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, colitaPrioridad, pilaSolicitudes, mensajeriaInterna);
-                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, ref q, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, colitaPrioridad, PilaS, ArbolT);
+                                            menuAdministrador.menuAdmin(opc, inicioSesion, Lu, LTra, La, Ltick, Lp, ColaSol, PilaSug, registro, ref dniUser, ref dniTrabajador, ref dniAdmin, ref dniProfe, colitaPrioridad, pilaSolicitudes, mensajeriaInterna, PilaS, ArbolT);
+                                  
                                             
                                             opc = 0;
                                             break;// Desarrollo parte Admins
