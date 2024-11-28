@@ -86,7 +86,8 @@ namespace ConsoleApp1
                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  9. Generar Reporte");
                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  10. Ver pila de encuesta de satisfacción");
                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  11. Ver opiniones sobre colaborador en un árbol");
-                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  12. Volver");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  12. Mostrar árbol de satisfacción");
+                        Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t >  13. Volver");
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("\n\t\t\t\t\t\t\t\t\t\t\t\t\t===================================================");
                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -870,11 +871,17 @@ namespace ConsoleApp1
                             case 11:
                                 Console.Clear();
                                 arbS.DePilaaArbol(pilaS, arbS);
-                                Console.ReadKey();
                                 arbS.buscarColaborador();
                                 Console.ReadKey();
                                 break;
-                            case 12: //SALIDA
+                            case 12:
+                                Console.Clear();
+                                Console.WriteLine(" Árbol de satisfacción: ");
+                                Console.WriteLine("\n");
+                                arbS.mostrarArbol(arbS.aSatis, pilaS.contadorS);
+                                Console.ReadKey();
+                                break;
+                            case 13: //SALIDA
                                 break;
 
                             default:

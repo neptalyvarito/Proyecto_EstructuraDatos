@@ -47,7 +47,6 @@ namespace ConsoleApp1
             {
                 p = pilaS;
                 pilaS = pilaS.sgte;
-                Console.WriteLine(" Nodo eliminado exitosamente...");
                 return p;
             }
         }
