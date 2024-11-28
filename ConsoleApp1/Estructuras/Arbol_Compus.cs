@@ -62,7 +62,7 @@ namespace ConsoleApp1
         {
             string valorRaiz;
             Computadoras t = arbolito;
-            int nivel = 0;
+      
 
             if (arbolito == null)
             {
